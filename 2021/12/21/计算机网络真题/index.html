@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="不想复习了，直接看考卷吧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络">
+<meta property="og:url" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/index.html">
+<meta property="og:site_name" content="一个笔记堆罢了">
+<meta property="og:description" content="不想复习了，直接看考卷吧">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221210854041.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221210912183.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211224105240350.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211224110749515.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221210925903.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221210938365.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221210949856.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211224111054472.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211224112444763.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211224112615873.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221211007604.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221211021852.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221211120918.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211224135426086.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221213235883.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221213920212-16400939620051.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221214439162.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211224120004291.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211224133432946.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211224133723051.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221214732156-16400944534042.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221215041975.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221220153499-16400953148953.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221220329612.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221220440686.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221220629441.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221221302247.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221222106439-16400964681714.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221224338458.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221224509864.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221230606094.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221231455052.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221232226321.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221233929770.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221234459146.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221234604933.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211222000854333.png">
+<meta property="article:published_time" content="2021-12-21T13:35:24.000Z">
+<meta property="article:modified_time" content="2021-12-26T13:41:54.988Z">
+<meta property="article:author" content="哈士奇本奇">
+<meta property="article:tag" content="计算机网络">
+<meta property="article:tag" content="大三上">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221210854041.png">
+
+<link rel="canonical" href="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>计算机网络 | 一个笔记堆罢了</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">一个笔记堆罢了</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/husky.jpeg">
+      <meta itemprop="name" content="哈士奇本奇">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个笔记堆罢了">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          计算机网络
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-21 21:35:24" itemprop="dateCreated datePublished" datetime="2021-12-21T21:35:24+08:00">2021-12-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-12-26 21:41:54" itemprop="dateModified" datetime="2021-12-26T21:41:54+08:00">2021-12-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>不想复习了，直接看考卷吧</p>
+<span id="more"></span>
+
+<h1 id="2020-1"><a href="#2020-1" class="headerlink" title="2020 1"></a>2020 1</h1><p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221210854041.png" alt="image-20211221210854041"></p>
+<p><strong>Internet协议栈中的五层是什么?每一层的主要职责是什么?</strong></p>
+<p>The following are the five layers in the Internet protocol stack:</p>
+<ol>
+<li>Application layer</li>
+<li><strong>Transport layer</strong></li>
+<li><strong>Network layer</strong></li>
+<li>Data link layer</li>
+<li>Physical layer.</li>
+</ol>
+<p><strong>Principal responsibilities:</strong></p>
+<p><strong>Application layer:</strong> HTTP, SMTP, and FTP <strong>protocols</strong> are used in application layer. it is used to send data over multiple end systems.</p>
+<p>**应用层:**应用层采用HTTP、SMTP、FTP等协议。它用于在多个终端系统上发送数据。</p>
+<p><strong>Transport layer:</strong> TCP and UDP protocols are used in transport layer. Transfer the content between two endpoints mainly. </p>
+<p>**传输层:**主要传输两个端点之间的内容。传输层采用TCP和UDP协议。</p>
+<p><strong>Network layer:</strong> IP protocol is used in network layer. Move the packets between any two hosts in the network. </p>
+<p>**网络层:**在网络中的任意两个主机之间移动数据包。网络层采用IP协议。</p>
+<p><strong>Data link layer:</strong> Point-to-point protocol (ppp) used in data link layer.Move the packets from one node to the next another node. </p>
+<p>**数据链路层:**将数据包从一个节点移动到另一个节点。数据链路层使用的点到点协议(ppp)。</p>
+<p><strong>Physical layer</strong>:  Transfer the individual bits from one node to the next node with in the frame. </p>
+<p><strong>物理层</strong>:将单个比特从一个节点传输到帧中的下一个节点。</p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221210912183.png" alt="image-20211221210912183"></p>
+<ol>
+<li><p>Decreases the delay the user experiences before and during a call</p>
+<p>减少用户在通话前和通话中所经历的延迟</p>
+</li>
+<li><p>The call will be done with a steady bandwidth, dedicated channel, and consistent data rate</p>
+<p>通话将在稳定的带宽、专用信道和一致的数据速率下完成</p>
+</li>
+<li><p>Packets are always delivered in the correct order</p>
+<p>数据包总是按照正确的顺序发送</p>
+</li>
+</ol>
+<ul>
+<li>Great for only voice communication</li>
+<li>Doesn’t use resources efficiently</li>
+<li>Dedicated channels for circuit switching are unavailable for any other use</li>
+<li>There is a higher cost to dedicate one channel per use</li>
+</ul>
+<h3 id="Advantages-of-packet-switching-over-circuit-switching"><a href="#Advantages-of-packet-switching-over-circuit-switching" class="headerlink" title="Advantages of packet switching over circuit switching:"></a>Advantages of packet switching over circuit switching:</h3><ul>
+<li>More efficient than circuit switching</li>
+<li>比电路开关更高效</li>
+<li>Data packets are able to find the destination without the use of a dedicated channel</li>
+<li>数据包能够在不使用专用通道的情况下找到目的地</li>
+<li>Reduces lost data packets because packet switching allows for resending of packets</li>
+<li>减少数据包的丢失，因为数据包交换允许重发数据包</li>
+<li>More cost-effective since there is no need for a dedicated channel for voice or data traffic</li>
+<li>更节省成本，因为不需要一个专用通道的语音或数据流量</li>
+</ul>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211224105240350.png" alt="image-20211224105240350"></p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211224110749515.png" alt="image-20211224110749515"></p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221210925903.png" alt="image-20211221210925903"></p>
+<p>No. As stated in the text, all communication sessions have a client side and a server side. In a P2P file-sharing application, the peer that is receiving a file is typically the client and the peer that is sending the file is typically the server. </p>
+<p>不。如文中所述，所有通信会话都有一个客户端和一个服务器端。在P2P文件共享应用程序中，接收文件的对等体通常是客户端，发送文件的对等体通常是服务器。</p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221210938365.png" alt="image-20211221210938365"></p>
+<p>The If-Modified-Since HTTP header indicates the time for which a browser first downloaded a resource from the server. This helps determine whether or not the resource has changed since the last time it was accessed.</p>
+<p>If-Modified-Since HTTP头指示浏览器首次从服务器下载资源的时间。这有助于确定资源自上次被访问以来是否发生了更改。</p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221210949856.png" alt="image-20211221210949856"></p>
+<p>Answer: The application would use UDP sockets and implement the desired additional functionality (e.g., reliability and flow control) in the application itself. </p>
+<p>应用程序将使用UDP套接字，并在应用程序本身实现所需的附加功能(例如，可靠性和流量控制)。</p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211224111054472.png" alt="image-20211224111054472"></p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211224112444763.png" alt="image-20211224112444763"></p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211224112615873.png" alt="image-20211224112615873"></p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221211007604.png" alt="image-20211221211007604"></p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221211021852.png" alt="image-20211221211021852"></p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221211120918.png" alt="image-20211221211120918"></p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211224135426086.png" alt="image-20211224135426086"></p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221213235883.png" alt="image-20211221213235883"></p>
+<p>路由器或交换机的“匹配+动作”操作是什么意思?在基于目的地的转发包交换的情况下，匹配什么，采取什么行动?在SDN的情况下，列出三个可以匹配的字段和三个可以采取的动作。</p>
+<p>- it means that a router tries to find a match between some of the header values of a packet with some entry in a flow table, and decides which interface the packet will be forwarded to.</p>
+<p>In the case of destination-based forwarding packet switch, a router only tries to find a match between a flow table entry with the destination IP address of an arriving packet, and the action is to decide to which interface(s) the packet will be forwarded.</p>
+<p>- For SDN, IP source address, TCP source port, and source MAC address can be matched.<br>- For SDN, forwarding, dropping, and modifying a field value can be taken.</p>
+<p>它意味着路由器试图在信息包的一些报头值与流表中的某些条目之间找到匹配，并决定信息包将被转发到哪个接口。在基于目的的转发包交换机的情况下，路由器只尝试在流表表项与到达包的目的IP地址之间寻找匹配，并且决定包将被转发到哪个(几个)接口。-对于SDN，可以匹配IP源地址、TCP源端口、源MAC地址。-对于SDN，转发、删除和修改字段值都可以</p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221213920212-16400939620051.png" alt="image-20211221213920212"></p>
+<p> In the ALOHA system, a node transmits whenever data is availableto send. </p>
+<p>When two or more systems attempt to transmit data on theshared communication channel at the same time, it leads acollision. </p>
+<p>For a collision, the frames are lost.</p>
+<p>In Pure Aloha, any station can transmit data at any time. </p>
+<p>In Slotted Aloha, any station can transmit data only at beginning of any time slot.</p>
+<p> In Pure Aloha, time is continous and is not globally syncronized.</p>
+<p>在Pure Aloha中，任何站点都可以在任何时间传输数据。</p>
+<p>在“开槽阿罗哈”中，任何站只能在任何时隙的开始时间发送数据。</p>
+<p>在《纯粹的阿罗哈》中，时间是连续的，并不是全球同步的。</p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221214439162.png" alt="image-20211221214439162"></p>
+<p>After fifth collision, node will choose a value of K at random from {0, 1, 2,…, 25 - 1} i.e. 0 to 31.</p>
+<p>So P(K=4) = 132132</p>
+<p>Now, after choosing K=4, node will wait for K*512 bit times. Bit time for 10 Mbps ethernet is 0.1microsec. Therefore total waiting time for node = 4 * 512 * 0.1 microsec = 204.8 microsec.</p>
+<p>第五次碰撞后，节点随机从{0,1,2，…， 25 - 1}即0 ~ 31。</p>
+<p>P(K=4) = 132132</p>
+<p>现在，选择K=4后，节点将等待K*512位次。10 Mbps以太网的位时间是0.1微秒。因此节点的总等待时间= 4 * 512 * 0.1 microsec = 204.8 microsec。</p>
+<h1 id="2019-Jan-1"><a href="#2019-Jan-1" class="headerlink" title="2019 Jan 1"></a>2019 Jan 1</h1><p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211224120004291.png" alt="image-20211224120004291"></p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211224133432946.png" alt="image-20211224133432946"></p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211224133723051.png" alt="image-20211224133723051"></p>
+<p>web服务器与主机连接需要三次握手，消耗2RTT</p>
+<p>列出运输协议提供的4种宽泛类型服务</p>
+<p>a) Reliable data transfer</p>
+<p>TCP provides a reliable byte stream between client and server but UDP does not.</p>
+<p>TCP在客户端和服务器之间提供了可靠的字节流，但UDP没有。</p>
+<p>b) A guarantee that a certain value for throughput will be maintained</p>
+<p>保证保持吞吐量的某个值</p>
+<p>Neither</p>
+<p>c) A guarantee that data will be delivered within a specified amount of time</p>
+<p>一种保证数据将在指定的时间内交付</p>
+<p>Neither</p>
+<p>d) </p>
+<p>Confidentiality (via encryption)</p>
+<p>保密(通过加密)</p>
+<p>Neither</p>
+<p>为什么服务提供在TCP上</p>
+<p>The  applications  associated  with  those  protocols  require  that  all  application  data  be </p>
+<p>received  in  the  correct  order  and  without  gaps.  TCP  provides  this  service  whereas </p>
+<p>UDP does not.</p>
+<p>The  message  is  first sent from Alice’s host to her mail server over HTTP. Alice’s mail  server  then  sends the  message  to  Bob’s  mail  server  over  SMTP.  Bob  then transfers the message from his mail server to his host over POP3.</p>
+<p>与这些协议相关的应用程序要求所有的应用程序数据</p>
+<p>收到正确的顺序和没有差距。TCP提供此服务</p>
+<p>UDP不。</p>
+<p>消息首先通过HTTP从Alice的主机发送到她的邮件服务器。然后Alice的邮件服务器通过SMTP将消息发送到Bob的邮件服务器。然后Bob通过POP3将消息从他的邮件服务器传输到他的主机。</p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221214732156-16400944534042.png" alt="image-20211221214732156"></p>
+<p>A recursive DNS lookup is where one DNS server communicates with several other DNS servers to hunt down an IP address and return it to the client. This is in contrast to an iterative DNS query, where the client communicates directly with each DNS server involved in the lookup.</p>
+<p>递归DNS查找是指一个DNS服务器与其他几个DNS服务器通信，以查找一个IP地址并将其返回给客户端。这与迭代DNS查询相反，在迭代DNS查询中，客户端直接与每个涉及到查找的DNS服务器通信</p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221215041975.png" alt="image-20211221215041975"></p>
+<p>不会</p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221220153499-16400953148953.png" alt="image-20211221220153499"></p>
+<p>No, he must be in Alice’s top 4 to provide her chunks. It’s possible he may not be there.</p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221220329612.png" alt="image-20211221220329612"></p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221220440686.png" alt="image-20211221220440686"></p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221220629441.png" alt="image-20211221220629441"></p>
+<p>Tunneling provides a way to use an existing IPv4 routing infrastructure to carry IPv6 traffic. The key to a successful IPv6 transition is compatibility with the existing installed base of IPv4 hosts and routers.</p>
+<p>隧道技术提供了一种使用现有的IPv4路由基础设施来承载IPv6流量的方法。成功过渡到IPv6的关键是与现有的IPv4主机和路由器的兼容性。</p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221221302247.png" alt="image-20211221221302247"></p>
+<p>Framing: there is also framing in IP and TCP; link access; reliable delivery: there is also reliable delivery in TCP; flow control: there is also flow control in TCP; error detection: there is also error detection in IP and TCP; error correction; full duplex: TCP is also full duplex.</p>
+<p>帧:在IP和TCP中也有帧;链接访问;可靠的传递:TCP中也有可靠的传递;流量控制:TCP中也有流量控制;错误检测:IP和TCP中也有错误检测;误差校正;全双工:TCP也是全双工。</p>
+<h1 id="2018-Jan-1"><a href="#2018-Jan-1" class="headerlink" title="2018 Jan 1"></a>2018 Jan 1</h1><p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221222106439-16400964681714.png" alt="image-20211221222106439"></p>
+<p>Circuit switching. We know the data is sent at a constant bit rate. We know how much bandwidth is allocated for the system and can adjust to whats needed by the application.</p>
+<p>Packet switching since it has better resource management and no call set up. It also offers multiplexing</p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221224338458.png" alt="image-20211221224338458"></p>
+<p>Answer: It means that control message and data messages may be interleaved with each other on the same connection. Indeed, a single message may contain both control information and data</p>
+<p>这意味着控制消息和数据消息可以在同一连接上相互交错。实际上，一条消息可能同时包含控制信息和数据</p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221224509864.png" alt="image-20211221224509864"></p>
+<p>答:这意味着控制消息和数据消息在不同的连接上进行</p>
+<p>why FTP out of band</p>
+<p>FTP uses two parallel TCP connections, one connection for sending control information (such as a request to transfer a file) and another connection for actually transferring the file. Because the control information is not sent over the same connection that the file is sent over, FTP sends control information out of band.</p>
+<p>FTP使用两个并行的TCP连接，一个连接用于发送控制信息(例如传输文件的请求)，另一个连接用于实际传输文件。因为控制信息不是通过发送文件的同一连接发送的，所以FTP将控制信息发送到带外。</p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221230606094.png" alt="image-20211221230606094"></p>
+<p>或者TCP面向连接的欢迎套接字的目的是什么，服务器使用它来执行一个accept()?一旦accept()完成，服务器是否使用欢迎套接字与客户端进行通信?解释一下</p>
+<p>The welcoming socket is used in a server to wait for incoming client connection requests in connection-oriented (TCP-based) communication. A new socket is created on return from the accept() and it is this new socket that is then used by the server to communicate back to the client.</p>
+<p>欢迎套接字在服务器中用于在面向连接(基于tcp)的通信中等待传入的客户端连接请求。在从accept()返回时创建一个新的套接字，然后由服务器使用这个新的套接字与客户端进行通信。<img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221231455052.png" alt="image-20211221231455052"></p>
+<p> Routing is the process by which a network makes a forwarding table. </p>
+<p>On the other hand, is the actual process of sending a data packet through the network. It uses the forwarding table that the router creates to find its starting point and ending point.</p>
+<p>路由是网络生成转发表的过程。</p>
+<p>另一方面，是通过网络发送数据包的实际过程。它使用路由器创建的转发表来找到它的起点和终点。</p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221232226321.png" alt="image-20211221232226321"></p>
+<p>If the speed of the switching fabric is greater than the line speed across all output ports, packets could be lost in the output buffer.</p>
+<p>another： Describe how packet loss can occur at input ports. Describe how packet loss at <strong>input</strong> ports can be eliminated (without using infinite buffers).</p>
+<p>If the switching fabric is slow the input buffer space could be exhausted. The switching fabric needs to be at least N times as fast as the input line speed, where N is the number of ports.</p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221233929770.png" alt="image-20211221233929770"></p>
+<p>An ARP query is sent in a broadcast frame because the querying host does not which adapter address corresponds to the IP address in question. For the response, the sending node knows the adapter address to which the response should be sent, so there is no need to send a broadcast frame (which would have to be processed by all the other nodes on the LAN).</p>
+<p>ARP查询以广播帧的形式发送，因为查询的主机不知道哪个适配器地址对应该IP地址。对于响应，发送节点知道应向其发送响应的适配器地址，因此不需要发送广播帧(这必须由局域网中的所有其他节点处理)。</p>
+<h1 id="19-AUTU-1"><a href="#19-AUTU-1" class="headerlink" title="19 AUTU 1"></a>19 AUTU 1</h1><p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221234459146.png" alt="image-20211221234459146"></p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211221234604933.png" alt="image-20211221234604933"></p>
+<p><img src="/2021/12/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9C%9F%E9%A2%98/image-20211222000854333.png" alt="image-20211222000854333"></p>
+<p>Suppose that Alice wants to send an email message to Bob. This will involve four entities: Alice’s mail client (for email composition and sending), Alice’s outgoing mail server, Bob’s incoming mail server, and Bob’s mail client (for email retrieval and viewing). Between which of these four entities does the SMTP protocol operate? What about the IMAP protocol?</p>
+<p>假设Alice想要向Bob发送一封电子邮件。这将涉及四个实体:Alice的邮件客户端(用于电子邮件的组合和发送)、Alice的发送邮件服务器、Bob的接收邮件服务器和Bob的邮件客户端(用于电子邮件的检索和查看)。SMTP协议在这四个实体中的哪一个之间操作?那么IMAP协议呢?</p>
+<p>Answer: SMTP runs between Alices mail client and her server, and also (separately) between her server and Bob’s server. IMAP runs between Bob’s server and his mail client to retrieve messages from Bob’s server.</p>
+<p>答:SMTP在alice邮件客户端和她的服务器之间运行，也在她的服务器和Bob的服务器之间(单独地)运行。IMAP在Bob之间运行服务器和他的邮件客户机来从Bob的服务器检索消息。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag"><i class="fa fa-tag"></i> 计算机网络</a>
+              <a href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8A/" rel="tag"><i class="fa fa-tag"></i> 大三上</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/12/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="prev" title="计算机网络">
+      <i class="fa fa-chevron-left"></i> 计算机网络
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2020-1"><span class="nav-number">1.</span> <span class="nav-text">2020 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Advantages-of-packet-switching-over-circuit-switching"><span class="nav-number">1.0.1.</span> <span class="nav-text">Advantages of packet switching over circuit switching:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2019-Jan-1"><span class="nav-number">2.</span> <span class="nav-text">2019 Jan 1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-Jan-1"><span class="nav-number">3.</span> <span class="nav-text">2018 Jan 1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#19-AUTU-1"><span class="nav-number">4.</span> <span class="nav-text">19 AUTU 1</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="哈士奇本奇"
+      src="/images/husky.jpeg">
+  <p class="site-author-name" itemprop="name">哈士奇本奇</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">哈士奇本奇</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
