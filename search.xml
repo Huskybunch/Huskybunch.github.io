@@ -4,11 +4,11 @@
     <title>视频课-第一章</title>
     <url>/2024/01/25/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F-%E9%83%AD%E5%AE%9D%E9%BE%99%E8%A7%86%E9%A2%91%E8%AF%BE-%E7%AC%AC%E4%B8%80%E7%AB%A0/</url>
     <content><![CDATA[<h1 id="第一章-信号与系统概述"><a href="#第一章-信号与系统概述" class="headerlink" title="第一章 信号与系统概述"></a>第一章 信号与系统概述</h1><p><a href="https://www.bilibili.com/video/BV1PZ4y1t7DA?p=3&vd_source=2586daefbeb84d444b36c83408e79068">第一章视频地址</a></p>
-<h2 id="1-1信号的分类：确定与随机、连续与离散"><a href="#1-1信号的分类：确定与随机、连续与离散" class="headerlink" title="1.1信号的分类：确定与随机、连续与离散"></a>1.1信号的分类：确定与随机、连续与离散</h2><h3 id="确定信号——随机信号"><a href="#确定信号——随机信号" class="headerlink" title="确定信号——随机信号"></a>确定信号——随机信号</h3><ul>
+<h2 id="信号的分类：确定与随机、连续与离散"><a href="#信号的分类：确定与随机、连续与离散" class="headerlink" title="信号的分类：确定与随机、连续与离散"></a>信号的分类：确定与随机、连续与离散</h2><h3 id="确定信号——随机信号"><a href="#确定信号——随机信号" class="headerlink" title="确定信号——随机信号"></a>确定信号——随机信号</h3><ul>
 <li><p>确定信号：可用确定时间函数表示的信号（只要是一个函数就行）</p>
 </li>
 <li><p>随机信号：信号不能用确切的函数描述，只可能知道它的统计特性比如概率（例如，雷电的干扰信号，电子系统中起伏的热噪声）</p>
-<p><img src="F:\BLOG\blog\source\2024Picture\cfad9621cfb3df6b6b1cc848273d20d.png" alt="cfad9621cfb3df6b6b1cc848273d20d" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/..%5C2024Picture%5Ccfad9621cfb3df6b6b1cc848273d20d.png" alt="cfad9621cfb3df6b6b1cc848273d20d" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 </li>
 </ul>
 <h3 id="连续信号——离散信号"><a href="#连续信号——离散信号" class="headerlink" title="连续信号——离散信号"></a>连续信号——离散信号</h3><p>（确定信号分为这两类）<br>根据时间来分类 </p>
@@ -16,7 +16,7 @@
 <li><p>连续时间信号（f(t)):连续时间范围内（－∞&lt;t&lt;∞）有定义的信号，简称<strong>连续信号</strong>；若其函数值也连续，常称为<strong>模拟信号</strong></p>
 </li>
 <li><p>离散时间信号：仅在一些离散的瞬间才有定义的信号，简称<strong>离散信号</strong>；当取值为规定数值时（如-1，0，1），常称为<strong>数字信号</strong></p>
-<p><img src="F:\BLOG\blog\source\2024Picture\image-20240125185540874.png" alt="image-20240125185540874" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/..%5C2024Picture%5Cimage-20240125185540874.png" alt="image-20240125185540874" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 </li>
 </ul>
 <p>图一：连续信号，值域连续，称为模拟信号<br>图二：连续信号，值域不连续</p>
