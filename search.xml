@@ -8,18 +8,16 @@
 <li><p>确定信号：可用确定时间函数表示的信号（只要是一个函数就行）</p>
 </li>
 <li><p>随机信号：信号不能用确切的函数描述，只可能知道它的统计特性比如概率（例如，雷电的干扰信号，电子系统中起伏的热噪声）</p>
-<p><img src="/..%5C2024Picture%5Ccfad9621cfb3df6b6b1cc848273d20d.png" alt="cfad9621cfb3df6b6b1cc848273d20d" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 </li>
 </ul>
+<p><img src="/./../2024Picture/4910d6d0fc61e5173b8e1f34db97b11.png" alt="4910d6d0fc61e5173b8e1f34db97b11" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <h3 id="连续信号——离散信号"><a href="#连续信号——离散信号" class="headerlink" title="连续信号——离散信号"></a>连续信号——离散信号</h3><p>（确定信号分为这两类）<br>根据时间来分类 </p>
 <ul>
-<li><p>连续时间信号（f(t)):连续时间范围内（－∞&lt;t&lt;∞）有定义的信号，简称<strong>连续信号</strong>；若其函数值也连续，常称为<strong>模拟信号</strong></p>
-</li>
-<li><p>离散时间信号：仅在一些离散的瞬间才有定义的信号，简称<strong>离散信号</strong>；当取值为规定数值时（如-1，0，1），常称为<strong>数字信号</strong></p>
-<p><img src="/..%5C2024Picture%5Cimage-20240125185540874.png" alt="image-20240125185540874" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-</li>
+<li>连续时间信号（f(t)):连续时间范围内（－∞&lt;t&lt;∞）有定义的信号，简称<strong>连续信号</strong>；若其函数值也连续，常称为<strong>模拟信号</strong></li>
+<li>离散时间信号：仅在一些离散的瞬间才有定义的信号，简称<strong>离散信号</strong>；当取值为规定数值时（如-1，0，1），常称为<strong>数字信号</strong></li>
 </ul>
 <p>图一：连续信号，值域连续，称为模拟信号<br>图二：连续信号，值域不连续</p>
+<p><img src="/./../2024Picture/b7b050e774b7b55d9490d944874a307.png" alt="b7b050e774b7b55d9490d944874a307" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 ]]></content>
       <categories>
         <category>2024SemesterB</category>
