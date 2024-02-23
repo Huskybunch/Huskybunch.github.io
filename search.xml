@@ -1,84 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>信号与系统视频课-第一章</title>
-    <url>/2024/01/25/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F-%E9%83%AD%E5%AE%9D%E9%BE%99%E8%A7%86%E9%A2%91%E8%AF%BE-%E7%AC%AC%E4%B8%80%E7%AB%A0/</url>
-    <content><![CDATA[<h1 id="第一章-信号与系统概述"><a href="#第一章-信号与系统概述" class="headerlink" title="第一章 信号与系统概述"></a>第一章 信号与系统概述</h1><p><a href="https://www.bilibili.com/video/BV1PZ4y1t7DA?p=3&vd_source=2586daefbeb84d444b36c83408e79068">第一章视频地址</a></p>
-<h2 id="信号的分类：确定与随机、连续与离散"><a href="#信号的分类：确定与随机、连续与离散" class="headerlink" title="信号的分类：确定与随机、连续与离散"></a>信号的分类：确定与随机、连续与离散</h2><h3 id="确定信号——随机信号"><a href="#确定信号——随机信号" class="headerlink" title="确定信号——随机信号"></a>确定信号——随机信号</h3><ul>
-<li><p>确定信号：可用确定时间函数表示的信号（只要是一个函数就行）</p>
-</li>
-<li><p>随机信号：信号不能用确切的函数描述，只可能知道它的统计特性比如概率（例如，雷电的干扰信号，电子系统中起伏的热噪声）</p>
-</li>
-</ul>
-<p><img src="/./../2024Picture/4910d6d0fc61e5173b8e1f34db97b11.png" alt="4910d6d0fc61e5173b8e1f34db97b11" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="连续信号——离散信号"><a href="#连续信号——离散信号" class="headerlink" title="连续信号——离散信号"></a>连续信号——离散信号</h3><p>（确定信号分为这两类）确定信号的分析方法可以用到随机信号，用到的是确定信号的统计特性<br>根据时间来分类 </p>
-<ul>
-<li>连续时间信号（f(t)):连续时间范围内（－∞&lt;t&lt;∞）有定义的信号，简称<strong>连续信号</strong>；若其函数值也连续，常称为<strong>模拟信号</strong></li>
-<li>离散时间信号：仅在一些离散的瞬间才有定义的信号，简称<strong>离散信号</strong>；当取值为规定数值时（如-1，0，1），常称为<strong>数字信号</strong></li>
-</ul>
-<h4 id="连续信号图例"><a href="#连续信号图例" class="headerlink" title="连续信号图例"></a>连续信号图例</h4><p>图一：连续信号，值域连续，称为模拟信号<br>图二：连续信号，值域不连续</p>
-<p><img src="/./../2024Picture/b7b050e774b7b55d9490d944874a307.png" alt="b7b050e774b7b55d9490d944874a307" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="离散信号图例"><a href="#离散信号图例" class="headerlink" title="离散信号图例"></a>离散信号图例</h4><p><img src="/./../2024Picture/image-20240126220328570.png" alt="image-20240126220328570" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>离散时间之外不是0是<strong>无定义</strong></p>
-<p>时间不一定是等间隔的，也可能是随机的。</p>
-<p><img src="/./../2024Picture/image-20240126220446171.png" alt="image-20240126220446171" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>如果大T都一样就省略了，变成f(k),k就是序号</p>
-<h4 id="离散信号表示方法"><a href="#离散信号表示方法" class="headerlink" title="离散信号表示方法"></a>离散信号表示方法</h4><p><img src="/./../2024Picture/image-20240126230509185.png" alt="image-20240126230509185" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="连续信号变离散信号"><a href="#连续信号变离散信号" class="headerlink" title="连续信号变离散信号"></a>连续信号变离散信号</h4><p>连续信号采样之后可以变成离散信号（提取数字量）</p>
-<p>自然界通常是左边那种，进计算机右边</p>
-<p><img src="/./../2024Picture/image-20240126233055989.png" alt="image-20240126233055989" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="离散信号变连续信号"><a href="#离散信号变连续信号" class="headerlink" title="离散信号变连续信号"></a>离散信号变连续信号</h4><p>计算机导出 变成模拟信号</p>
-<p><img src="/./../2024Picture/image-20240127161658286.png" alt="image-20240127161658286" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240127161707986.png" alt="image-20240127161707986" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="信号的分类：周期与非周期"><a href="#信号的分类：周期与非周期" class="headerlink" title="信号的分类：周期与非周期"></a>信号的分类：周期与非周期</h2><p>周期信号（period signal)是定义在（-∞，∞）区间，每隔一定时间T（或整数N），<strong>按相同规律重复变化的信号。</strong></p>
-<p>不具有周期性的信号称为非周期信号</p>
-<h3 id="连续信号的周期"><a href="#连续信号的周期" class="headerlink" title="连续信号的周期"></a>连续信号的周期</h3><p><img src="/./../2024Picture/image-20240127162701765.png" alt="image-20240127162701765" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h4><p>判断两种信号能不能合成周期信号→判断能不能出现T &#x3D; MiTi（i &#x3D;1,2,…) 周期信号→最小公倍数</p>
-<p>目的：求M的最小公倍数</p>
-<p><img src="/./../2024Picture/image-20240127180258981.png" alt="image-20240127180258981" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="离散信号的周期"><a href="#离散信号的周期" class="headerlink" title="离散信号的周期"></a>离散信号的周期</h3><p><img src="/./../2024Picture/image-20240127194749649.png" alt="image-20240127194749649" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="例题-1"><a href="#例题-1" class="headerlink" title="例题"></a>例题</h4><p><img src="/./../2024Picture/image-20240127195010666.png" alt="image-20240127195010666" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>需要判断大N是不是整数</p>
-<p><img src="/./../2024Picture/image-20240127195108366.png" alt="image-20240127195108366" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240127220244001.png" alt="image-20240127220244001" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="信号的分类：能量与功率信号，因果与反因果"><a href="#信号的分类：能量与功率信号，因果与反因果" class="headerlink" title="信号的分类：能量与功率信号，因果与反因果"></a>信号的分类：能量与功率信号，因果与反因果</h2><h3 id="能量——功率信号"><a href="#能量——功率信号" class="headerlink" title="能量——功率信号"></a>能量——功率信号</h3><p>能量是什么？单位时间消耗的能量是功率，无限长时间消耗的总能量是积分。</p>
-<p>所以算能量就是负无穷到正无穷损失功率的积分。</p>
-<p><img src="/./../2024Picture/image-20240127221143423.png" alt="image-20240127221143423" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>平均功率：都是无穷大，衡量不了，就引入平均功率从</p>
-<p>对于<strong>离散信号</strong>，也有能量信号、功率信号之分</p>
-<p><img src="/./../2024Picture/image-20240127221606388.png" alt="image-20240127221606388" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="因果——反因果信号"><a href="#因果——反因果信号" class="headerlink" title="因果——反因果信号"></a>因果——反因果信号</h3><p>以一个时间为参考点，前面是负的，后面是正的</p>
-<p><img src="/./../2024Picture/image-20240127221921417.png" alt="image-20240127221921417" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240127221805352.png" alt="image-20240127221805352" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240127221930637.png" alt="image-20240127221930637" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="信号的分类：信号的Matlab表示与绘图"><a href="#信号的分类：信号的Matlab表示与绘图" class="headerlink" title="信号的分类：信号的Matlab表示与绘图"></a>信号的分类：信号的Matlab表示与绘图</h2><h4 id="连续信号的绘制"><a href="#连续信号的绘制" class="headerlink" title="连续信号的绘制"></a>连续信号的绘制</h4><p><img src="/./../2024Picture/image-20240127222104706.png" alt="image-20240127222104706" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="离散信号的绘制"><a href="#离散信号的绘制" class="headerlink" title="离散信号的绘制"></a>离散信号的绘制</h3><p><img src="/./../2024Picture/image-20240127222151800.png" alt="image-20240127222151800" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="阶跃函数（重点）"><a href="#阶跃函数（重点）" class="headerlink" title="阶跃函数（重点）"></a>阶跃函数（重点）</h2><p>全课程贯穿全书有三个关键问题：</p>
-<ul>
-<li>基本信号及基本响应（一个系统给他一个输入响应是什么，一个基本型号加在系统里面响应是多少）</li>
-</ul>
-<p><img src="/./../2024Picture/image-20240127222433693.png" alt="image-20240127222433693" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<ul>
-<li>任意信号的分解（想办法把任意信号分解成基本信号的一个组合，只要把基本型号算出来，加起来）（类似于算任意形状的面积）</li>
-<li>LT1系统分析</li>
-</ul>
-<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><img src="/./../2024Picture/image-20240127222918098.png" alt="image-20240127222918098" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>t &#x3D;0 这一瞬间跳了，所以讲不了值是多少。</p>
-<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><p><img src="/./../2024Picture/image-20240127223129397.png" alt="image-20240127223129397" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>只要t1-t2就让这两个跳跃一下</p>
-<h2 id="冲激函数（基本信号中最重要的一个函数）"><a href="#冲激函数（基本信号中最重要的一个函数）" class="headerlink" title="冲激函数（基本信号中最重要的一个函数）"></a>冲激函数（基本信号中最重要的一个函数）</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p><img src="/./../2024Picture/image-20240127223645615.png" alt="image-20240127223645615" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-]]></content>
-      <categories>
-        <category>2024SemesterB</category>
-      </categories>
-      <tags>
-        <tag>EE5410信号处理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>排队论—一二周知识点小结</title>
-    <url>/2024/01/27/%E6%8E%92%E9%98%9F%E8%AE%BA-%E4%B8%80%E4%BA%8C%E5%91%A8/</url>
-    <content><![CDATA[]]></content>
+    <title>排队论第一次考试</title>
+    <url>/2024/02/22/%E6%8E%92%E9%98%9F%E8%AE%BA%E5%A4%8D%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="Inverse-transform-sampling-P59"><a href="#Inverse-transform-sampling-P59" class="headerlink" title="Inverse transform sampling P59"></a>Inverse transform sampling P59</h2>]]></content>
       <categories>
         <category>2024SemesterB</category>
       </categories>
@@ -87,14 +12,176 @@
       </tags>
   </entry>
   <entry>
-    <title>多维数组—一二周知识点总结</title>
-    <url>/2024/01/27/%E5%A4%9A%E7%BB%B4-%E8%AF%BE%E7%A8%8B%E7%AC%AC%E4%BA%8C%E5%91%A8/</url>
-    <content><![CDATA[]]></content>
+    <title>计算机网络课后习题：第一章</title>
+    <url>/2024/02/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98chapter1/</url>
+    <content><![CDATA[<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><h2 id="R1-“主机”和“端系统”有什么不同？"><a href="#R1-“主机”和“端系统”有什么不同？" class="headerlink" title="R1. “主机”和“端系统”有什么不同？"></a>R1. “主机”和“端系统”有什么不同？</h2><p>没什么不同，主机&#x3D;端系统<br>端系统包括 PC，邮件服务器，Web服务器，手机等等……</p>
+<h2 id="R9-拨号调制解调器，HFC，DSL和FTTH"><a href="#R9-拨号调制解调器，HFC，DSL和FTTH" class="headerlink" title="R9.拨号调制解调器，HFC，DSL和FTTH"></a>R9.拨号调制解调器，HFC，DSL和FTTH</h2><p>这些技术都用于<strong>住宅楼接入</strong>。对于这些记住，给出每种技术的传输速率的范围，并讨论它们的传输速率是共享还是专用的。</p>
+<p>拨号调制解调器：30kbps-50kbps</p>
+<p>HFC: 30kbps 下行 2Mbps 上行</p>
+<p>DSL：24Mbps 下行 2.5Mbps 上行</p>
+<p>FTTH：20Mbps</p>
+<p>4G: 几百Mbps</p>
+<p>5G: 1Gbps</p>
+<h2 id="R11-端到端总时延"><a href="#R11-端到端总时延" class="headerlink" title="R11.端到端总时延"></a>R11.端到端总时延</h2><p>假定在发送主机和接收主机间只有一台分组交换机。发送主机和交换机间以及交换机和接收主机间的传输速率分别是R1和R2。假设该交换机使用存储转发<strong>分组交换</strong>方式，发送一个长度为L的分组的端到端总时延是什么?(忽略排队时延、传播时延和处理时延。）</p>
+<p><img src="/./../2024Picture/image-20240221200306297.png" alt="image-20240221200306297" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="R12-分组交换，电路交换-TDM-FDM"><a href="#R12-分组交换，电路交换-TDM-FDM" class="headerlink" title="R12. 分组交换，电路交换, TDM, FDM"></a>R12. 分组交换，电路交换, TDM, FDM</h2><p>与分组交换网络相比，电路交换网络有哪些优点?在电路交换网络中，TDM 比FDM 有哪些优点?</p>
+<p>电路交换的优点：为端到端预留了带宽的资源，能够保证带宽，如果发送小于这个带宽性能和延迟都有保障。</p>
+<p>分组交换：性能不可靠，资源共享，无创建时间，适用于突发传输<br>电路交换：性能可靠，资源不共享，有创建时间，不适用于突发传输，可能有资源浪费。</p>
+<p>TDM(时间): 够对于不同的信号<strong>进行时间片划分</strong>，<strong>直接利用时间域上的资源进行复用</strong>，实现简单，<strong>但是只有在输入信号保持恒定状态时</strong>才能达到最优的带宽利用率</p>
+<p>FDM(频域): 能够根据信号频率差异来<strong>分配给定带宽的专属子信道，更为灵活，</strong>但是需要<strong>占用更多的带宽</strong>。<br>需要更复杂的硬件设备对这些信号进行载波信号加载和数字信号提取过程，之前还要进行数字信号搬移，把频率搬运加载到载波之上。复杂度更高。</p>
+<blockquote>
+<p><strong>多路复用</strong></p>
+<p>多路复用技术是把多个低速信道组合成一个高速信道的技术，它可以有效的提高数据链路的利用率，从而使得一条高速的主干链路同时为多条低速的接入链路提供服务，也就是使得网络干线可以同时运载大量的语音和数据传输。</p>
+</blockquote>
+<h2 id="R13-假设用户共享一条2Mbps链路"><a href="#R13-假设用户共享一条2Mbps链路" class="headerlink" title="R13 假设用户共享一条2Mbps链路"></a>R13 假设用户共享一条2Mbps链路</h2><p><img src="/./../2024Picture/image-20240221213259445.png" alt="image-20240221213259445" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ol>
+<li>R &#x3D; 2Mbps  R’ &#x3D; 1Mbps R&#x2F;R’&#x3D;2用户 </li>
+<li>因为两个用户不会超过2Mbpd</li>
+<li>20%</li>
+<li>3个 队列出现增长只有三个用户同时使用，所以概率是P &#x3D; 0.2^3</li>
+</ol>
+<blockquote>
+<p><strong>分组交换</strong></p>
+<p>分组交换也称为包交换，它将用户通信的数据划分成多个<strong>更小的等长数据段</strong>，在每个数据段的前面加上必要的控制信息作为数据段的首部，每个带有首部的数据段就构成了一个分组。首部指明了该分组发送的地址，当交换机收到分组之后，将根据首部中的地址信息将分组转发到目的地，这个过程就是分组交换。能够进行分组交换的通信网被称为分组交换网。</p>
+</blockquote>
+<h2 id="R18-一个长度为1000字节的分组经过2500km链路交换"><a href="#R18-一个长度为1000字节的分组经过2500km链路交换" class="headerlink" title="R18 一个长度为1000字节的分组经过2500km链路交换"></a>R18 一个长度为1000字节的分组经过2500km链路交换</h2><p><img src="/./../2024Picture/image-20240221221620544.png" alt="image-20240221221620544" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ol>
+<li><p>传输时延：8Kb&#x2F;2Mb &#x3D; 4ms </p>
+<p>传播延迟 &#x3D; d&#x2F;s &#x3D; 2500 * 10^3&#x2F;2.5 * 10^8 &#x3D; 10ms</p>
+<p>4+10ms</p>
+</li>
+<li><p>传输时延：8L&#x2F;R<br>传播时延：d&#x2F;s<br>需要的时间为 8L&#x2F;R + d&#x2F;s</p>
+</li>
+<li><p>该时延与传输速率有关。</p>
+<p>但传输速率影响的是传输时延，而不是传播时延。传输时延取决于<strong>分组的长度和传输速率</strong>，而传播时延取决于<strong>链路的距离和传播速率</strong>。</p>
+</li>
+</ol>
+<blockquote>
+<p>1字节 &#x3D; 8 bit</p>
+<p>而我们计算的bps就是以比特为单位，所以我们需要先把字节改成bit</p>
+</blockquote>
+<blockquote>
+<p><strong>传输延迟</strong></p>
+<p>传输延迟(transmission delay）是指<strong>将包中的数据位传入线路所需要的时间</strong>。 根据数据包的大小和带宽的不同而有所变化。 但并不取决于传输线路的距离，因为它仅仅是指将包的数据位传入线路的时间，而不是沿传输线路到达接收端点的时间。</p>
+</blockquote>
+<blockquote>
+<p><strong>传播延迟</strong></p>
+<p>传播延迟（Propagation delay), 在通信、电脑网络领域中，意指<strong>信号从发讯方传播到收讯方时，该传播过程的时间总长</strong>。 在电脑网络领域传播延迟等于d&#x2F;s，其中d是距离，s是波传播速度。</p>
+</blockquote>
+<h2 id="R19-假定主机A要向主机B发送一个大文件。"><a href="#R19-假定主机A要向主机B发送一个大文件。" class="headerlink" title="R19 假定主机A要向主机B发送一个大文件。"></a>R19 <strong>假定主机A要向主机B发送一个大文件。</strong></h2>]]></content>
       <categories>
         <category>2024SemesterB</category>
       </categories>
       <tags>
-        <tag>EE6453排队论</tag>
+        <tag>EE5412计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NLP从入门到精通</title>
+    <url>/2024/02/22/NLP/</url>
+    <content><![CDATA[<p><a href="https://www.bilibili.com/video/BV17K4y1W7yb/?spm_id_from=333.337.search-card.all.click&vd_source=2586daefbeb84d444b36c83408e79068">Google中国NLP从入门到精通</a></p>
+<h1 id="第一讲-分词tokenization"><a href="#第一讲-分词tokenization" class="headerlink" title="第一讲 分词tokenization"></a>第一讲 分词tokenization</h1><p>学习如何使用计算机可以处理的方式来表示单词</p>
+<p>ASCII表示字母，但仅通过这些编码理解单词意思不太容易</p>
+<p>跟编码字母比起来，编码单词可能更简单</p>
+<p><img src="/./../2024Picture/image-20240222175532957.png" alt="image-20240222175532957" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p><img src="/./../2024Picture/image-20240222180110528.png" alt="image-20240222180110528" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>num_book: 最大单词数</p>
+<p>Tokenizer: 保存最频繁出现的100个单词</p>
+<p>fit_on_texts: 将文本与对应数字进行匹配</p>
+<p>word_index：完整表单可以用Index查看</p>
+<p>这个还能识别意外</p>
+<p>分词器很聪明，dog!不会记录dog!,只会记录dog</p>
+<p>现在单词已经都用数字来表示了</p>
+<h1 id="第二讲-序列：将文本转化为数据"><a href="#第二讲-序列：将文本转化为数据" class="headerlink" title="第二讲 序列：将文本转化为数据"></a>第二讲 序列：将文本转化为数据</h1><p>这一课学习为句子创建数字序列</p>
+<h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><p><img src="/./../2024Picture/image-20240222181719236.png" alt="image-20240222181719236" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>text_to_sequences: 他创建了代表每个句子的token序列</p>
+<p><strong>result</strong>:</p>
+<p><img src="/./../2024Picture/image-20240222181848427.png" alt="image-20240222181848427" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>如果句子中出现新的单词，但是又没有代码更新数据集，会发生什么？</p>
+<p><img src="/./../2024Picture/image-20240222182204652.png" alt="image-20240222182204652" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>所以为了处理不在训练集中的句子，我们需要一个巨大的单词索引</p>
+<h3 id="不损失序列长度方法"><a href="#不损失序列长度方法" class="headerlink" title="不损失序列长度方法"></a>不损失序列长度方法</h3><ol>
+<li><p>OOV: 使用oov_token属性，将其设置为代替语料库中无法识别的内容</p>
+<p>分词器会为他创建一个token</p>
+<p><img src="/./../2024Picture/image-20240222184642671.png" alt="image-20240222184642671" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>简单高效，但是有一些单词我们还是不知道什么意思。</p>
+<p>这样单词少了很多，而且至少句子长度是对的</p>
+<p>如何处理不同长度的句子呢？ 在对于图像进行处理的时候图像大小经常是一样的，但是句子不一定，我们要怎么处理这个问题呢？</p>
+</li>
+<li><p>进阶的解决方法就是借助不规则张量（Ragged Tensor),太难了</p>
+</li>
+<li><p>padding</p>
+<p>引用 pad_sequence: 可以用来填充序列</p>
+<p>把他们传递给pad_Sequence就能自动实现了</p>
+<p><img src="/./../2024Picture/image-20240222185733660.png" alt="image-20240222185733660" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>当你不想向上面这样，可以：</p>
+<p><img src="/./../2024Picture/image-20240222190241156.png" alt="image-20240222190241156" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>post：是在后面进行填充</p>
+<p>maxlen: 设置自定义的最大长度，</p>
+<p>truncating:  <strong>如果超过</strong>,可以设置截断方式，通过post truncation截断结尾处的单词。或者使用pre截断开头的单词。</p>
+</li>
+</ol>
+<p><img src="/./../2024Picture/image-20240222182916857.png" alt="image-20240222182916857" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h1 id="第三讲-打造识别文本情感的模型"><a href="#第三讲-打造识别文本情感的模型" class="headerlink" title="第三讲 打造识别文本情感的模型"></a>第三讲 打造识别文本情感的模型</h1><p>我们已经完成了预处理，现在需要学习如何构建一个能识别文本情感的分类器。</p>
+<p>下载数据集，这里面分类好了有讽刺意义和没有讽刺意义两种标题。</p>
+<p>我们将训练这些然后判断这些文本是否有讽刺意味。</p>
+<p><img src="/./../2024Picture/image-20240222190715818.png" alt="image-20240222190715818" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>数据是json格式，我们要改成Python格式</p>
+<p><img src="/./../2024Picture/image-20240222190746182.png" alt="image-20240222190746182" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ol>
+<li>导入json库</li>
+<li>用json库加载讽刺标题的json文件</li>
+<li>我们可以为标签，标题和文章链接创建列表</li>
+<li>当我们对JSON文件进行迭代时，可以将所需的值加载到Python列表中</li>
+</ol>
+<p>接下来就是预处理</p>
+<p><img src="/./../2024Picture/image-20240222191135810.png" alt="image-20240222191135810" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240222191508191.png" alt="image-20240222191508191" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>每个列表里都包括一些句子和标签，分片成训练集和测试集</p>
+<p><img src="/./../2024Picture/image-20240222211834894.png" alt="image-20240222211834894" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="新代码"><a href="#新代码" class="headerlink" title="新代码"></a>新代码</h3><p><img src="/./../2024Picture/image-20240222212532078.png" alt="image-20240222212532078" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>1，实例化分词器</p>
+<p>2，让分词器仅训练之前分片出来的训练集</p>
+<p>3，接下来创建一组训练序列，而不是一个整体序列集，然后进行填充</p>
+<p>4，测试序列的操作完全相同</p>
+<h3 id="但是你想从token怎么判断结果呢？"><a href="#但是你想从token怎么判断结果呢？" class="headerlink" title="但是你想从token怎么判断结果呢？"></a>但是你想从token怎么判断结果呢？</h3><p>Embadding嵌入: 我们把一组单词输入，神经网络就可以查看这些词的向量，并将向量相加出结果</p>
+<p><img src="/./../2024Picture/image-20240222213548069.png" alt="image-20240222213548069" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240222213557400.png" alt="image-20240222213557400" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>怎么判断新句子呢？</strong><br><img src="/./../2024Picture/image-20240222213651068.png" alt="image-20240222213651068" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ol>
+<li>先创建几个要进行分类的句子</li>
+<li>借助之前的分词器，将句子转换为序列</li>
+<li>然后将这些序列填充到跟训练集相同的维度</li>
+<li>接下来就可以在填充后的数据集上进行预测</li>
+</ol>
+<h1 id="第四讲-用循环神经网络进行机器学习"><a href="#第四讲-用循环神经网络进行机器学习" class="headerlink" title="第四讲 用循环神经网络进行机器学习"></a>第四讲 用循环神经网络进行机器学习</h1><p>判断句子情感是不需要句子的顺序，但是生成文本是需要考虑句子顺序的</p>
+<p>文本生成的本质就是要预测下一个单词</p>
+<h2 id="非序列数据是如何转换成序列数据的"><a href="#非序列数据是如何转换成序列数据的" class="headerlink" title="非序列数据是如何转换成序列数据的"></a>非序列数据是如何转换成序列数据的</h2><p><img src="/./../2024Picture/image-20240222220121364.png" alt="image-20240222220121364" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240222220328376.png" alt="image-20240222220328376" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240222220346527.png" alt="image-20240222220346527" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>这样一来，一个数值可以在整个数列的生命中反复出现，这就是循环神经网络的原理。</p>
+<p><img src="/./../2024Picture/image-20240222220503126.png" alt="image-20240222220503126" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>这个就是RNN</p>
+<h1 id="第五讲-长短期记忆网络（LSTM"><a href="#第五讲-长短期记忆网络（LSTM" class="headerlink" title="第五讲 长短期记忆网络（LSTM)"></a>第五讲 长短期记忆网络（LSTM)</h1><p>学习如何在长句子中，建立对文本上下文的理解</p>
+<p><img src="/./../2024Picture/image-20240222221350643.png" alt="image-20240222221350643" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>Cell states: 它可以跨越多个时间段保持语境，从而将句子开头的句意带入下文。 它可以是<strong>双向</strong>的，句子后面的词也可以为前面的词提供语境，这样我们就可以更准确地学习句子语义了。</p>
+<p><img src="/./../2024Picture/image-20240222221417719.png" alt="image-20240222221417719" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ol>
+<li><p>首先定义一个LSTM层，这里需要一个参数，来表示其中隐藏节点的数量。这也表示LSTM输出门的维度。如果你需要它<strong>是双向的</strong>，只需要<strong>Bidirectional</strong>对他进行包裹就行。</p>
+<p><img src="/./../2024Picture/image-20240222222147215.png" alt="image-20240222222147215" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>128的原因是，一个方向64个参数，一共两个方向。</p>
+</li>
+</ol>
+<p><img src="/./../2024Picture/image-20240222222311142.png" alt="image-20240222222311142" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>也可以将LSTM进行叠加，这样上一层的输出就能传递到下一层。</p>
+<p>但是每层都要设置return_sequences &#x3D; Ture</p>
+<p><img src="/./../2024Picture/image-20240222222423804.png" alt="image-20240222222423804" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+]]></content>
+      <categories>
+        <category>人工智能</category>
+      </categories>
+      <tags>
+        <tag>NLP</tag>
       </tags>
   </entry>
 </search>

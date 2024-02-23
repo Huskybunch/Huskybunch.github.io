@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="Google中国NLP从入门到精通 第一讲 分词tokenization学习如何使用计算机可以处理的方式来表示单词 ASCII表示字母，但仅通过这些编码理解单词意思不太容易 跟编码字母比起来，编码单词可能更简单  代码实现 num_book: 最大单词数 Tokenizer: 保存最频繁出现的100个单词 fit_on_texts: 将文本与对应数字进行匹配 word_index：完整表单可以用I">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NLP从入门到精通">
+<meta property="og:url" content="http://example.com/2024/02/22/NLP/index.html">
+<meta property="og:site_name" content="HuskeyBunch">
+<meta property="og:description" content="Google中国NLP从入门到精通 第一讲 分词tokenization学习如何使用计算机可以处理的方式来表示单词 ASCII表示字母，但仅通过这些编码理解单词意思不太容易 跟编码字母比起来，编码单词可能更简单  代码实现 num_book: 最大单词数 Tokenizer: 保存最频繁出现的100个单词 fit_on_texts: 将文本与对应数字进行匹配 word_index：完整表单可以用I">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-02-22T07:09:12.506Z">
+<meta property="article:modified_time" content="2024-02-22T14:29:03.811Z">
+<meta property="article:tag" content="NLP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >NLP从入门到精通</title>
+
+<!-- Favicon -->
+
+    <link href='/dog1.svg?v=2.1.10' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/dog1.svg?v=2.1.10' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+    <link href='/apple-touch-icon.png?v=2.1.10' rel='apple-touch-icon' sizes='180x180' ></link>
+
+
+    <link href='/site.webmanifest' rel='manifest' ></link>
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":null,"root":"/","typed_text":["hometown is in Siberia"],"theme_version":"2.1.10","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"dog1.svg","icon16":"dog1.svg","icon32":"dog1.svg","appleTouchIcon":"apple-touch-icon.png","webmanifest":"/site.webmanifest","visibilitychange":true,"hidden":"wrong.svg","showText":"什么你不信？","hideText":"哎呀网页崩溃了"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://npm.elemecdn.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":true},"live_time":{"start_time":"","prefix":"博客已萌萌哒运行 undefined 天"},"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-02-22 22:29:03"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.10" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/dog1.svg">
+    
+    
+        <div class="trm-logo-text">
+            huskey<span>bunch</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    首页
+                </a>
+                
+                <ul>
+                    
+                    <li>
+                        <a  href="/archives2/" target="">
+                            archives
+                        </a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories/" target="">
+                    主题
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/picture.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-12">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text trm-text-center ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            NLP从入门到精通
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2024
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+            <div class="trm-page-content col-lg-12">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            02/22
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            15:09
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            huskeybunch
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV17K4y1W7yb/?spm_id_from=333.337.search-card.all.click&vd_source=2586daefbeb84d444b36c83408e79068">Google中国NLP从入门到精通</a></p>
+<h1 id="第一讲-分词tokenization"><a href="#第一讲-分词tokenization" class="headerlink" title="第一讲 分词tokenization"></a>第一讲 分词tokenization</h1><p>学习如何使用计算机可以处理的方式来表示单词</p>
+<p>ASCII表示字母，但仅通过这些编码理解单词意思不太容易</p>
+<p>跟编码字母比起来，编码单词可能更简单</p>
+<p><img src="/./../2024Picture/image-20240222175532957.png" alt="image-20240222175532957" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p><img src="/./../2024Picture/image-20240222180110528.png" alt="image-20240222180110528" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>num_book: 最大单词数</p>
+<p>Tokenizer: 保存最频繁出现的100个单词</p>
+<p>fit_on_texts: 将文本与对应数字进行匹配</p>
+<p>word_index：完整表单可以用Index查看</p>
+<p>这个还能识别意外</p>
+<p>分词器很聪明，dog!不会记录dog!,只会记录dog</p>
+<p>现在单词已经都用数字来表示了</p>
+<h1 id="第二讲-序列：将文本转化为数据"><a href="#第二讲-序列：将文本转化为数据" class="headerlink" title="第二讲 序列：将文本转化为数据"></a>第二讲 序列：将文本转化为数据</h1><p>这一课学习为句子创建数字序列</p>
+<h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><p><img src="/./../2024Picture/image-20240222181719236.png" alt="image-20240222181719236" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>text_to_sequences: 他创建了代表每个句子的token序列</p>
+<p><strong>result</strong>:</p>
+<p><img src="/./../2024Picture/image-20240222181848427.png" alt="image-20240222181848427" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>如果句子中出现新的单词，但是又没有代码更新数据集，会发生什么？</p>
+<p><img src="/./../2024Picture/image-20240222182204652.png" alt="image-20240222182204652" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>所以为了处理不在训练集中的句子，我们需要一个巨大的单词索引</p>
+<h3 id="不损失序列长度方法"><a href="#不损失序列长度方法" class="headerlink" title="不损失序列长度方法"></a>不损失序列长度方法</h3><ol>
+<li><p>OOV: 使用oov_token属性，将其设置为代替语料库中无法识别的内容</p>
+<p>分词器会为他创建一个token</p>
+<p><img src="/./../2024Picture/image-20240222184642671.png" alt="image-20240222184642671" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>简单高效，但是有一些单词我们还是不知道什么意思。</p>
+<p>这样单词少了很多，而且至少句子长度是对的</p>
+<p>如何处理不同长度的句子呢？ 在对于图像进行处理的时候图像大小经常是一样的，但是句子不一定，我们要怎么处理这个问题呢？</p>
+</li>
+<li><p>进阶的解决方法就是借助不规则张量（Ragged Tensor),太难了</p>
+</li>
+<li><p>padding</p>
+<p>引用 pad_sequence: 可以用来填充序列</p>
+<p>把他们传递给pad_Sequence就能自动实现了</p>
+<p><img src="/./../2024Picture/image-20240222185733660.png" alt="image-20240222185733660" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>当你不想向上面这样，可以：</p>
+<p><img src="/./../2024Picture/image-20240222190241156.png" alt="image-20240222190241156" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>post：是在后面进行填充</p>
+<p>maxlen: 设置自定义的最大长度，</p>
+<p>truncating:  <strong>如果超过</strong>,可以设置截断方式，通过post truncation截断结尾处的单词。或者使用pre截断开头的单词。</p>
+</li>
+</ol>
+<p><img src="/./../2024Picture/image-20240222182916857.png" alt="image-20240222182916857" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h1 id="第三讲-打造识别文本情感的模型"><a href="#第三讲-打造识别文本情感的模型" class="headerlink" title="第三讲 打造识别文本情感的模型"></a>第三讲 打造识别文本情感的模型</h1><p>我们已经完成了预处理，现在需要学习如何构建一个能识别文本情感的分类器。</p>
+<p>下载数据集，这里面分类好了有讽刺意义和没有讽刺意义两种标题。</p>
+<p>我们将训练这些然后判断这些文本是否有讽刺意味。</p>
+<p><img src="/./../2024Picture/image-20240222190715818.png" alt="image-20240222190715818" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>数据是json格式，我们要改成Python格式</p>
+<p><img src="/./../2024Picture/image-20240222190746182.png" alt="image-20240222190746182" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ol>
+<li>导入json库</li>
+<li>用json库加载讽刺标题的json文件</li>
+<li>我们可以为标签，标题和文章链接创建列表</li>
+<li>当我们对JSON文件进行迭代时，可以将所需的值加载到Python列表中</li>
+</ol>
+<p>接下来就是预处理</p>
+<p><img src="/./../2024Picture/image-20240222191135810.png" alt="image-20240222191135810" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240222191508191.png" alt="image-20240222191508191" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>每个列表里都包括一些句子和标签，分片成训练集和测试集</p>
+<p><img src="/./../2024Picture/image-20240222211834894.png" alt="image-20240222211834894" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="新代码"><a href="#新代码" class="headerlink" title="新代码"></a>新代码</h3><p><img src="/./../2024Picture/image-20240222212532078.png" alt="image-20240222212532078" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>1，实例化分词器</p>
+<p>2，让分词器仅训练之前分片出来的训练集</p>
+<p>3，接下来创建一组训练序列，而不是一个整体序列集，然后进行填充</p>
+<p>4，测试序列的操作完全相同</p>
+<h3 id="但是你想从token怎么判断结果呢？"><a href="#但是你想从token怎么判断结果呢？" class="headerlink" title="但是你想从token怎么判断结果呢？"></a>但是你想从token怎么判断结果呢？</h3><p>Embadding嵌入: 我们把一组单词输入，神经网络就可以查看这些词的向量，并将向量相加出结果</p>
+<p><img src="/./../2024Picture/image-20240222213548069.png" alt="image-20240222213548069" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240222213557400.png" alt="image-20240222213557400" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>怎么判断新句子呢？</strong><br><img src="/./../2024Picture/image-20240222213651068.png" alt="image-20240222213651068" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ol>
+<li>先创建几个要进行分类的句子</li>
+<li>借助之前的分词器，将句子转换为序列</li>
+<li>然后将这些序列填充到跟训练集相同的维度</li>
+<li>接下来就可以在填充后的数据集上进行预测</li>
+</ol>
+<h1 id="第四讲-用循环神经网络进行机器学习"><a href="#第四讲-用循环神经网络进行机器学习" class="headerlink" title="第四讲 用循环神经网络进行机器学习"></a>第四讲 用循环神经网络进行机器学习</h1><p>判断句子情感是不需要句子的顺序，但是生成文本是需要考虑句子顺序的</p>
+<p>文本生成的本质就是要预测下一个单词</p>
+<h2 id="非序列数据是如何转换成序列数据的"><a href="#非序列数据是如何转换成序列数据的" class="headerlink" title="非序列数据是如何转换成序列数据的"></a>非序列数据是如何转换成序列数据的</h2><p><img src="/./../2024Picture/image-20240222220121364.png" alt="image-20240222220121364" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240222220328376.png" alt="image-20240222220328376" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240222220346527.png" alt="image-20240222220346527" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>这样一来，一个数值可以在整个数列的生命中反复出现，这就是循环神经网络的原理。</p>
+<p><img src="/./../2024Picture/image-20240222220503126.png" alt="image-20240222220503126" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>这个就是RNN</p>
+<h1 id="第五讲-长短期记忆网络（LSTM"><a href="#第五讲-长短期记忆网络（LSTM" class="headerlink" title="第五讲 长短期记忆网络（LSTM)"></a>第五讲 长短期记忆网络（LSTM)</h1><p>学习如何在长句子中，建立对文本上下文的理解</p>
+<p><img src="/./../2024Picture/image-20240222221350643.png" alt="image-20240222221350643" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>Cell states: 它可以跨越多个时间段保持语境，从而将句子开头的句意带入下文。 它可以是<strong>双向</strong>的，句子后面的词也可以为前面的词提供语境，这样我们就可以更准确地学习句子语义了。</p>
+<p><img src="/./../2024Picture/image-20240222221417719.png" alt="image-20240222221417719" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ol>
+<li><p>首先定义一个LSTM层，这里需要一个参数，来表示其中隐藏节点的数量。这也表示LSTM输出门的维度。如果你需要它<strong>是双向的</strong>，只需要<strong>Bidirectional</strong>对他进行包裹就行。</p>
+<p><img src="/./../2024Picture/image-20240222222147215.png" alt="image-20240222222147215" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>128的原因是，一个方向64个参数，一共两个方向。</p>
+</li>
+</ol>
+<p><img src="/./../2024Picture/image-20240222222311142.png" alt="image-20240222222311142" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>也可以将LSTM进行叠加，这样上一层的输出就能传递到下一层。</p>
+<p>但是每层都要设置return_sequences &#x3D; Ture</p>
+<p><img src="/./../2024Picture/image-20240222222423804.png" alt="image-20240222222423804" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/2024/02/22/%E6%8E%92%E9%98%9F%E8%AE%BA%E5%A4%8D%E4%B9%A0/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/./../cover/cover3.jpg">
+                </span>
+                <h6 class="trm-op-title">排队论第一次考试</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/02/22</li>
+                <li>22:29</li>
+                <li>2024SemesterB</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/2024/02/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98chapter1/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/./../cover/cover1.jpg">
+                </span>
+                <h6 class="trm-op-title">计算机网络课后习题：第一章</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/02/21</li>
+                <li>15:49</li>
+                <li>2024SemesterB</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v7.1.1
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.1.10
+            </span>
+        </div>
+      
+
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        目录导航
+				<span id="post-toc-top">
+					置顶
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="第一讲 分词tokenization"><a rel="nofollow" class="trm-toc-link" href="#第一讲-分词tokenization"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">第一讲 分词tokenization</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="代码实现"><a rel="nofollow" class="trm-toc-link" href="#代码实现"><span class="trm-toc-number">1.0.1.</span> <span class="trm-toc-text">代码实现</span></a></li></ol></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="第二讲 序列：将文本转化为数据"><a rel="nofollow" class="trm-toc-link" href="#第二讲-序列：将文本转化为数据"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">第二讲 序列：将文本转化为数据</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="代码实现"><a rel="nofollow" class="trm-toc-link" href="#代码实现-1"><span class="trm-toc-number">2.0.1.</span> <span class="trm-toc-text">代码实现</span></a></li><li class="trm-toc-item trm-toc-level-3" title="不损失序列长度方法"><a rel="nofollow" class="trm-toc-link" href="#不损失序列长度方法"><span class="trm-toc-number">2.0.2.</span> <span class="trm-toc-text">不损失序列长度方法</span></a></li></ol></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="第三讲 打造识别文本情感的模型"><a rel="nofollow" class="trm-toc-link" href="#第三讲-打造识别文本情感的模型"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">第三讲 打造识别文本情感的模型</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="新代码"><a rel="nofollow" class="trm-toc-link" href="#新代码"><span class="trm-toc-number">3.0.1.</span> <span class="trm-toc-text">新代码</span></a></li><li class="trm-toc-item trm-toc-level-3" title="但是你想从token怎么判断结果呢？"><a rel="nofollow" class="trm-toc-link" href="#但是你想从token怎么判断结果呢？"><span class="trm-toc-number">3.0.2.</span> <span class="trm-toc-text">但是你想从token怎么判断结果呢？</span></a></li></ol></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="第四讲 用循环神经网络进行机器学习"><a rel="nofollow" class="trm-toc-link" href="#第四讲-用循环神经网络进行机器学习"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">第四讲 用循环神经网络进行机器学习</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="非序列数据是如何转换成序列数据的"><a rel="nofollow" class="trm-toc-link" href="#非序列数据是如何转换成序列数据的"><span class="trm-toc-number">4.1.</span> <span class="trm-toc-text">非序列数据是如何转换成序列数据的</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="第五讲 长短期记忆网络（LSTM)"><a rel="nofollow" class="trm-toc-link" href="#第五讲-长短期记忆网络（LSTM"><span class="trm-toc-number">5.</span> <span class="trm-toc-text">第五讲 长短期记忆网络（LSTM)</span></a></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="目录">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="搜索文章...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    请输入关键词进行搜索
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.1.10"></script>
+    
+
+    
+        
+<script src="https://npm.elemecdn.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.1.10"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.1.10"></script>
+
+</body>
+
+</html>
