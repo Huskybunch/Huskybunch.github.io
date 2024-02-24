@@ -1,111 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>NLP从入门到精通</title>
-    <url>/2024/02/22/NLP/</url>
-    <content><![CDATA[<p><a href="https://www.bilibili.com/video/BV17K4y1W7yb/?spm_id_from=333.337.search-card.all.click&vd_source=2586daefbeb84d444b36c83408e79068">Google中国NLP从入门到精通</a></p>
-<h1 id="第一讲-分词tokenization"><a href="#第一讲-分词tokenization" class="headerlink" title="第一讲 分词tokenization"></a>第一讲 分词tokenization</h1><p>学习如何使用计算机可以处理的方式来表示单词</p>
-<p>ASCII表示字母，但仅通过这些编码理解单词意思不太容易</p>
-<p>跟编码字母比起来，编码单词可能更简单</p>
-<p><img src="/./../2024Picture/image-20240222175532957.png" alt="image-20240222175532957" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p><img src="/./../2024Picture/image-20240222180110528.png" alt="image-20240222180110528" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>num_book: 最大单词数</p>
-<p>Tokenizer: 保存最频繁出现的100个单词</p>
-<p>fit_on_texts: 将文本与对应数字进行匹配</p>
-<p>word_index：完整表单可以用Index查看</p>
-<p>这个还能识别意外</p>
-<p>分词器很聪明，dog!不会记录dog!,只会记录dog</p>
-<p>现在单词已经都用数字来表示了</p>
-<h1 id="第二讲-序列：将文本转化为数据"><a href="#第二讲-序列：将文本转化为数据" class="headerlink" title="第二讲 序列：将文本转化为数据"></a>第二讲 序列：将文本转化为数据</h1><p>这一课学习为句子创建数字序列</p>
-<h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><p><img src="/./../2024Picture/image-20240222181719236.png" alt="image-20240222181719236" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>text_to_sequences: 他创建了代表每个句子的token序列</p>
-<p><strong>result</strong>:</p>
-<p><img src="/./../2024Picture/image-20240222181848427.png" alt="image-20240222181848427" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>如果句子中出现新的单词，但是又没有代码更新数据集，会发生什么？</p>
-<p><img src="/./../2024Picture/image-20240222182204652.png" alt="image-20240222182204652" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>所以为了处理不在训练集中的句子，我们需要一个巨大的单词索引</p>
-<h3 id="不损失序列长度方法"><a href="#不损失序列长度方法" class="headerlink" title="不损失序列长度方法"></a>不损失序列长度方法</h3><ol>
-<li><p>OOV: 使用oov_token属性，将其设置为代替语料库中无法识别的内容</p>
-<p>分词器会为他创建一个token</p>
-<p><img src="/./../2024Picture/image-20240222184642671.png" alt="image-20240222184642671" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>简单高效，但是有一些单词我们还是不知道什么意思。</p>
-<p>这样单词少了很多，而且至少句子长度是对的</p>
-<p>如何处理不同长度的句子呢？ 在对于图像进行处理的时候图像大小经常是一样的，但是句子不一定，我们要怎么处理这个问题呢？</p>
-</li>
-<li><p>进阶的解决方法就是借助不规则张量（Ragged Tensor),太难了</p>
-</li>
-<li><p>padding</p>
-<p>引用 pad_sequence: 可以用来填充序列</p>
-<p>把他们传递给pad_Sequence就能自动实现了</p>
-<p><img src="/./../2024Picture/image-20240222185733660.png" alt="image-20240222185733660" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>当你不想向上面这样，可以：</p>
-<p><img src="/./../2024Picture/image-20240222190241156.png" alt="image-20240222190241156" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>post：是在后面进行填充</p>
-<p>maxlen: 设置自定义的最大长度，</p>
-<p>truncating:  <strong>如果超过</strong>,可以设置截断方式，通过post truncation截断结尾处的单词。或者使用pre截断开头的单词。</p>
-</li>
-</ol>
-<p><img src="/./../2024Picture/image-20240222182916857.png" alt="image-20240222182916857" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h1 id="第三讲-打造识别文本情感的模型"><a href="#第三讲-打造识别文本情感的模型" class="headerlink" title="第三讲 打造识别文本情感的模型"></a>第三讲 打造识别文本情感的模型</h1><p>我们已经完成了预处理，现在需要学习如何构建一个能识别文本情感的分类器。</p>
-<p>下载数据集，这里面分类好了有讽刺意义和没有讽刺意义两种标题。</p>
-<p>我们将训练这些然后判断这些文本是否有讽刺意味。</p>
-<p><img src="/./../2024Picture/image-20240222190715818.png" alt="image-20240222190715818" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>数据是json格式，我们要改成Python格式</p>
-<p><img src="/./../2024Picture/image-20240222190746182.png" alt="image-20240222190746182" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<ol>
-<li>导入json库</li>
-<li>用json库加载讽刺标题的json文件</li>
-<li>我们可以为标签，标题和文章链接创建列表</li>
-<li>当我们对JSON文件进行迭代时，可以将所需的值加载到Python列表中</li>
-</ol>
-<p>接下来就是预处理</p>
-<p><img src="/./../2024Picture/image-20240222191135810.png" alt="image-20240222191135810" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240222191508191.png" alt="image-20240222191508191" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>每个列表里都包括一些句子和标签，分片成训练集和测试集</p>
-<p><img src="/./../2024Picture/image-20240222211834894.png" alt="image-20240222211834894" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="新代码"><a href="#新代码" class="headerlink" title="新代码"></a>新代码</h3><p><img src="/./../2024Picture/image-20240222212532078.png" alt="image-20240222212532078" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>1，实例化分词器</p>
-<p>2，让分词器仅训练之前分片出来的训练集</p>
-<p>3，接下来创建一组训练序列，而不是一个整体序列集，然后进行填充</p>
-<p>4，测试序列的操作完全相同</p>
-<h3 id="但是你想从token怎么判断结果呢？"><a href="#但是你想从token怎么判断结果呢？" class="headerlink" title="但是你想从token怎么判断结果呢？"></a>但是你想从token怎么判断结果呢？</h3><p>Embadding嵌入: 我们把一组单词输入，神经网络就可以查看这些词的向量，并将向量相加出结果</p>
-<p><img src="/./../2024Picture/image-20240222213548069.png" alt="image-20240222213548069" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240222213557400.png" alt="image-20240222213557400" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><strong>怎么判断新句子呢？</strong><br><img src="/./../2024Picture/image-20240222213651068.png" alt="image-20240222213651068" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<ol>
-<li>先创建几个要进行分类的句子</li>
-<li>借助之前的分词器，将句子转换为序列</li>
-<li>然后将这些序列填充到跟训练集相同的维度</li>
-<li>接下来就可以在填充后的数据集上进行预测</li>
-</ol>
-<h1 id="第四讲-用循环神经网络进行机器学习"><a href="#第四讲-用循环神经网络进行机器学习" class="headerlink" title="第四讲 用循环神经网络进行机器学习"></a>第四讲 用循环神经网络进行机器学习</h1><p>判断句子情感是不需要句子的顺序，但是生成文本是需要考虑句子顺序的</p>
-<p>文本生成的本质就是要预测下一个单词</p>
-<h2 id="非序列数据是如何转换成序列数据的"><a href="#非序列数据是如何转换成序列数据的" class="headerlink" title="非序列数据是如何转换成序列数据的"></a>非序列数据是如何转换成序列数据的</h2><p><img src="/./../2024Picture/image-20240222220121364.png" alt="image-20240222220121364" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240222220328376.png" alt="image-20240222220328376" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240222220346527.png" alt="image-20240222220346527" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>这样一来，一个数值可以在整个数列的生命中反复出现，这就是循环神经网络的原理。</p>
-<p><img src="/./../2024Picture/image-20240222220503126.png" alt="image-20240222220503126" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>这个就是RNN</p>
-<h1 id="第五讲-长短期记忆网络（LSTM"><a href="#第五讲-长短期记忆网络（LSTM" class="headerlink" title="第五讲 长短期记忆网络（LSTM)"></a>第五讲 长短期记忆网络（LSTM)</h1><p>学习如何在长句子中，建立对文本上下文的理解</p>
-<p><img src="/./../2024Picture/image-20240222221350643.png" alt="image-20240222221350643" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>Cell states: 它可以跨越多个时间段保持语境，从而将句子开头的句意带入下文。 它可以是<strong>双向</strong>的，句子后面的词也可以为前面的词提供语境，这样我们就可以更准确地学习句子语义了。</p>
-<p><img src="/./../2024Picture/image-20240222221417719.png" alt="image-20240222221417719" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<ol>
-<li><p>首先定义一个LSTM层，这里需要一个参数，来表示其中隐藏节点的数量。这也表示LSTM输出门的维度。如果你需要它<strong>是双向的</strong>，只需要<strong>Bidirectional</strong>对他进行包裹就行。</p>
-<p><img src="/./../2024Picture/image-20240222222147215.png" alt="image-20240222222147215" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>128的原因是，一个方向64个参数，一共两个方向。</p>
-</li>
-</ol>
-<p><img src="/./../2024Picture/image-20240222222311142.png" alt="image-20240222222311142" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>也可以将LSTM进行叠加，这样上一层的输出就能传递到下一层。</p>
-<p>但是每层都要设置return_sequences &#x3D; Ture</p>
-<p><img src="/./../2024Picture/image-20240222222423804.png" alt="image-20240222222423804" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+    <title>多维数组test1-part1</title>
+    <url>/2024/02/24/%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84test1-part1/</url>
+    <content><![CDATA[<h1 id="part1"><a href="#part1" class="headerlink" title="part1"></a>part1</h1><h2 id="1-Correlation-vs-cosine-vs-Euclidean-distance"><a href="#1-Correlation-vs-cosine-vs-Euclidean-distance" class="headerlink" title="1. Correlation vs cosine vs Euclidean distance"></a>1. Correlation vs cosine vs Euclidean distance</h2><h4 id="Correlation"><a href="#Correlation" class="headerlink" title="Correlation:"></a>Correlation:</h4><p><img src="/./../2024Picture/image-20240224205336895.png" alt="image-20240224205336895" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<blockquote>
+<p>Correlation 相关度</p>
+<p>covariance 协方差</p>
+<p>standard deviation 标准差</p>
+</blockquote>
+<h4 id="Cosine-Similarity"><a href="#Cosine-Similarity" class="headerlink" title="Cosine Similarity:"></a>Cosine Similarity:</h4><p><img src="/./../2024Picture/image-20240224210342442.png" alt="image-20240224210342442" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="Euclidean-Distance"><a href="#Euclidean-Distance" class="headerlink" title="Euclidean Distance:"></a>Euclidean Distance:</h4><p><img src="/./../2024Picture/image-20240224210854635.png" alt="image-20240224210854635" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="2-mutual-information"><a href="#2-mutual-information" class="headerlink" title="2.mutual information"></a>2.mutual information</h2><h4 id="mutual-information"><a href="#mutual-information" class="headerlink" title="mutual information:"></a>mutual information:</h4><p><img src="/./../2024Picture/image-20240224211923669.png" alt="image-20240224211923669" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224211814227.png" alt="image-20240224211814227" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="3-Gini-Index-Entropy-Misclassification-error-Gain"><a href="#3-Gini-Index-Entropy-Misclassification-error-Gain" class="headerlink" title="3.Gini Index, Entropy, Misclassification error, Gain"></a>3.Gini Index, Entropy, Misclassification error, Gain</h2><h4 id="gini-index"><a href="#gini-index" class="headerlink" title="gini index"></a>gini index</h4><p><img src="/./../2024Picture/image-20240224212648498.png" alt="image-20240224212648498" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224212717160.png" alt="image-20240224212717160" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224212732586.png" alt="image-20240224212732586" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224213019328.png" alt="image-20240224213019328" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="Entropy"><a href="#Entropy" class="headerlink" title="Entropy"></a>Entropy</h4><p><img src="/./../2024Picture/image-20240224214014324.png" alt="image-20240224214014324" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224214028505.png" alt="image-20240224214028505" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="Misclassification-error"><a href="#Misclassification-error" class="headerlink" title="Misclassification error"></a>Misclassification error</h4><p><img src="/./../2024Picture/image-20240224215612609.png" alt="image-20240224215612609" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="Gain"><a href="#Gain" class="headerlink" title="Gain"></a>Gain</h4><p><img src="/./../2024Picture/image-20240224215732842.png" alt="image-20240224215732842" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224215746040.png" alt="image-20240224215746040" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="4-Gain-Ratio-Split-Info"><a href="#4-Gain-Ratio-Split-Info" class="headerlink" title="4.Gain Ratio, Split Info"></a>4.Gain Ratio, Split Info</h2><p><img src="/./../2024Picture/image-20240224213103727.png" alt="image-20240224213103727" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224213213022.png" alt="image-20240224213213022" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="5-Pessimistic-Error-Estimate"><a href="#5-Pessimistic-Error-Estimate" class="headerlink" title="5.Pessimistic Error Estimate"></a>5.Pessimistic Error Estimate</h2><p><img src="/./../2024Picture/image-20240224213321083.png" alt="image-20240224213321083" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<blockquote>
+<p><strong>err(T):</strong>  所有训练记录的错误率</p>
+<p><strong>Ω:</strong>   权衡超参数(类似α) -添加叶节点的相对成本</p>
+<p><strong>K:</strong> 叶节点数</p>
+<p><strong>N<sub>train</sub>:</strong> 训练记录总数</p>
+</blockquote>
+<p><img src="/./../2024Picture/image-20240224213738271.png" alt="image-20240224213738271" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="6-Kmeans-Kmeans"><a href="#6-Kmeans-Kmeans" class="headerlink" title="6.Kmeans, Kmeans+"></a>6.Kmeans, Kmeans+</h2><h4 id="Kmeans"><a href="#Kmeans" class="headerlink" title="Kmeans"></a>Kmeans</h4><p><img src="/./../2024Picture/image-20240224220004625.png" alt="image-20240224220004625" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="Kmeans-1"><a href="#Kmeans-1" class="headerlink" title="Kmeans+"></a>Kmeans+</h4><p><img src="/./../2024Picture/image-20240224215946618.png" alt="image-20240224215946618" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 ]]></content>
       <categories>
-        <category>人工智能</category>
+        <category>2024SemesterB</category>
       </categories>
       <tags>
-        <tag>NLP</tag>
+        <tag>EE6453多维数组</tag>
       </tags>
   </entry>
   <entry>
@@ -307,6 +241,140 @@
       </tags>
   </entry>
   <entry>
+    <title>NLP从入门到精通</title>
+    <url>/2024/02/22/NLP/</url>
+    <content><![CDATA[<p><a href="https://www.bilibili.com/video/BV17K4y1W7yb/?spm_id_from=333.337.search-card.all.click&vd_source=2586daefbeb84d444b36c83408e79068">Google中国NLP从入门到精通</a></p>
+<h1 id="第一讲-分词tokenization"><a href="#第一讲-分词tokenization" class="headerlink" title="第一讲 分词tokenization"></a>第一讲 分词tokenization</h1><p>学习如何使用计算机可以处理的方式来表示单词</p>
+<p>ASCII表示字母，但仅通过这些编码理解单词意思不太容易</p>
+<p>跟编码字母比起来，编码单词可能更简单</p>
+<p><img src="/./../2024Picture/image-20240222175532957.png" alt="image-20240222175532957" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p><img src="/./../2024Picture/image-20240222180110528.png" alt="image-20240222180110528" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>num_book: 最大单词数</p>
+<p>Tokenizer: 保存最频繁出现的100个单词</p>
+<p>fit_on_texts: 将文本与对应数字进行匹配</p>
+<p>word_index：完整表单可以用Index查看</p>
+<p>这个还能识别意外</p>
+<p>分词器很聪明，dog!不会记录dog!,只会记录dog</p>
+<p>现在单词已经都用数字来表示了</p>
+<h1 id="第二讲-序列：将文本转化为数据"><a href="#第二讲-序列：将文本转化为数据" class="headerlink" title="第二讲 序列：将文本转化为数据"></a>第二讲 序列：将文本转化为数据</h1><p>这一课学习为句子创建数字序列</p>
+<h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><p><img src="/./../2024Picture/image-20240222181719236.png" alt="image-20240222181719236" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>text_to_sequences: 他创建了代表每个句子的token序列</p>
+<p><strong>result</strong>:</p>
+<p><img src="/./../2024Picture/image-20240222181848427.png" alt="image-20240222181848427" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>如果句子中出现新的单词，但是又没有代码更新数据集，会发生什么？</p>
+<p><img src="/./../2024Picture/image-20240222182204652.png" alt="image-20240222182204652" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>所以为了处理不在训练集中的句子，我们需要一个巨大的单词索引</p>
+<h3 id="不损失序列长度方法"><a href="#不损失序列长度方法" class="headerlink" title="不损失序列长度方法"></a>不损失序列长度方法</h3><ol>
+<li><p>OOV: 使用oov_token属性，将其设置为代替语料库中无法识别的内容</p>
+<p>分词器会为他创建一个token</p>
+<p><img src="/./../2024Picture/image-20240222184642671.png" alt="image-20240222184642671" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>简单高效，但是有一些单词我们还是不知道什么意思。</p>
+<p>这样单词少了很多，而且至少句子长度是对的</p>
+<p>如何处理不同长度的句子呢？ 在对于图像进行处理的时候图像大小经常是一样的，但是句子不一定，我们要怎么处理这个问题呢？</p>
+</li>
+<li><p>进阶的解决方法就是借助不规则张量（Ragged Tensor),太难了</p>
+</li>
+<li><p>padding</p>
+<p>引用 pad_sequence: 可以用来填充序列</p>
+<p>把他们传递给pad_Sequence就能自动实现了</p>
+<p><img src="/./../2024Picture/image-20240222185733660.png" alt="image-20240222185733660" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>当你不想向上面这样，可以：</p>
+<p><img src="/./../2024Picture/image-20240222190241156.png" alt="image-20240222190241156" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>post：是在后面进行填充</p>
+<p>maxlen: 设置自定义的最大长度，</p>
+<p>truncating:  <strong>如果超过</strong>,可以设置截断方式，通过post truncation截断结尾处的单词。或者使用pre截断开头的单词。</p>
+</li>
+</ol>
+<p><img src="/./../2024Picture/image-20240222182916857.png" alt="image-20240222182916857" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h1 id="第三讲-打造识别文本情感的模型"><a href="#第三讲-打造识别文本情感的模型" class="headerlink" title="第三讲 打造识别文本情感的模型"></a>第三讲 打造识别文本情感的模型</h1><p>我们已经完成了预处理，现在需要学习如何构建一个能识别文本情感的分类器。</p>
+<p>下载数据集，这里面分类好了有讽刺意义和没有讽刺意义两种标题。</p>
+<p>我们将训练这些然后判断这些文本是否有讽刺意味。</p>
+<p><img src="/./../2024Picture/image-20240222190715818.png" alt="image-20240222190715818" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>数据是json格式，我们要改成Python格式</p>
+<p><img src="/./../2024Picture/image-20240222190746182.png" alt="image-20240222190746182" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ol>
+<li>导入json库</li>
+<li>用json库加载讽刺标题的json文件</li>
+<li>我们可以为标签，标题和文章链接创建列表</li>
+<li>当我们对JSON文件进行迭代时，可以将所需的值加载到Python列表中</li>
+</ol>
+<p>接下来就是预处理</p>
+<p><img src="/./../2024Picture/image-20240222191135810.png" alt="image-20240222191135810" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240222191508191.png" alt="image-20240222191508191" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>每个列表里都包括一些句子和标签，分片成训练集和测试集</p>
+<p><img src="/./../2024Picture/image-20240222211834894.png" alt="image-20240222211834894" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="新代码"><a href="#新代码" class="headerlink" title="新代码"></a>新代码</h3><p><img src="/./../2024Picture/image-20240222212532078.png" alt="image-20240222212532078" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>1，实例化分词器</p>
+<p>2，让分词器仅训练之前分片出来的训练集</p>
+<p>3，接下来创建一组训练序列，而不是一个整体序列集，然后进行填充</p>
+<p>4，测试序列的操作完全相同</p>
+<h3 id="但是你想从token怎么判断结果呢？"><a href="#但是你想从token怎么判断结果呢？" class="headerlink" title="但是你想从token怎么判断结果呢？"></a>但是你想从token怎么判断结果呢？</h3><p>Embadding嵌入: 我们把一组单词输入，神经网络就可以查看这些词的向量，并将向量相加出结果</p>
+<p><img src="/./../2024Picture/image-20240222213548069.png" alt="image-20240222213548069" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240222213557400.png" alt="image-20240222213557400" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>怎么判断新句子呢？</strong><br><img src="/./../2024Picture/image-20240222213651068.png" alt="image-20240222213651068" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ol>
+<li>先创建几个要进行分类的句子</li>
+<li>借助之前的分词器，将句子转换为序列</li>
+<li>然后将这些序列填充到跟训练集相同的维度</li>
+<li>接下来就可以在填充后的数据集上进行预测</li>
+</ol>
+<h1 id="第四讲-用循环神经网络进行机器学习"><a href="#第四讲-用循环神经网络进行机器学习" class="headerlink" title="第四讲 用循环神经网络进行机器学习"></a>第四讲 用循环神经网络进行机器学习</h1><p>判断句子情感是不需要句子的顺序，但是生成文本是需要考虑句子顺序的</p>
+<p>文本生成的本质就是要预测下一个单词</p>
+<h2 id="非序列数据是如何转换成序列数据的"><a href="#非序列数据是如何转换成序列数据的" class="headerlink" title="非序列数据是如何转换成序列数据的"></a>非序列数据是如何转换成序列数据的</h2><p><img src="/./../2024Picture/image-20240222220121364.png" alt="image-20240222220121364" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240222220328376.png" alt="image-20240222220328376" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240222220346527.png" alt="image-20240222220346527" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>这样一来，一个数值可以在整个数列的生命中反复出现，这就是循环神经网络的原理。</p>
+<p><img src="/./../2024Picture/image-20240222220503126.png" alt="image-20240222220503126" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>这个就是RNN</p>
+<h1 id="第五讲-长短期记忆网络（LSTM"><a href="#第五讲-长短期记忆网络（LSTM" class="headerlink" title="第五讲 长短期记忆网络（LSTM)"></a>第五讲 长短期记忆网络（LSTM)</h1><p>学习如何在长句子中，建立对文本上下文的理解</p>
+<p><img src="/./../2024Picture/image-20240222221350643.png" alt="image-20240222221350643" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>Cell states: 它可以跨越多个时间段保持语境，从而将句子开头的句意带入下文。 它可以是<strong>双向</strong>的，句子后面的词也可以为前面的词提供语境，这样我们就可以更准确地学习句子语义了。</p>
+<p><img src="/./../2024Picture/image-20240222221417719.png" alt="image-20240222221417719" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ol>
+<li><p>首先定义一个LSTM层，这里需要一个参数，来表示其中隐藏节点的数量。这也表示LSTM输出门的维度。如果你需要它<strong>是双向的</strong>，只需要<strong>Bidirectional</strong>对他进行包裹就行。</p>
+<p><img src="/./../2024Picture/image-20240222222147215.png" alt="image-20240222222147215" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>128的原因是，一个方向64个参数，一共两个方向。</p>
+</li>
+</ol>
+<p><img src="/./../2024Picture/image-20240222222311142.png" alt="image-20240222222311142" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>也可以将LSTM进行叠加，这样上一层的输出就能传递到下一层。</p>
+<p>但是每层都要设置return_sequences &#x3D; Ture</p>
+<p><img src="/./../2024Picture/image-20240222222423804.png" alt="image-20240222222423804" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+]]></content>
+      <categories>
+        <category>人工智能</category>
+      </categories>
+      <tags>
+        <tag>NLP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络课后习题：第三章</title>
+    <url>/2024/02/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98%EF%BC%9A%E7%AC%AC%E4%B8%89%E7%AB%A0/</url>
+    <content><![CDATA[<h1 id="第三章-考试内容"><a href="#第三章-考试内容" class="headerlink" title="第三章 考试内容"></a>第三章 考试内容</h1><h2 id="P2"><a href="#P2" class="headerlink" title="P2."></a>P2.</h2><p>Consider Figure 3.5. What are the source and destination port values in the segments flowing from the server back to the clients’ processes? What are the IP addresses in the network-layer datagrams carrying the transport-layer segments?  </p>
+<p><img src="/./../2024Picture/image-20240224164104110.png" alt="image-20240224164104110" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="P3"><a href="#P3" class="headerlink" title="P3."></a>P3.</h2><p>UDP and TCP use Is complement for their checksums. Suppose you have the following three 8-bit bytes: 01010011, 01100110, 01110100. What is the Is complement of the sum of these 8-bit bytes? (Note that although UDP and TCP use 16-bit words in computing the checksum, for this problem you are being asked to consider 8-bit sums.) Show all work. Why is it that UDP takes the Is complement of the sum; that is, why not just use the sum? With the Is complement scheme, how does the receiver detect errors? Is it possible that a 1-bit error will go undetected? How about a 2-bit error?  </p>
+<h2 id="P4"><a href="#P4" class="headerlink" title="P4."></a>P4.</h2><p>a. Suppose you have the following 2 bytes: 01011100 and 01100101. What is the Is complement of the sum of these 2 bytes?<br>b. Suppose you have the following 2 bytes: 11011010 and 01100101. What is the Is complement of the sum of these 2 bytes?<br>c. For the bytes in part (a), give an example where one bit is flipped in each of the 2 bytes and yet the Is complement doesn’t change.  </p>
+<h2 id="P5"><a href="#P5" class="headerlink" title="P5."></a>P5.</h2><p>Suppose that the UDP receiver computes the Internet checksum for the received UDP segment and finds that it matches the value carried in the checksum field. Can the receiver be absolutely certain that no bit errors have occurred? Explain.  </p>
+<h2 id="P7"><a href="#P7" class="headerlink" title="P7."></a>P7.</h2><p>In protocol rdt3 . 0, the ACK packets flowing from the receiver to the sender do not have sequence numbers (although they do have an ACK field that contains the sequence number of the packet they are acknowledging). Why is it that our ACK packets do not require sequence numbers?  </p>
+<h2 id="P9"><a href="#P9" class="headerlink" title="P9."></a>P9.</h2><p>Give a trace of the operation of protocol rdt3 . 0 when data packets and acknowledgment packets are garbled (scenarios for corrupted data and corrupted ACK). Suppose the protocol has been in operation for some time. The sender is in state “Wait for call from above” (top left hand comer) and the receiver is in state “Wait for 0 from below”.  </p>
+<h2 id="P12"><a href="#P12" class="headerlink" title="P12."></a>P12.</h2><p>The sender side of rdt3 . 0 simply ignores (that is, takes no action on) all received packets that are either in error or have the wrong value in the ack num field of an acknowledgment packet. Suppose that in such circumstances, rdt3 . 0 were simply to retransmit the current data packet. Would the protocol still work? (Hint: Consider what would happen if there were only bit errors; there are no packet losses but premature timeouts can occur. Consider how many times the nth packet is sent, in the limit as n approaches infinity.)</p>
+<h2 id="P13"><a href="#P13" class="headerlink" title="P13."></a>P13.</h2><p>Consider the rdt 3 . 0 protocol. Draw a diagram showing that if the network connection between the sender and receiver can reorder messages (that is, that two messages propagating in the medium between the sender and receiver can be reordered), then the alternating-bit protocol will not work correctly (make sure you clearly identify the sense in which it will not work correctly). Your diagram should have the sender on the left and the receiver on the right, with the time axis running down the page, showing data (D) and acknowledgment (A) message exchange. Make sure you indicate the sequence number associated with any data or acknowledgment segment.</p>
+<h2 id="P14"><a href="#P14" class="headerlink" title="P14."></a>P14.</h2><p>Consider a reliable data transfer protocol that uses only negative acknowledgments. Suppose the sender sends data only infrequently. Would a NAK-only protocol be preferable to a protocol that uses ACKs? Why? Now suppose the sender has a lot of data to send and the end-to-end connection experiences few losses. In this second case, would a NAK-only protocol be preferable to a protocol that uses ACKs? Why?</p>
+<h2 id="P16"><a href="#P16" class="headerlink" title="P16."></a>P16.</h2><p>Suppose an application uses rdt 3 . 0 as its transport layer protocol. As the stop-and-wait protocol has very low channel utilization (shown in the crosscountry example), the designers of this application let the receiver keep sending back a number (more than two) of alternating ACK 0 and ACK 1 even if the corresponding data have not arrived at the receiver. Would this application design increase the channel utilization? Why? Are there any potential problems with this approach? Explain.</p>
+<h2 id="P22"><a href="#P22" class="headerlink" title="P22."></a>P22.</h2><p>Consider the GBN protocol with a sender window size of 4 and a sequence number range of 1,024. Suppose that at time t, the next in-order packet that the receiver is expecting has a sequence number of k. Assume that the medium does not reorder messages. Answer the following questions:<br>a. What are the possible sets of sequence numbers inside the sender’s window at time I? Justify your answer.<br>b. What are all possible values of the ACK field in all possible messages currently propagating back to the sender at time &#x2F;? Justify your answer.</p>
+<h2 id="P23"><a href="#P23" class="headerlink" title="P23."></a>P23.</h2><p>Consider the GBN and SR protocols. Suppose the sequence number space is of size k. What is the largest allowable sender window that will avoid the occurrence of problems such as that in Figure 3.27 for each of these protocols?</p>
+<h2 id="P24"><a href="#P24" class="headerlink" title="P24."></a>P24.</h2><p>Answer true or false to the following questions and briefly justify your<br>answer:<br>a. With the SR protocol, it is possible for the sender to receive an ACK for a packet that falls outside of its current window.<br>b. With GBN, it is possible for the sender to receive an ACK for a packet that falls outside of its current window.<br>c. The alternating-bit protocol is the same as the SR protocol with a sender and receiver window size of 1.<br>d. The alternating-bit protocol is the same as the GBN protocol with a sender and receiver window size of 1.</p>
+<h2 id="P25"><a href="#P25" class="headerlink" title="P25."></a>P25.</h2><p>We have said that an application may choose UDP for a transport protocol because UDP offers finer application control (than TCP) of what data is sent in a segment and when. Why does an application have more control of what data is sent in a segment? Why does an application have more control on when the segment is sent?<br>P26. Consider transferring an enormous file of L bytes from Host A to Host B. Assume an MSS of 536 bytes.<br>a. What is the maximum value of L such that TCP sequence numbers are not exhausted? Recall that the TCP sequence number field has 4 bytes.<br>b. For the L you obtain in (a), find how long it takes to transmit the file. Assume that a total of 66 bytes of transport, network, and data-link header are added to each segment before the resulting packet is sent out over a 155 Mbps link. Ignore flow control and congestion control so A can pump out the segments back to back and continuously.  </p>
+]]></content>
+      <categories>
+        <category>2024SemesterB</category>
+      </categories>
+      <tags>
+        <tag>EE5412计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>计算机网络课后习题：第二章</title>
     <url>/2024/02/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98%EF%BC%9A%E7%AC%AC%E4%BA%8C%E7%AB%A0/</url>
     <content><![CDATA[<h1 id="第二章-考试内容"><a href="#第二章-考试内容" class="headerlink" title="第二章 考试内容"></a>第二章 考试内容</h1><h2 id="P4-HTTP-GET报文"><a href="#P4-HTTP-GET报文" class="headerlink" title="P4 HTTP GET报文"></a>P4 HTTP GET报文</h2><p>Consider the following string of ASCII characters that were captured by Wireshark when the browser sent an HTTP GET message (i.e., this is the actual content of an HTTP GET message). The characters <cr><lfi> are carriage return and line-feed characters (that is, the italized character string <cr> in the text below represents the single carriage-return character that was contained at that point in the HTTP header). Answer the following questions, indicating where in the HTTP GET message below you find the answer.  </p>
@@ -394,49 +462,6 @@
 <h2 id="P22"><a href="#P22" class="headerlink" title="P22."></a>P22.</h2><p>Consider distributing a file of F &#x3D; 20 Gbits to N peers. The server has an upload rate of us &#x3D; 30 Mbps, and each peer has a download rate of d, &#x3D; 2 Mbps and an upload rate of u. For N &#x3D; 10, 100, and 1,000 and u &#x3D; 300 Kbps, 700 Kbps, and 2 Mbps, prepare a chart giving the minimum distribution time for each of the combinations of N and u for both clientserver distribution and P2P distribution.</p>
 <h2 id="P23"><a href="#P23" class="headerlink" title="P23."></a>P23.</h2><p>Consider distributing a file of F bits to N peers using a client-server architecture. Assume a fluid model where the server can simultaneously transmit to multiple peers, transmitting to each peer at different rates, as long as the combined rate does not exceed us.<br>a. Suppose that us&#x2F;N &lt; J min. Specify a distribution scheme that has a distribution time of NF&#x2F;us.<br>b. Suppose that us&#x2F;N &gt; J min. Specify a distribution scheme that has a distribution time of F&#x2F;dmjn.<br>c. Conclude that the minimum distribution time is in general given by max {NF&#x2F;us, F&#x2F;dmin } .</p>
 <h2 id="P24"><a href="#P24" class="headerlink" title="P24."></a>P24.</h2><p>Consider distributing a file of F bits to N peers using a P2P architecture. Assume a fluid model. For simplicity assume that dmin is very large, so that peer download bandwidth is never a bottleneck.<br>a. Suppose that us &lt; (us + iq + . . . + uN )&#x2F;N. Specify a distribution scheme that has a distribution time of F&#x2F;us.<br>b. Suppose that us &gt; (us + iq + . . . + uN )&#x2F;N. Specify a distribution scheme that has a distribution time of NF&#x2F;(us + iq + . . . + uN ).<br>c. Conclude that the minimum distribution time is in general given by max{ F&#x2F;us, NF&#x2F;(us + iq + . . . + uN ) } .  </p>
-]]></content>
-      <categories>
-        <category>2024SemesterB</category>
-      </categories>
-      <tags>
-        <tag>EE5412计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>多维数组test1-part1</title>
-    <url>/2024/02/24/%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84test1-part1/</url>
-    <content><![CDATA[<h1 id="part1"><a href="#part1" class="headerlink" title="part1"></a>part1</h1><h2 id="1-Correlation-vs-cosine-vs-Euclidean-distance"><a href="#1-Correlation-vs-cosine-vs-Euclidean-distance" class="headerlink" title="1. Correlation vs cosine vs Euclidean distance"></a>1. Correlation vs cosine vs Euclidean distance</h2><h4 id="Correlation"><a href="#Correlation" class="headerlink" title="Correlation:"></a>Correlation:</h4><p><img src="/./../2024Picture/image-20240224205336895.png" alt="image-20240224205336895" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<blockquote>
-<p>Correlation 相关度</p>
-<p>covariance 协方差</p>
-<p>standard deviation 标准差</p>
-</blockquote>
-<h4 id="Cosine-Similarity"><a href="#Cosine-Similarity" class="headerlink" title="Cosine Similarity:"></a>Cosine Similarity:</h4><h2 id="2-mutual-information"><a href="#2-mutual-information" class="headerlink" title="2.mutual information"></a>2.mutual information</h2><h2 id="3-Gini-Index-Entropy-Misclassification-error-Gain"><a href="#3-Gini-Index-Entropy-Misclassification-error-Gain" class="headerlink" title="3.Gini Index, Entropy, Misclassification error, Gain"></a>3.Gini Index, Entropy, Misclassification error, Gain</h2><h2 id="4-Gain-Ratio-Split-Info"><a href="#4-Gain-Ratio-Split-Info" class="headerlink" title="4.Gain Ratio, Split Info"></a>4.Gain Ratio, Split Info</h2><h2 id="5-Pessimistic-Error-Estimate"><a href="#5-Pessimistic-Error-Estimate" class="headerlink" title="5.Pessimistic Error Estimate"></a>5.Pessimistic Error Estimate</h2><h2 id="6-Kmeans-Kmeans"><a href="#6-Kmeans-Kmeans" class="headerlink" title="6.Kmeans, Kmeans+"></a>6.Kmeans, Kmeans+</h2>]]></content>
-      <categories>
-        <category>2024SemesterB</category>
-      </categories>
-      <tags>
-        <tag>EE6453多维数组</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机网络课后习题：第三章</title>
-    <url>/2024/02/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98%EF%BC%9A%E7%AC%AC%E4%B8%89%E7%AB%A0/</url>
-    <content><![CDATA[<h1 id="第三章-考试内容"><a href="#第三章-考试内容" class="headerlink" title="第三章 考试内容"></a>第三章 考试内容</h1><h2 id="P2"><a href="#P2" class="headerlink" title="P2."></a>P2.</h2><p>Consider Figure 3.5. What are the source and destination port values in the segments flowing from the server back to the clients’ processes? What are the IP addresses in the network-layer datagrams carrying the transport-layer segments?  </p>
-<p><img src="/./../2024Picture/image-20240224164104110.png" alt="image-20240224164104110" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="P3"><a href="#P3" class="headerlink" title="P3."></a>P3.</h2><p>UDP and TCP use Is complement for their checksums. Suppose you have the following three 8-bit bytes: 01010011, 01100110, 01110100. What is the Is complement of the sum of these 8-bit bytes? (Note that although UDP and TCP use 16-bit words in computing the checksum, for this problem you are being asked to consider 8-bit sums.) Show all work. Why is it that UDP takes the Is complement of the sum; that is, why not just use the sum? With the Is complement scheme, how does the receiver detect errors? Is it possible that a 1-bit error will go undetected? How about a 2-bit error?  </p>
-<h2 id="P4"><a href="#P4" class="headerlink" title="P4."></a>P4.</h2><p>a. Suppose you have the following 2 bytes: 01011100 and 01100101. What is the Is complement of the sum of these 2 bytes?<br>b. Suppose you have the following 2 bytes: 11011010 and 01100101. What is the Is complement of the sum of these 2 bytes?<br>c. For the bytes in part (a), give an example where one bit is flipped in each of the 2 bytes and yet the Is complement doesn’t change.  </p>
-<h2 id="P5"><a href="#P5" class="headerlink" title="P5."></a>P5.</h2><p>Suppose that the UDP receiver computes the Internet checksum for the received UDP segment and finds that it matches the value carried in the checksum field. Can the receiver be absolutely certain that no bit errors have occurred? Explain.  </p>
-<h2 id="P7"><a href="#P7" class="headerlink" title="P7."></a>P7.</h2><p>In protocol rdt3 . 0, the ACK packets flowing from the receiver to the sender do not have sequence numbers (although they do have an ACK field that contains the sequence number of the packet they are acknowledging). Why is it that our ACK packets do not require sequence numbers?  </p>
-<h2 id="P9"><a href="#P9" class="headerlink" title="P9."></a>P9.</h2><p>Give a trace of the operation of protocol rdt3 . 0 when data packets and acknowledgment packets are garbled (scenarios for corrupted data and corrupted ACK). Suppose the protocol has been in operation for some time. The sender is in state “Wait for call from above” (top left hand comer) and the receiver is in state “Wait for 0 from below”.  </p>
-<h2 id="P12"><a href="#P12" class="headerlink" title="P12."></a>P12.</h2><p>The sender side of rdt3 . 0 simply ignores (that is, takes no action on) all received packets that are either in error or have the wrong value in the ack num field of an acknowledgment packet. Suppose that in such circumstances, rdt3 . 0 were simply to retransmit the current data packet. Would the protocol still work? (Hint: Consider what would happen if there were only bit errors; there are no packet losses but premature timeouts can occur. Consider how many times the nth packet is sent, in the limit as n approaches infinity.)</p>
-<h2 id="P13"><a href="#P13" class="headerlink" title="P13."></a>P13.</h2><p>Consider the rdt 3 . 0 protocol. Draw a diagram showing that if the network connection between the sender and receiver can reorder messages (that is, that two messages propagating in the medium between the sender and receiver can be reordered), then the alternating-bit protocol will not work correctly (make sure you clearly identify the sense in which it will not work correctly). Your diagram should have the sender on the left and the receiver on the right, with the time axis running down the page, showing data (D) and acknowledgment (A) message exchange. Make sure you indicate the sequence number associated with any data or acknowledgment segment.</p>
-<h2 id="P14"><a href="#P14" class="headerlink" title="P14."></a>P14.</h2><p>Consider a reliable data transfer protocol that uses only negative acknowledgments. Suppose the sender sends data only infrequently. Would a NAK-only protocol be preferable to a protocol that uses ACKs? Why? Now suppose the sender has a lot of data to send and the end-to-end connection experiences few losses. In this second case, would a NAK-only protocol be preferable to a protocol that uses ACKs? Why?</p>
-<h2 id="P16"><a href="#P16" class="headerlink" title="P16."></a>P16.</h2><p>Suppose an application uses rdt 3 . 0 as its transport layer protocol. As the stop-and-wait protocol has very low channel utilization (shown in the crosscountry example), the designers of this application let the receiver keep sending back a number (more than two) of alternating ACK 0 and ACK 1 even if the corresponding data have not arrived at the receiver. Would this application design increase the channel utilization? Why? Are there any potential problems with this approach? Explain.</p>
-<h2 id="P22"><a href="#P22" class="headerlink" title="P22."></a>P22.</h2><p>Consider the GBN protocol with a sender window size of 4 and a sequence number range of 1,024. Suppose that at time t, the next in-order packet that the receiver is expecting has a sequence number of k. Assume that the medium does not reorder messages. Answer the following questions:<br>a. What are the possible sets of sequence numbers inside the sender’s window at time I? Justify your answer.<br>b. What are all possible values of the ACK field in all possible messages currently propagating back to the sender at time &#x2F;? Justify your answer.</p>
-<h2 id="P23"><a href="#P23" class="headerlink" title="P23."></a>P23.</h2><p>Consider the GBN and SR protocols. Suppose the sequence number space is of size k. What is the largest allowable sender window that will avoid the occurrence of problems such as that in Figure 3.27 for each of these protocols?</p>
-<h2 id="P24"><a href="#P24" class="headerlink" title="P24."></a>P24.</h2><p>Answer true or false to the following questions and briefly justify your<br>answer:<br>a. With the SR protocol, it is possible for the sender to receive an ACK for a packet that falls outside of its current window.<br>b. With GBN, it is possible for the sender to receive an ACK for a packet that falls outside of its current window.<br>c. The alternating-bit protocol is the same as the SR protocol with a sender and receiver window size of 1.<br>d. The alternating-bit protocol is the same as the GBN protocol with a sender and receiver window size of 1.</p>
-<h2 id="P25"><a href="#P25" class="headerlink" title="P25."></a>P25.</h2><p>We have said that an application may choose UDP for a transport protocol because UDP offers finer application control (than TCP) of what data is sent in a segment and when. Why does an application have more control of what data is sent in a segment? Why does an application have more control on when the segment is sent?<br>P26. Consider transferring an enormous file of L bytes from Host A to Host B. Assume an MSS of 536 bytes.<br>a. What is the maximum value of L such that TCP sequence numbers are not exhausted? Recall that the TCP sequence number field has 4 bytes.<br>b. For the L you obtain in (a), find how long it takes to transmit the file. Assume that a total of 66 bytes of transport, network, and data-link header are added to each segment before the resulting packet is sent out over a 155 Mbps link. Ignore flow control and congestion control so A can pump out the segments back to back and continuously.  </p>
 ]]></content>
       <categories>
         <category>2024SemesterB</category>
