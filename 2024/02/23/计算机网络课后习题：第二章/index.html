@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="第二章 考试内容P4 HTTP GET报文Consider the following string of ASCII characters that were captured by Wireshark when the browser sent an HTTP GET message (i.e., this is the actual content of an HTTP GET messag">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络课后习题：第二章">
+<meta property="og:url" content="http://example.com/2024/02/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98%EF%BC%9A%E7%AC%AC%E4%BA%8C%E7%AB%A0/index.html">
+<meta property="og:site_name" content="HuskeyBunch">
+<meta property="og:description" content="第二章 考试内容P4 HTTP GET报文Consider the following string of ASCII characters that were captured by Wireshark when the browser sent an HTTP GET message (i.e., this is the actual content of an HTTP GET messag">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-02-23T14:36:18.430Z">
+<meta property="article:modified_time" content="2024-02-24T12:23:31.178Z">
+<meta property="article:tag" content="EE5412计算机网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
+
+
+<title >计算机网络课后习题：第二章</title>
+
+<!-- Favicon -->
+
+    <link href='/dog1.svg?v=2.1.10' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/dog1.svg?v=2.1.10' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+    <link href='/apple-touch-icon.png?v=2.1.10' rel='apple-touch-icon' sizes='180x180' ></link>
+
+
+    <link href='/site.webmanifest' rel='manifest' ></link>
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":null,"root":"/","typed_text":["hometown is in Siberia"],"theme_version":"2.1.10","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"dog1.svg","icon16":"dog1.svg","icon32":"dog1.svg","appleTouchIcon":"apple-touch-icon.png","webmanifest":"/site.webmanifest","visibilitychange":true,"hidden":"wrong.svg","showText":"什么你不信？","hideText":"哎呀网页崩溃了"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://npm.elemecdn.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":true},"live_time":{"start_time":"","prefix":"博客已萌萌哒运行 undefined 天"},"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"path":"search.xml"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-02-24 20:23:31"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.10" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/dog1.svg">
+    
+    
+        <div class="trm-logo-text">
+            huskey<span>bunch</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    首页
+                </a>
+                
+                <ul>
+                    
+                    <li>
+                        <a  href="/archives2/" target="">
+                            archives
+                        </a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories/" target="">
+                    主题
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/picture.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-12">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text trm-text-center ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            计算机网络课后习题：第二章
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2024
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+            <div class="trm-page-content col-lg-12">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            02/23
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            22:36
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            huskeybunch
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h1 id="第二章-考试内容"><a href="#第二章-考试内容" class="headerlink" title="第二章 考试内容"></a>第二章 考试内容</h1><h2 id="P4-HTTP-GET报文"><a href="#P4-HTTP-GET报文" class="headerlink" title="P4 HTTP GET报文"></a>P4 HTTP GET报文</h2><p>Consider the following string of ASCII characters that were captured by Wireshark when the browser sent an HTTP GET message (i.e., this is the actual content of an HTTP GET message). The characters <cr><lfi> are carriage return and line-feed characters (that is, the italized character string <cr> in the text below represents the single carriage-return character that was contained at that point in the HTTP header). Answer the following questions, indicating where in the HTTP GET message below you find the answer.  </p>
+<p><img src="/./../2024Picture/image-20240224145525092.png" alt="image-20240224145525092" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>a. What is the URL of the document requested by the browser?</p>
+<p>文档的URL： gaia.cs.umass.edu&#x2F;cs453&#x2F;index.html</p>
+<p>b. What version of HTTP is the browser running?</p>
+<p>HTTP版本： HTTP&#x2F;1.1</p>
+<p>c. Does the browser request a non-persistent or a persistent connection?</p>
+<p>presistent connection</p>
+<p>因为connection: keep - alive</p>
+<p>d. What is the IP address of the host on which the browser is running?</p>
+<p>这是一个陷阱的问题。此信息不包含在HTTP消息任何地方。因此，没有办法从看HTTP交换讲这个<br>单独的消息。人们会需要从IP数据报信息(即携带的运载的HTTP GET请求)来回答这个问题TCP段。</p>
+<p>e. What type of browser initiates this message? Why is the browser type needed in an HTTP request message?  </p>
+<p>浏览器类型：Mozilla&#x2F;5.0</p>
+<p>浏览器类型可以让服务器为不同的浏览器发送不同的版本。</p>
+<h2 id="P5-浏览器响应HTTP-GET报文"><a href="#P5-浏览器响应HTTP-GET报文" class="headerlink" title="P5 浏览器响应HTTP GET报文"></a>P5 浏览器响应HTTP GET报文</h2><p>The text below shows the reply sent from the server in response to the HTTP GET message in the question above. Answer the following questions, indicating where in the message below you find the answer.  </p>
+<p><img src="/./../2024Picture/image-20240224152327813.png" alt="image-20240224152327813" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>a. Was the server able to successfully find the document or not? What time was the document reply provided?</p>
+<p>成功接收到了 因为：200 OK</p>
+<p>接收到的时间是 Tuesday, 07 Mar 2006 12:39:45 Greenwich Mean Time.(后面的后缀也要写完整，代表哪个时区)</p>
+<blockquote>
+<p><strong>浏览器状态码</strong></p>
+<ul>
+<li>200 - 请求成功</li>
+<li>301 - 资源（网页等）被永久转移到其它URL</li>
+<li>404 - 请求的资源（网页等）不存在</li>
+<li>500 - 内部服务器错误</li>
+</ul>
+</blockquote>
+<p>b. When was the document last modified?</p>
+<p>该文档最后修改时间：如果按老师出的是没有的</p>
+<p><img src="/./../2024Picture/image-20240224154238029.png" alt="image-20240224154238029" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>如果按照课本原来的题目：</p>
+<p>文档的时间为：SAT, 10 Dec2005 18:27:46 GMT</p>
+<p>c. How many bytes are there in the document being returned?</p>
+<p>Document有3874 bytes</p>
+<p>因为 Content-length &#x3D; 3874</p>
+<p>d. What are the first 5 bytes of the document being returned? Did the server agree to a persistent connection?  </p>
+<p>前五个字节： &lt;!doc<br>同意持续连接 因为：Connection: Keep-Alive</p>
+<h2 id="P7-点击超链接的响应时间"><a href="#P7-点击超链接的响应时间" class="headerlink" title="P7 点击超链接的响应时间"></a>P7 点击超链接的响应时间</h2><p>Suppose within your Web browser you click on a link to obtain a Web page. The IP address for the associated URL is not cached in your local host, so a DNS lookup is necessary to obtain the IP address. Suppose that n DNS servers are visited before your host receives the IP address from DNS; the successive visits incur an RTT of RTT1 . . . , RTT„. Further suppose that the Web page associated with the link contains exactly one object, consisting of a small amount of HTML text. Let RTT0 denote the RTT between the local host and the server containing the object. Assuming zero transmission time of the object, how much time elapses（时间流逝） from when the client clicks on the link until the client receives the object?  </p>
+<p><img src="/./../2024Picture/image-20240224154944602.png" alt="image-20240224154944602" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<blockquote>
+<p><strong>RTT（round-trip time）往返时间</strong></p>
+<p>一个短分组从源到目标再返回源的总延时。（无传输时延）</p>
+<p><strong>一次请求响应总时间 ≈ RTT + 传输延时</strong></p>
+</blockquote>
+<p>获取IP地址的总时间为: RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub></p>
+<p>一旦知道了IP地址，RTT0将用来建立TCP连接，另一个RTT0将用来请求连接。</p>
+<p>一共需要：</p>
+<p>2RTT<sub>0</sub> + RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub></p>
+<h2 id="P8-非持续HTTP和持续HTTP"><a href="#P8-非持续HTTP和持续HTTP" class="headerlink" title="P8 非持续HTTP和持续HTTP"></a>P8 非持续HTTP和持续HTTP</h2><p>Referring to Problem P7, suppose the HTML file references eight very small objects on the same server. Neglecting transmission times, how much time elapses with<br>a. Non-persistent HTTP with no parallel TCP connections?</p>
+<p>b. Non-persistent HTTP with the <strong>browser configured for 6 parallel</strong><br><strong>connections?</strong></p>
+<p>c. Persistent HTTP?  </p>
+<p>获取IP地址的总时间为: RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub></p>
+<p>a.  RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub>  + 2RTT<sub>0</sub> + 8 × 2RTT<sub>0</sub> </p>
+<p>b.  RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub>  + 2RTT<sub>0</sub> + 2 × 2RTT<sub>0</sub></p>
+<p>c.  有流水线的 pipelining: RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub>  + 2RTT<sub>0</sub> +  RTT<sub>0</sub></p>
+<p>​      没有流水线的 without pipelining RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub>  + 2RTT<sub>0</sub> +  8RTT<sub>0</sub></p>
+<blockquote>
+<p>1个HTML基本文件和10个其他对象，</p>
+<p><strong>非持续连接</strong></p>
+<p><em><strong>每个响应&#x2F;请求对都是经一个单独的TCP连接发送。</strong></em></p>
+<p>则每次都建立TCP连接、请求响应，共11次。</p>
+<p>并行非持续：首先建立连接、请求响应，之后并行10个建立连接、请求响应。</p>
+<p><strong>持续连接</strong></p>
+<p><em><strong>所有请求及响应都是经相同的TCP连接发送</strong></em></p>
+<p>首先建立连接、请求响应，之后进行10次请求响应。</p>
+<p>(默认）带流水线的持续：首先建立连接、请求响应，之后按流水线的方式发送10次请求，得到10个响应，几乎在1个RTT内得到10个对象的响应报文。</p>
+</blockquote>
+<h2 id="P9"><a href="#P9" class="headerlink" title="P9."></a>P9.</h2><p>Consider Figure 2.12, for which there is an institutional network connected to the Internet. Suppose that the average object size is 1,000,000 bits and that the average request rate from the institution’s browsers to the origin servers is 16 requests per second. Also suppose that the amount of time it takes from when the router on the Internet side of the access link forwards an HTTP request until it receives the response is three seconds on average (see Section 2.2.5). Model the total average response time as the sum of the average access delay (that is, the delay from Internet router to institution router) and the average Internet delay. For the average access delay, use A&#x2F;(l — A&#x2F;3), where A is the average time required to send an object over the access link and (3 is the arrival rate of objects to the access link.</p>
+<p><img src="/./../2024Picture/image-20240224165856951.png" alt="image-20240224165856951" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>a. Find the total average response time.<br>b. Now suppose a cache is installed in the institutional LAN. Suppose the miss rate is 0.4. Find the total response time.  </p>
+<h2 id="P10-持续和非持续HTTP"><a href="#P10-持续和非持续HTTP" class="headerlink" title="P10 持续和非持续HTTP"></a>P10 持续和非持续HTTP</h2><p>Consider a short, 10-meter link, over which a sender can transmit at a rate of 150 bits&#x2F;sec in both directions. Suppose <strong>that packets containing data</strong> are 100,000 bits long, and <strong>packets containing only control</strong> (e.g., ACK or handshaking) are 200 bits long. Assume that N parallel connections each get 1&#x2F;N of the link bandwidth. Now consider the HTTP protocol, and suppose that <strong>each downloaded object</strong> is 100 Kbits long, and that the initial downloaded object contains <strong>10 referenced objects</strong> from the same sender. Would parallel downloads via <strong>parallel instances of non-persistent HTTP</strong> make sense in this case? Now consider <strong>persistent HTTP</strong>. Do you expect significant gains over the non-persistent case? Justify and explain your answer.  </p>
+<p><img src="/./../2024Picture/image-20240224165916793.png" alt="image-20240224165916793" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224170414066.png" alt="image-20240224170414066" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224170640569.png" alt="image-20240224170640569" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<blockquote>
+<p><strong>数据分组 packets containing data</strong> </p>
+<p><strong>控制分组 packets containing only control</strong>：连接建立，连接确认</p>
+</blockquote>
+<h2 id="P11"><a href="#P11" class="headerlink" title="P11."></a>P11.</h2><p>Consider the scenario introduced in the previous problem. Now suppose that the link is shared by Bob with four other users. Bob uses parallel instances of non-persistent HTTP, and the other four users use non-persistent HTTP without parallel downloads.<br>a. Do Bob’s parallel connections help him get Web pages more quickly? Why or why not?<br>b. If all five users open five parallel instances of non-persistent HTTP, then would Bob’s parallel connections still be beneficial? Why or why not?</p>
+<h2 id="P20"><a href="#P20" class="headerlink" title="P20."></a>P20.</h2><p>Suppose you can access the caches in the local DNS servers of your department. Can you propose a way to roughly determine the Web servers (outside your department) that are most popular among the users in your department? Explain.</p>
+<h2 id="P21"><a href="#P21" class="headerlink" title="P21."></a>P21.</h2><p>Suppose that your department has a local DNS server for all computers in the department. You are an ordinary user (i.e., not a network&#x2F;system administrator). Can you determine if an external Web site was likely accessed from a computer in your department a couple of seconds ago? Explain.</p>
+<h2 id="P22"><a href="#P22" class="headerlink" title="P22."></a>P22.</h2><p>Consider distributing a file of F &#x3D; 20 Gbits to N peers. The server has an upload rate of us &#x3D; 30 Mbps, and each peer has a download rate of d, &#x3D; 2 Mbps and an upload rate of u. For N &#x3D; 10, 100, and 1,000 and u &#x3D; 300 Kbps, 700 Kbps, and 2 Mbps, prepare a chart giving the minimum distribution time for each of the combinations of N and u for both clientserver distribution and P2P distribution.</p>
+<h2 id="P23"><a href="#P23" class="headerlink" title="P23."></a>P23.</h2><p>Consider distributing a file of F bits to N peers using a client-server architecture. Assume a fluid model where the server can simultaneously transmit to multiple peers, transmitting to each peer at different rates, as long as the combined rate does not exceed us.<br>a. Suppose that us&#x2F;N &lt; J min. Specify a distribution scheme that has a distribution time of NF&#x2F;us.<br>b. Suppose that us&#x2F;N &gt; J min. Specify a distribution scheme that has a distribution time of F&#x2F;dmjn.<br>c. Conclude that the minimum distribution time is in general given by max {NF&#x2F;us, F&#x2F;dmin } .</p>
+<h2 id="P24"><a href="#P24" class="headerlink" title="P24."></a>P24.</h2><p>Consider distributing a file of F bits to N peers using a P2P architecture. Assume a fluid model. For simplicity assume that dmin is very large, so that peer download bandwidth is never a bottleneck.<br>a. Suppose that us &lt; (us + iq + . . . + uN )&#x2F;N. Specify a distribution scheme that has a distribution time of F&#x2F;us.<br>b. Suppose that us &gt; (us + iq + . . . + uN )&#x2F;N. Specify a distribution scheme that has a distribution time of NF&#x2F;(us + iq + . . . + uN ).<br>c. Conclude that the minimum distribution time is in general given by max{ F&#x2F;us, NF&#x2F;(us + iq + . . . + uN ) } .  </p>
+
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/2024/02/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98%EF%BC%9A%E7%AC%AC%E4%B8%89%E7%AB%A0/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/./../cover/cover5.jpg">
+                </span>
+                <h6 class="trm-op-title">计算机网络课后习题：第三章</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/02/24</li>
+                <li>16:37</li>
+                <li>2024SemesterB</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/2024/02/22/%E6%8E%92%E9%98%9F%E8%AE%BA%E5%A4%8D%E4%B9%A0/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/./../cover/cover3.jpg">
+                </span>
+                <h6 class="trm-op-title">排队论第一次考试</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/02/22</li>
+                <li>22:29</li>
+                <li>2024SemesterB</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v7.1.1
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.1.10
+            </span>
+        </div>
+      
+
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        目录导航
+				<span id="post-toc-top">
+					置顶
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="第二章 考试内容"><a rel="nofollow" class="trm-toc-link" href="#第二章-考试内容"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">第二章 考试内容</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="P4 HTTP GET报文"><a rel="nofollow" class="trm-toc-link" href="#P4-HTTP-GET报文"><span class="trm-toc-number">1.1.</span> <span class="trm-toc-text">P4 HTTP GET报文</span></a></li><li class="trm-toc-item trm-toc-level-2" title="P5 浏览器响应HTTP GET报文"><a rel="nofollow" class="trm-toc-link" href="#P5-浏览器响应HTTP-GET报文"><span class="trm-toc-number">1.2.</span> <span class="trm-toc-text">P5 浏览器响应HTTP GET报文</span></a></li><li class="trm-toc-item trm-toc-level-2" title="P7 点击超链接的响应时间"><a rel="nofollow" class="trm-toc-link" href="#P7-点击超链接的响应时间"><span class="trm-toc-number">1.3.</span> <span class="trm-toc-text">P7 点击超链接的响应时间</span></a></li><li class="trm-toc-item trm-toc-level-2" title="P8 非持续HTTP和持续HTTP"><a rel="nofollow" class="trm-toc-link" href="#P8-非持续HTTP和持续HTTP"><span class="trm-toc-number">1.4.</span> <span class="trm-toc-text">P8 非持续HTTP和持续HTTP</span></a></li><li class="trm-toc-item trm-toc-level-2" title="P9."><a rel="nofollow" class="trm-toc-link" href="#P9"><span class="trm-toc-number">1.5.</span> <span class="trm-toc-text">P9.</span></a></li><li class="trm-toc-item trm-toc-level-2" title="P10 持续和非持续HTTP"><a rel="nofollow" class="trm-toc-link" href="#P10-持续和非持续HTTP"><span class="trm-toc-number">1.6.</span> <span class="trm-toc-text">P10 持续和非持续HTTP</span></a></li><li class="trm-toc-item trm-toc-level-2" title="P11."><a rel="nofollow" class="trm-toc-link" href="#P11"><span class="trm-toc-number">1.7.</span> <span class="trm-toc-text">P11.</span></a></li><li class="trm-toc-item trm-toc-level-2" title="P20."><a rel="nofollow" class="trm-toc-link" href="#P20"><span class="trm-toc-number">1.8.</span> <span class="trm-toc-text">P20.</span></a></li><li class="trm-toc-item trm-toc-level-2" title="P21."><a rel="nofollow" class="trm-toc-link" href="#P21"><span class="trm-toc-number">1.9.</span> <span class="trm-toc-text">P21.</span></a></li><li class="trm-toc-item trm-toc-level-2" title="P22."><a rel="nofollow" class="trm-toc-link" href="#P22"><span class="trm-toc-number">1.10.</span> <span class="trm-toc-text">P22.</span></a></li><li class="trm-toc-item trm-toc-level-2" title="P23."><a rel="nofollow" class="trm-toc-link" href="#P23"><span class="trm-toc-number">1.11.</span> <span class="trm-toc-text">P23.</span></a></li><li class="trm-toc-item trm-toc-level-2" title="P24."><a rel="nofollow" class="trm-toc-link" href="#P24"><span class="trm-toc-number">1.12.</span> <span class="trm-toc-text">P24.</span></a></li></ol></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="目录">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="搜索文章...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    请输入关键词进行搜索
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.1.10"></script>
+    
+
+    
+        
+<script src="https://npm.elemecdn.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.1.10"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.1.10"></script>
+
+</body>
+
+</html>

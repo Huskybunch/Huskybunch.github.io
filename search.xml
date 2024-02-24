@@ -294,6 +294,149 @@
 <p>横向：短板效应 哪个最短</p>
 <p>纵向：不仅需要看短板， 还要看中间部分&#x2F;用户数量，比谁最小</p>
 </blockquote>
+<blockquote>
+<p><strong>延迟分类</strong></p>
+<p><img src="/./../2024Picture/image-20240223223612651.png" alt="image-20240223223612651" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>2024SemesterB</category>
+      </categories>
+      <tags>
+        <tag>EE5412计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络课后习题：第二章</title>
+    <url>/2024/02/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98%EF%BC%9A%E7%AC%AC%E4%BA%8C%E7%AB%A0/</url>
+    <content><![CDATA[<h1 id="第二章-考试内容"><a href="#第二章-考试内容" class="headerlink" title="第二章 考试内容"></a>第二章 考试内容</h1><h2 id="P4-HTTP-GET报文"><a href="#P4-HTTP-GET报文" class="headerlink" title="P4 HTTP GET报文"></a>P4 HTTP GET报文</h2><p>Consider the following string of ASCII characters that were captured by Wireshark when the browser sent an HTTP GET message (i.e., this is the actual content of an HTTP GET message). The characters <cr><lfi> are carriage return and line-feed characters (that is, the italized character string <cr> in the text below represents the single carriage-return character that was contained at that point in the HTTP header). Answer the following questions, indicating where in the HTTP GET message below you find the answer.  </p>
+<p><img src="/./../2024Picture/image-20240224145525092.png" alt="image-20240224145525092" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>a. What is the URL of the document requested by the browser?</p>
+<p>文档的URL： gaia.cs.umass.edu&#x2F;cs453&#x2F;index.html</p>
+<p>b. What version of HTTP is the browser running?</p>
+<p>HTTP版本： HTTP&#x2F;1.1</p>
+<p>c. Does the browser request a non-persistent or a persistent connection?</p>
+<p>presistent connection</p>
+<p>因为connection: keep - alive</p>
+<p>d. What is the IP address of the host on which the browser is running?</p>
+<p>这是一个陷阱的问题。此信息不包含在HTTP消息任何地方。因此，没有办法从看HTTP交换讲这个<br>单独的消息。人们会需要从IP数据报信息(即携带的运载的HTTP GET请求)来回答这个问题TCP段。</p>
+<p>e. What type of browser initiates this message? Why is the browser type needed in an HTTP request message?  </p>
+<p>浏览器类型：Mozilla&#x2F;5.0</p>
+<p>浏览器类型可以让服务器为不同的浏览器发送不同的版本。</p>
+<h2 id="P5-浏览器响应HTTP-GET报文"><a href="#P5-浏览器响应HTTP-GET报文" class="headerlink" title="P5 浏览器响应HTTP GET报文"></a>P5 浏览器响应HTTP GET报文</h2><p>The text below shows the reply sent from the server in response to the HTTP GET message in the question above. Answer the following questions, indicating where in the message below you find the answer.  </p>
+<p><img src="/./../2024Picture/image-20240224152327813.png" alt="image-20240224152327813" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>a. Was the server able to successfully find the document or not? What time was the document reply provided?</p>
+<p>成功接收到了 因为：200 OK</p>
+<p>接收到的时间是 Tuesday, 07 Mar 2006 12:39:45 Greenwich Mean Time.(后面的后缀也要写完整，代表哪个时区)</p>
+<blockquote>
+<p><strong>浏览器状态码</strong></p>
+<ul>
+<li>200 - 请求成功</li>
+<li>301 - 资源（网页等）被永久转移到其它URL</li>
+<li>404 - 请求的资源（网页等）不存在</li>
+<li>500 - 内部服务器错误</li>
+</ul>
+</blockquote>
+<p>b. When was the document last modified?</p>
+<p>该文档最后修改时间：如果按老师出的是没有的</p>
+<p><img src="/./../2024Picture/image-20240224154238029.png" alt="image-20240224154238029" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>如果按照课本原来的题目：</p>
+<p>文档的时间为：SAT, 10 Dec2005 18:27:46 GMT</p>
+<p>c. How many bytes are there in the document being returned?</p>
+<p>Document有3874 bytes</p>
+<p>因为 Content-length &#x3D; 3874</p>
+<p>d. What are the first 5 bytes of the document being returned? Did the server agree to a persistent connection?  </p>
+<p>前五个字节： &lt;!doc<br>同意持续连接 因为：Connection: Keep-Alive</p>
+<h2 id="P7-点击超链接的响应时间"><a href="#P7-点击超链接的响应时间" class="headerlink" title="P7 点击超链接的响应时间"></a>P7 点击超链接的响应时间</h2><p>Suppose within your Web browser you click on a link to obtain a Web page. The IP address for the associated URL is not cached in your local host, so a DNS lookup is necessary to obtain the IP address. Suppose that n DNS servers are visited before your host receives the IP address from DNS; the successive visits incur an RTT of RTT1 . . . , RTT„. Further suppose that the Web page associated with the link contains exactly one object, consisting of a small amount of HTML text. Let RTT0 denote the RTT between the local host and the server containing the object. Assuming zero transmission time of the object, how much time elapses（时间流逝） from when the client clicks on the link until the client receives the object?  </p>
+<p><img src="/./../2024Picture/image-20240224154944602.png" alt="image-20240224154944602" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<blockquote>
+<p><strong>RTT（round-trip time）往返时间</strong></p>
+<p>一个短分组从源到目标再返回源的总延时。（无传输时延）</p>
+<p><strong>一次请求响应总时间 ≈ RTT + 传输延时</strong></p>
+</blockquote>
+<p>获取IP地址的总时间为: RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub></p>
+<p>一旦知道了IP地址，RTT0将用来建立TCP连接，另一个RTT0将用来请求连接。</p>
+<p>一共需要：</p>
+<p>2RTT<sub>0</sub> + RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub></p>
+<h2 id="P8-非持续HTTP和持续HTTP"><a href="#P8-非持续HTTP和持续HTTP" class="headerlink" title="P8 非持续HTTP和持续HTTP"></a>P8 非持续HTTP和持续HTTP</h2><p>Referring to Problem P7, suppose the HTML file references eight very small objects on the same server. Neglecting transmission times, how much time elapses with<br>a. Non-persistent HTTP with no parallel TCP connections?</p>
+<p>b. Non-persistent HTTP with the <strong>browser configured for 6 parallel</strong><br><strong>connections?</strong></p>
+<p>c. Persistent HTTP?  </p>
+<p>获取IP地址的总时间为: RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub></p>
+<p>a.  RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub>  + 2RTT<sub>0</sub> + 8 × 2RTT<sub>0</sub> </p>
+<p>b.  RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub>  + 2RTT<sub>0</sub> + 2 × 2RTT<sub>0</sub></p>
+<p>c.  有流水线的 pipelining: RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub>  + 2RTT<sub>0</sub> +  RTT<sub>0</sub></p>
+<p>​      没有流水线的 without pipelining RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub>  + 2RTT<sub>0</sub> +  8RTT<sub>0</sub></p>
+<blockquote>
+<p>1个HTML基本文件和10个其他对象，</p>
+<p><strong>非持续连接</strong></p>
+<p><em><strong>每个响应&#x2F;请求对都是经一个单独的TCP连接发送。</strong></em></p>
+<p>则每次都建立TCP连接、请求响应，共11次。</p>
+<p>并行非持续：首先建立连接、请求响应，之后并行10个建立连接、请求响应。</p>
+<p><strong>持续连接</strong></p>
+<p><em><strong>所有请求及响应都是经相同的TCP连接发送</strong></em></p>
+<p>首先建立连接、请求响应，之后进行10次请求响应。</p>
+<p>(默认）带流水线的持续：首先建立连接、请求响应，之后按流水线的方式发送10次请求，得到10个响应，几乎在1个RTT内得到10个对象的响应报文。</p>
+</blockquote>
+<h2 id="P9"><a href="#P9" class="headerlink" title="P9."></a>P9.</h2><p>Consider Figure 2.12, for which there is an institutional network connected to the Internet. Suppose that the average object size is 1,000,000 bits and that the average request rate from the institution’s browsers to the origin servers is 16 requests per second. Also suppose that the amount of time it takes from when the router on the Internet side of the access link forwards an HTTP request until it receives the response is three seconds on average (see Section 2.2.5). Model the total average response time as the sum of the average access delay (that is, the delay from Internet router to institution router) and the average Internet delay. For the average access delay, use A&#x2F;(l — A&#x2F;3), where A is the average time required to send an object over the access link and (3 is the arrival rate of objects to the access link.</p>
+<p><img src="/./../2024Picture/image-20240224165856951.png" alt="image-20240224165856951" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>a. Find the total average response time.<br>b. Now suppose a cache is installed in the institutional LAN. Suppose the miss rate is 0.4. Find the total response time.  </p>
+<h2 id="P10-持续和非持续HTTP"><a href="#P10-持续和非持续HTTP" class="headerlink" title="P10 持续和非持续HTTP"></a>P10 持续和非持续HTTP</h2><p>Consider a short, 10-meter link, over which a sender can transmit at a rate of 150 bits&#x2F;sec in both directions. Suppose <strong>that packets containing data</strong> are 100,000 bits long, and <strong>packets containing only control</strong> (e.g., ACK or handshaking) are 200 bits long. Assume that N parallel connections each get 1&#x2F;N of the link bandwidth. Now consider the HTTP protocol, and suppose that <strong>each downloaded object</strong> is 100 Kbits long, and that the initial downloaded object contains <strong>10 referenced objects</strong> from the same sender. Would parallel downloads via <strong>parallel instances of non-persistent HTTP</strong> make sense in this case? Now consider <strong>persistent HTTP</strong>. Do you expect significant gains over the non-persistent case? Justify and explain your answer.  </p>
+<p><img src="/./../2024Picture/image-20240224165916793.png" alt="image-20240224165916793" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224170414066.png" alt="image-20240224170414066" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224170640569.png" alt="image-20240224170640569" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<blockquote>
+<p><strong>数据分组 packets containing data</strong> </p>
+<p><strong>控制分组 packets containing only control</strong>：连接建立，连接确认</p>
+</blockquote>
+<h2 id="P11"><a href="#P11" class="headerlink" title="P11."></a>P11.</h2><p>Consider the scenario introduced in the previous problem. Now suppose that the link is shared by Bob with four other users. Bob uses parallel instances of non-persistent HTTP, and the other four users use non-persistent HTTP without parallel downloads.<br>a. Do Bob’s parallel connections help him get Web pages more quickly? Why or why not?<br>b. If all five users open five parallel instances of non-persistent HTTP, then would Bob’s parallel connections still be beneficial? Why or why not?</p>
+<h2 id="P20"><a href="#P20" class="headerlink" title="P20."></a>P20.</h2><p>Suppose you can access the caches in the local DNS servers of your department. Can you propose a way to roughly determine the Web servers (outside your department) that are most popular among the users in your department? Explain.</p>
+<h2 id="P21"><a href="#P21" class="headerlink" title="P21."></a>P21.</h2><p>Suppose that your department has a local DNS server for all computers in the department. You are an ordinary user (i.e., not a network&#x2F;system administrator). Can you determine if an external Web site was likely accessed from a computer in your department a couple of seconds ago? Explain.</p>
+<h2 id="P22"><a href="#P22" class="headerlink" title="P22."></a>P22.</h2><p>Consider distributing a file of F &#x3D; 20 Gbits to N peers. The server has an upload rate of us &#x3D; 30 Mbps, and each peer has a download rate of d, &#x3D; 2 Mbps and an upload rate of u. For N &#x3D; 10, 100, and 1,000 and u &#x3D; 300 Kbps, 700 Kbps, and 2 Mbps, prepare a chart giving the minimum distribution time for each of the combinations of N and u for both clientserver distribution and P2P distribution.</p>
+<h2 id="P23"><a href="#P23" class="headerlink" title="P23."></a>P23.</h2><p>Consider distributing a file of F bits to N peers using a client-server architecture. Assume a fluid model where the server can simultaneously transmit to multiple peers, transmitting to each peer at different rates, as long as the combined rate does not exceed us.<br>a. Suppose that us&#x2F;N &lt; J min. Specify a distribution scheme that has a distribution time of NF&#x2F;us.<br>b. Suppose that us&#x2F;N &gt; J min. Specify a distribution scheme that has a distribution time of F&#x2F;dmjn.<br>c. Conclude that the minimum distribution time is in general given by max {NF&#x2F;us, F&#x2F;dmin } .</p>
+<h2 id="P24"><a href="#P24" class="headerlink" title="P24."></a>P24.</h2><p>Consider distributing a file of F bits to N peers using a P2P architecture. Assume a fluid model. For simplicity assume that dmin is very large, so that peer download bandwidth is never a bottleneck.<br>a. Suppose that us &lt; (us + iq + . . . + uN )&#x2F;N. Specify a distribution scheme that has a distribution time of F&#x2F;us.<br>b. Suppose that us &gt; (us + iq + . . . + uN )&#x2F;N. Specify a distribution scheme that has a distribution time of NF&#x2F;(us + iq + . . . + uN ).<br>c. Conclude that the minimum distribution time is in general given by max{ F&#x2F;us, NF&#x2F;(us + iq + . . . + uN ) } .  </p>
+]]></content>
+      <categories>
+        <category>2024SemesterB</category>
+      </categories>
+      <tags>
+        <tag>EE5412计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>多维数组test1-part1</title>
+    <url>/2024/02/24/%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84test1-part1/</url>
+    <content><![CDATA[<h1 id="part1"><a href="#part1" class="headerlink" title="part1"></a>part1</h1><h2 id="1-Correlation-vs-cosine-vs-Euclidean-distance"><a href="#1-Correlation-vs-cosine-vs-Euclidean-distance" class="headerlink" title="1. Correlation vs cosine vs Euclidean distance"></a>1. Correlation vs cosine vs Euclidean distance</h2><h4 id="Correlation"><a href="#Correlation" class="headerlink" title="Correlation:"></a>Correlation:</h4><p><img src="/./../2024Picture/image-20240224205336895.png" alt="image-20240224205336895" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<blockquote>
+<p>Correlation 相关度</p>
+<p>covariance 协方差</p>
+<p>standard deviation 标准差</p>
+</blockquote>
+<h4 id="Cosine-Similarity"><a href="#Cosine-Similarity" class="headerlink" title="Cosine Similarity:"></a>Cosine Similarity:</h4><h2 id="2-mutual-information"><a href="#2-mutual-information" class="headerlink" title="2.mutual information"></a>2.mutual information</h2><h2 id="3-Gini-Index-Entropy-Misclassification-error-Gain"><a href="#3-Gini-Index-Entropy-Misclassification-error-Gain" class="headerlink" title="3.Gini Index, Entropy, Misclassification error, Gain"></a>3.Gini Index, Entropy, Misclassification error, Gain</h2><h2 id="4-Gain-Ratio-Split-Info"><a href="#4-Gain-Ratio-Split-Info" class="headerlink" title="4.Gain Ratio, Split Info"></a>4.Gain Ratio, Split Info</h2><h2 id="5-Pessimistic-Error-Estimate"><a href="#5-Pessimistic-Error-Estimate" class="headerlink" title="5.Pessimistic Error Estimate"></a>5.Pessimistic Error Estimate</h2><h2 id="6-Kmeans-Kmeans"><a href="#6-Kmeans-Kmeans" class="headerlink" title="6.Kmeans, Kmeans+"></a>6.Kmeans, Kmeans+</h2>]]></content>
+      <categories>
+        <category>2024SemesterB</category>
+      </categories>
+      <tags>
+        <tag>EE6453多维数组</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络课后习题：第三章</title>
+    <url>/2024/02/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98%EF%BC%9A%E7%AC%AC%E4%B8%89%E7%AB%A0/</url>
+    <content><![CDATA[<h1 id="第三章-考试内容"><a href="#第三章-考试内容" class="headerlink" title="第三章 考试内容"></a>第三章 考试内容</h1><h2 id="P2"><a href="#P2" class="headerlink" title="P2."></a>P2.</h2><p>Consider Figure 3.5. What are the source and destination port values in the segments flowing from the server back to the clients’ processes? What are the IP addresses in the network-layer datagrams carrying the transport-layer segments?  </p>
+<p><img src="/./../2024Picture/image-20240224164104110.png" alt="image-20240224164104110" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="P3"><a href="#P3" class="headerlink" title="P3."></a>P3.</h2><p>UDP and TCP use Is complement for their checksums. Suppose you have the following three 8-bit bytes: 01010011, 01100110, 01110100. What is the Is complement of the sum of these 8-bit bytes? (Note that although UDP and TCP use 16-bit words in computing the checksum, for this problem you are being asked to consider 8-bit sums.) Show all work. Why is it that UDP takes the Is complement of the sum; that is, why not just use the sum? With the Is complement scheme, how does the receiver detect errors? Is it possible that a 1-bit error will go undetected? How about a 2-bit error?  </p>
+<h2 id="P4"><a href="#P4" class="headerlink" title="P4."></a>P4.</h2><p>a. Suppose you have the following 2 bytes: 01011100 and 01100101. What is the Is complement of the sum of these 2 bytes?<br>b. Suppose you have the following 2 bytes: 11011010 and 01100101. What is the Is complement of the sum of these 2 bytes?<br>c. For the bytes in part (a), give an example where one bit is flipped in each of the 2 bytes and yet the Is complement doesn’t change.  </p>
+<h2 id="P5"><a href="#P5" class="headerlink" title="P5."></a>P5.</h2><p>Suppose that the UDP receiver computes the Internet checksum for the received UDP segment and finds that it matches the value carried in the checksum field. Can the receiver be absolutely certain that no bit errors have occurred? Explain.  </p>
+<h2 id="P7"><a href="#P7" class="headerlink" title="P7."></a>P7.</h2><p>In protocol rdt3 . 0, the ACK packets flowing from the receiver to the sender do not have sequence numbers (although they do have an ACK field that contains the sequence number of the packet they are acknowledging). Why is it that our ACK packets do not require sequence numbers?  </p>
+<h2 id="P9"><a href="#P9" class="headerlink" title="P9."></a>P9.</h2><p>Give a trace of the operation of protocol rdt3 . 0 when data packets and acknowledgment packets are garbled (scenarios for corrupted data and corrupted ACK). Suppose the protocol has been in operation for some time. The sender is in state “Wait for call from above” (top left hand comer) and the receiver is in state “Wait for 0 from below”.  </p>
+<h2 id="P12"><a href="#P12" class="headerlink" title="P12."></a>P12.</h2><p>The sender side of rdt3 . 0 simply ignores (that is, takes no action on) all received packets that are either in error or have the wrong value in the ack num field of an acknowledgment packet. Suppose that in such circumstances, rdt3 . 0 were simply to retransmit the current data packet. Would the protocol still work? (Hint: Consider what would happen if there were only bit errors; there are no packet losses but premature timeouts can occur. Consider how many times the nth packet is sent, in the limit as n approaches infinity.)</p>
+<h2 id="P13"><a href="#P13" class="headerlink" title="P13."></a>P13.</h2><p>Consider the rdt 3 . 0 protocol. Draw a diagram showing that if the network connection between the sender and receiver can reorder messages (that is, that two messages propagating in the medium between the sender and receiver can be reordered), then the alternating-bit protocol will not work correctly (make sure you clearly identify the sense in which it will not work correctly). Your diagram should have the sender on the left and the receiver on the right, with the time axis running down the page, showing data (D) and acknowledgment (A) message exchange. Make sure you indicate the sequence number associated with any data or acknowledgment segment.</p>
+<h2 id="P14"><a href="#P14" class="headerlink" title="P14."></a>P14.</h2><p>Consider a reliable data transfer protocol that uses only negative acknowledgments. Suppose the sender sends data only infrequently. Would a NAK-only protocol be preferable to a protocol that uses ACKs? Why? Now suppose the sender has a lot of data to send and the end-to-end connection experiences few losses. In this second case, would a NAK-only protocol be preferable to a protocol that uses ACKs? Why?</p>
+<h2 id="P16"><a href="#P16" class="headerlink" title="P16."></a>P16.</h2><p>Suppose an application uses rdt 3 . 0 as its transport layer protocol. As the stop-and-wait protocol has very low channel utilization (shown in the crosscountry example), the designers of this application let the receiver keep sending back a number (more than two) of alternating ACK 0 and ACK 1 even if the corresponding data have not arrived at the receiver. Would this application design increase the channel utilization? Why? Are there any potential problems with this approach? Explain.</p>
+<h2 id="P22"><a href="#P22" class="headerlink" title="P22."></a>P22.</h2><p>Consider the GBN protocol with a sender window size of 4 and a sequence number range of 1,024. Suppose that at time t, the next in-order packet that the receiver is expecting has a sequence number of k. Assume that the medium does not reorder messages. Answer the following questions:<br>a. What are the possible sets of sequence numbers inside the sender’s window at time I? Justify your answer.<br>b. What are all possible values of the ACK field in all possible messages currently propagating back to the sender at time &#x2F;? Justify your answer.</p>
+<h2 id="P23"><a href="#P23" class="headerlink" title="P23."></a>P23.</h2><p>Consider the GBN and SR protocols. Suppose the sequence number space is of size k. What is the largest allowable sender window that will avoid the occurrence of problems such as that in Figure 3.27 for each of these protocols?</p>
+<h2 id="P24"><a href="#P24" class="headerlink" title="P24."></a>P24.</h2><p>Answer true or false to the following questions and briefly justify your<br>answer:<br>a. With the SR protocol, it is possible for the sender to receive an ACK for a packet that falls outside of its current window.<br>b. With GBN, it is possible for the sender to receive an ACK for a packet that falls outside of its current window.<br>c. The alternating-bit protocol is the same as the SR protocol with a sender and receiver window size of 1.<br>d. The alternating-bit protocol is the same as the GBN protocol with a sender and receiver window size of 1.</p>
+<h2 id="P25"><a href="#P25" class="headerlink" title="P25."></a>P25.</h2><p>We have said that an application may choose UDP for a transport protocol because UDP offers finer application control (than TCP) of what data is sent in a segment and when. Why does an application have more control of what data is sent in a segment? Why does an application have more control on when the segment is sent?<br>P26. Consider transferring an enormous file of L bytes from Host A to Host B. Assume an MSS of 536 bytes.<br>a. What is the maximum value of L such that TCP sequence numbers are not exhausted? Recall that the TCP sequence number field has 4 bytes.<br>b. For the L you obtain in (a), find how long it takes to transmit the file. Assume that a total of 66 bytes of transport, network, and data-link header are added to each segment before the resulting packet is sent out over a 155 Mbps link. Ignore flow control and congestion control so A can pump out the segments back to back and continuously.  </p>
 ]]></content>
       <categories>
         <category>2024SemesterB</category>
