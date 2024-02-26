@@ -7,12 +7,12 @@
 <meta name="full-screen" content="yes">
 <meta name="theme-color" content="#317EFB" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta name="description" content="part11. Correlation vs cosine vs Euclidean distanceCorrelation:  Correlation 相关度 covariance 协方差 standard deviation 标准差  Cosine Similarity: Euclidean Distance: 2.mutual informationmutual information:">
+<meta name="description" content="part11. Correlation vs cosine vs Euclidean distanceCorrelation:  Correlation 相关度 covariance 协方差 standard deviation 标准差  Cosine Similarity: Euclidean Distance: 对于以下情况，可以使用以下的相似度度量方法：  比较使用词频的文档：  相似度度量">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多维数组test1-part1">
 <meta property="og:url" content="http://example.com/2024/02/24/%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84test1-part1/index.html">
 <meta property="og:site_name" content="HuskeyBunch">
-<meta property="og:description" content="part11. Correlation vs cosine vs Euclidean distanceCorrelation:  Correlation 相关度 covariance 协方差 standard deviation 标准差  Cosine Similarity: Euclidean Distance: 2.mutual informationmutual information:">
+<meta property="og:description" content="part11. Correlation vs cosine vs Euclidean distanceCorrelation:  Correlation 相关度 covariance 协方差 standard deviation 标准差  Cosine Similarity: Euclidean Distance: 对于以下情况，可以使用以下的相似度度量方法：  比较使用词频的文档：  相似度度量">
 <meta property="og:locale">
 <meta property="og:image" content="http://example.com/img/404.jpg">
 <meta property="og:image" content="http://example.com/img/404.jpg">
@@ -34,8 +34,11 @@
 <meta property="og:image" content="http://example.com/img/404.jpg">
 <meta property="og:image" content="http://example.com/img/404.jpg">
 <meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
 <meta property="article:published_time" content="2024-02-24T12:23:43.413Z">
-<meta property="article:modified_time" content="2024-02-24T14:02:13.676Z">
+<meta property="article:modified_time" content="2024-02-25T13:05:09.444Z">
 <meta property="article:tag" content="EE6453多维数组">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/img/404.jpg">
@@ -84,7 +87,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"example.com","author":null,"root":"/","typed_text":["hometown is in Siberia"],"theme_version":"2.1.10","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"dog1.svg","icon16":"dog1.svg","icon32":"dog1.svg","appleTouchIcon":"apple-touch-icon.png","webmanifest":"/site.webmanifest","visibilitychange":true,"hidden":"wrong.svg","showText":"什么你不信？","hideText":"哎呀网页崩溃了"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://npm.elemecdn.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":true},"live_time":{"start_time":"","prefix":"博客已萌萌哒运行 undefined 天"},"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"path":"search.xml"}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-02-24 22:02:13"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-02-25 21:05:09"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.10" id="trm-switch-style">
@@ -327,8 +330,36 @@
 </blockquote>
 <h4 id="Cosine-Similarity"><a href="#Cosine-Similarity" class="headerlink" title="Cosine Similarity:"></a>Cosine Similarity:</h4><p><img src="/./../2024Picture/image-20240224210342442.png" alt="image-20240224210342442" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <h4 id="Euclidean-Distance"><a href="#Euclidean-Distance" class="headerlink" title="Euclidean Distance:"></a>Euclidean Distance:</h4><p><img src="/./../2024Picture/image-20240224210854635.png" alt="image-20240224210854635" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>对于以下情况，可以使用以下的相似度度量方法：</p>
+<ul>
+<li><p>比较使用词频的文档：</p>
+<ul>
+<li>相似度度量方法：余弦相似度（Cosine Similarity）</li>
+<li>解释：余弦相似度可以衡量两个向量之间的夹角余弦值，适用于比较文档的词频分布。如果两个文档的词频分布相似，它们的余弦相似度会接近1，表示它们较为相似。</li>
+</ul>
+</li>
+<li><p>比较摄氏温度的两个位置：</p>
+<ul>
+<li>相似度度量方法：欧氏距离（Euclidean Distance）</li>
+<li>解释：欧氏距离可以衡量两个向量之间的直线距离，适用于比较温度的大小。如果两个位置的温度大小相似，它们的欧氏距离会较小，表示它们较为相似。</li>
+</ul>
+</li>
+<li><p>比较两个以摄氏度测量的温度时间序列：</p>
+<ul>
+<li>相似度度量方法：相关系数（Correlation）</li>
+<li>解释：相关系数可以衡量两个变量之间的线性相关性，适用于比较时间序列的相似性。如果两个时间序列的变化趋势相似，它们的相关系数会接近1，表示它们的形状相似。</li>
+</ul>
+</li>
+</ul>
+<p>Correlation<br>This is a continuous attribute. As the trend is needed, invariance to scaling and translation is desired  </p>
+<p>这是一个连续属性。由于需要趋势，因此需要对缩放和平移保持不变</p>
+<p>Euclidean distance (L2 norm) or L1 norm.<br>This is an asymmetric attribute. It is a discrete attribute. L2 or L1 norm is insensitive to occurrence of zeros. Translation and scaling are important.  </p>
+<p>这是一种非对称属性。它是一个离散属性。L2 或 L1 准则对零的出现不敏感。平移和缩放很重要。</p>
+<p><img src="/./../2024Picture/image-20240225203124604.png" alt="image-20240225203124604" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <h2 id="2-mutual-information"><a href="#2-mutual-information" class="headerlink" title="2.mutual information"></a>2.mutual information</h2><h4 id="mutual-information"><a href="#mutual-information" class="headerlink" title="mutual information:"></a>mutual information:</h4><p><img src="/./../2024Picture/image-20240224211923669.png" alt="image-20240224211923669" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p><img src="/./../2024Picture/image-20240224211814227.png" alt="image-20240224211814227" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240225205808207.png" alt="image-20240225205808207" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/0217ac8200f0d8b75a719a4286b82aa.png" alt="0217ac8200f0d8b75a719a4286b82aa" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <h2 id="3-Gini-Index-Entropy-Misclassification-error-Gain"><a href="#3-Gini-Index-Entropy-Misclassification-error-Gain" class="headerlink" title="3.Gini Index, Entropy, Misclassification error, Gain"></a>3.Gini Index, Entropy, Misclassification error, Gain</h2><h4 id="gini-index"><a href="#gini-index" class="headerlink" title="gini index"></a>gini index</h4><p><img src="/./../2024Picture/image-20240224212648498.png" alt="image-20240224212648498" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p><img src="/./../2024Picture/image-20240224212717160.png" alt="image-20240224212717160" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p><img src="/./../2024Picture/image-20240224212732586.png" alt="image-20240224212732586" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>

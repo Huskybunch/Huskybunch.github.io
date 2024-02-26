@@ -1,6 +1,394 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>排队论第一次考试</title>
+    <url>/2024/02/22/%E6%8E%92%E9%98%9F%E8%AE%BA%E5%A4%8D%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="Inverse-transform-sampling-P59"><a href="#Inverse-transform-sampling-P59" class="headerlink" title="Inverse transform sampling P59"></a>Inverse transform sampling P59</h2>]]></content>
+      <categories>
+        <category>2024SemesterB</category>
+      </categories>
+      <tags>
+        <tag>EE6610排队论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络课后习题：第三章</title>
+    <url>/2024/02/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98%EF%BC%9A%E7%AC%AC%E4%B8%89%E7%AB%A0/</url>
+    <content><![CDATA[<h1 id="第三章-考试内容"><a href="#第三章-考试内容" class="headerlink" title="第三章 考试内容"></a>第三章 考试内容</h1><h2 id="P2-源端口和目的端口，源IP和目的IP"><a href="#P2-源端口和目的端口，源IP和目的IP" class="headerlink" title="P2.源端口和目的端口，源IP和目的IP"></a>P2.源端口和目的端口，源IP和目的IP</h2><p>Consider Figure 3.5. What are the source and destination port values in the segments flowing from the server back to the clients’ processes? What are the IP addresses in the network-layer datagrams carrying the transport-layer segments?  </p>
+<p>考虑图3.5。从服务器流回客户端进程的段中的源端口和目标端口值是什么?承载传输层段的网络层数据报中的IP地址是什么?</p>
+<p><img src="/./../2024Picture/image-20240224164104110.png" alt="image-20240224164104110" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>看图写作很无聊的一道题</p>
+<p>服务器到客户A:<br>源端口号:80, 目的端口号:26145, 源IP:B, 目的IP:A<br>服务器到客户C，会话1:<br>源端口号:80, 目的端口号:7532, 源IP:B, 目的IP:C<br>服务器到客户C，会话2:<br>源端口号:80, 目的端口号:26145, 源IP:B, 目的IP:C</p>
+<h2 id="P3-检验和"><a href="#P3-检验和" class="headerlink" title="P3.  检验和"></a>P3.  检验和</h2><p>UDP and TCP use Is complement for their checksums. Suppose you have the following three 8-bit bytes: 01010011, 01100110, 01110100. What is the Is complement of the sum of these 8-bit bytes? (Note that although UDP and TCP use 16-bit words in computing the checksum, for this problem you are being asked to consider 8-bit sums.) Show all work. Why is it that UDP takes the Is complement of the sum; that is, why not just use the sum? With the Is complement scheme, how does the receiver detect errors? Is it possible that a 1-bit error will go undetected? How about a 2-bit error?  </p>
+<p>UDP和TCP使用Is作为校验和的补充。假设您有以下三个8位字节:01010011、01100110、01110100。这8<strong>位字节的和的补码</strong>是多少?(请注意，尽管UDP和TCP在计算校验和时使用16位字，但对于这个问题，您被要求考虑8位和。)展示所有的工作。为什么<strong>UDP采用和的is补码</strong>?也就是说，<strong>为什么不用求和</strong>呢?使用Is补码方案，接收方如何检测错误?<strong>一个1比特的错误有可能不会被检测到吗?2位的错误呢?</strong></p>
+<p><img src="/./../2024Picture/image-20240225181355367.png" alt="image-20240225181355367" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>使用反码对接收方非常方便，只需将所有数据包含校验码加起来，计算和为全1即可。<br>如果不是全1则说明出现了差错。<br>1比特的差错肯定可以检查出，2比特的差错存在检测不出的情况。</p>
+<blockquote>
+<p><strong>校验和</strong></p>
+<p><img src="/./../2024Picture/image-20240225182033905.png" alt="image-20240225182033905" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>校验和相同只能说是“检验不出错误”，不能保障没有错误。比如传输中多个16bit字发生错误，但是可能恰巧相加校验和不变。</p>
+</blockquote>
+<blockquote>
+<p><strong>补码 complement</strong> </p>
+</blockquote>
+<h2 id="P4-校验和"><a href="#P4-校验和" class="headerlink" title="P4. 校验和"></a>P4. 校验和</h2><p>a. Suppose you have the following 2 bytes: 01011100 and 01100101. What is the Is complement of the sum of these 2 bytes?<br>b. Suppose you have the following 2 bytes: 11011010 and 01100101. What is the Is complement of the sum of these 2 bytes?<br>c. For the bytes in part (a), give an example where one bit is flipped in each of the 2 bytes and yet the Is complement doesn’t change.  </p>
+<p>a.假设有两个字节:01011100和01100101。这两个字节的和的is补是多少?<br>b.假设有两个字节:11011010和01100101。这两个字节的和的is补是多少?<br>c.就第(a)部分的字节而言，请举例说明 2 个字节中每个字节都翻转了一位，但 Is 的补码没有变化。（这个意思是两个字节翻转一位，但是算出来的不发生改变。</p>
+<p>a. 00111110<br>b. 10111111<br>c. 11011100 和 11100101</p>
+<p>Running checksums at multiple levels throughout the network is not a waste. Because flipped bits can be so easily missed, this redundancy is the best chance of catching errors.</p>
+<h2 id="P5"><a href="#P5" class="headerlink" title="P5."></a>P5.</h2><p>Suppose that the UDP receiver computes the Internet checksum for the received UDP segment and finds that it matches the value carried in the checksum field. Can the receiver be absolutely certain that no bit errors have occurred? Explain.  </p>
+<p>假设UDP接收端计算接收到的UDP报文段的Internet校验和，发现与校验和字段中携带的值匹配。接收方能绝对确定没有发生比特错误吗?解释一下。</p>
+<p>接收方不能完全确认没有比特差错，如P4c题目所示，出现多个差错时存在检测不出的情况</p>
+<h2 id="P7-rtd3-0"><a href="#P7-rtd3-0" class="headerlink" title="P7.  rtd3.0"></a>P7.  rtd3.0</h2><p>In protocol rdt3 . 0, the ACK packets flowing from the receiver to the sender do not have sequence numbers (although they do have an ACK field that contains the sequence number of the packet they are acknowledging). Why is it that our ACK packets do not require sequence numbers?  </p>
+<p>在rdt3.0协议中时，从接收方流向发送方的ACK数据包没有序列号(尽管它们有一个ACK字段，其中包含它们所确认的数据包的序列号)。为什么我们的ACK包不需要序列号?</p>
+<p>因为ACK和确认序号已经可以完整的标识这个分组，而且ACK的缺失会导致重传，因此最终ACK可以确保到达。</p>
+<p>the protocol rtd3.0 is used to transfer data from sender to receiver.</p>
+<p>If a sender transfer the packet to the receiver, then receiver will receive and send ACK(Acknowledgement) to the sender for conformation.<br>If sender received ACK then go to the next level.<br>In this process, needs sequence number to the sender for finding duplicate packets data or ACK data.<br>If the sender find any duplicate ACK, then ignore it. In this process ACK packets does not require sequence number.</p>
+<p>So, ACK packets does not require sequence numbers.</p>
+<blockquote>
+<p><img src="/./../2024Picture/16c5b92baeb641a3beefee95f17e97e9.jpeg" alt="img" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</blockquote>
+<h2 id="P9-rtd3-0"><a href="#P9-rtd3-0" class="headerlink" title="P9.  rtd3.0"></a>P9.  rtd3.0</h2><p>Give a trace of the operation of protocol rdt3 . 0 when data packets and acknowledgment packets are garbled (scenarios for corrupted data and corrupted ACK). Suppose the protocol has been in operation for some time. The sender is in state “<strong>Wait for call from above</strong>” (top left hand comer) and the receiver is in state “Wait for 0 from below”.  </p>
+<p>给出协议rdt3.0操作的跟踪。数据包和确认报文乱码时为0(数据损坏和ACK损坏的场景)。假设协议已经运行了一段时间。发送方处于“等待来自上面的呼叫”(左上角)状态，接收方处于“等待来自下面的0”状态。</p>
+<p>显⽰了损坏的数据和损坏的ACK的场景  </p>
+<p><img src="/./../2024Picture/image-20240225201834472.png" alt="image-20240225201834472" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="P12-rtd3-0"><a href="#P12-rtd3-0" class="headerlink" title="P12.  rtd3.0"></a>P12.  rtd3.0</h2><p>The sender side of rdt3 . 0 simply ignores (that is, takes no action on) all received packets that are either in error or have the wrong value in the ack num field of an acknowledgment packet. Suppose that in such circumstances, rdt3 . 0 were simply to retransmit the current data packet. Would the protocol still work? (Hint: Consider what would happen if there were only bit errors; there are no packet losses but premature timeouts can occur. Consider how many times the nth packet is sent, in the limit as n approaches infinity.)</p>
+<p>rdt3.0的发送端。0只是忽略(即不采取任何行动)所有收到的错误或在确认包的ack num字段中具有错误值的数据包。假设在这种情况下，rdt3.0只是重传当前数据包。协议还能起作用吗?(提示:考虑一下如果只有位错误会发生什么;没有丢包，但可能出现过早超时。考虑第n个数据包发送了多少次，在n趋于无穷时的极限。)</p>
+<h2 id="P13-rtd3-0"><a href="#P13-rtd3-0" class="headerlink" title="P13.  rtd3.0"></a>P13.  rtd3.0</h2><p>Consider the rdt 3 . 0 protocol. Draw a diagram showing that if the network connection between the sender and receiver can reorder messages (that is, that two messages propagating in the medium between the sender and receiver can be reordered), then the alternating-bit protocol will not work correctly (make sure you clearly identify the sense in which it will not work correctly). Your diagram should have the sender on the left and the receiver on the right, with the time axis running down the page, showing data (D) and acknowledgment (A) message exchange. Make sure you indicate the sequence number associated with any data or acknowledgment segment.</p>
+<p>考虑rdt 3.0协议。绘制一个图表，显示如果发送方和接收方之间的网络连接可以对消息进行重新排序(也就是说，在发送方和接收方之间的媒介中传播的两条消息可以重新排序)，那么交替位协议将无法正常工作(确保您清楚地识别出它无法正常工作的意义)。您的图表应该左边是发送者，右边是接收者，时间轴沿着页面向下延伸，显示数据(D)和确认(A)消息交换。确保您指定了与任何数据或确认段相关联的序列号。</p>
+<p><img src="/./../2024Picture/image-20240225202258041.png" alt="image-20240225202258041" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="P14"><a href="#P14" class="headerlink" title="P14."></a>P14.</h2><p>Consider a reliable data transfer protocol that uses only negative acknowledgments. Suppose the sender sends data only infrequently. Would a NAK-only protocol be preferable to a protocol that uses ACKs? Why? Now suppose the sender has a lot of data to send and the end-to-end connection experiences few losses. In this second case, would a NAK-only protocol be preferable to a protocol that uses ACKs? Why?</p>
+<p>考虑一个只使用否定确认的可靠数据传输协议。假设发送方不经常发送数据。仅仅使用ack的协议比使用ack的协议更可取吗?为什么?现在假设发送方有大量数据要发送，端到端连接几乎没有丢失。在第二种情况下，仅使用ack的协议是否比使用ack的协议更可取?为什么?</p>
+<ol>
+<li><p>If the sender sends the data infrequently (occasionally), then the NAK-only protocol is not preferred. It is good to use the protocol that uses ACKs.</p>
+<ul>
+<li>The main disadvantage of NAK-only protocol is that it can detect that the packet has been lost only when the next packet is received by the receiver.</li>
+<li>The NAK-only protocol realize the loss of packet after a long time when it receives the data packet with wrong sequence number as the sender sends the data packets occasionally.</li>
+<li>When the receiver realize the packet loss, it sends NAK to the sender and the sender has to retransmit both the lost and next packet.</li>
+<li>If the sender sends the data frequently, then the NAK-only protocol is preferred. The protocol that uses ACKs is not preferred as it require to send more number of acknowledgements.</li>
+</ul>
+<p>When the sender sends data frequently and the data loss rate is very less, then a NAK-only protocol is preferable to a protocol that uses ACKs.</p>
+<ul>
+<li>The receiver sends the NAK as it realizes the packet loss quickly as the data transmitted frequently.</li>
+<li>Since the data loss is less, the number of NAK in NAK-only protocol is less when compared with protocol that uses ACKs.</li>
+</ul>
+</li>
+</ol>
+<h2 id="P16"><a href="#P16" class="headerlink" title="P16."></a>P16.</h2><p>Suppose an application uses rdt 3 . 0 as its transport layer protocol. As the stop-and-wait protocol has very low channel utilization (shown in the crosscountry example), the designers of this application let the receiver keep sending back a number (more than two) of alternating ACK 0 and ACK 1 even if the corresponding data have not arrived at the receiver. Would this application design increase the channel utilization? Why? Are there any potential problems with this approach? Explain.</p>
+<p>假设应用程序使用rdt 3.0作为其传输层协议。由于停止等待协议的通道利用率非常低(如越野示例所示)，因此该应用程序的设计者让接收方继续发送一个(多于两个)交替的ACK 0和ACK 1，即使相应的数据尚未到达接收方。这种应用程序设计会增加通道利用率吗?为什么?这种方法有什么潜在的问题吗?解释一下。</p>
+<ul>
+<li>Suppose an application uses rdt 3.0 as its transport layer protocol. Then It stop-and-wait protocol is used very low utilization in the application.</li>
+<li>The application allows the receiver to send the acknowledgements and sends the next data packet. It is used as a pipelined data in the channel.</li>
+<li>There is a chance of missing data before it reaches the receiver.</li>
+<li>So the sender (who is using rtd 3.0 protocol) will not retransmit the data. The missing or lost some data.</li>
+<li>Thus, designing of the application need to adopt some mechanism to over come this problem.</li>
+</ul>
+<h2 id="P22"><a href="#P22" class="headerlink" title="P22."></a>P22.</h2><p>Consider the GBN protocol with a sender window size of 4 and a sequence number range of 1,024. Suppose that at time t, the next in-order packet that the receiver is expecting has a sequence number of k. Assume that the medium does not reorder messages. Answer the following questions:<br>a. What are the possible sets of sequence numbers inside the sender’s window at time I? Justify your answer.<br>b. What are all possible values of the ACK field in all possible messages currently propagating back to the sender at time &#x2F;? Justify your answer.<br>考虑发送方窗口大小为4、序列号范围为1024的GBN协议。假设在时间t，接收方期待的下一个有序数据包的序列号为k。假设介质不重新排序消息。回答以下问题:<br>a.在时间I的发送方窗口内可能的序列号集合是什么?证明你的答案。<br>b.在时间&#x2F;时，当前传播回发送方的所有可能消息中，ACK字段的所有可能值是多少?证明你的答案。</p>
+<p><img src="/./../2024Picture/image-20240225202901850.png" alt="image-20240225202901850" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="P23"><a href="#P23" class="headerlink" title="P23."></a>P23.</h2><p>Consider the GBN and SR protocols. Suppose the sequence number space is of size k. What is the largest allowable sender window that will avoid the occurrence of problems such as that in Figure 3.27 for each of these protocols?<br>考虑GBN和SR协议。假设序列号空间的大小为k。对于这些协议，最大允许的发送方窗口是多少，以避免出现图3.27所示的问题?</p>
+<h2 id="P24"><a href="#P24" class="headerlink" title="P24."></a>P24.</h2><p>Answer true or false to the following questions and briefly justify your<br>answer:<br>a. With the SR protocol, it is possible for the sender to receive an ACK for a packet that falls outside of its current window.<br>b. With GBN, it is possible for the sender to receive an ACK for a packet that falls outside of its current window.<br>c. The alternating-bit protocol is the same as the SR protocol with a sender and receiver window size of 1.<br>d. The alternating-bit protocol is the same as the GBN protocol with a sender and receiver window size of 1.</p>
+<p>对下列问题回答是或否，并简要地证明你的观点<br>答:<br>a.使用SR协议，发送方有可能接收到落在当前窗口之外的数据包的ACK。<br>b.使用GBN，发送方有可能接收到落在当前窗口之外的数据包的ACK。<br>c.交换位协议与SR协议相同，发送端和接收端窗口大小均为1。<br>d.交换位协议与GBN协议相同，发送端和接收端窗口大小均为1。</p>
+<p>a. 正确<br>假设窗口为0,1，发送方发送0，1后，接收方回复ACK0,1。但是发送方收到ACK0和1之前，就进行了超时重传，发送0，1。<br>发送方收到ACK0和1。窗口变为2，3。接收方收到重传的0，1，重新回复ACK0,1。此时发送方收到了ACK0，1，在发送方窗口之外。<br>b. 正确<br>假设窗口为0,1，发送方发送0，1后，接收方回复ACK0,1。但是发送方收到ACK1之前，就进行了超时重传，发送1。<br>发送方收到ACK1。窗口变为2，3。接收方收到重传的1，重新回复ACK1。此时发送方收到了ACK1，在发送方窗口之外。<br>c. 正确<br>d. 正确</p>
+<h2 id="P25"><a href="#P25" class="headerlink" title="P25."></a>P25.</h2><p>We have said that an application may choose UDP for a transport protocol because UDP offers finer application control (than TCP) of what data is sent in a segment and when. Why does an application have more control of what data is sent in a segment? Why does an application have more control on when the segment is sent?</p>
+<p>我们已经说过，应用程序可以选择UDP作为传输协议，因为UDP提供了更好的应用程序控制(比TCP)在一个段中发送什么数据和何时发送。为什么应用程序对在段中发送的数据有更多的控制?为什么应用程序对段何时发送有更多的控制?</p>
+<p>a. UDP不会对报文进行分片，而TCP会进行分片。<br>b. UDP没有拥塞控制和流量控制，可以自己调整发送速度。</p>
+<p><strong>a)</strong></p>
+<p><strong>In TCP protocols:</strong></p>
+<ul>
+<li>If the send the segment application then data is not assigned directly.</li>
+<li>Then data store in buffer then decide to connect the segement.</li>
+<li>So,the application does not have more control to sent data in  the TCP protocol.</li>
+</ul>
+<p><strong>For UDP protocols:</strong></p>
+<ul>
+<li>If the send the segment application then data is assigned directly</li>
+<li>Then the data in the segment is then sent.</li>
+<li>So, the application has more control to sent data in the UDP protocol.</li>
+</ul>
+<p>b)</p>
+<ul>
+<li>In TCP protocol <strong>cannot</strong> expect the time between sent data and arrived data. So, an application <strong>does not</strong> have more control on when the segment is sent in TCP.</li>
+<li>n TCP protocol <strong>can</strong> expect the time between sent data and arrived data. So, an application have more control on when the segment is sent in TCP.</li>
+</ul>
+<h2 id="P26"><a href="#P26" class="headerlink" title="P26."></a>P26.</h2><p>Consider transferring an enormous file of L bytes from Host A to Host B. Assume an MSS of 536 bytes. </p>
+<p>a. What is the maximum value of L such that TCP sequence numbers are not exhausted? Recall that the TCP sequence number field has 4 bytes.<br>b. For the L you obtain in (a), find how long it takes to transmit the file. Assume that a total of 66 bytes of transport, network, and data-link header are added to each segment before the resulting packet is sent out over a 155 Mbps link. Ignore flow control and congestion control so A can pump out the segments back to back and continuously.  </p>
+<p>考虑将一个L字节的巨大文件从主机A传输到主机b。假设MSS为536字节。</p>
+<p>a.使TCP序列号不耗尽的L的最大值是多少?回想一下，TCP序列号字段有4个字节。<br>b.对于(a)中得到的L，求出传输文件所需的时间。假设在产生的数据包通过155 Mbps的链路发送出去之前，在每个段中总共添加了66字节的传输、网络和数据链路头。忽略流量控制和拥塞控制，这样A可以连续地泵出段。</p>
+<p>a. 如果序号不重复利用，最多232字节。但是TCP的序号是可以重复利用的。<br>b. 报文数 232 &#x2F; 536 ~&#x3D; 8,012,999<br>(232 + 66 * 8,012,999) * 8 &#x2F; 155 * 10242 ~&#x3D; 237s</p>
+]]></content>
+      <categories>
+        <category>2024SemesterB</category>
+      </categories>
+      <tags>
+        <tag>EE5412计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络课后习题：第二章</title>
+    <url>/2024/02/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98%EF%BC%9A%E7%AC%AC%E4%BA%8C%E7%AB%A0/</url>
+    <content><![CDATA[<h1 id="第二章-考试内容"><a href="#第二章-考试内容" class="headerlink" title="第二章 考试内容"></a>第二章 考试内容</h1><h2 id="P4-HTTP-GET报文"><a href="#P4-HTTP-GET报文" class="headerlink" title="P4 HTTP GET报文"></a>P4 HTTP GET报文</h2><p>Consider the following string of ASCII characters that were captured by Wireshark when the browser sent an HTTP GET message (i.e., this is the actual content of an HTTP GET message). The characters <cr><lfi> are carriage return and line-feed characters (that is, the italized character string <cr> in the text below represents the single carriage-return character that was contained at that point in the HTTP header). Answer the following questions, indicating where in the HTTP GET message below you find the answer.  </p>
+<p><img src="/./../2024Picture/image-20240224145525092.png" alt="image-20240224145525092" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>a. What is the URL of the document requested by the browser?</p>
+<p>文档的URL： gaia.cs.umass.edu&#x2F;cs453&#x2F;index.html</p>
+<p>b. What version of HTTP is the browser running?</p>
+<p>HTTP版本： HTTP&#x2F;1.1</p>
+<p>c. Does the browser request a non-persistent or a persistent connection?</p>
+<p>presistent connection</p>
+<p>因为connection: keep - alive</p>
+<p>d. What is the IP address of the host on which the browser is running?</p>
+<p>这是一个陷阱的问题。此信息不包含在HTTP消息任何地方。因此，没有办法从看HTTP交换讲这个<br>单独的消息。人们会需要从IP数据报信息(即携带的运载的HTTP GET请求)来回答这个问题TCP段。</p>
+<p>e. What type of browser initiates this message? Why is the browser type needed in an HTTP request message?  </p>
+<p>浏览器类型：Mozilla&#x2F;5.0</p>
+<p>浏览器类型可以让服务器为不同的浏览器发送不同的版本。</p>
+<h2 id="P5-浏览器响应HTTP-GET报文"><a href="#P5-浏览器响应HTTP-GET报文" class="headerlink" title="P5 浏览器响应HTTP GET报文"></a>P5 浏览器响应HTTP GET报文</h2><p>The text below shows the reply sent from the server in response to the HTTP GET message in the question above. Answer the following questions, indicating where in the message below you find the answer.  </p>
+<p><img src="/./../2024Picture/image-20240224152327813.png" alt="image-20240224152327813" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>a. Was the server able to successfully find the document or not? What time was the document reply provided?</p>
+<p>成功接收到了 因为：200 OK</p>
+<p>接收到的时间是 Tuesday, 07 Mar 2006 12:39:45 Greenwich Mean Time.(后面的后缀也要写完整，代表哪个时区)</p>
+<blockquote>
+<p><strong>浏览器状态码</strong></p>
+<ul>
+<li>200 - 请求成功</li>
+<li>301 - 资源（网页等）被永久转移到其它URL</li>
+<li>404 - 请求的资源（网页等）不存在</li>
+<li>500 - 内部服务器错误</li>
+</ul>
+</blockquote>
+<p>b. When was the document last modified?</p>
+<p>该文档最后修改时间：如果按老师出的是没有的</p>
+<p><img src="/./../2024Picture/image-20240224154238029.png" alt="image-20240224154238029" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>如果按照课本原来的题目：</p>
+<p>文档的时间为：SAT, 10 Dec2005 18:27:46 GMT</p>
+<p>c. How many bytes are there in the document being returned?</p>
+<p>Document有3874 bytes</p>
+<p>因为 Content-length &#x3D; 3874</p>
+<p>d. What are the first 5 bytes of the document being returned? Did the server agree to a persistent connection?  </p>
+<p>前五个字节： &lt;!doc<br>同意持续连接 因为：Connection: Keep-Alive</p>
+<h2 id="P7-点击超链接的响应时间"><a href="#P7-点击超链接的响应时间" class="headerlink" title="P7 点击超链接的响应时间"></a>P7 点击超链接的响应时间</h2><p>Suppose within your Web browser you click on a link to obtain a Web page. The IP address for the associated URL is not cached in your local host, so a DNS lookup is necessary to obtain the IP address. Suppose that n DNS servers are visited before your host receives the IP address from DNS; the successive visits incur an RTT of RTT1 . . . , RTT„. Further suppose that the Web page associated with the link contains exactly one object, consisting of a small amount of HTML text. Let RTT0 denote the RTT between the local host and the server containing the object. Assuming zero transmission time of the object, how much time elapses（时间流逝） from when the client clicks on the link until the client receives the object?  </p>
+<p><img src="/./../2024Picture/image-20240224154944602.png" alt="image-20240224154944602" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<blockquote>
+<p><strong>RTT（round-trip time）往返时间</strong></p>
+<p>一个短分组从源到目标再返回源的总延时。（无传输时延）</p>
+<p><strong>一次请求响应总时间 ≈ RTT + 传输延时</strong></p>
+</blockquote>
+<p>获取IP地址的总时间为: RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub></p>
+<p>一旦知道了IP地址，RTT0将用来建立TCP连接，另一个RTT0将用来请求连接。</p>
+<p>一共需要：</p>
+<p>2RTT<sub>0</sub> + RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub></p>
+<h2 id="P8-非持续HTTP和持续HTTP"><a href="#P8-非持续HTTP和持续HTTP" class="headerlink" title="P8 非持续HTTP和持续HTTP"></a>P8 非持续HTTP和持续HTTP</h2><p>Referring to Problem P7, suppose the HTML file references eight very small objects on the same server. Neglecting transmission times, how much time elapses with<br>a. Non-persistent HTTP with no parallel TCP connections?</p>
+<p>b. Non-persistent HTTP with the <strong>browser configured for 6 parallel</strong><br><strong>connections?</strong></p>
+<p>c. Persistent HTTP?  </p>
+<p>获取IP地址的总时间为: RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub></p>
+<p>a.  RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub>  + 2RTT<sub>0</sub> + 8 × 2RTT<sub>0</sub> </p>
+<p>b.  RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub>  + 2RTT<sub>0</sub> + 2 × 2RTT<sub>0</sub></p>
+<p>c.  有流水线的 pipelining: RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub>  + 2RTT<sub>0</sub> +  RTT<sub>0</sub></p>
+<p>​      没有流水线的 without pipelining RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub>  + 2RTT<sub>0</sub> +  8RTT<sub>0</sub></p>
+<blockquote>
+<p>1个HTML基本文件和10个其他对象，</p>
+<p><strong>非持续连接</strong></p>
+<p><em><strong>每个响应&#x2F;请求对都是经一个单独的TCP连接发送。</strong></em></p>
+<p>则每次都建立TCP连接、请求响应，共11次。</p>
+<p>并行非持续：首先建立连接、请求响应，之后并行10个建立连接、请求响应。</p>
+<p><strong>持续连接</strong></p>
+<p><em><strong>所有请求及响应都是经相同的TCP连接发送</strong></em></p>
+<p>首先建立连接、请求响应，之后进行10次请求响应。</p>
+<p>(默认）带流水线的持续：首先建立连接、请求响应，之后按流水线的方式发送10次请求，得到10个响应，几乎在1个RTT内得到10个对象的响应报文。</p>
+</blockquote>
+<h2 id="P9-有缓存和无缓存响应时间（数据改了）"><a href="#P9-有缓存和无缓存响应时间（数据改了）" class="headerlink" title="P9. 有缓存和无缓存响应时间（数据改了）"></a>P9. 有缓存和无缓存响应时间（数据改了）</h2><p>Consider Figure 2.12, for which there is an institutional network connected to the Internet. Suppose that <strong>the average object size</strong> is 1,000,000 bits and that the <strong>average request rate</strong> from the institution’s browsers to the origin servers is 16 requests per second. Also suppose that the amount of time it takes from when the router on the Internet side of the access link forwards <strong>an HTTP request until it receives the response</strong> is three seconds on average (see Section 2.2.5). Model the total average response time as the sum of the average access delay (that is, the delay from Internet router to institution router) and the average Internet delay. For the average access delay, use A&#x2F;(l — A&#x2F;3), where A is the average time required to send an object over the access link and (3 is the arrival rate of objects to the access link.</p>
+<p><img src="/./../2024Picture/image-20240224165856951.png" alt="image-20240224165856951" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>a. Find the total average response time.<br>b. Now suppose a cache is installed in the institutional LAN. Suppose the miss rate is 0.4. Find the total response time.  </p>
+<p>考虑图2-12，其中有一个机构的网络和因特网相连。假定对象的平均长度为850000比特，从这个机构网的浏览器到初始服务器的平均请求率是每秒16个请求。还假定从接入链路的因特网一侧的路由器转发一个HTTP请求开始，到接收到其响应的平均时间是3秒（参见2.2.5节）。将总的平均响应时间建模为平均接入时延（即从因特网路由器到机构路由器的时延）和平均因特网时延之和。对于平均接入时延，使用Δ&#x2F;(1－Δβ)，式中Δ是跨越接入链路发送一个对象的平均时间，β是对象对该接入链路的平均到达率。<br>a.求出总的平均响应时间。<br>b.现在假定在这个机构LAN中安装了一个缓存器。假定命中率为0.4，求出总的响应时间。</p>
+<p><img src="/./../2024Picture/image-20240225143106088.png" alt="image-20240225143106088" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>a）</p>
+<p>850000b &#x3D; 0.85Mb<br>Δ &#x3D; 0.85Mb&#x2F;15Mbps &#x3D; 0.0567s<br>β &#x3D; 16&#x2F;s<br>平均接入时延 &#x3D; 0.0567&#x2F;(1-0.0567 * 16) &#x3D; 0.611s<br>总平均响应时间 &#x3D; 3+0.611 &#x3D;3.611s</p>
+<p>b)</p>
+<p>β &#x3D; 16 * 0.6 &#x3D; 9.6&#x2F;s<br>平均接入时延 &#x3D; 0.0567&#x2F;(1-0.0567 * 9.6) &#x3D; 0.124s<br>命中时的总响应时间 &#x3D; 0.85Mb&#x2F;100Mbps &#x3D; 0.0085s<br>非命中时的总的平均响应时间 &#x3D; 3 + 0.124 &#x3D; 3.124s<br>总的平均响应时间 &#x3D; 0.0085 * 0.4 + 3.124 * 0.6 &#x3D; 0.0034 + 1.8744 &#x3D; 1.8778s</p>
+<hr>
+<p>100Mbps从<br><img src="/./../2024Picture/image-20240225145322463.png" alt="image-20240225145322463" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>来的，图里面</p>
+<hr>
+<blockquote>
+<p> <strong>平均接入时延 the average access delay</strong></p>
+<p> <strong>错过率 miss rate</strong></p>
+<p> <strong>命中率 hit rate</strong> ：这个概率本地就能搞定，1-命中率要从互联网方向请求</p>
+<p> <strong>对象平均长度  the average object size L</strong></p>
+<p> <strong>平均请求率 average request rate</strong></p>
+<p> <strong>平均响应时间 average response time</strong></p>
+<p> <strong>缓存器 cache</strong>: 用来缓冲</p>
+<p> <strong>接收到响应HTTP请求 an HTTP request until it receives the response</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>web cache</strong></p>
+<p>在存储空间保存最近请求过的对象的副本，无需访问原始服务器，就可以满足客户的请求。</p>
+<p><strong>作用</strong>：大大减少对客户请求的响应时间；大大减少一个机构的接入链路到因特网的通信量，无需增加带宽。</p>
+</blockquote>
+<h2 id="P10-持续和非持续HTTP"><a href="#P10-持续和非持续HTTP" class="headerlink" title="P10 持续和非持续HTTP"></a>P10 持续和非持续HTTP</h2><p>Consider a short, 10-meter link, over which a sender can transmit at a rate of 150 bits&#x2F;sec in both directions. Suppose <strong>that packets containing data</strong> are 100,000 bits long, and <strong>packets containing only control</strong> (e.g., ACK or handshaking) are 200 bits long. Assume that N parallel connections each get 1&#x2F;N of the link bandwidth. Now consider the HTTP protocol, and suppose that <strong>each downloaded object</strong> is 100 Kbits long, and that the initial downloaded object contains <strong>10 referenced objects</strong> from the same sender. Would parallel downloads via <strong>parallel instances of non-persistent HTTP</strong> make sense in this case? Now consider <strong>persistent HTTP</strong>. Do you expect significant gains over the non-persistent case? Justify and explain your answer.  </p>
+<p><img src="/./../2024Picture/image-20240224165916793.png" alt="image-20240224165916793" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224170414066.png" alt="image-20240224170414066" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224170640569.png" alt="image-20240224170640569" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/3f60661b89ba1453b5891bc8c5088e8.jpg" alt="3f60661b89ba1453b5891bc8c5088e8" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<blockquote>
+<p><strong>数据分组 packets containing data</strong> </p>
+<p><strong>控制分组 packets containing only control</strong>：连接建立，连接确认</p>
+<p><strong>并行非持续HTTP parallel instances of non-persistent HTTP</strong></p>
+<p><strong>持续HTTP consider persistent HTTP</strong></p>
+</blockquote>
+<h2 id="P11-非持续并行HTTP的应用"><a href="#P11-非持续并行HTTP的应用" class="headerlink" title="P11. 非持续并行HTTP的应用"></a>P11. 非持续并行HTTP的应用</h2><p>Consider the scenario introduced in the previous problem. Now suppose that the link is shared by Bob with four other users. Bob uses parallel instances of non-persistent HTTP, and the other four users use non-persistent HTTP without parallel downloads.<br>a. Do Bob’s parallel connections help him get Web pages more quickly? Why or why not?<br>b. If all five users open five parallel instances of non-persistent HTTP, then would Bob’s parallel connections still be beneficial? Why or why not?</p>
+<p>考虑在前一个习题中引出的情况。现在假定该链路由Bob和4个其他用户所共享。Bob使用非持续HTTP的并行实例，而其他4个用户使用无并行下载的非持续HTTP。</p>
+<p>a. Bob的并行连接能够帮助他更快地得到Web页面吗?<br>b. 如果所有5个用户打开5个非持续HTTP并行实例，那么Bob的并行连接仍将是有益的吗？为什么？</p>
+<p>a) <strong>Yes,</strong> Bob’s parallel connections help him get Web pages more quickly.</p>
+<p>下载一个初试对象时，Bob和其它4个用户时间相同每个用户独占1&#x2F;5带宽。<br>时间为 (3 * t1 + t2) * 5 &#x3D; 3353.3s<br>下载10个引用对象时，Bob打开10个HTTP并行连接，其他用户分别打开1个连接。每个连接占1&#x2F;14的带宽.<br>Bob下载的时间为：<br>(3 * t1 + t2) * 14 &#x3D; 9389.24s<br>此时其他用户仅仅下载完一个引用对象，并继续下载其余对象，每个占用1&#x2F;4带宽。<br>(3 * t1 + t2) * 4 * 9 &#x3D; 24143.76s<br>Bob花费的总时间为 12742.54s<br>其他用户花费的总时间为 36886.3s<br>因此，Bob的并行连接可以帮助他更快的得到Web页面。</p>
+<p>b) <strong>Yes,</strong> If all five users open five parallel instances of non-persistent HTTP, then would Bob’s parallel connections still be beneficial.</p>
+<p>如果其它用户采用并行下载，而Bob不采用，那么Bob将比其他用户获得更少的带宽。因此并行连接依然是有益的。</p>
+<h2 id="P20-DNS服务器缓存找最流行的WEB服务器"><a href="#P20-DNS服务器缓存找最流行的WEB服务器" class="headerlink" title="P20. DNS服务器缓存找最流行的WEB服务器"></a>P20. DNS服务器缓存找最流行的WEB服务器</h2><p>Suppose you can access the caches in the local DNS servers of your department. Can you propose a way to roughly determine the Web servers (outside your department) that are most popular among the users in your department? Explain.</p>
+<p>假定你能够访问所在系的本地DNS服务器中的缓存。你能够提出一种方法来粗略地确定在你所在系的用户中最为流行的Web服务器（你所在系以外）吗？解释原因。</p>
+<p>我们可以定期拍摄本地DNS服务器中DNS缓存的快照。该组织在DNS缓存中出现最频繁的Web服务器是最流行的服务器。这是因为如果更多的用户对Web服务器感兴趣，那么DNS请求就会对此感兴趣服务器更频繁地由用户发送。因此，该Web服务器将出现在DNS中缓存更频繁。</p>
+<blockquote>
+<p>DNS 缓存</p>
+<p><strong>作用</strong>：改善时延性能，减少因特网上传输的DNS报文数量。由于本地服务器可以缓存TLD服务器的地址，所以多数时候，根服务器被绕过了。<br><strong>原理</strong>：当一个DNS服务器接收到一个回答报文时，它会将其缓存在本地存储器，并设置一个TTL（默认2天）</p>
+</blockquote>
+<h2 id="P21-通过DNS查询是否访问过某网站"><a href="#P21-通过DNS查询是否访问过某网站" class="headerlink" title="P21. 通过DNS查询是否访问过某网站"></a>P21. 通过DNS查询是否访问过某网站</h2><p>Suppose that your department has a local DNS server for all computers in the department. You are an ordinary user (i.e., not a network&#x2F;system administrator). Can you determine if an external Web site was likely accessed from a computer in your department a couple of seconds ago? Explain.</p>
+<p>假设你所在系具有一台用于系里所有计算机的本地DNS服务器。你是普通用户（即你不是网络&#x2F;系统管理员）。你能够确定是否在几秒钟前从你系里的一台计算机可能访问过一台外部Web站点吗？解释原因。</p>
+<p>是的，我们可以在本地DNS服务器中使用DIG查询该网站。例如，digCNN.com将返回查找CNN.com的查询时间。如果CNN.com几秒钟前刚刚被访问，那么CNN.com的条目将缓存在本地DNS缓存中，因此查询时间为0毫秒。否则，查询时间很长。</p>
+<h2 id="P22-C-S-和-P2P"><a href="#P22-C-S-和-P2P" class="headerlink" title="P22. C&#x2F;S 和 P2P"></a>P22. C&#x2F;S 和 P2P</h2><p>Consider distributing a file of F &#x3D; 20 Gbits to N peers. The server has an <strong>upload rate</strong> of us &#x3D; 30 Mbps, and each peer has a download rate of di &#x3D; 2 Mbps and an upload rate of u. For N &#x3D; 10, 100, and 1,000 and u &#x3D; 300 Kbps, 700 Kbps, and 2 Mbps, prepare a chart giving the <strong>minimum distribution time</strong> for each of the combinations of N and u for both <strong>clientserver</strong> distribution and <strong>P2P distribution</strong>.</p>
+<p>考虑向N个对等方分发F&#x3D;15Gb的一个文件。该服务器具有us&#x3D;30Mbps的上载速率，每个对等方具有di&#x3D;2Mbps的下载速率和上载速率u。对于N&#x3D;10、100和1000并且u&#x3D;300kbps、700kbps和2Mbps，对于N和u的每种组合绘制出确定最小分发时间的图表。需要分别针对客户-服务器分发和P2P分发两种情况制作。</p>
+<p><img src="/./../2024Picture/image-20240225125128386.png" alt="image-20240225125128386" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240225131811385.png" alt="image-20240225131811385" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>C&#x2F;S模式 Un不起作用</p>
+<p>文件分发：服务器要把N个文件都分发，客户端都下载完</p>
+<ol>
+<li><p>C&#x2F;S </p>
+<p><img src="/./../2024Picture/7fc4cbdd3cc9bb0ec1c872ef2861480.jpg" alt="7fc4cbdd3cc9bb0ec1c872ef2861480" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240225133645045.png" alt="image-20240225133645045" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>随着N的增加，服务器的瓶颈会发生改变： 从客户端转服务器端，整个时间随着N的增加而线性增加</p>
+</li>
+<li><p>P2P</p>
+<p><img src="/./../2024Picture/bd658538b3f806153f63467211b3c73.jpg" alt="bd658538b3f806153f63467211b3c73" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240225133713523.png" alt="image-20240225133713523" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>横轴</strong>：N增加的越多，相对于C&#x2F;S节省的时间越多</p>
+<p><strong>纵轴</strong>：随着上载带宽的增加，时间减少的很快。<strong>但是当上载带宽到一定程度的时候</strong>，下载时间不会减少，因为主要受限于客户端的下载时间。</p>
+</li>
+</ol>
+<p><img src="/./../2024Picture/image-20240225134404822.png" alt="image-20240225134404822" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<blockquote>
+<p><strong>上载速率 upload rate</strong> </p>
+<p><strong>下载速率 download rate</strong></p>
+<p><strong>C&#x2F;S模式 client server distribution</strong> 客户端不上载</p>
+<p><strong>P2P模式 P2P distribution</strong> 不仅仅服务器服务各个客户端，客户端上载能力可以服务其他节点，相互服务</p>
+<p><strong>最小分发时间 minimum distribution time</strong></p>
+<p><strong>D<sub>XX</sub> 最小分发时间</strong></p>
+</blockquote>
+<h2 id="P23-C-S体系"><a href="#P23-C-S体系" class="headerlink" title="P23. C&#x2F;S体系"></a>P23. C&#x2F;S体系</h2><p>Consider distributing a file of F bits to N peers using a client-server architecture. Assume a fluid model where the server can simultaneously transmit to multiple peers, transmitting to each peer at different rates, as long as the combined rate does not exceed us.<br>a. Suppose that us&#x2F;N &lt; J min. Specify a distribution scheme that has a distribution time of NF&#x2F;us.<br>b. Suppose that us&#x2F;N &gt; J min. Specify a distribution scheme that has a distribution time of F&#x2F;dmjn.<br>c. Conclude that the minimum distribution time is in general given by max {NF&#x2F;us, F&#x2F;dmin } .</p>
+<p>考虑使用一种客户-服务器体系结构向N个对等方分发一个F比特的文件。假定一种流体模型，即某服务器能够同时向多个对等方传输，只要组合速率不超过us，则以不同的速率向每个对等方传输。<br>a.假定us&#x2F;N≤dmin。定义一个具有NF&#x2F;us分发时间的分发方案。<br>b.假定us&#x2F;N≥dmin。定义一个具有F&#x2F;dmin分发时间的分发方案。<br>c.得出最小分发时间通常是由max{NF&#x2F;us,F&#x2F;dmin}所决定的结论。</p>
+<hr>
+<p>这道题的意思是，根据前面的条件，求出有这个分发条件的分发方案</p>
+<p>也就是说：</p>
+<p>我们要找出在这个条件下，服务器要多久，能把东西发出去</p>
+<hr>
+<p><img src="/./../2024Picture/image-20240225161242206.png" alt="image-20240225161242206" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>a. us&#x2F;N≤dmin 这等于服务器能力被分为N份之后，小于客户端的最小下载带宽</p>
+<p>​    这时候服务器上载能力是瓶颈</p>
+<p>b. us&#x2F;N≥dmin这等于服务器能力被分为N份之后，大于客户端的最小下载带宽</p>
+<p> 这时候客户端下载能力是瓶颈</p>
+<p><img src="/./../2024Picture/image-20240225161650841.png" alt="image-20240225161650841" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>a. </p>
+<p><img src="/./../2024Picture/001385a6371989841c7c1f5d67263e6.jpg" alt="001385a6371989841c7c1f5d67263e6" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>b.</p>
+<p><img src="/./../2024Picture/4ceb99c1db93f03c0fe26f909f3e3a6.jpg" alt="4ceb99c1db93f03c0fe26f909f3e3a6" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>c.</p>
+<p>结合a与b，如果us&#x2F;N &lt;&#x3D; dmin，此时NF&#x2F;us &gt;&#x3D; F&#x2F;dmin，我们选择a方式来传输。 如果us&#x2F;N &gt; dmin，此时NF&#x2F;us &lt; F&#x2F;dmin，选择b方式来传输。</p>
+<h2 id="P24-P2P体系"><a href="#P24-P2P体系" class="headerlink" title="P24. P2P体系"></a>P24. P2P体系</h2><p>Consider distributing a file of F bits to N peers using a P2P architecture. Assume a fluid model. For simplicity assume that dmin is very large, so that peer download bandwidth is never a bottleneck.<br>a. Suppose that us &lt; (us + iq + . . . + uN )&#x2F;N. Specify a distribution scheme that has a distribution time of F&#x2F;us.<br>b. Suppose that us &gt; (us + iq + . . . + uN )&#x2F;N. Specify a distribution scheme that has a distribution time of NF&#x2F;(us + iq + . . . + uN ).<br>c. Conclude that the minimum distribution time is in general given by max{ F&#x2F;us, NF&#x2F;(us + iq + . . . + uN ) } .  </p>
+<p>虑使用P2P体系结构向N个用户分发F比特的一个文件。假定一种流体模型。为了简化起见，假定dmin很大，因此对等方下载带宽不会成为瓶颈。<br>a.假定us≤(us+u1+…+uN)&#x2F;N。定义一个具有F&#x2F;us分发时间的分发方案。<br>b.假定us≥(us+u1+…+uN)&#x2F;N。定义一个具有NF&#x2F;(us+u1+…+uN)分发时间的分发方案。<br>c.得出最小分发时间通常是由max{F&#x2F;us,NF&#x2F;(us+u1+…+uN)}所决定的结论。</p>
+<p><img src="/./../2024Picture/image-20240225164709539.png" alt="image-20240225164709539" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>方案怎么能可行呢？</p>
+<p>对于服务器，所有上载有没有超过U<sub>S</sub></p>
+<p>对于客户端，吐出是不是符合上载带宽，下载带宽有没有符合要求</p>
+<p>a. 服务器上载能力较弱</p>
+<p><img src="/./../2024Picture/c3fe542539e9062b54f73f7b743605c.png" alt="c3fe542539e9062b54f73f7b743605c" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>U是整个客户端上载能力之和</p>
+<p>把文件F进行划分 ：按照上载带宽的比例，不是平均分发</p>
+<p><img src="/./../2024Picture/4cbf8871d692ad3f3c7d435538d6f73.png" alt="4cbf8871d692ad3f3c7d435538d6f73" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240225173739132.png" alt="image-20240225173739132" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>b.服务器上载能力较强</p>
+<p><img src="/./../2024Picture/image-20240225173834598.png" alt="image-20240225173834598" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240225173854133.png" alt="image-20240225173854133" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+]]></content>
+      <categories>
+        <category>2024SemesterB</category>
+      </categories>
+      <tags>
+        <tag>EE5412计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>多维数组test1-part1</title>
+    <url>/2024/02/24/%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84test1-part1/</url>
+    <content><![CDATA[<h1 id="part1"><a href="#part1" class="headerlink" title="part1"></a>part1</h1><h2 id="1-Correlation-vs-cosine-vs-Euclidean-distance"><a href="#1-Correlation-vs-cosine-vs-Euclidean-distance" class="headerlink" title="1. Correlation vs cosine vs Euclidean distance"></a>1. Correlation vs cosine vs Euclidean distance</h2><h4 id="Correlation"><a href="#Correlation" class="headerlink" title="Correlation:"></a>Correlation:</h4><p><img src="/./../2024Picture/image-20240224205336895.png" alt="image-20240224205336895" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<blockquote>
+<p>Correlation 相关度</p>
+<p>covariance 协方差</p>
+<p>standard deviation 标准差</p>
+</blockquote>
+<h4 id="Cosine-Similarity"><a href="#Cosine-Similarity" class="headerlink" title="Cosine Similarity:"></a>Cosine Similarity:</h4><p><img src="/./../2024Picture/image-20240224210342442.png" alt="image-20240224210342442" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="Euclidean-Distance"><a href="#Euclidean-Distance" class="headerlink" title="Euclidean Distance:"></a>Euclidean Distance:</h4><p><img src="/./../2024Picture/image-20240224210854635.png" alt="image-20240224210854635" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>对于以下情况，可以使用以下的相似度度量方法：</p>
+<ul>
+<li><p>比较使用词频的文档：</p>
+<ul>
+<li>相似度度量方法：余弦相似度（Cosine Similarity）</li>
+<li>解释：余弦相似度可以衡量两个向量之间的夹角余弦值，适用于比较文档的词频分布。如果两个文档的词频分布相似，它们的余弦相似度会接近1，表示它们较为相似。</li>
+</ul>
+</li>
+<li><p>比较摄氏温度的两个位置：</p>
+<ul>
+<li>相似度度量方法：欧氏距离（Euclidean Distance）</li>
+<li>解释：欧氏距离可以衡量两个向量之间的直线距离，适用于比较温度的大小。如果两个位置的温度大小相似，它们的欧氏距离会较小，表示它们较为相似。</li>
+</ul>
+</li>
+<li><p>比较两个以摄氏度测量的温度时间序列：</p>
+<ul>
+<li>相似度度量方法：相关系数（Correlation）</li>
+<li>解释：相关系数可以衡量两个变量之间的线性相关性，适用于比较时间序列的相似性。如果两个时间序列的变化趋势相似，它们的相关系数会接近1，表示它们的形状相似。</li>
+</ul>
+</li>
+</ul>
+<p>Correlation<br>This is a continuous attribute. As the trend is needed, invariance to scaling and translation is desired  </p>
+<p>这是一个连续属性。由于需要趋势，因此需要对缩放和平移保持不变</p>
+<p>Euclidean distance (L2 norm) or L1 norm.<br>This is an asymmetric attribute. It is a discrete attribute. L2 or L1 norm is insensitive to occurrence of zeros. Translation and scaling are important.  </p>
+<p>这是一种非对称属性。它是一个离散属性。L2 或 L1 准则对零的出现不敏感。平移和缩放很重要。</p>
+<p><img src="/./../2024Picture/image-20240225203124604.png" alt="image-20240225203124604" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="2-mutual-information"><a href="#2-mutual-information" class="headerlink" title="2.mutual information"></a>2.mutual information</h2><h4 id="mutual-information"><a href="#mutual-information" class="headerlink" title="mutual information:"></a>mutual information:</h4><p><img src="/./../2024Picture/image-20240224211923669.png" alt="image-20240224211923669" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224211814227.png" alt="image-20240224211814227" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240225205808207.png" alt="image-20240225205808207" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/0217ac8200f0d8b75a719a4286b82aa.png" alt="0217ac8200f0d8b75a719a4286b82aa" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="3-Gini-Index-Entropy-Misclassification-error-Gain"><a href="#3-Gini-Index-Entropy-Misclassification-error-Gain" class="headerlink" title="3.Gini Index, Entropy, Misclassification error, Gain"></a>3.Gini Index, Entropy, Misclassification error, Gain</h2><h4 id="gini-index"><a href="#gini-index" class="headerlink" title="gini index"></a>gini index</h4><p><img src="/./../2024Picture/image-20240224212648498.png" alt="image-20240224212648498" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224212717160.png" alt="image-20240224212717160" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224212732586.png" alt="image-20240224212732586" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224213019328.png" alt="image-20240224213019328" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="Entropy"><a href="#Entropy" class="headerlink" title="Entropy"></a>Entropy</h4><p><img src="/./../2024Picture/image-20240224214014324.png" alt="image-20240224214014324" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224214028505.png" alt="image-20240224214028505" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="Misclassification-error"><a href="#Misclassification-error" class="headerlink" title="Misclassification error"></a>Misclassification error</h4><p><img src="/./../2024Picture/image-20240224215612609.png" alt="image-20240224215612609" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="Gain"><a href="#Gain" class="headerlink" title="Gain"></a>Gain</h4><p><img src="/./../2024Picture/image-20240224215732842.png" alt="image-20240224215732842" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224215746040.png" alt="image-20240224215746040" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="4-Gain-Ratio-Split-Info"><a href="#4-Gain-Ratio-Split-Info" class="headerlink" title="4.Gain Ratio, Split Info"></a>4.Gain Ratio, Split Info</h2><p><img src="/./../2024Picture/image-20240224213103727.png" alt="image-20240224213103727" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224213213022.png" alt="image-20240224213213022" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="5-Pessimistic-Error-Estimate"><a href="#5-Pessimistic-Error-Estimate" class="headerlink" title="5.Pessimistic Error Estimate"></a>5.Pessimistic Error Estimate</h2><p><img src="/./../2024Picture/image-20240224213321083.png" alt="image-20240224213321083" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<blockquote>
+<p><strong>err(T):</strong>  所有训练记录的错误率</p>
+<p><strong>Ω:</strong>   权衡超参数(类似α) -添加叶节点的相对成本</p>
+<p><strong>K:</strong> 叶节点数</p>
+<p><strong>N<sub>train</sub>:</strong> 训练记录总数</p>
+</blockquote>
+<p><img src="/./../2024Picture/image-20240224213738271.png" alt="image-20240224213738271" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="6-Kmeans-Kmeans"><a href="#6-Kmeans-Kmeans" class="headerlink" title="6.Kmeans, Kmeans+"></a>6.Kmeans, Kmeans+</h2><h4 id="Kmeans"><a href="#Kmeans" class="headerlink" title="Kmeans"></a>Kmeans</h4><p><img src="/./../2024Picture/image-20240224220004625.png" alt="image-20240224220004625" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="Kmeans-1"><a href="#Kmeans-1" class="headerlink" title="Kmeans+"></a>Kmeans+</h4><p><img src="/./../2024Picture/image-20240224215946618.png" alt="image-20240224215946618" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+]]></content>
+      <categories>
+        <category>2024SemesterB</category>
+      </categories>
+      <tags>
+        <tag>EE6453多维数组</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>NLP从入门到精通</title>
     <url>/2024/02/22/NLP/</url>
     <content><![CDATA[<p><a href="https://www.bilibili.com/video/BV17K4y1W7yb/?spm_id_from=333.337.search-card.all.click&vd_source=2586daefbeb84d444b36c83408e79068">Google中国NLP从入门到精通</a></p>
@@ -293,297 +681,6 @@
       </categories>
       <tags>
         <tag>EE5412计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机网络课后习题：第三章</title>
-    <url>/2024/02/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98%EF%BC%9A%E7%AC%AC%E4%B8%89%E7%AB%A0/</url>
-    <content><![CDATA[<h1 id="第三章-考试内容"><a href="#第三章-考试内容" class="headerlink" title="第三章 考试内容"></a>第三章 考试内容</h1><h2 id="P2"><a href="#P2" class="headerlink" title="P2."></a>P2.</h2><p>Consider Figure 3.5. What are the source and destination port values in the segments flowing from the server back to the clients’ processes? What are the IP addresses in the network-layer datagrams carrying the transport-layer segments?  </p>
-<p>考虑图3.5。从服务器流回客户端进程的段中的源端口和目标端口值是什么?承载传输层段的网络层数据报中的IP地址是什么?</p>
-<p><img src="/./../2024Picture/image-20240224164104110.png" alt="image-20240224164104110" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="P3"><a href="#P3" class="headerlink" title="P3."></a>P3.</h2><p>UDP and TCP use Is complement for their checksums. Suppose you have the following three 8-bit bytes: 01010011, 01100110, 01110100. What is the Is complement of the sum of these 8-bit bytes? (Note that although UDP and TCP use 16-bit words in computing the checksum, for this problem you are being asked to consider 8-bit sums.) Show all work. Why is it that UDP takes the Is complement of the sum; that is, why not just use the sum? With the Is complement scheme, how does the receiver detect errors? Is it possible that a 1-bit error will go undetected? How about a 2-bit error?  </p>
-<p>UDP和TCP使用Is作为校验和的补充。假设您有以下三个8位字节:01010011、01100110、01110100。这8位字节的和的补码是多少?(请注意，尽管UDP和TCP在计算校验和时使用16位字，但对于这个问题，您被要求考虑8位和。)展示所有的工作。为什么UDP采用和的is补码?也就是说，为什么不用求和呢?使用Is补码方案，接收方如何检测错误?一个1比特的错误有可能不会被检测到吗?2位的错误呢?</p>
-<h2 id="P4"><a href="#P4" class="headerlink" title="P4."></a>P4.</h2><p>a. Suppose you have the following 2 bytes: 01011100 and 01100101. What is the Is complement of the sum of these 2 bytes?<br>b. Suppose you have the following 2 bytes: 11011010 and 01100101. What is the Is complement of the sum of these 2 bytes?<br>c. For the bytes in part (a), give an example where one bit is flipped in each of the 2 bytes and yet the Is complement doesn’t change.  </p>
-<p>a.假设有两个字节:01011100和01100101。这两个字节的和的is补是多少?<br>b.假设有两个字节:11011010和01100101。这两个字节的和的is补是多少?<br>c.对于部分(a)中的字节，给出一个例子，其中2个字节中的每个字节翻转一个比特，但i补码没有改变。</p>
-<h2 id="P5"><a href="#P5" class="headerlink" title="P5."></a>P5.</h2><p>Suppose that the UDP receiver computes the Internet checksum for the received UDP segment and finds that it matches the value carried in the checksum field. Can the receiver be absolutely certain that no bit errors have occurred? Explain.  </p>
-<p>假设UDP接收端计算接收到的UDP报文段的Internet校验和，发现与校验和字段中携带的值匹配。接收方能绝对确定没有发生比特错误吗?解释一下。</p>
-<h2 id="P7"><a href="#P7" class="headerlink" title="P7."></a>P7.</h2><p>In protocol rdt3 . 0, the ACK packets flowing from the receiver to the sender do not have sequence numbers (although they do have an ACK field that contains the sequence number of the packet they are acknowledging). Why is it that our ACK packets do not require sequence numbers?  </p>
-<p>在rdt3.0协议中时，从接收方流向发送方的ACK数据包没有序列号(尽管它们有一个ACK字段，其中包含它们所确认的数据包的序列号)。为什么我们的ACK包不需要序列号?</p>
-<h2 id="P9"><a href="#P9" class="headerlink" title="P9."></a>P9.</h2><p>Give a trace of the operation of protocol rdt3 . 0 when data packets and acknowledgment packets are garbled (scenarios for corrupted data and corrupted ACK). Suppose the protocol has been in operation for some time. The sender is in state “Wait for call from above” (top left hand comer) and the receiver is in state “Wait for 0 from below”.  </p>
-<p>给出协议rdt3.0操作的跟踪。数据包和确认报文乱码时为0(数据损坏和ACK损坏的场景)。假设协议已经运行了一段时间。发送方处于“等待来自上面的呼叫”(左上角)状态，接收方处于“等待来自下面的0”状态。</p>
-<h2 id="P12"><a href="#P12" class="headerlink" title="P12."></a>P12.</h2><p>The sender side of rdt3 . 0 simply ignores (that is, takes no action on) all received packets that are either in error or have the wrong value in the ack num field of an acknowledgment packet. Suppose that in such circumstances, rdt3 . 0 were simply to retransmit the current data packet. Would the protocol still work? (Hint: Consider what would happen if there were only bit errors; there are no packet losses but premature timeouts can occur. Consider how many times the nth packet is sent, in the limit as n approaches infinity.)</p>
-<p>rdt3.0的发送端。0只是忽略(即不采取任何行动)所有收到的错误或在确认包的ack num字段中具有错误值的数据包。假设在这种情况下，rdt3.0只是重传当前数据包。协议还能起作用吗?(提示:考虑一下如果只有位错误会发生什么;没有丢包，但可能出现过早超时。考虑第n个数据包发送了多少次，在n趋于无穷时的极限。)</p>
-<h2 id="P13"><a href="#P13" class="headerlink" title="P13."></a>P13.</h2><p>Consider the rdt 3 . 0 protocol. Draw a diagram showing that if the network connection between the sender and receiver can reorder messages (that is, that two messages propagating in the medium between the sender and receiver can be reordered), then the alternating-bit protocol will not work correctly (make sure you clearly identify the sense in which it will not work correctly). Your diagram should have the sender on the left and the receiver on the right, with the time axis running down the page, showing data (D) and acknowledgment (A) message exchange. Make sure you indicate the sequence number associated with any data or acknowledgment segment.</p>
-<p>考虑rdt 3.0协议。绘制一个图表，显示如果发送方和接收方之间的网络连接可以对消息进行重新排序(也就是说，在发送方和接收方之间的媒介中传播的两条消息可以重新排序)，那么交替位协议将无法正常工作(确保您清楚地识别出它无法正常工作的意义)。您的图表应该左边是发送者，右边是接收者，时间轴沿着页面向下延伸，显示数据(D)和确认(A)消息交换。确保您指定了与任何数据或确认段相关联的序列号。</p>
-<h2 id="P14"><a href="#P14" class="headerlink" title="P14."></a>P14.</h2><p>Consider a reliable data transfer protocol that uses only negative acknowledgments. Suppose the sender sends data only infrequently. Would a NAK-only protocol be preferable to a protocol that uses ACKs? Why? Now suppose the sender has a lot of data to send and the end-to-end connection experiences few losses. In this second case, would a NAK-only protocol be preferable to a protocol that uses ACKs? Why?</p>
-<p>考虑一个只使用否定确认的可靠数据传输协议。假设发送方不经常发送数据。仅仅使用ack的协议比使用ack的协议更可取吗?为什么?现在假设发送方有大量数据要发送，端到端连接几乎没有丢失。在第二种情况下，仅使用ack的协议是否比使用ack的协议更可取?为什么?</p>
-<h2 id="P16"><a href="#P16" class="headerlink" title="P16."></a>P16.</h2><p>Suppose an application uses rdt 3 . 0 as its transport layer protocol. As the stop-and-wait protocol has very low channel utilization (shown in the crosscountry example), the designers of this application let the receiver keep sending back a number (more than two) of alternating ACK 0 and ACK 1 even if the corresponding data have not arrived at the receiver. Would this application design increase the channel utilization? Why? Are there any potential problems with this approach? Explain.</p>
-<p>假设应用程序使用rdt 3。0作为其传输层协议。由于停止等待协议的通道利用率非常低(如越野示例所示)，因此该应用程序的设计者让接收方继续发送一个(多于两个)交替的ACK 0和ACK 1，即使相应的数据尚未到达接收方。这种应用程序设计会增加通道利用率吗?为什么?这种方法有什么潜在的问题吗?解释一下。</p>
-<h2 id="P22"><a href="#P22" class="headerlink" title="P22."></a>P22.</h2><p>Consider the GBN protocol with a sender window size of 4 and a sequence number range of 1,024. Suppose that at time t, the next in-order packet that the receiver is expecting has a sequence number of k. Assume that the medium does not reorder messages. Answer the following questions:<br>a. What are the possible sets of sequence numbers inside the sender’s window at time I? Justify your answer.<br>b. What are all possible values of the ACK field in all possible messages currently propagating back to the sender at time &#x2F;? Justify your answer.<br>考虑发送方窗口大小为4、序列号范围为1024的GBN协议。假设在时间t，接收方期待的下一个有序数据包的序列号为k。假设介质不重新排序消息。回答以下问题:<br>a.在时间I的发送方窗口内可能的序列号集合是什么?证明你的答案。<br>b.在时间&#x2F;时，当前传播回发送方的所有可能消息中，ACK字段的所有可能值是多少?证明你的答案。</p>
-<h2 id="P23"><a href="#P23" class="headerlink" title="P23."></a>P23.</h2><p>Consider the GBN and SR protocols. Suppose the sequence number space is of size k. What is the largest allowable sender window that will avoid the occurrence of problems such as that in Figure 3.27 for each of these protocols?<br>考虑GBN和SR协议。假设序列号空间的大小为k。对于这些协议，最大允许的发送方窗口是多少，以避免出现图3.27所示的问题?</p>
-<h2 id="P24"><a href="#P24" class="headerlink" title="P24."></a>P24.</h2><p>Answer true or false to the following questions and briefly justify your<br>answer:<br>a. With the SR protocol, it is possible for the sender to receive an ACK for a packet that falls outside of its current window.<br>b. With GBN, it is possible for the sender to receive an ACK for a packet that falls outside of its current window.<br>c. The alternating-bit protocol is the same as the SR protocol with a sender and receiver window size of 1.<br>d. The alternating-bit protocol is the same as the GBN protocol with a sender and receiver window size of 1.</p>
-<p>对下列问题回答是或否，并简要地证明你的观点<br>答:<br>a.使用SR协议，发送方有可能接收到落在当前窗口之外的数据包的ACK。<br>b.使用GBN，发送方有可能接收到落在当前窗口之外的数据包的ACK。<br>c.交换位协议与SR协议相同，发送端和接收端窗口大小均为1。<br>d.交换位协议与GBN协议相同，发送端和接收端窗口大小均为1。</p>
-<h2 id="P25"><a href="#P25" class="headerlink" title="P25."></a>P25.</h2><p>We have said that an application may choose UDP for a transport protocol because UDP offers finer application control (than TCP) of what data is sent in a segment and when. Why does an application have more control of what data is sent in a segment? Why does an application have more control on when the segment is sent?</p>
-<p>我们已经说过，应用程序可以选择UDP作为传输协议，因为UDP提供了更好的应用程序控制(比TCP)在一个段中发送什么数据和何时发送。为什么应用程序对在段中发送的数据有更多的控制?为什么应用程序对段何时发送有更多的控制?</p>
-<h2 id="P26"><a href="#P26" class="headerlink" title="P26."></a>P26.</h2><p>Consider transferring an enormous file of L bytes from Host A to Host B. Assume an MSS of 536 bytes. </p>
-<p>a. What is the maximum value of L such that TCP sequence numbers are not exhausted? Recall that the TCP sequence number field has 4 bytes.<br>b. For the L you obtain in (a), find how long it takes to transmit the file. Assume that a total of 66 bytes of transport, network, and data-link header are added to each segment before the resulting packet is sent out over a 155 Mbps link. Ignore flow control and congestion control so A can pump out the segments back to back and continuously.  </p>
-<p>考虑将一个L字节的巨大文件从主机A传输到主机b。假设MSS为536字节。</p>
-<p>a.使TCP序列号不耗尽的L的最大值是多少?回想一下，TCP序列号字段有4个字节。<br>b.对于(a)中得到的L，求出传输文件所需的时间。假设在产生的数据包通过155 Mbps的链路发送出去之前，在每个段中总共添加了66字节的传输、网络和数据链路头。忽略流量控制和拥塞控制，这样A可以连续地泵出段。</p>
-]]></content>
-      <categories>
-        <category>2024SemesterB</category>
-      </categories>
-      <tags>
-        <tag>EE5412计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机网络课后习题：第二章</title>
-    <url>/2024/02/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98%EF%BC%9A%E7%AC%AC%E4%BA%8C%E7%AB%A0/</url>
-    <content><![CDATA[<h1 id="第二章-考试内容"><a href="#第二章-考试内容" class="headerlink" title="第二章 考试内容"></a>第二章 考试内容</h1><h2 id="P4-HTTP-GET报文"><a href="#P4-HTTP-GET报文" class="headerlink" title="P4 HTTP GET报文"></a>P4 HTTP GET报文</h2><p>Consider the following string of ASCII characters that were captured by Wireshark when the browser sent an HTTP GET message (i.e., this is the actual content of an HTTP GET message). The characters <cr><lfi> are carriage return and line-feed characters (that is, the italized character string <cr> in the text below represents the single carriage-return character that was contained at that point in the HTTP header). Answer the following questions, indicating where in the HTTP GET message below you find the answer.  </p>
-<p><img src="/./../2024Picture/image-20240224145525092.png" alt="image-20240224145525092" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>a. What is the URL of the document requested by the browser?</p>
-<p>文档的URL： gaia.cs.umass.edu&#x2F;cs453&#x2F;index.html</p>
-<p>b. What version of HTTP is the browser running?</p>
-<p>HTTP版本： HTTP&#x2F;1.1</p>
-<p>c. Does the browser request a non-persistent or a persistent connection?</p>
-<p>presistent connection</p>
-<p>因为connection: keep - alive</p>
-<p>d. What is the IP address of the host on which the browser is running?</p>
-<p>这是一个陷阱的问题。此信息不包含在HTTP消息任何地方。因此，没有办法从看HTTP交换讲这个<br>单独的消息。人们会需要从IP数据报信息(即携带的运载的HTTP GET请求)来回答这个问题TCP段。</p>
-<p>e. What type of browser initiates this message? Why is the browser type needed in an HTTP request message?  </p>
-<p>浏览器类型：Mozilla&#x2F;5.0</p>
-<p>浏览器类型可以让服务器为不同的浏览器发送不同的版本。</p>
-<h2 id="P5-浏览器响应HTTP-GET报文"><a href="#P5-浏览器响应HTTP-GET报文" class="headerlink" title="P5 浏览器响应HTTP GET报文"></a>P5 浏览器响应HTTP GET报文</h2><p>The text below shows the reply sent from the server in response to the HTTP GET message in the question above. Answer the following questions, indicating where in the message below you find the answer.  </p>
-<p><img src="/./../2024Picture/image-20240224152327813.png" alt="image-20240224152327813" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>a. Was the server able to successfully find the document or not? What time was the document reply provided?</p>
-<p>成功接收到了 因为：200 OK</p>
-<p>接收到的时间是 Tuesday, 07 Mar 2006 12:39:45 Greenwich Mean Time.(后面的后缀也要写完整，代表哪个时区)</p>
-<blockquote>
-<p><strong>浏览器状态码</strong></p>
-<ul>
-<li>200 - 请求成功</li>
-<li>301 - 资源（网页等）被永久转移到其它URL</li>
-<li>404 - 请求的资源（网页等）不存在</li>
-<li>500 - 内部服务器错误</li>
-</ul>
-</blockquote>
-<p>b. When was the document last modified?</p>
-<p>该文档最后修改时间：如果按老师出的是没有的</p>
-<p><img src="/./../2024Picture/image-20240224154238029.png" alt="image-20240224154238029" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>如果按照课本原来的题目：</p>
-<p>文档的时间为：SAT, 10 Dec2005 18:27:46 GMT</p>
-<p>c. How many bytes are there in the document being returned?</p>
-<p>Document有3874 bytes</p>
-<p>因为 Content-length &#x3D; 3874</p>
-<p>d. What are the first 5 bytes of the document being returned? Did the server agree to a persistent connection?  </p>
-<p>前五个字节： &lt;!doc<br>同意持续连接 因为：Connection: Keep-Alive</p>
-<h2 id="P7-点击超链接的响应时间"><a href="#P7-点击超链接的响应时间" class="headerlink" title="P7 点击超链接的响应时间"></a>P7 点击超链接的响应时间</h2><p>Suppose within your Web browser you click on a link to obtain a Web page. The IP address for the associated URL is not cached in your local host, so a DNS lookup is necessary to obtain the IP address. Suppose that n DNS servers are visited before your host receives the IP address from DNS; the successive visits incur an RTT of RTT1 . . . , RTT„. Further suppose that the Web page associated with the link contains exactly one object, consisting of a small amount of HTML text. Let RTT0 denote the RTT between the local host and the server containing the object. Assuming zero transmission time of the object, how much time elapses（时间流逝） from when the client clicks on the link until the client receives the object?  </p>
-<p><img src="/./../2024Picture/image-20240224154944602.png" alt="image-20240224154944602" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<blockquote>
-<p><strong>RTT（round-trip time）往返时间</strong></p>
-<p>一个短分组从源到目标再返回源的总延时。（无传输时延）</p>
-<p><strong>一次请求响应总时间 ≈ RTT + 传输延时</strong></p>
-</blockquote>
-<p>获取IP地址的总时间为: RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub></p>
-<p>一旦知道了IP地址，RTT0将用来建立TCP连接，另一个RTT0将用来请求连接。</p>
-<p>一共需要：</p>
-<p>2RTT<sub>0</sub> + RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub></p>
-<h2 id="P8-非持续HTTP和持续HTTP"><a href="#P8-非持续HTTP和持续HTTP" class="headerlink" title="P8 非持续HTTP和持续HTTP"></a>P8 非持续HTTP和持续HTTP</h2><p>Referring to Problem P7, suppose the HTML file references eight very small objects on the same server. Neglecting transmission times, how much time elapses with<br>a. Non-persistent HTTP with no parallel TCP connections?</p>
-<p>b. Non-persistent HTTP with the <strong>browser configured for 6 parallel</strong><br><strong>connections?</strong></p>
-<p>c. Persistent HTTP?  </p>
-<p>获取IP地址的总时间为: RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub></p>
-<p>a.  RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub>  + 2RTT<sub>0</sub> + 8 × 2RTT<sub>0</sub> </p>
-<p>b.  RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub>  + 2RTT<sub>0</sub> + 2 × 2RTT<sub>0</sub></p>
-<p>c.  有流水线的 pipelining: RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub>  + 2RTT<sub>0</sub> +  RTT<sub>0</sub></p>
-<p>​      没有流水线的 without pipelining RTT<sub>1</sub> + RTT<sub>2</sub> + … + RTT<sub>n</sub>  + 2RTT<sub>0</sub> +  8RTT<sub>0</sub></p>
-<blockquote>
-<p>1个HTML基本文件和10个其他对象，</p>
-<p><strong>非持续连接</strong></p>
-<p><em><strong>每个响应&#x2F;请求对都是经一个单独的TCP连接发送。</strong></em></p>
-<p>则每次都建立TCP连接、请求响应，共11次。</p>
-<p>并行非持续：首先建立连接、请求响应，之后并行10个建立连接、请求响应。</p>
-<p><strong>持续连接</strong></p>
-<p><em><strong>所有请求及响应都是经相同的TCP连接发送</strong></em></p>
-<p>首先建立连接、请求响应，之后进行10次请求响应。</p>
-<p>(默认）带流水线的持续：首先建立连接、请求响应，之后按流水线的方式发送10次请求，得到10个响应，几乎在1个RTT内得到10个对象的响应报文。</p>
-</blockquote>
-<h2 id="P9-有缓存和无缓存响应时间（数据改了）"><a href="#P9-有缓存和无缓存响应时间（数据改了）" class="headerlink" title="P9. 有缓存和无缓存响应时间（数据改了）"></a>P9. 有缓存和无缓存响应时间（数据改了）</h2><p>Consider Figure 2.12, for which there is an institutional network connected to the Internet. Suppose that <strong>the average object size</strong> is 1,000,000 bits and that the <strong>average request rate</strong> from the institution’s browsers to the origin servers is 16 requests per second. Also suppose that the amount of time it takes from when the router on the Internet side of the access link forwards <strong>an HTTP request until it receives the response</strong> is three seconds on average (see Section 2.2.5). Model the total average response time as the sum of the average access delay (that is, the delay from Internet router to institution router) and the average Internet delay. For the average access delay, use A&#x2F;(l — A&#x2F;3), where A is the average time required to send an object over the access link and (3 is the arrival rate of objects to the access link.</p>
-<p><img src="/./../2024Picture/image-20240224165856951.png" alt="image-20240224165856951" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>a. Find the total average response time.<br>b. Now suppose a cache is installed in the institutional LAN. Suppose the miss rate is 0.4. Find the total response time.  </p>
-<p>考虑图2-12，其中有一个机构的网络和因特网相连。假定对象的平均长度为850000比特，从这个机构网的浏览器到初始服务器的平均请求率是每秒16个请求。还假定从接入链路的因特网一侧的路由器转发一个HTTP请求开始，到接收到其响应的平均时间是3秒（参见2.2.5节）。将总的平均响应时间建模为平均接入时延（即从因特网路由器到机构路由器的时延）和平均因特网时延之和。对于平均接入时延，使用Δ&#x2F;(1－Δβ)，式中Δ是跨越接入链路发送一个对象的平均时间，β是对象对该接入链路的平均到达率。<br>a.求出总的平均响应时间。<br>b.现在假定在这个机构LAN中安装了一个缓存器。假定命中率为0.4，求出总的响应时间。</p>
-<p><img src="/./../2024Picture/image-20240225143106088.png" alt="image-20240225143106088" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>a）</p>
-<p>850000b &#x3D; 0.85Mb<br>Δ &#x3D; 0.85Mb&#x2F;15Mbps &#x3D; 0.0567s<br>β &#x3D; 16&#x2F;s<br>平均接入时延 &#x3D; 0.0567&#x2F;(1-0.0567 * 16) &#x3D; 0.611s<br>总平均响应时间 &#x3D; 3+0.611 &#x3D;3.611s</p>
-<p>b)</p>
-<p>β &#x3D; 16 * 0.6 &#x3D; 9.6&#x2F;s<br>平均接入时延 &#x3D; 0.0567&#x2F;(1-0.0567 * 9.6) &#x3D; 0.124s<br>命中时的总响应时间 &#x3D; 0.85Mb&#x2F;100Mbps &#x3D; 0.0085s<br>非命中时的总的平均响应时间 &#x3D; 3 + 0.124 &#x3D; 3.124s<br>总的平均响应时间 &#x3D; 0.0085 * 0.4 + 3.124 * 0.6 &#x3D; 0.0034 + 1.8744 &#x3D; 1.8778s</p>
-<hr>
-<p>100Mbps从<br><img src="/./../2024Picture/image-20240225145322463.png" alt="image-20240225145322463" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>来的，图里面</p>
-<hr>
-<blockquote>
-<p> <strong>平均接入时延 the average access delay</strong></p>
-<p> <strong>错过率 miss rate</strong></p>
-<p> <strong>命中率 hit rate</strong> ：这个概率本地就能搞定，1-命中率要从互联网方向请求</p>
-<p> <strong>对象平均长度  the average object size L</strong></p>
-<p> <strong>平均请求率 average request rate</strong></p>
-<p> <strong>平均响应时间 average response time</strong></p>
-<p> <strong>缓存器 cache</strong>: 用来缓冲</p>
-<p> <strong>接收到响应HTTP请求 an HTTP request until it receives the response</strong></p>
-</blockquote>
-<blockquote>
-<p><strong>web cache</strong></p>
-<p>在存储空间保存最近请求过的对象的副本，无需访问原始服务器，就可以满足客户的请求。</p>
-<p><strong>作用</strong>：大大减少对客户请求的响应时间；大大减少一个机构的接入链路到因特网的通信量，无需增加带宽。</p>
-</blockquote>
-<h2 id="P10-持续和非持续HTTP"><a href="#P10-持续和非持续HTTP" class="headerlink" title="P10 持续和非持续HTTP"></a>P10 持续和非持续HTTP</h2><p>Consider a short, 10-meter link, over which a sender can transmit at a rate of 150 bits&#x2F;sec in both directions. Suppose <strong>that packets containing data</strong> are 100,000 bits long, and <strong>packets containing only control</strong> (e.g., ACK or handshaking) are 200 bits long. Assume that N parallel connections each get 1&#x2F;N of the link bandwidth. Now consider the HTTP protocol, and suppose that <strong>each downloaded object</strong> is 100 Kbits long, and that the initial downloaded object contains <strong>10 referenced objects</strong> from the same sender. Would parallel downloads via <strong>parallel instances of non-persistent HTTP</strong> make sense in this case? Now consider <strong>persistent HTTP</strong>. Do you expect significant gains over the non-persistent case? Justify and explain your answer.  </p>
-<p><img src="/./../2024Picture/image-20240224165916793.png" alt="image-20240224165916793" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240224170414066.png" alt="image-20240224170414066" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240224170640569.png" alt="image-20240224170640569" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/3f60661b89ba1453b5891bc8c5088e8.jpg" alt="3f60661b89ba1453b5891bc8c5088e8" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<blockquote>
-<p><strong>数据分组 packets containing data</strong> </p>
-<p><strong>控制分组 packets containing only control</strong>：连接建立，连接确认</p>
-<p><strong>并行非持续HTTP parallel instances of non-persistent HTTP</strong></p>
-<p><strong>持续HTTP consider persistent HTTP</strong></p>
-</blockquote>
-<h2 id="P11-非持续并行HTTP的应用"><a href="#P11-非持续并行HTTP的应用" class="headerlink" title="P11. 非持续并行HTTP的应用"></a>P11. 非持续并行HTTP的应用</h2><p>Consider the scenario introduced in the previous problem. Now suppose that the link is shared by Bob with four other users. Bob uses parallel instances of non-persistent HTTP, and the other four users use non-persistent HTTP without parallel downloads.<br>a. Do Bob’s parallel connections help him get Web pages more quickly? Why or why not?<br>b. If all five users open five parallel instances of non-persistent HTTP, then would Bob’s parallel connections still be beneficial? Why or why not?</p>
-<p>考虑在前一个习题中引出的情况。现在假定该链路由Bob和4个其他用户所共享。Bob使用非持续HTTP的并行实例，而其他4个用户使用无并行下载的非持续HTTP。</p>
-<p>a. Bob的并行连接能够帮助他更快地得到Web页面吗?<br>b. 如果所有5个用户打开5个非持续HTTP并行实例，那么Bob的并行连接仍将是有益的吗？为什么？</p>
-<p>a) <strong>Yes,</strong> Bob’s parallel connections help him get Web pages more quickly.</p>
-<p>下载一个初试对象时，Bob和其它4个用户时间相同每个用户独占1&#x2F;5带宽。<br>时间为 (3 * t1 + t2) * 5 &#x3D; 3353.3s<br>下载10个引用对象时，Bob打开10个HTTP并行连接，其他用户分别打开1个连接。每个连接占1&#x2F;14的带宽.<br>Bob下载的时间为：<br>(3 * t1 + t2) * 14 &#x3D; 9389.24s<br>此时其他用户仅仅下载完一个引用对象，并继续下载其余对象，每个占用1&#x2F;4带宽。<br>(3 * t1 + t2) * 4 * 9 &#x3D; 24143.76s<br>Bob花费的总时间为 12742.54s<br>其他用户花费的总时间为 36886.3s<br>因此，Bob的并行连接可以帮助他更快的得到Web页面。</p>
-<p>b) <strong>Yes,</strong> If all five users open five parallel instances of non-persistent HTTP, then would Bob’s parallel connections still be beneficial.</p>
-<p>如果其它用户采用并行下载，而Bob不采用，那么Bob将比其他用户获得更少的带宽。因此并行连接依然是有益的。</p>
-<h2 id="P20-DNS服务器缓存找最流行的WEB服务器"><a href="#P20-DNS服务器缓存找最流行的WEB服务器" class="headerlink" title="P20. DNS服务器缓存找最流行的WEB服务器"></a>P20. DNS服务器缓存找最流行的WEB服务器</h2><p>Suppose you can access the caches in the local DNS servers of your department. Can you propose a way to roughly determine the Web servers (outside your department) that are most popular among the users in your department? Explain.</p>
-<p>假定你能够访问所在系的本地DNS服务器中的缓存。你能够提出一种方法来粗略地确定在你所在系的用户中最为流行的Web服务器（你所在系以外）吗？解释原因。</p>
-<p>我们可以定期拍摄本地DNS服务器中DNS缓存的快照。该组织在DNS缓存中出现最频繁的Web服务器是最流行的服务器。这是因为如果更多的用户对Web服务器感兴趣，那么DNS请求就会对此感兴趣服务器更频繁地由用户发送。因此，该Web服务器将出现在DNS中缓存更频繁。</p>
-<blockquote>
-<p>DNS 缓存</p>
-<p><strong>作用</strong>：改善时延性能，减少因特网上传输的DNS报文数量。由于本地服务器可以缓存TLD服务器的地址，所以多数时候，根服务器被绕过了。<br><strong>原理</strong>：当一个DNS服务器接收到一个回答报文时，它会将其缓存在本地存储器，并设置一个TTL（默认2天）</p>
-</blockquote>
-<h2 id="P21-通过DNS查询是否访问过某网站"><a href="#P21-通过DNS查询是否访问过某网站" class="headerlink" title="P21. 通过DNS查询是否访问过某网站"></a>P21. 通过DNS查询是否访问过某网站</h2><p>Suppose that your department has a local DNS server for all computers in the department. You are an ordinary user (i.e., not a network&#x2F;system administrator). Can you determine if an external Web site was likely accessed from a computer in your department a couple of seconds ago? Explain.</p>
-<p>假设你所在系具有一台用于系里所有计算机的本地DNS服务器。你是普通用户（即你不是网络&#x2F;系统管理员）。你能够确定是否在几秒钟前从你系里的一台计算机可能访问过一台外部Web站点吗？解释原因。</p>
-<p>是的，我们可以在本地DNS服务器中使用DIG查询该网站。例如，digCNN.com将返回查找CNN.com的查询时间。如果CNN.com几秒钟前刚刚被访问，那么CNN.com的条目将缓存在本地DNS缓存中，因此查询时间为0毫秒。否则，查询时间很长。</p>
-<h2 id="P22-C-S-和-P2P"><a href="#P22-C-S-和-P2P" class="headerlink" title="P22. C&#x2F;S 和 P2P"></a>P22. C&#x2F;S 和 P2P</h2><p>Consider distributing a file of F &#x3D; 20 Gbits to N peers. The server has an <strong>upload rate</strong> of us &#x3D; 30 Mbps, and each peer has a download rate of di &#x3D; 2 Mbps and an upload rate of u. For N &#x3D; 10, 100, and 1,000 and u &#x3D; 300 Kbps, 700 Kbps, and 2 Mbps, prepare a chart giving the <strong>minimum distribution time</strong> for each of the combinations of N and u for both <strong>clientserver</strong> distribution and <strong>P2P distribution</strong>.</p>
-<p>考虑向N个对等方分发F&#x3D;15Gb的一个文件。该服务器具有us&#x3D;30Mbps的上载速率，每个对等方具有di&#x3D;2Mbps的下载速率和上载速率u。对于N&#x3D;10、100和1000并且u&#x3D;300kbps、700kbps和2Mbps，对于N和u的每种组合绘制出确定最小分发时间的图表。需要分别针对客户-服务器分发和P2P分发两种情况制作。</p>
-<p><img src="/./../2024Picture/image-20240225125128386.png" alt="image-20240225125128386" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240225131811385.png" alt="image-20240225131811385" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>C&#x2F;S模式 Un不起作用</p>
-<p>文件分发：服务器要把N个文件都分发，客户端都下载完</p>
-<ol>
-<li><p>C&#x2F;S </p>
-<p><img src="/./../2024Picture/7fc4cbdd3cc9bb0ec1c872ef2861480.jpg" alt="7fc4cbdd3cc9bb0ec1c872ef2861480" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240225133645045.png" alt="image-20240225133645045" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>随着N的增加，服务器的瓶颈会发生改变： 从客户端转服务器端，整个时间随着N的增加而线性增加</p>
-</li>
-<li><p>P2P</p>
-<p><img src="/./../2024Picture/bd658538b3f806153f63467211b3c73.jpg" alt="bd658538b3f806153f63467211b3c73" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240225133713523.png" alt="image-20240225133713523" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><strong>横轴</strong>：N增加的越多，相对于C&#x2F;S节省的时间越多</p>
-<p><strong>纵轴</strong>：随着上载带宽的增加，时间减少的很快。<strong>但是当上载带宽到一定程度的时候</strong>，下载时间不会减少，因为主要受限于客户端的下载时间。</p>
-</li>
-</ol>
-<p><img src="/./../2024Picture/image-20240225134404822.png" alt="image-20240225134404822" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<blockquote>
-<p><strong>上载速率 upload rate</strong> </p>
-<p><strong>下载速率 download rate</strong></p>
-<p><strong>C&#x2F;S模式 client server distribution</strong> 客户端不上载</p>
-<p><strong>P2P模式 P2P distribution</strong> 不仅仅服务器服务各个客户端，客户端上载能力可以服务其他节点，相互服务</p>
-<p><strong>最小分发时间 minimum distribution time</strong></p>
-<p><strong>D<sub>XX</sub> 最小分发时间</strong></p>
-</blockquote>
-<h2 id="P23-C-S体系"><a href="#P23-C-S体系" class="headerlink" title="P23. C&#x2F;S体系"></a>P23. C&#x2F;S体系</h2><p>Consider distributing a file of F bits to N peers using a client-server architecture. Assume a fluid model where the server can simultaneously transmit to multiple peers, transmitting to each peer at different rates, as long as the combined rate does not exceed us.<br>a. Suppose that us&#x2F;N &lt; J min. Specify a distribution scheme that has a distribution time of NF&#x2F;us.<br>b. Suppose that us&#x2F;N &gt; J min. Specify a distribution scheme that has a distribution time of F&#x2F;dmjn.<br>c. Conclude that the minimum distribution time is in general given by max {NF&#x2F;us, F&#x2F;dmin } .</p>
-<p>考虑使用一种客户-服务器体系结构向N个对等方分发一个F比特的文件。假定一种流体模型，即某服务器能够同时向多个对等方传输，只要组合速率不超过us，则以不同的速率向每个对等方传输。<br>a.假定us&#x2F;N≤dmin。定义一个具有NF&#x2F;us分发时间的分发方案。<br>b.假定us&#x2F;N≥dmin。定义一个具有F&#x2F;dmin分发时间的分发方案。<br>c.得出最小分发时间通常是由max{NF&#x2F;us,F&#x2F;dmin}所决定的结论。</p>
-<hr>
-<p>这道题的意思是，根据前面的条件，求出有这个分发条件的分发方案</p>
-<p>也就是说：</p>
-<p>我们要找出在这个条件下，服务器要多久，能把东西发出去</p>
-<hr>
-<p><img src="/./../2024Picture/image-20240225161242206.png" alt="image-20240225161242206" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>a. us&#x2F;N≤dmin 这等于服务器能力被分为N份之后，小于客户端的最小下载带宽</p>
-<p>​    这时候服务器上载能力是瓶颈</p>
-<p>b. us&#x2F;N≥dmin这等于服务器能力被分为N份之后，大于客户端的最小下载带宽</p>
-<p> 这时候客户端下载能力是瓶颈</p>
-<p><img src="/./../2024Picture/image-20240225161650841.png" alt="image-20240225161650841" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>a. </p>
-<p><img src="/./../2024Picture/001385a6371989841c7c1f5d67263e6.jpg" alt="001385a6371989841c7c1f5d67263e6" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>b.</p>
-<p><img src="/./../2024Picture/4ceb99c1db93f03c0fe26f909f3e3a6.jpg" alt="4ceb99c1db93f03c0fe26f909f3e3a6" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>c.</p>
-<p>结合a与b，如果us&#x2F;N &lt;&#x3D; dmin，此时NF&#x2F;us &gt;&#x3D; F&#x2F;dmin，我们选择a方式来传输。 如果us&#x2F;N &gt; dmin，此时NF&#x2F;us &lt; F&#x2F;dmin，选择b方式来传输。</p>
-<h2 id="P24-P2P体系"><a href="#P24-P2P体系" class="headerlink" title="P24. P2P体系"></a>P24. P2P体系</h2><p>Consider distributing a file of F bits to N peers using a P2P architecture. Assume a fluid model. For simplicity assume that dmin is very large, so that peer download bandwidth is never a bottleneck.<br>a. Suppose that us &lt; (us + iq + . . . + uN )&#x2F;N. Specify a distribution scheme that has a distribution time of F&#x2F;us.<br>b. Suppose that us &gt; (us + iq + . . . + uN )&#x2F;N. Specify a distribution scheme that has a distribution time of NF&#x2F;(us + iq + . . . + uN ).<br>c. Conclude that the minimum distribution time is in general given by max{ F&#x2F;us, NF&#x2F;(us + iq + . . . + uN ) } .  </p>
-<p>虑使用P2P体系结构向N个用户分发F比特的一个文件。假定一种流体模型。为了简化起见，假定dmin很大，因此对等方下载带宽不会成为瓶颈。<br>a.假定us≤(us+u1+…+uN)&#x2F;N。定义一个具有F&#x2F;us分发时间的分发方案。<br>b.假定us≥(us+u1+…+uN)&#x2F;N。定义一个具有NF&#x2F;(us+u1+…+uN)分发时间的分发方案。<br>c.得出最小分发时间通常是由max{F&#x2F;us,NF&#x2F;(us+u1+…+uN)}所决定的结论。</p>
-<p><img src="/./../2024Picture/image-20240225164709539.png" alt="image-20240225164709539" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>方案怎么能可行呢？</p>
-<p>对于服务器，所有上载有没有超过U<sub>S</sub></p>
-<p>对于客户端，吐出是不是符合上载带宽，下载带宽有没有符合要求</p>
-<p>a. 服务器上载能力较弱</p>
-<p><img src="/./../2024Picture/c3fe542539e9062b54f73f7b743605c.png" alt="c3fe542539e9062b54f73f7b743605c" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>U是整个客户端上载能力之和</p>
-<p>把文件F进行划分 ：按照上载带宽的比例，不是平均分发</p>
-<p><img src="/./../2024Picture/4cbf8871d692ad3f3c7d435538d6f73.png" alt="4cbf8871d692ad3f3c7d435538d6f73" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240225173739132.png" alt="image-20240225173739132" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>b.服务器上载能力较强</p>
-<p><img src="/./../2024Picture/image-20240225173834598.png" alt="image-20240225173834598" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240225173854133.png" alt="image-20240225173854133" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-]]></content>
-      <categories>
-        <category>2024SemesterB</category>
-      </categories>
-      <tags>
-        <tag>EE5412计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>多维数组test1-part1</title>
-    <url>/2024/02/24/%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84test1-part1/</url>
-    <content><![CDATA[<h1 id="part1"><a href="#part1" class="headerlink" title="part1"></a>part1</h1><h2 id="1-Correlation-vs-cosine-vs-Euclidean-distance"><a href="#1-Correlation-vs-cosine-vs-Euclidean-distance" class="headerlink" title="1. Correlation vs cosine vs Euclidean distance"></a>1. Correlation vs cosine vs Euclidean distance</h2><h4 id="Correlation"><a href="#Correlation" class="headerlink" title="Correlation:"></a>Correlation:</h4><p><img src="/./../2024Picture/image-20240224205336895.png" alt="image-20240224205336895" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<blockquote>
-<p>Correlation 相关度</p>
-<p>covariance 协方差</p>
-<p>standard deviation 标准差</p>
-</blockquote>
-<h4 id="Cosine-Similarity"><a href="#Cosine-Similarity" class="headerlink" title="Cosine Similarity:"></a>Cosine Similarity:</h4><p><img src="/./../2024Picture/image-20240224210342442.png" alt="image-20240224210342442" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="Euclidean-Distance"><a href="#Euclidean-Distance" class="headerlink" title="Euclidean Distance:"></a>Euclidean Distance:</h4><p><img src="/./../2024Picture/image-20240224210854635.png" alt="image-20240224210854635" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="2-mutual-information"><a href="#2-mutual-information" class="headerlink" title="2.mutual information"></a>2.mutual information</h2><h4 id="mutual-information"><a href="#mutual-information" class="headerlink" title="mutual information:"></a>mutual information:</h4><p><img src="/./../2024Picture/image-20240224211923669.png" alt="image-20240224211923669" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240224211814227.png" alt="image-20240224211814227" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="3-Gini-Index-Entropy-Misclassification-error-Gain"><a href="#3-Gini-Index-Entropy-Misclassification-error-Gain" class="headerlink" title="3.Gini Index, Entropy, Misclassification error, Gain"></a>3.Gini Index, Entropy, Misclassification error, Gain</h2><h4 id="gini-index"><a href="#gini-index" class="headerlink" title="gini index"></a>gini index</h4><p><img src="/./../2024Picture/image-20240224212648498.png" alt="image-20240224212648498" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240224212717160.png" alt="image-20240224212717160" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240224212732586.png" alt="image-20240224212732586" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240224213019328.png" alt="image-20240224213019328" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="Entropy"><a href="#Entropy" class="headerlink" title="Entropy"></a>Entropy</h4><p><img src="/./../2024Picture/image-20240224214014324.png" alt="image-20240224214014324" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240224214028505.png" alt="image-20240224214028505" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="Misclassification-error"><a href="#Misclassification-error" class="headerlink" title="Misclassification error"></a>Misclassification error</h4><p><img src="/./../2024Picture/image-20240224215612609.png" alt="image-20240224215612609" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="Gain"><a href="#Gain" class="headerlink" title="Gain"></a>Gain</h4><p><img src="/./../2024Picture/image-20240224215732842.png" alt="image-20240224215732842" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240224215746040.png" alt="image-20240224215746040" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="4-Gain-Ratio-Split-Info"><a href="#4-Gain-Ratio-Split-Info" class="headerlink" title="4.Gain Ratio, Split Info"></a>4.Gain Ratio, Split Info</h2><p><img src="/./../2024Picture/image-20240224213103727.png" alt="image-20240224213103727" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240224213213022.png" alt="image-20240224213213022" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="5-Pessimistic-Error-Estimate"><a href="#5-Pessimistic-Error-Estimate" class="headerlink" title="5.Pessimistic Error Estimate"></a>5.Pessimistic Error Estimate</h2><p><img src="/./../2024Picture/image-20240224213321083.png" alt="image-20240224213321083" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<blockquote>
-<p><strong>err(T):</strong>  所有训练记录的错误率</p>
-<p><strong>Ω:</strong>   权衡超参数(类似α) -添加叶节点的相对成本</p>
-<p><strong>K:</strong> 叶节点数</p>
-<p><strong>N<sub>train</sub>:</strong> 训练记录总数</p>
-</blockquote>
-<p><img src="/./../2024Picture/image-20240224213738271.png" alt="image-20240224213738271" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="6-Kmeans-Kmeans"><a href="#6-Kmeans-Kmeans" class="headerlink" title="6.Kmeans, Kmeans+"></a>6.Kmeans, Kmeans+</h2><h4 id="Kmeans"><a href="#Kmeans" class="headerlink" title="Kmeans"></a>Kmeans</h4><p><img src="/./../2024Picture/image-20240224220004625.png" alt="image-20240224220004625" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="Kmeans-1"><a href="#Kmeans-1" class="headerlink" title="Kmeans+"></a>Kmeans+</h4><p><img src="/./../2024Picture/image-20240224215946618.png" alt="image-20240224215946618" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-]]></content>
-      <categories>
-        <category>2024SemesterB</category>
-      </categories>
-      <tags>
-        <tag>EE6453多维数组</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>排队论第一次考试</title>
-    <url>/2024/02/22/%E6%8E%92%E9%98%9F%E8%AE%BA%E5%A4%8D%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="Inverse-transform-sampling-P59"><a href="#Inverse-transform-sampling-P59" class="headerlink" title="Inverse transform sampling P59"></a>Inverse transform sampling P59</h2>]]></content>
-      <categories>
-        <category>2024SemesterB</category>
-      </categories>
-      <tags>
-        <tag>EE6610排队论</tag>
       </tags>
   </entry>
 </search>
