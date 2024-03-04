@@ -145,7 +145,9 @@
 <p>Euclidean distance (L2 norm) or L1 norm.<br>This is an asymmetric attribute. It is a discrete attribute. L2 or L1 norm is insensitive to occurrence of zeros. Translation and scaling are important.  </p>
 <p>这是一种非对称属性。它是一个离散属性。L2 或 L1 准则对零的出现不敏感。平移和缩放很重要。</p>
 <p><img src="/./../2024Picture/image-20240225203124604.png" alt="image-20240225203124604" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="2-mutual-information"><a href="#2-mutual-information" class="headerlink" title="2.mutual information"></a>2.mutual information</h2><h4 id="mutual-information"><a href="#mutual-information" class="headerlink" title="mutual information:"></a>mutual information:</h4><p><img src="/./../2024Picture/image-20240224211923669.png" alt="image-20240224211923669" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="2-mutual-information"><a href="#2-mutual-information" class="headerlink" title="2.mutual information"></a>2.mutual information</h2><h4 id="mutual-information"><a href="#mutual-information" class="headerlink" title="mutual information:"></a>mutual information:</h4><p><img src="/./../2024Picture/image-20240226152253430.png" alt="image-20240226152253430" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240226152306421.png" alt="image-20240226152306421" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224211923669.png" alt="image-20240224211923669" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p><img src="/./../2024Picture/image-20240224211814227.png" alt="image-20240224211814227" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p><img src="/./../2024Picture/image-20240225205808207.png" alt="image-20240225205808207" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p><img src="/./../2024Picture/0217ac8200f0d8b75a719a4286b82aa.png" alt="0217ac8200f0d8b75a719a4286b82aa" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
@@ -156,6 +158,7 @@
 <h4 id="Entropy"><a href="#Entropy" class="headerlink" title="Entropy"></a>Entropy</h4><p><img src="/./../2024Picture/image-20240224214014324.png" alt="image-20240224214014324" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p><img src="/./../2024Picture/image-20240224214028505.png" alt="image-20240224214028505" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <h4 id="Misclassification-error"><a href="#Misclassification-error" class="headerlink" title="Misclassification error"></a>Misclassification error</h4><p><img src="/./../2024Picture/image-20240224215612609.png" alt="image-20240224215612609" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240226160918222.png" alt="image-20240226160918222" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <h4 id="Gain"><a href="#Gain" class="headerlink" title="Gain"></a>Gain</h4><p><img src="/./../2024Picture/image-20240224215732842.png" alt="image-20240224215732842" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p><img src="/./../2024Picture/image-20240224215746040.png" alt="image-20240224215746040" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <h2 id="4-Gain-Ratio-Split-Info"><a href="#4-Gain-Ratio-Split-Info" class="headerlink" title="4.Gain Ratio, Split Info"></a>4.Gain Ratio, Split Info</h2><p><img src="/./../2024Picture/image-20240224213103727.png" alt="image-20240224213103727" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
@@ -176,318 +179,6 @@
       </categories>
       <tags>
         <tag>EE6453多维数组</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>排队论第一次考试</title>
-    <url>/2024/02/22/%E6%8E%92%E9%98%9F%E8%AE%BA%E5%A4%8D%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="Inverse-transform-sampling-P59"><a href="#Inverse-transform-sampling-P59" class="headerlink" title="Inverse transform sampling P59"></a>Inverse transform sampling P59</h2>]]></content>
-      <categories>
-        <category>2024SemesterB</category>
-      </categories>
-      <tags>
-        <tag>EE6610排队论</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机网络课后习题：第一章</title>
-    <url>/2024/02/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98chapter1/</url>
-    <content><![CDATA[<h1 id="第一章（非老师画重点题）"><a href="#第一章（非老师画重点题）" class="headerlink" title="第一章（非老师画重点题）"></a>第一章（非老师画重点题）</h1><p>这一不分主打了解学了什么</p>
-<h2 id="R1-“主机”和“端系统”有什么不同？"><a href="#R1-“主机”和“端系统”有什么不同？" class="headerlink" title="R1. “主机”和“端系统”有什么不同？"></a>R1. “主机”和“端系统”有什么不同？</h2><p>没什么不同，主机&#x3D;端系统<br>端系统包括 PC，邮件服务器，Web服务器，手机等等……</p>
-<h2 id="R9-拨号调制解调器，HFC，DSL和FTTH"><a href="#R9-拨号调制解调器，HFC，DSL和FTTH" class="headerlink" title="R9.拨号调制解调器，HFC，DSL和FTTH"></a>R9.拨号调制解调器，HFC，DSL和FTTH</h2><p>这些技术都用于<strong>住宅楼接入</strong>。对于这些记住，给出每种技术的传输速率的范围，并讨论它们的传输速率是共享还是专用的。</p>
-<p>拨号调制解调器：30kbps-50kbps</p>
-<p>HFC: 30kbps 下行 2Mbps 上行</p>
-<p>DSL：24Mbps 下行 2.5Mbps 上行</p>
-<p>FTTH：20Mbps</p>
-<p>4G: 几百Mbps</p>
-<p>5G: 1Gbps</p>
-<h2 id="R11-端到端总时延"><a href="#R11-端到端总时延" class="headerlink" title="R11.端到端总时延"></a>R11.端到端总时延</h2><p>假定在发送主机和接收主机间只有一台分组交换机。发送主机和交换机间以及交换机和接收主机间的传输速率分别是R1和R2。假设该交换机使用存储转发<strong>分组交换</strong>方式，发送一个长度为L的分组的端到端总时延是什么?(忽略排队时延、传播时延和处理时延。）</p>
-<p><img src="/./../2024Picture/image-20240221200306297.png" alt="image-20240221200306297" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="R12-分组交换，电路交换-TDM-FDM"><a href="#R12-分组交换，电路交换-TDM-FDM" class="headerlink" title="R12. 分组交换，电路交换, TDM, FDM"></a>R12. 分组交换，电路交换, TDM, FDM</h2><p>与分组交换网络相比，电路交换网络有哪些优点?在电路交换网络中，TDM 比FDM 有哪些优点?</p>
-<p>电路交换的优点：为端到端预留了带宽的资源，能够保证带宽，如果发送小于这个带宽性能和延迟都有保障。</p>
-<p>分组交换：性能不可靠，资源共享，无创建时间，适用于突发传输<br>电路交换：性能可靠，资源不共享，有创建时间，不适用于突发传输，可能有资源浪费。</p>
-<p>TDM(时间): 够对于不同的信号<strong>进行时间片划分</strong>，<strong>直接利用时间域上的资源进行复用</strong>，实现简单，<strong>但是只有在输入信号保持恒定状态时</strong>才能达到最优的带宽利用率</p>
-<p>FDM(频域): 能够根据信号频率差异来<strong>分配给定带宽的专属子信道，更为灵活，</strong>但是需要<strong>占用更多的带宽</strong>。<br>需要更复杂的硬件设备对这些信号进行载波信号加载和数字信号提取过程，之前还要进行数字信号搬移，把频率搬运加载到载波之上。复杂度更高。</p>
-<blockquote>
-<p><strong>多路复用</strong></p>
-<p>多路复用技术是把多个低速信道组合成一个高速信道的技术，它可以有效的提高数据链路的利用率，从而使得一条高速的主干链路同时为多条低速的接入链路提供服务，也就是使得网络干线可以同时运载大量的语音和数据传输。</p>
-</blockquote>
-<h2 id="R13-假设用户共享一条2Mbps链路"><a href="#R13-假设用户共享一条2Mbps链路" class="headerlink" title="R13 假设用户共享一条2Mbps链路"></a>R13 假设用户共享一条2Mbps链路</h2><p><img src="/./../2024Picture/image-20240221213259445.png" alt="image-20240221213259445" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<ol>
-<li>R &#x3D; 2Mbps  R’ &#x3D; 1Mbps R&#x2F;R’&#x3D;2用户 </li>
-<li>因为两个用户不会超过2Mbpd</li>
-<li>20%</li>
-<li>3个 队列出现增长只有三个用户同时使用，所以概率是P &#x3D; 0.2^3</li>
-</ol>
-<blockquote>
-<p><strong>分组交换</strong></p>
-<p>分组交换也称为包交换，它将用户通信的数据划分成多个<strong>更小的等长数据段</strong>，在每个数据段的前面加上必要的控制信息作为数据段的首部，每个带有首部的数据段就构成了一个分组。首部指明了该分组发送的地址，当交换机收到分组之后，将根据首部中的地址信息将分组转发到目的地，这个过程就是分组交换。能够进行分组交换的通信网被称为分组交换网。</p>
-</blockquote>
-<h2 id="R18-一个长度为1000字节的分组经过2500km链路交换"><a href="#R18-一个长度为1000字节的分组经过2500km链路交换" class="headerlink" title="R18 一个长度为1000字节的分组经过2500km链路交换"></a>R18 一个长度为1000字节的分组经过2500km链路交换</h2><p><img src="/./../2024Picture/image-20240221221620544.png" alt="image-20240221221620544" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<ol>
-<li><p>传输时延：8Kb&#x2F;2Mb &#x3D; 4ms </p>
-<p>传播延迟 &#x3D; d&#x2F;s &#x3D; 2500 * 10^3&#x2F;2.5 * 10^8 &#x3D; 10ms</p>
-<p>4+10ms</p>
-</li>
-<li><p>传输时延：8L&#x2F;R<br>传播时延：d&#x2F;s<br>需要的时间为 8L&#x2F;R + d&#x2F;s</p>
-</li>
-<li><p>该时延与传输速率有关。</p>
-<p>但传输速率影响的是传输时延，而不是传播时延。传输时延取决于<strong>分组的长度和传输速率</strong>，而传播时延取决于<strong>链路的距离和传播速率</strong>。</p>
-</li>
-</ol>
-<blockquote>
-<p>1字节 &#x3D; 8 bit</p>
-<p>而我们计算的bps就是以比特为单位，所以我们需要先把字节改成bit</p>
-</blockquote>
-<blockquote>
-<p><strong>传输延迟</strong></p>
-<p>传输延迟(transmission delay）是指<strong>将包中的数据位传入线路所需要的时间</strong>。 根据数据包的大小和带宽的不同而有所变化。 但并不取决于传输线路的距离，因为它仅仅是指将包的数据位传入线路的时间，而不是沿传输线路到达接收端点的时间。</p>
-</blockquote>
-<blockquote>
-<p><strong>传播延迟</strong></p>
-<p>传播延迟（Propagation delay), 在通信、电脑网络领域中，意指<strong>信号从发讯方传播到收讯方时，该传播过程的时间总长</strong>。 在电脑网络领域传播延迟等于d&#x2F;s，其中d是距离，s是波传播速度。</p>
-</blockquote>
-<h2 id="R19-假定主机A要向主机B发送一个大文件。"><a href="#R19-假定主机A要向主机B发送一个大文件。" class="headerlink" title="R19 假定主机A要向主机B发送一个大文件。"></a>R19 <strong>假定主机A要向主机B发送一个大文件。</strong></h2><p>假定主机A要向主机B发送一个大文件。从主机A到主机B的路径上有3段链路，其速率分别为R1 &#x3D; 500kbps，R2 &#x3D; 2Mbps，R3 &#x3D; 1Mbps。<br>a. 假定该网络中没有其他流量，该文件传送的吞吐量是多少？<br>b. 假定该文件为4MB。传输该文件到主机B大致需要多长时间？<br>c. 重复(a)和(b)，只是这时R2减小到100kbps。</p>
-<p><img src="/./../2024Picture/image-20240223135230018.png" alt="image-20240223135230018" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>这题主要考察<strong>瓶颈链路</strong></p>
-<blockquote>
-<p>如果有N对主机使用这个瓶颈链路，他的带宽是应该是所有的带宽&#x2F;n的一个情况</p>
-</blockquote>
-<p>a. 吞吐量500kbps</p>
-<blockquote>
-<p><strong>吞吐量 throughput</strong></p>
-<p><em>吞吐量</em>是指对网络、设备、端口、虚电路或其他设施，单位时间内成功地传送数据的数量（以比特、字节、分组等测量）</p>
-<p>吞吐量是<strong>有效带宽的最小值</strong></p>
-</blockquote>
-<p>b. F &#x3D; 4MB   t &#x3D; 4MB&#x2F;500kbps &#x3D; (4 * 10^6 *8)&#x2F;500 *10^3    &#x3D; 64s</p>
-<blockquote>
-<p>k(小写) &#x3D; 1000</p>
-<p>K(大写) &#x3D; 1024</p>
-<p>1B &#x3D; 8b</p>
-</blockquote>
-<p>c. 吞吐量 100kbps</p>
-<p>​    t &#x3D; 4MB&#x2F;100kbps &#x3D; 320s</p>
-<h2 id="R23-因特网协议栈中的5个层次有哪些？"><a href="#R23-因特网协议栈中的5个层次有哪些？" class="headerlink" title="R23 因特网协议栈中的5个层次有哪些？"></a>R23 因特网协议栈中的5个层次有哪些？</h2><p>因特网协议栈中的5个层次有哪些？在这些层次中，每层的主要任务是什么？</p>
-<p>应用层：提供了一些网络应用程序和应用层协议。<br>运输层：在应用程序端点之间传输运输层报文。主要有TCP和UDP两种协议。<br>网络层：负责将分组从一台主机移动到另一台主机。<br>链路层：沿着路经将数据报传递给下一层结点。<br>物理层：将整个帧从一个网络元素移动到邻近的网络元素。</p>
-<h2 id="R25-路由器，交换机，主机"><a href="#R25-路由器，交换机，主机" class="headerlink" title="R25 路由器，交换机，主机"></a>R25 路由器，交换机，主机</h2><p>路由器处理的层次：物理层 链路层 网络层<br>交换机处理的层次：物理层 链路层<br>主机处理的层次：物理层 链路层 网络层 运输层 应用层</p>
-<h2 id="P2-对于经过N段链路一个接一个地发送P个这样的分组"><a href="#P2-对于经过N段链路一个接一个地发送P个这样的分组" class="headerlink" title="P2 对于经过N段链路一个接一个地发送P个这样的分组"></a>P2 对于经过N段链路一个接一个地发送P个这样的分组</h2><p><img src="/./../2024Picture/image-20240223160604180.png" alt="image-20240223160604180" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>式(1-1)给出了经传输速率为R的N段链路发送长度L的一个分组的端到端时延。对于经过N段链路一个接一个地发送P个这样的分组，一般化地表示出这个公式</p>
-<p><img src="/./../2024Picture/image-20240223160911397.png" alt="image-20240223160911397" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240223161218690.png" alt="image-20240223161218690" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="P6-各种延迟的公式"><a href="#P6-各种延迟的公式" class="headerlink" title="P6 各种延迟的公式"></a>P6 各种延迟的公式</h2><p><img src="/./../2024Picture/image-20240223161743468.png" alt="image-20240223161743468" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>a. 传播时延 d<sub>drop</sub> &#x3D; m&#x2F;s seconds</p>
-<p>b. 传输时间 d<sub>trans</sub> &#x3D; L&#x2F;R seconds</p>
-<p>c. 端到端时延 d<sub>end to end</sub> &#x3D; (m&#x2F;s + L&#x2F;R) seconds</p>
-<p>d. 传输时间过去之后，该分组最后一个bit在： The bit is just leaving Host A.</p>
-<p>e. 如果d<sub>drop</sub> &gt; d<sub>trans</sub>  ，传输时间过去该分组第一个bit在：The first bit is in the link and has no reached Host B</p>
-<p>f. 如果d<sub>drop</sub> &gt; d<sub>trans</sub>  ，传输时间过去该分组第一个bit在：The first bit has reached Host B.</p>
-<p>g. m&#x2F;s &#x3D; L&#x2F;R  所以m &#x3D; (L&#x2F;R)*S &#x3D; 120 * 2.5 * 10 <sup>8</sup> &#x2F;( 56 * 10<sup>3</sup>) &#x3D; 536km</p>
-<h1 id="第一章-考试内容"><a href="#第一章-考试内容" class="headerlink" title="第一章 考试内容"></a>第一章 考试内容</h1><h2 id="P14-时延问题"><a href="#P14-时延问题" class="headerlink" title="P14 时延问题"></a>P14 时延问题</h2><p>Consider the queuing delay in a router buffer. Let I denote traffic intensity; that is, I &#x3D; La&#x2F;R. Suppose that the queuing delay takes the form IL&#x2F;R (1—I) for I&lt; 1.<br>a. Provide a formula for the total delay, that is, the queuing delay plus the transmission delay.<br>b. Plot the total delay as a function of L&#x2F;R.  </p>
-<p><img src="/./../2024Picture/image-20240223165106229.png" alt="image-20240223165106229" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<blockquote>
-<p><strong>流量强度</strong> traffic intensity</p>
-<p>流量强度I &#x3D; La&#x2F;R：代表单位时间来了a个分组 0~1之间，</p>
-<p>趋近于0，则相当于无需排队进入桥，因此速度最快</p>
-<p>越接进1，流量强度越大</p>
-<p>如果大于1，就代表是一直堵，那到最后排队时延会接近无穷大。</p>
-<p>当汽车排队从关卡上桥，一辆车的宽度为<strong>L</strong>，一次通过的汽车数量为<strong>a</strong>，关卡宽度为R，因此一次进入桥的车队车辆数目为<strong>La&#x2F;R</strong>,故流量强度为La&#x2F;R。</p>
-</blockquote>
-<p>a.</p>
-<p><img src="/./../2024Picture/image-20240223171659839.png" alt="image-20240223171659839" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>传输时间经常写成△</p>
-<p>b. L&#x2F;R &#x3D;&gt; x </p>
-<p><img src="/./../2024Picture/image-20240223184803904.png" alt="image-20240223184803904" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>越接近1&#x2F;a,越接近正无穷</p>
-<h2 id="P15-时延"><a href="#P15-时延" class="headerlink" title="P15 时延"></a>P15 时延</h2><blockquote>
-<p><strong>总延时公式</strong>（上题推导）</p>
-<p><img src="/./../2024Picture/image-20240223203535898.png" alt="image-20240223203535898" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-</blockquote>
-<p>Let <strong>a denote the rate of packets arriving at a link</strong> in packets&#x2F;sec, and let <strong>p denote the link’s transmission rate in packets</strong>&#x2F;sec. Based on the formula for the total delay (i.e., the queuing delay plus the transmission delay) derived in the previous problem, derive a formula for the total delay in terms of a and p  </p>
-<p>令a表示在一条链路上分组的到达率（以分组&#x2F;秒计），令μ表示一条链路上分组的传输率（以分组&#x2F;秒计）。基于<strong>上述习题中推导出的总时延公式（即排队时延加传输时延）</strong>，推导出以a和μ表示的总时延公式。</p>
-<p>由于传输率是μ，所以传输时间为1&#x2F;μ &#x3D; L&#x2F;R<br>排队时间由上题得到是IL&#x2F;R(1 - I)，然后又有I &#x3D; La&#x2F;R<br>利用这三个式子，把I、L、R全部消除然后化简就得到了1&#x2F;(μ - a)</p>
-<p><img src="/./../2024Picture/image-20240223203754824.png" alt="image-20240223203754824" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="P16-平均分组到达率"><a href="#P16-平均分组到达率" class="headerlink" title="P16 平均分组到达率"></a>P16 平均分组到达率</h2><p>Consider a router buffer preceding an outbound link. In this problem, you will use <strong>Little’s formula</strong>, a famous formula from queuing theory. Let <strong>N denote the average number of packets in the buffer plus the packet being transmitted</strong>. Let <strong>a denote the rate of packets arriving at the link</strong>. Let <strong>d denote the average total delay</strong> (i.e., the queuing delay plus the transmission delay) experienced by a packet. Little’s formula is <strong>N &#x3D; a • d.</strong> Suppose that on average, the buffer contains 100 packets, and the average packet queuing delay is 20 msec. The <strong>link’s transmission rate</strong> is 100 packets&#x2F;sec. Using Little’s formula, what is the average packet arrival rate, assuming there is no packet loss?  </p>
-<p>考虑一台路由器缓存前面的一条出链路。在这个习题中，将使用李特尔(Little)公式，这是排队论中的一个著名公式。令N表示在缓存中的分组加上被传输的分组的平均数。令a表示到达链路的分组速率。令d表示一个分组历经的平均总时延（即排队时延加传输时延）。李特尔公式是N&#x3D;a×d。假定该缓存平均包含100个分组，并且平均分组排队时延是20ms。该链路的传输速率是100分组&#x2F;秒。使用李特尔公式，在没有丢包的情况下，平均分组到达率是多少？</p>
-<p>假设已经传播了一个分组</p>
-<p>d &#x3D; 20ms + 1&#x2F;100 &#x3D; 0.03s</p>
-<p>N &#x3D; 20 + 1 &#x3D; 21</p>
-<p>a &#x3D; N &#x2F; d &#x3D;  21 &#x2F; 0.03 &#x3D; 700</p>
-<blockquote>
-<p><strong>李特尔公式</strong></p>
-<p>在一个稳定的系统（L）中，长期的平均顾客人数，等于长期的有效抵达率（λ），乘以顾客在这个系统中平均的等待时间（W）；或者，我们可以用一个代数式来表达：</p>
-<p><img src="/./../2024Picture/image-20240223204437605.png" alt="image-20240223204437605" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-</blockquote>
-<h2 id="P17-奇怪的公式（没懂）"><a href="#P17-奇怪的公式（没懂）" class="headerlink" title="P17 奇怪的公式（没懂）"></a>P17 奇怪的公式（没懂）</h2><p>a. Generalize Equation 1.2 in Section 1.4.3 for heterogeneous processing rates, transmission rates, and propagation delays.<br>b. Repeat (a), but now also suppose that there is an average queuing delay of d<sub>queue</sub> at each node  </p>
-<p>a.对于不同的处理速率、传输速率和传播时延，给出1.4.3节中式（1-2)的一般表达式。<br>b.重复(a)，不过此时假定在每个结点有平均排队时延d<sub>queue</sub>。</p>
-<p><img src="/./../2024Picture/image-20240223213752826.png" alt="image-20240223213752826" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="P20-吞吐量"><a href="#P20-吞吐量" class="headerlink" title="P20 吞吐量"></a>P20 吞吐量</h2><p>Consider the throughput example corresponding to Figure 1.20(b). Now suppose that there are M client-server pairs rather than 10. Denote Rs, Rc, and R for the rates of the server links, client links, and network link. Assume all other links have abundant capacity and that there is no other traffic in the network besides the traffic generated by the M client-server pairs. Derive a general expression for throughput in terms of Rs, Rc, R, and M.  </p>
-<p>考虑对应于图1-20b吞吐量的例子。现在假定有M对客户-服务器而不是10对。用Rs、Rc和R分别表示服务器链路、客户链路和网绪链路的速率。假设所有的其他链路都有充足容量，并且除了由这M对客户-服务器产生的流量外，网络中没有其他流量。推导出由表示的通用吞吐量表达式。</p>
-<p><img src="/./../2024Picture/image-20240223214224466.png" alt="image-20240223214224466" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>min （ Rs, Rc, R&#x2F;M) 瓶颈问题</p>
-<h2 id="P21-吞吐量"><a href="#P21-吞吐量" class="headerlink" title="P21 吞吐量"></a>P21 吞吐量</h2><p>Consider Figure 1.19(b). Now suppose that there are M paths between the server and the client. No two paths share any link. Path k(k &#x3D; 1, . . . , M) consists of N links with transmission rates R, Rz, … , RNk . If the server can only use one path to send data to the client, what is the maximum throughput that the server can achieve? If the server can use all M paths to send data, what is the maximum throughput that the server can achieve?  </p>
-<p>考虑图1-l9b。现在假定在服务器和客户之间有M条路径。任两条路径都不共享任何链路。路径（k&#x3D;1，…，M）是由传输速率为、附、……R陆的N条链路组成。如果服务器仅能够使用一条路径向客户发送数据，则该服务器能够取得的最大吞吐量是多少？如果该服务器能够使用所有&#x2F;条路径发送数据，则该服务器能够取得的最大吞吐量是多少？</p>
-<p><img src="/./../2024Picture/image-20240223214653459.png" alt="image-20240223214653459" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/20200518123612884.png" alt="img22" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="P22-丢包和重传"><a href="#P22-丢包和重传" class="headerlink" title="P22 丢包和重传"></a>P22 丢包和重传</h2><p>Consider Figure 1.19(b). Suppose that each link between the server and the client has a packet loss probability p, and the packet loss probabilities for these links are independent. What is the probability that a packet (sent by the server) is successfully received by the receiver? If a packet is lost in the path from the server to the client, then the server will re-transmit the packet. On average, how many times will the server re-transmit the packet in order for the client to successfully receive the packet?  </p>
-<p>考虑图1-19b。假定服务器与客户之间的每条链路的丢包概率为p，且这些链路的丢包率是独立的。一个（由服务器发送的）分组成功地被接收方收到的概率是多少？如果在从服务器到客户的路径上分组丢失了，则服务器将重传该分组。平均来说，为了使客户成功地接收该分组，服务器将要重传该分组多少次？</p>
-<p>N个路由器</p>
-<p>每次成功的概率是：1-P 通过N个路由器</p>
-<p>成功传输概率P<sub>s</sub>&#x3D;(1-P)<sup>N</sup> </p>
-<p> N次才传成功的概率</p>
-<p><img src="/./../2024Picture/image-20240223221359179.png" alt="image-20240223221359179" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>E(X) &#x3D; sum(X p(X)), 就是平均发生几次</p>
-<p><img src="/./../2024Picture/image-20240223222204761.png" alt="image-20240223222204761" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>最后一次成功了，所以</p>
-<p>重传（1&#x2F;P<sub>s</sub>-1）次</p>
-<blockquote>
-<p><strong>伯努利实验</strong></p>
-<p>在同样的条件下重复地、相互独立地进行的一种随机试验</p>
-</blockquote>
-<blockquote>
-<p><strong>几何分布</strong></p>
-<p><img src="/./../2024Picture/image-20240223221023359.png" alt="image-20240223221023359" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-</blockquote>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><blockquote>
-<p><strong>a</strong> 表示在一条链路上包的到达率 denote the rate of packets arriving at a link</p>
-<p>a代表每秒对面到达多少个包，也就是一次通过的包的数量是多少</p>
-</blockquote>
-<blockquote>
-<p><strong>p</strong> 表示一条链路上包的传输率  denote the link’s transmission rate in packets</p>
-<p>它表示链路在一秒钟内可以传输的<strong>包的数量</strong>。所以倒过来就是<strong>传输速率</strong>（L&#x2F;R 一个包全部上传的时间)</p>
-</blockquote>
-<blockquote>
-<p><strong>d</strong> 表示平均总延迟 denote the average total delay </p>
-<p>排队延迟加传输延迟</p>
-</blockquote>
-<blockquote>
-<p><strong>吞吐量与瓶颈问题</strong></p>
-<p>横向：短板效应 哪个最短</p>
-<p>纵向：不仅需要看短板， 还要看中间部分&#x2F;用户数量，比谁最小</p>
-</blockquote>
-<blockquote>
-<p><strong>延迟分类</strong></p>
-<p><img src="/./../2024Picture/image-20240223223612651.png" alt="image-20240223223612651" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>2024SemesterB</category>
-      </categories>
-      <tags>
-        <tag>EE5412计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机网络课后习题：第三章</title>
-    <url>/2024/02/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98%EF%BC%9A%E7%AC%AC%E4%B8%89%E7%AB%A0/</url>
-    <content><![CDATA[<h1 id="第三章-考试内容"><a href="#第三章-考试内容" class="headerlink" title="第三章 考试内容"></a>第三章 考试内容</h1><h2 id="P2-源端口和目的端口，源IP和目的IP"><a href="#P2-源端口和目的端口，源IP和目的IP" class="headerlink" title="P2.源端口和目的端口，源IP和目的IP"></a>P2.源端口和目的端口，源IP和目的IP</h2><p>Consider Figure 3.5. What are the source and destination port values in the segments flowing from the server back to the clients’ processes? What are the IP addresses in the network-layer datagrams carrying the transport-layer segments?  </p>
-<p>考虑图3.5。从服务器流回客户端进程的段中的源端口和目标端口值是什么?承载传输层段的网络层数据报中的IP地址是什么?</p>
-<p><img src="/./../2024Picture/image-20240224164104110.png" alt="image-20240224164104110" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>看图写作很无聊的一道题</p>
-<p>服务器到客户A:<br>源端口号:80, 目的端口号:26145, 源IP:B, 目的IP:A<br>服务器到客户C，会话1:<br>源端口号:80, 目的端口号:7532, 源IP:B, 目的IP:C<br>服务器到客户C，会话2:<br>源端口号:80, 目的端口号:26145, 源IP:B, 目的IP:C</p>
-<h2 id="P3-检验和"><a href="#P3-检验和" class="headerlink" title="P3.  检验和"></a>P3.  检验和</h2><p>UDP and TCP use Is complement for their checksums. Suppose you have the following three 8-bit bytes: 01010011, 01100110, 01110100. What is the Is complement of the sum of these 8-bit bytes? (Note that although UDP and TCP use 16-bit words in computing the checksum, for this problem you are being asked to consider 8-bit sums.) Show all work. Why is it that UDP takes the Is complement of the sum; that is, why not just use the sum? With the Is complement scheme, how does the receiver detect errors? Is it possible that a 1-bit error will go undetected? How about a 2-bit error?  </p>
-<p>UDP和TCP使用Is作为校验和的补充。假设您有以下三个8位字节:01010011、01100110、01110100。这8<strong>位字节的和的补码</strong>是多少?(请注意，尽管UDP和TCP在计算校验和时使用16位字，但对于这个问题，您被要求考虑8位和。)展示所有的工作。为什么<strong>UDP采用和的is补码</strong>?也就是说，<strong>为什么不用求和</strong>呢?使用Is补码方案，接收方如何检测错误?<strong>一个1比特的错误有可能不会被检测到吗?2位的错误呢?</strong></p>
-<p><img src="/./../2024Picture/image-20240225181355367.png" alt="image-20240225181355367" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>使用反码对接收方非常方便，只需将所有数据包含校验码加起来，计算和为全1即可。<br>如果不是全1则说明出现了差错。<br>1比特的差错肯定可以检查出，2比特的差错存在检测不出的情况。</p>
-<blockquote>
-<p><strong>校验和</strong></p>
-<p><img src="/./../2024Picture/image-20240225182033905.png" alt="image-20240225182033905" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>校验和相同只能说是“检验不出错误”，不能保障没有错误。比如传输中多个16bit字发生错误，但是可能恰巧相加校验和不变。</p>
-</blockquote>
-<blockquote>
-<p><strong>补码 complement</strong> </p>
-</blockquote>
-<h2 id="P4-校验和"><a href="#P4-校验和" class="headerlink" title="P4. 校验和"></a>P4. 校验和</h2><p>a. Suppose you have the following 2 bytes: 01011100 and 01100101. What is the Is complement of the sum of these 2 bytes?<br>b. Suppose you have the following 2 bytes: 11011010 and 01100101. What is the Is complement of the sum of these 2 bytes?<br>c. For the bytes in part (a), give an example where one bit is flipped in each of the 2 bytes and yet the Is complement doesn’t change.  </p>
-<p>a.假设有两个字节:01011100和01100101。这两个字节的和的is补是多少?<br>b.假设有两个字节:11011010和01100101。这两个字节的和的is补是多少?<br>c.就第(a)部分的字节而言，请举例说明 2 个字节中每个字节都翻转了一位，但 Is 的补码没有变化。（这个意思是两个字节翻转一位，但是算出来的不发生改变。</p>
-<p>a. 00111110<br>b. 10111111<br>c. 11011100 和 11100101</p>
-<p>Running checksums at multiple levels throughout the network is not a waste. Because flipped bits can be so easily missed, this redundancy is the best chance of catching errors.</p>
-<h2 id="P5"><a href="#P5" class="headerlink" title="P5."></a>P5.</h2><p>Suppose that the UDP receiver computes the Internet checksum for the received UDP segment and finds that it matches the value carried in the checksum field. Can the receiver be absolutely certain that no bit errors have occurred? Explain.  </p>
-<p>假设UDP接收端计算接收到的UDP报文段的Internet校验和，发现与校验和字段中携带的值匹配。接收方能绝对确定没有发生比特错误吗?解释一下。</p>
-<p>接收方不能完全确认没有比特差错，如P4c题目所示，出现多个差错时存在检测不出的情况</p>
-<h2 id="P7-rtd3-0"><a href="#P7-rtd3-0" class="headerlink" title="P7.  rtd3.0"></a>P7.  rtd3.0</h2><p>In protocol rdt3 . 0, the ACK packets flowing from the receiver to the sender do not have sequence numbers (although they do have an ACK field that contains the sequence number of the packet they are acknowledging). Why is it that our ACK packets do not require sequence numbers?  </p>
-<p>在rdt3.0协议中时，从接收方流向发送方的ACK数据包没有序列号(尽管它们有一个ACK字段，其中包含它们所确认的数据包的序列号)。为什么我们的ACK包不需要序列号?</p>
-<p>因为ACK和确认序号已经可以完整的标识这个分组，而且ACK的缺失会导致重传，因此最终ACK可以确保到达。</p>
-<p>the protocol rtd3.0 is used to transfer data from sender to receiver.</p>
-<p>If a sender transfer the packet to the receiver, then receiver will receive and send ACK(Acknowledgement) to the sender for conformation.<br>If sender received ACK then go to the next level.<br>In this process, needs sequence number to the sender for finding duplicate packets data or ACK data.<br>If the sender find any duplicate ACK, then ignore it. In this process ACK packets does not require sequence number.</p>
-<p>So, ACK packets does not require sequence numbers.</p>
-<blockquote>
-<p><img src="/./../2024Picture/16c5b92baeb641a3beefee95f17e97e9.jpeg" alt="img" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-</blockquote>
-<h2 id="P9-rtd3-0"><a href="#P9-rtd3-0" class="headerlink" title="P9.  rtd3.0"></a>P9.  rtd3.0</h2><p>Give a trace of the operation of protocol rdt3 . 0 when data packets and acknowledgment packets are garbled (scenarios for corrupted data and corrupted ACK). Suppose the protocol has been in operation for some time. The sender is in state “<strong>Wait for call from above</strong>” (top left hand comer) and the receiver is in state “Wait for 0 from below”.  </p>
-<p>给出协议rdt3.0操作的跟踪。数据包和确认报文乱码时为0(数据损坏和ACK损坏的场景)。假设协议已经运行了一段时间。发送方处于“等待来自上面的呼叫”(左上角)状态，接收方处于“等待来自下面的0”状态。</p>
-<p>显⽰了损坏的数据和损坏的ACK的场景  </p>
-<p><img src="/./../2024Picture/image-20240225201834472.png" alt="image-20240225201834472" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="P12-rtd3-0"><a href="#P12-rtd3-0" class="headerlink" title="P12.  rtd3.0"></a>P12.  rtd3.0</h2><p>The sender side of rdt3 . 0 simply ignores (that is, takes no action on) all received packets that are either in error or have the wrong value in the ack num field of an acknowledgment packet. Suppose that in such circumstances, rdt3 . 0 were simply to retransmit the current data packet. Would the protocol still work? (Hint: Consider what would happen if there were only bit errors; there are no packet losses but premature timeouts can occur. Consider how many times the nth packet is sent, in the limit as n approaches infinity.)</p>
-<p>rdt3.0的发送端。0只是忽略(即不采取任何行动)所有收到的错误或在确认包的ack num字段中具有错误值的数据包。假设在这种情况下，rdt3.0只是重传当前数据包。协议还能起作用吗?(提示:考虑一下如果只有位错误会发生什么;没有丢包，但可能出现过早超时。考虑第n个数据包发送了多少次，在n趋于无穷时的极限。)</p>
-<h2 id="P13-rtd3-0"><a href="#P13-rtd3-0" class="headerlink" title="P13.  rtd3.0"></a>P13.  rtd3.0</h2><p>Consider the rdt 3 . 0 protocol. Draw a diagram showing that if the network connection between the sender and receiver can reorder messages (that is, that two messages propagating in the medium between the sender and receiver can be reordered), then the alternating-bit protocol will not work correctly (make sure you clearly identify the sense in which it will not work correctly). Your diagram should have the sender on the left and the receiver on the right, with the time axis running down the page, showing data (D) and acknowledgment (A) message exchange. Make sure you indicate the sequence number associated with any data or acknowledgment segment.</p>
-<p>考虑rdt 3.0协议。绘制一个图表，显示如果发送方和接收方之间的网络连接可以对消息进行重新排序(也就是说，在发送方和接收方之间的媒介中传播的两条消息可以重新排序)，那么交替位协议将无法正常工作(确保您清楚地识别出它无法正常工作的意义)。您的图表应该左边是发送者，右边是接收者，时间轴沿着页面向下延伸，显示数据(D)和确认(A)消息交换。确保您指定了与任何数据或确认段相关联的序列号。</p>
-<p><img src="/./../2024Picture/image-20240225202258041.png" alt="image-20240225202258041" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="P14"><a href="#P14" class="headerlink" title="P14."></a>P14.</h2><p>Consider a reliable data transfer protocol that uses only negative acknowledgments. Suppose the sender sends data only infrequently. Would a NAK-only protocol be preferable to a protocol that uses ACKs? Why? Now suppose the sender has a lot of data to send and the end-to-end connection experiences few losses. In this second case, would a NAK-only protocol be preferable to a protocol that uses ACKs? Why?</p>
-<p>考虑一个只使用否定确认的可靠数据传输协议。假设发送方不经常发送数据。仅仅使用ack的协议比使用ack的协议更可取吗?为什么?现在假设发送方有大量数据要发送，端到端连接几乎没有丢失。在第二种情况下，仅使用ack的协议是否比使用ack的协议更可取?为什么?</p>
-<ol>
-<li><p>If the sender sends the data infrequently (occasionally), then the NAK-only protocol is not preferred. It is good to use the protocol that uses ACKs.</p>
-<ul>
-<li>The main disadvantage of NAK-only protocol is that it can detect that the packet has been lost only when the next packet is received by the receiver.</li>
-<li>The NAK-only protocol realize the loss of packet after a long time when it receives the data packet with wrong sequence number as the sender sends the data packets occasionally.</li>
-<li>When the receiver realize the packet loss, it sends NAK to the sender and the sender has to retransmit both the lost and next packet.</li>
-<li>If the sender sends the data frequently, then the NAK-only protocol is preferred. The protocol that uses ACKs is not preferred as it require to send more number of acknowledgements.</li>
-</ul>
-<p>When the sender sends data frequently and the data loss rate is very less, then a NAK-only protocol is preferable to a protocol that uses ACKs.</p>
-<ul>
-<li>The receiver sends the NAK as it realizes the packet loss quickly as the data transmitted frequently.</li>
-<li>Since the data loss is less, the number of NAK in NAK-only protocol is less when compared with protocol that uses ACKs.</li>
-</ul>
-</li>
-</ol>
-<h2 id="P16"><a href="#P16" class="headerlink" title="P16."></a>P16.</h2><p>Suppose an application uses rdt 3 . 0 as its transport layer protocol. As the stop-and-wait protocol has very low channel utilization (shown in the crosscountry example), the designers of this application let the receiver keep sending back a number (more than two) of alternating ACK 0 and ACK 1 even if the corresponding data have not arrived at the receiver. Would this application design increase the channel utilization? Why? Are there any potential problems with this approach? Explain.</p>
-<p>假设应用程序使用rdt 3.0作为其传输层协议。由于停止等待协议的通道利用率非常低(如越野示例所示)，因此该应用程序的设计者让接收方继续发送一个(多于两个)交替的ACK 0和ACK 1，即使相应的数据尚未到达接收方。这种应用程序设计会增加通道利用率吗?为什么?这种方法有什么潜在的问题吗?解释一下。</p>
-<ul>
-<li>Suppose an application uses rdt 3.0 as its transport layer protocol. Then It stop-and-wait protocol is used very low utilization in the application.</li>
-<li>The application allows the receiver to send the acknowledgements and sends the next data packet. It is used as a pipelined data in the channel.</li>
-<li>There is a chance of missing data before it reaches the receiver.</li>
-<li>So the sender (who is using rtd 3.0 protocol) will not retransmit the data. The missing or lost some data.</li>
-<li>Thus, designing of the application need to adopt some mechanism to over come this problem.</li>
-</ul>
-<h2 id="P22"><a href="#P22" class="headerlink" title="P22."></a>P22.</h2><p>Consider the GBN protocol with a sender window size of 4 and a sequence number range of 1,024. Suppose that at time t, the next in-order packet that the receiver is expecting has a sequence number of k. Assume that the medium does not reorder messages. Answer the following questions:<br>a. What are the possible sets of sequence numbers inside the sender’s window at time I? Justify your answer.<br>b. What are all possible values of the ACK field in all possible messages currently propagating back to the sender at time &#x2F;? Justify your answer.<br>考虑发送方窗口大小为4、序列号范围为1024的GBN协议。假设在时间t，接收方期待的下一个有序数据包的序列号为k。假设介质不重新排序消息。回答以下问题:<br>a.在时间I的发送方窗口内可能的序列号集合是什么?证明你的答案。<br>b.在时间&#x2F;时，当前传播回发送方的所有可能消息中，ACK字段的所有可能值是多少?证明你的答案。</p>
-<p><img src="/./../2024Picture/image-20240225202901850.png" alt="image-20240225202901850" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="P23"><a href="#P23" class="headerlink" title="P23."></a>P23.</h2><p>Consider the GBN and SR protocols. Suppose the sequence number space is of size k. What is the largest allowable sender window that will avoid the occurrence of problems such as that in Figure 3.27 for each of these protocols?<br>考虑GBN和SR协议。假设序列号空间的大小为k。对于这些协议，最大允许的发送方窗口是多少，以避免出现图3.27所示的问题?</p>
-<p>In order to avoid the scenario of Figure 3.27, we want to avoid having the leading edge of the receiver’s window (i.e., the one with the “highest” sequence number) wrap around in the sequence number space and overlap with the trailing edge (the one with the “lowest” sequence number in the sender’s window). That is, the sequence number space must be large enough to fit the entire receiver window and the entire sender window without this overlap condition. So, we need to determine how large a range of sequence numbers can be covered, at any given time, by the receiver and sender windows.</p>
-<p>Suppose that the lowest-sequence number that the receiver is waiting for is packet m. In this case, it’s window [m, m+w-1] and it has received (and ACKed) packet m-1 and the w-1 packets before that, where w is the size of the window. If none of those w ACKs have been yet received by the sender, then ACK messages with values of [m-w,m-1] may still be propagating back. If no ACKs with these ACK numbers have been received by the sender, then the sender’s window would be [m-w, m-1].</p>
-<p>Thus, the lower edge of the sender’s window is m-w, and the leading edge of the receiver’s window is m+w-1. In order for the leading edge of the receiver’s window to not overlap with the trailing edge of the sender’s window, the sequence number space must thus be big enough to accommodate 2w sequence numbers. That is, the sequence number space must be at least twice as large as the window size</p>
-<h2 id="P24"><a href="#P24" class="headerlink" title="P24."></a>P24.</h2><p>Answer true or false to the following questions and briefly justify your<br>answer:<br>a. With the SR protocol, it is possible for the sender to receive an ACK for a packet that falls outside of its current window.<br>b. With GBN, it is possible for the sender to receive an ACK for a packet that falls outside of its current window.<br>c. The alternating-bit protocol is the same as the SR protocol with a sender and receiver window size of 1.<br>d. The alternating-bit protocol is the same as the GBN protocol with a sender and receiver window size of 1.</p>
-<p>对下列问题回答是或否，并简要地证明你的观点<br>答:<br>a.使用SR协议，发送方有可能接收到落在当前窗口之外的数据包的ACK。<br>b.使用GBN，发送方有可能接收到落在当前窗口之外的数据包的ACK。<br>c.交换位协议与SR协议相同，发送端和接收端窗口大小均为1。<br>d.交换位协议与GBN协议相同，发送端和接收端窗口大小均为1。</p>
-<p>a. 正确<br>假设窗口为0,1，发送方发送0，1后，接收方回复ACK0,1。但是发送方收到ACK0和1之前，就进行了超时重传，发送0，1。<br>发送方收到ACK0和1。窗口变为2，3。接收方收到重传的0，1，重新回复ACK0,1。此时发送方收到了ACK0，1，在发送方窗口之外。<br>b. 正确<br>假设窗口为0,1，发送方发送0，1后，接收方回复ACK0,1。但是发送方收到ACK1之前，就进行了超时重传，发送1。<br>发送方收到ACK1。窗口变为2，3。接收方收到重传的1，重新回复ACK1。此时发送方收到了ACK1，在发送方窗口之外。<br>c. 正确<br>d. 正确</p>
-<h2 id="P25"><a href="#P25" class="headerlink" title="P25."></a>P25.</h2><p>We have said that an application may choose UDP for a transport protocol because UDP offers finer application control (than TCP) of what data is sent in a segment and when. Why does an application have more control of what data is sent in a segment? Why does an application have more control on when the segment is sent?</p>
-<p>我们已经说过，应用程序可以选择UDP作为传输协议，因为UDP提供了更好的应用程序控制(比TCP)在一个段中发送什么数据和何时发送。为什么应用程序对在段中发送的数据有更多的控制?为什么应用程序对段何时发送有更多的控制?</p>
-<p>a. UDP不会对报文进行分片，而TCP会进行分片。<br>b. UDP没有拥塞控制和流量控制，可以自己调整发送速度。</p>
-<p><strong>a)</strong></p>
-<p><strong>In TCP protocols:</strong></p>
-<ul>
-<li>If the send the segment application then data is not assigned directly.</li>
-<li>Then data store in buffer then decide to connect the segement.</li>
-<li>So,the application does not have more control to sent data in  the TCP protocol.</li>
-</ul>
-<p><strong>For UDP protocols:</strong></p>
-<ul>
-<li>If the send the segment application then data is assigned directly</li>
-<li>Then the data in the segment is then sent.</li>
-<li>So, the application has more control to sent data in the UDP protocol.</li>
-</ul>
-<p>b)</p>
-<ul>
-<li>In TCP protocol <strong>cannot</strong> expect the time between sent data and arrived data. So, an application <strong>does not</strong> have more control on when the segment is sent in TCP.</li>
-<li>n TCP protocol <strong>can</strong> expect the time between sent data and arrived data. So, an application have more control on when the segment is sent in TCP.</li>
-</ul>
-<h2 id="P26"><a href="#P26" class="headerlink" title="P26."></a>P26.</h2><p>Consider transferring an enormous file of L bytes from Host A to Host B. Assume an MSS of 536 bytes. </p>
-<p>a. What is the maximum value of L such that TCP sequence numbers are not exhausted? Recall that the TCP sequence number field has 4 bytes.<br>b. For the L you obtain in (a), find how long it takes to transmit the file. Assume that a total of 66 bytes of transport, network, and data-link header are added to each segment before the resulting packet is sent out over a 155 Mbps link. Ignore flow control and congestion control so A can pump out the segments back to back and continuously.  </p>
-<p>考虑将一个L字节的巨大文件从主机A传输到主机b。假设MSS为536字节。</p>
-<p>a.使TCP序列号不耗尽的L的最大值是多少?回想一下，TCP序列号字段有4个字节。<br>b.对于(a)中得到的L，求出传输文件所需的时间。假设在产生的数据包通过155 Mbps的链路发送出去之前，在每个段中总共添加了66字节的传输、网络和数据链路头。忽略流量控制和拥塞控制，这样A可以连续地泵出段。</p>
-<p>a. 如果序号不重复利用，最多232字节。但是TCP的序号是可以重复利用的。<br>b. 报文数 232 &#x2F; 536 ~&#x3D; 8,012,999<br>(232 + 66 * 8,012,999) * 8 &#x2F; 155 * 10242 ~&#x3D; 237s</p>
-]]></content>
-      <categories>
-        <category>2024SemesterB</category>
-      </categories>
-      <tags>
-        <tag>EE5412计算机网络</tag>
       </tags>
   </entry>
   <entry>
@@ -684,6 +375,321 @@
       </categories>
       <tags>
         <tag>EE5412计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络课后习题：第三章</title>
+    <url>/2024/02/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98%EF%BC%9A%E7%AC%AC%E4%B8%89%E7%AB%A0/</url>
+    <content><![CDATA[<h1 id="第三章-考试内容"><a href="#第三章-考试内容" class="headerlink" title="第三章 考试内容"></a>第三章 考试内容</h1><h2 id="P2-源端口和目的端口，源IP和目的IP"><a href="#P2-源端口和目的端口，源IP和目的IP" class="headerlink" title="P2.源端口和目的端口，源IP和目的IP"></a>P2.源端口和目的端口，源IP和目的IP</h2><p>Consider Figure 3.5. What are the source and destination port values in the segments flowing from the server back to the clients’ processes? What are the IP addresses in the network-layer datagrams carrying the transport-layer segments?  </p>
+<p>考虑图3.5。从服务器流回客户端进程的段中的源端口和目标端口值是什么?承载传输层段的网络层数据报中的IP地址是什么?</p>
+<p><img src="/./../2024Picture/image-20240224164104110.png" alt="image-20240224164104110" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>看图写作很无聊的一道题</p>
+<p>服务器到客户A:<br>源端口号:80, 目的端口号:26145, 源IP:B, 目的IP:A<br>服务器到客户C，会话1:<br>源端口号:80, 目的端口号:7532, 源IP:B, 目的IP:C<br>服务器到客户C，会话2:<br>源端口号:80, 目的端口号:26145, 源IP:B, 目的IP:C</p>
+<h2 id="P3-检验和"><a href="#P3-检验和" class="headerlink" title="P3.  检验和"></a>P3.  检验和</h2><p>UDP and TCP use Is complement for their checksums. Suppose you have the following three 8-bit bytes: 01010011, 01100110, 01110100. What is the Is complement of the sum of these 8-bit bytes? (Note that although UDP and TCP use 16-bit words in computing the checksum, for this problem you are being asked to consider 8-bit sums.) Show all work. Why is it that UDP takes the Is complement of the sum; that is, why not just use the sum? With the Is complement scheme, how does the receiver detect errors? Is it possible that a 1-bit error will go undetected? How about a 2-bit error?  </p>
+<p>UDP和TCP使用Is作为校验和的补充。假设您有以下三个8位字节:01010011、01100110、01110100。这8<strong>位字节的和的补码</strong>是多少?(请注意，尽管UDP和TCP在计算校验和时使用16位字，但对于这个问题，您被要求考虑8位和。)展示所有的工作。为什么<strong>UDP采用和的is补码</strong>?也就是说，<strong>为什么不用求和</strong>呢?使用Is补码方案，接收方如何检测错误?<strong>一个1比特的错误有可能不会被检测到吗?2位的错误呢?</strong></p>
+<p><img src="/./../2024Picture/image-20240225181355367.png" alt="image-20240225181355367" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>使用反码对接收方非常方便，只需将所有数据包含校验码加起来，计算和为全1即可。<br>如果不是全1则说明出现了差错。<br>1比特的差错肯定可以检查出，2比特的差错存在检测不出的情况。</p>
+<blockquote>
+<p><strong>校验和</strong></p>
+<p><img src="/./../2024Picture/image-20240225182033905.png" alt="image-20240225182033905" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>校验和相同只能说是“检验不出错误”，不能保障没有错误。比如传输中多个16bit字发生错误，但是可能恰巧相加校验和不变。</p>
+</blockquote>
+<blockquote>
+<p><strong>补码 complement</strong> </p>
+</blockquote>
+<h2 id="P4-校验和"><a href="#P4-校验和" class="headerlink" title="P4. 校验和"></a>P4. 校验和</h2><p>a. Suppose you have the following 2 bytes: 01011100 and 01100101. What is the Is complement of the sum of these 2 bytes?<br>b. Suppose you have the following 2 bytes: 11011010 and 01100101. What is the Is complement of the sum of these 2 bytes?<br>c. For the bytes in part (a), give an example where one bit is flipped in each of the 2 bytes and yet the Is complement doesn’t change.  </p>
+<p>a.假设有两个字节:01011100和01100101。这两个字节的和的is补是多少?<br>b.假设有两个字节:11011010和01100101。这两个字节的和的is补是多少?<br>c.就第(a)部分的字节而言，请举例说明 2 个字节中每个字节都翻转了一位，但 Is 的补码没有变化。（这个意思是两个字节翻转一位，但是算出来的不发生改变。</p>
+<p>a. 00111110<br>b. 10111111<br>c. 11011100 和 11100101</p>
+<p>Running checksums at multiple levels throughout the network is not a waste. Because flipped bits can be so easily missed, this redundancy is the best chance of catching errors.</p>
+<h2 id="P5"><a href="#P5" class="headerlink" title="P5."></a>P5.</h2><p>Suppose that the UDP receiver computes the Internet checksum for the received UDP segment and finds that it matches the value carried in the checksum field. Can the receiver be absolutely certain that no bit errors have occurred? Explain.  </p>
+<p>假设UDP接收端计算接收到的UDP报文段的Internet校验和，发现与校验和字段中携带的值匹配。接收方能绝对确定没有发生比特错误吗?解释一下。</p>
+<p>接收方不能完全确认没有比特差错，如P4c题目所示，出现多个差错时存在检测不出的情况</p>
+<h2 id="P7-rtd3-0"><a href="#P7-rtd3-0" class="headerlink" title="P7.  rtd3.0"></a>P7.  rtd3.0</h2><p>In protocol rdt3 . 0, the ACK packets flowing from the receiver to the sender do not have sequence numbers (although they do have an ACK field that contains the sequence number of the packet they are acknowledging). Why is it that our ACK packets do not require sequence numbers?  </p>
+<p>在rdt3.0协议中时，从接收方流向发送方的ACK数据包没有序列号(尽管它们有一个ACK字段，其中包含它们所确认的数据包的序列号)。为什么我们的ACK包不需要序列号?</p>
+<p>因为ACK和确认序号已经可以完整的标识这个分组，而且ACK的缺失会导致重传，因此最终ACK可以确保到达。</p>
+<p>the protocol rtd3.0 is used to transfer data from sender to receiver.</p>
+<p>If a sender transfer the packet to the receiver, then receiver will receive and send ACK(Acknowledgement) to the sender for conformation.<br>If sender received ACK then go to the next level.<br>In this process, needs sequence number to the sender for finding duplicate packets data or ACK data.<br>If the sender find any duplicate ACK, then ignore it. In this process ACK packets does not require sequence number.</p>
+<p>So, ACK packets does not require sequence numbers.</p>
+<blockquote>
+<p><img src="/./../2024Picture/16c5b92baeb641a3beefee95f17e97e9.jpeg" alt="img" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</blockquote>
+<h2 id="P9-rtd3-0"><a href="#P9-rtd3-0" class="headerlink" title="P9.  rtd3.0"></a>P9.  rtd3.0</h2><p>Give a trace of the operation of protocol rdt3 . 0 when data packets and acknowledgment packets are garbled (scenarios for corrupted data and corrupted ACK). Suppose the protocol has been in operation for some time. The sender is in state “<strong>Wait for call from above</strong>” (top left hand comer) and the receiver is in state “Wait for 0 from below”.  </p>
+<p>给出协议rdt3.0操作的跟踪。数据包和确认报文乱码时为0(数据损坏和ACK损坏的场景)。假设协议已经运行了一段时间。发送方处于“等待来自上面的呼叫”(左上角)状态，接收方处于“等待来自下面的0”状态。</p>
+<p>显⽰了损坏的数据和损坏的ACK的场景  </p>
+<p><img src="/./../2024Picture/image-20240225201834472.png" alt="image-20240225201834472" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="P12-rtd3-0"><a href="#P12-rtd3-0" class="headerlink" title="P12.  rtd3.0"></a>P12.  rtd3.0</h2><p>The sender side of rdt3 . 0 simply ignores (that is, takes no action on) all received packets that are either in error or have the wrong value in the ack num field of an acknowledgment packet. Suppose that in such circumstances, rdt3 . 0 were simply to retransmit the current data packet. Would the protocol still work? (Hint: Consider what would happen if there were only bit errors; there are no packet losses but premature timeouts can occur. Consider how many times the nth packet is sent, in the limit as n approaches infinity.)</p>
+<p>rdt3.0的发送端。0只是忽略(即不采取任何行动)所有收到的错误或在确认包的ack num字段中具有错误值的数据包。假设在这种情况下，rdt3.0只是重传当前数据包。协议还能起作用吗?(提示:考虑一下如果只有位错误会发生什么;没有丢包，但可能出现过早超时。考虑第n个数据包发送了多少次，在n趋于无穷时的极限。)</p>
+<h2 id="P13-rtd3-0"><a href="#P13-rtd3-0" class="headerlink" title="P13.  rtd3.0"></a>P13.  rtd3.0</h2><p>Consider the rdt 3 . 0 protocol. Draw a diagram showing that if the network connection between the sender and receiver can reorder messages (that is, that two messages propagating in the medium between the sender and receiver can be reordered), then the alternating-bit protocol will not work correctly (make sure you clearly identify the sense in which it will not work correctly). Your diagram should have the sender on the left and the receiver on the right, with the time axis running down the page, showing data (D) and acknowledgment (A) message exchange. Make sure you indicate the sequence number associated with any data or acknowledgment segment.</p>
+<p>考虑rdt 3.0协议。绘制一个图表，显示如果发送方和接收方之间的网络连接可以对消息进行重新排序(也就是说，在发送方和接收方之间的媒介中传播的两条消息可以重新排序)，那么交替位协议将无法正常工作(确保您清楚地识别出它无法正常工作的意义)。您的图表应该左边是发送者，右边是接收者，时间轴沿着页面向下延伸，显示数据(D)和确认(A)消息交换。确保您指定了与任何数据或确认段相关联的序列号。</p>
+<p><img src="/./../2024Picture/image-20240225202258041.png" alt="image-20240225202258041" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="P14"><a href="#P14" class="headerlink" title="P14."></a>P14.</h2><p>Consider a reliable data transfer protocol that uses only negative acknowledgments. Suppose the sender sends data only infrequently. Would a NAK-only protocol be preferable to a protocol that uses ACKs? Why? Now suppose the sender has a lot of data to send and the end-to-end connection experiences few losses. In this second case, would a NAK-only protocol be preferable to a protocol that uses ACKs? Why?</p>
+<p>考虑一个只使用否定确认的可靠数据传输协议。假设发送方不经常发送数据。仅仅使用ack的协议比使用ack的协议更可取吗?为什么?现在假设发送方有大量数据要发送，端到端连接几乎没有丢失。在第二种情况下，仅使用ack的协议是否比使用ack的协议更可取?为什么?</p>
+<ol>
+<li><p>If the sender sends the data infrequently (occasionally), then the NAK-only protocol is not preferred. It is good to use the protocol that uses ACKs.</p>
+<ul>
+<li>The main disadvantage of NAK-only protocol is that it can detect that the packet has been lost only when the next packet is received by the receiver.</li>
+<li>The NAK-only protocol realize the loss of packet after a long time when it receives the data packet with wrong sequence number as the sender sends the data packets occasionally.</li>
+<li>When the receiver realize the packet loss, it sends NAK to the sender and the sender has to retransmit both the lost and next packet.</li>
+<li>If the sender sends the data frequently, then the NAK-only protocol is preferred. The protocol that uses ACKs is not preferred as it require to send more number of acknowledgements.</li>
+</ul>
+<p>When the sender sends data frequently and the data loss rate is very less, then a NAK-only protocol is preferable to a protocol that uses ACKs.</p>
+<ul>
+<li>The receiver sends the NAK as it realizes the packet loss quickly as the data transmitted frequently.</li>
+<li>Since the data loss is less, the number of NAK in NAK-only protocol is less when compared with protocol that uses ACKs.</li>
+</ul>
+</li>
+</ol>
+<h2 id="P16"><a href="#P16" class="headerlink" title="P16."></a>P16.</h2><p>Suppose an application uses rdt 3 . 0 as its transport layer protocol. As the stop-and-wait protocol has very low channel utilization (shown in the crosscountry example), the designers of this application let the receiver keep sending back a number (more than two) of alternating ACK 0 and ACK 1 even if the corresponding data have not arrived at the receiver. Would this application design increase the channel utilization? Why? Are there any potential problems with this approach? Explain.</p>
+<p>假设应用程序使用rdt 3.0作为其传输层协议。由于停止等待协议的通道利用率非常低(如越野示例所示)，因此该应用程序的设计者让接收方继续发送一个(多于两个)交替的ACK 0和ACK 1，即使相应的数据尚未到达接收方。这种应用程序设计会增加通道利用率吗?为什么?这种方法有什么潜在的问题吗?解释一下。</p>
+<ul>
+<li>Suppose an application uses rdt 3.0 as its transport layer protocol. Then It stop-and-wait protocol is used very low utilization in the application.</li>
+<li>The application allows the receiver to send the acknowledgements and sends the next data packet. It is used as a pipelined data in the channel.</li>
+<li>There is a chance of missing data before it reaches the receiver.</li>
+<li>So the sender (who is using rtd 3.0 protocol) will not retransmit the data. The missing or lost some data.</li>
+<li>Thus, designing of the application need to adopt some mechanism to over come this problem.</li>
+</ul>
+<h2 id="P22"><a href="#P22" class="headerlink" title="P22."></a>P22.</h2><p>Consider the GBN protocol with a sender window size of 4 and a sequence number range of 1,024. Suppose that at time t, the next in-order packet that the receiver is expecting has a sequence number of k. Assume that the medium does not reorder messages. Answer the following questions:<br>a. What are the possible sets of sequence numbers inside the sender’s window at time I? Justify your answer.<br>b. What are all possible values of the ACK field in all possible messages currently propagating back to the sender at time &#x2F;? Justify your answer.<br>考虑发送方窗口大小为4、序列号范围为1024的GBN协议。假设在时间t，接收方期待的下一个有序数据包的序列号为k。假设介质不重新排序消息。回答以下问题:<br>a.在时间I的发送方窗口内可能的序列号集合是什么?证明你的答案。<br>b.在时间&#x2F;时，当前传播回发送方的所有可能消息中，ACK字段的所有可能值是多少?证明你的答案。</p>
+<p><img src="/./../2024Picture/image-20240225202901850.png" alt="image-20240225202901850" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="P23"><a href="#P23" class="headerlink" title="P23."></a>P23.</h2><p>Consider the GBN and SR protocols. Suppose the sequence number space is of size k. What is the largest allowable sender window that will avoid the occurrence of problems such as that in Figure 3.27 for each of these protocols?<br>考虑GBN和SR协议。假设序列号空间的大小为k。对于这些协议，最大允许的发送方窗口是多少，以避免出现图3.27所示的问题?</p>
+<p>In order to avoid the scenario of Figure 3.27, we want to avoid having the leading edge of the receiver’s window (i.e., the one with the “highest” sequence number) wrap around in the sequence number space and overlap with the trailing edge (the one with the “lowest” sequence number in the sender’s window). That is, the sequence number space must be large enough to fit the entire receiver window and the entire sender window without this overlap condition. So, we need to determine how large a range of sequence numbers can be covered, at any given time, by the receiver and sender windows.</p>
+<p>Suppose that the lowest-sequence number that the receiver is waiting for is packet m. In this case, it’s window [m, m+w-1] and it has received (and ACKed) packet m-1 and the w-1 packets before that, where w is the size of the window. If none of those w ACKs have been yet received by the sender, then ACK messages with values of [m-w,m-1] may still be propagating back. If no ACKs with these ACK numbers have been received by the sender, then the sender’s window would be [m-w, m-1].</p>
+<p>Thus, the lower edge of the sender’s window is m-w, and the leading edge of the receiver’s window is m+w-1. In order for the leading edge of the receiver’s window to not overlap with the trailing edge of the sender’s window, the sequence number space must thus be big enough to accommodate 2w sequence numbers. That is, the sequence number space must be at least twice as large as the window size</p>
+<h2 id="P24"><a href="#P24" class="headerlink" title="P24."></a>P24.</h2><p>Answer true or false to the following questions and briefly justify your<br>answer:<br>a. With the SR protocol, it is possible for the sender to receive an ACK for a packet that falls outside of its current window.<br>b. With GBN, it is possible for the sender to receive an ACK for a packet that falls outside of its current window.<br>c. The alternating-bit protocol is the same as the SR protocol with a sender and receiver window size of 1.<br>d. The alternating-bit protocol is the same as the GBN protocol with a sender and receiver window size of 1.</p>
+<p>对下列问题回答是或否，并简要地证明你的观点<br>答:<br>a.使用SR协议，发送方有可能接收到落在当前窗口之外的数据包的ACK。<br>b.使用GBN，发送方有可能接收到落在当前窗口之外的数据包的ACK。<br>c.交换位协议与SR协议相同，发送端和接收端窗口大小均为1。<br>d.交换位协议与GBN协议相同，发送端和接收端窗口大小均为1。</p>
+<p>a. 正确<br>假设窗口为0,1，发送方发送0，1后，接收方回复ACK0,1。但是发送方收到ACK0和1之前，就进行了超时重传，发送0，1。<br>发送方收到ACK0和1。窗口变为2，3。接收方收到重传的0，1，重新回复ACK0,1。此时发送方收到了ACK0，1，在发送方窗口之外。<br>b. 正确<br>假设窗口为0,1，发送方发送0，1后，接收方回复ACK0,1。但是发送方收到ACK1之前，就进行了超时重传，发送1。<br>发送方收到ACK1。窗口变为2，3。接收方收到重传的1，重新回复ACK1。此时发送方收到了ACK1，在发送方窗口之外。<br>c. 正确<br>d. 正确</p>
+<h2 id="P25"><a href="#P25" class="headerlink" title="P25."></a>P25.</h2><p>We have said that an application may choose UDP for a transport protocol because UDP offers finer application control (than TCP) of what data is sent in a segment and when. Why does an application have more control of what data is sent in a segment? Why does an application have more control on when the segment is sent?</p>
+<p>我们已经说过，应用程序可以选择UDP作为传输协议，因为UDP提供了更好的应用程序控制(比TCP)在一个段中发送什么数据和何时发送。为什么应用程序对在段中发送的数据有更多的控制?为什么应用程序对段何时发送有更多的控制?</p>
+<p>a. UDP不会对报文进行分片，而TCP会进行分片。<br>b. UDP没有拥塞控制和流量控制，可以自己调整发送速度。</p>
+<p><strong>a)</strong></p>
+<p><strong>In TCP protocols:</strong></p>
+<ul>
+<li>If the send the segment application then data is not assigned directly.</li>
+<li>Then data store in buffer then decide to connect the segement.</li>
+<li>So,the application does not have more control to sent data in  the TCP protocol.</li>
+</ul>
+<p><strong>For UDP protocols:</strong></p>
+<ul>
+<li>If the send the segment application then data is assigned directly</li>
+<li>Then the data in the segment is then sent.</li>
+<li>So, the application has more control to sent data in the UDP protocol.</li>
+</ul>
+<p>b)</p>
+<ul>
+<li>In TCP protocol <strong>cannot</strong> expect the time between sent data and arrived data. So, an application <strong>does not</strong> have more control on when the segment is sent in TCP.</li>
+<li>n TCP protocol <strong>can</strong> expect the time between sent data and arrived data. So, an application have more control on when the segment is sent in TCP.</li>
+</ul>
+<h2 id="P26"><a href="#P26" class="headerlink" title="P26."></a>P26.</h2><p>Consider transferring an enormous file of L bytes from Host A to Host B. Assume an MSS of 536 bytes. </p>
+<p>a. What is the maximum value of L such that TCP sequence numbers are not exhausted? Recall that the TCP sequence number field has 4 bytes.<br>b. For the L you obtain in (a), find how long it takes to transmit the file. Assume that a total of 66 bytes of transport, network, and data-link header are added to each segment before the resulting packet is sent out over a 155 Mbps link. Ignore flow control and congestion control so A can pump out the segments back to back and continuously.  </p>
+<p>考虑将一个L字节的巨大文件从主机A传输到主机b。假设MSS为536字节。</p>
+<p>a.使TCP序列号不耗尽的L的最大值是多少?回想一下，TCP序列号字段有4个字节。<br>b.对于(a)中得到的L，求出传输文件所需的时间。假设在产生的数据包通过155 Mbps的链路发送出去之前，在每个段中总共添加了66字节的传输、网络和数据链路头。忽略流量控制和拥塞控制，这样A可以连续地泵出段。</p>
+<p>a. 如果序号不重复利用，最多232字节。但是TCP的序号是可以重复利用的。<br>b. 报文数 232 &#x2F; 536 ~&#x3D; 8,012,999<br>(232 + 66 * 8,012,999) * 8 &#x2F; 155 * 10242 ~&#x3D; 237s</p>
+]]></content>
+      <categories>
+        <category>2024SemesterB</category>
+      </categories>
+      <tags>
+        <tag>EE5412计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络课后习题：第一章</title>
+    <url>/2024/02/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98chapter1/</url>
+    <content><![CDATA[<h1 id="第一章（非老师画重点题）"><a href="#第一章（非老师画重点题）" class="headerlink" title="第一章（非老师画重点题）"></a>第一章（非老师画重点题）</h1><p>这一不分主打了解学了什么</p>
+<h2 id="R1-“主机”和“端系统”有什么不同？"><a href="#R1-“主机”和“端系统”有什么不同？" class="headerlink" title="R1. “主机”和“端系统”有什么不同？"></a>R1. “主机”和“端系统”有什么不同？</h2><p>没什么不同，主机&#x3D;端系统<br>端系统包括 PC，邮件服务器，Web服务器，手机等等……</p>
+<h2 id="R9-拨号调制解调器，HFC，DSL和FTTH"><a href="#R9-拨号调制解调器，HFC，DSL和FTTH" class="headerlink" title="R9.拨号调制解调器，HFC，DSL和FTTH"></a>R9.拨号调制解调器，HFC，DSL和FTTH</h2><p>这些技术都用于<strong>住宅楼接入</strong>。对于这些记住，给出每种技术的传输速率的范围，并讨论它们的传输速率是共享还是专用的。</p>
+<p>拨号调制解调器：30kbps-50kbps</p>
+<p>HFC: 30kbps 下行 2Mbps 上行</p>
+<p>DSL：24Mbps 下行 2.5Mbps 上行</p>
+<p>FTTH：20Mbps</p>
+<p>4G: 几百Mbps</p>
+<p>5G: 1Gbps</p>
+<h2 id="R11-端到端总时延"><a href="#R11-端到端总时延" class="headerlink" title="R11.端到端总时延"></a>R11.端到端总时延</h2><p>假定在发送主机和接收主机间只有一台分组交换机。发送主机和交换机间以及交换机和接收主机间的传输速率分别是R1和R2。假设该交换机使用存储转发<strong>分组交换</strong>方式，发送一个长度为L的分组的端到端总时延是什么?(忽略排队时延、传播时延和处理时延。）</p>
+<p><img src="/./../2024Picture/image-20240221200306297.png" alt="image-20240221200306297" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="R12-分组交换，电路交换-TDM-FDM"><a href="#R12-分组交换，电路交换-TDM-FDM" class="headerlink" title="R12. 分组交换，电路交换, TDM, FDM"></a>R12. 分组交换，电路交换, TDM, FDM</h2><p>与分组交换网络相比，电路交换网络有哪些优点?在电路交换网络中，TDM 比FDM 有哪些优点?</p>
+<p>电路交换的优点：为端到端预留了带宽的资源，能够保证带宽，如果发送小于这个带宽性能和延迟都有保障。</p>
+<p>分组交换：性能不可靠，资源共享，无创建时间，适用于突发传输<br>电路交换：性能可靠，资源不共享，有创建时间，不适用于突发传输，可能有资源浪费。</p>
+<p>TDM(时间): 够对于不同的信号<strong>进行时间片划分</strong>，<strong>直接利用时间域上的资源进行复用</strong>，实现简单，<strong>但是只有在输入信号保持恒定状态时</strong>才能达到最优的带宽利用率</p>
+<p>FDM(频域): 能够根据信号频率差异来<strong>分配给定带宽的专属子信道，更为灵活，</strong>但是需要<strong>占用更多的带宽</strong>。<br>需要更复杂的硬件设备对这些信号进行载波信号加载和数字信号提取过程，之前还要进行数字信号搬移，把频率搬运加载到载波之上。复杂度更高。</p>
+<blockquote>
+<p><strong>多路复用</strong></p>
+<p>多路复用技术是把多个低速信道组合成一个高速信道的技术，它可以有效的提高数据链路的利用率，从而使得一条高速的主干链路同时为多条低速的接入链路提供服务，也就是使得网络干线可以同时运载大量的语音和数据传输。</p>
+</blockquote>
+<h2 id="R13-假设用户共享一条2Mbps链路"><a href="#R13-假设用户共享一条2Mbps链路" class="headerlink" title="R13 假设用户共享一条2Mbps链路"></a>R13 假设用户共享一条2Mbps链路</h2><p><img src="/./../2024Picture/image-20240221213259445.png" alt="image-20240221213259445" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ol>
+<li>R &#x3D; 2Mbps  R’ &#x3D; 1Mbps R&#x2F;R’&#x3D;2用户 </li>
+<li>因为两个用户不会超过2Mbpd</li>
+<li>20%</li>
+<li>3个 队列出现增长只有三个用户同时使用，所以概率是P &#x3D; 0.2^3</li>
+</ol>
+<blockquote>
+<p><strong>分组交换</strong></p>
+<p>分组交换也称为包交换，它将用户通信的数据划分成多个<strong>更小的等长数据段</strong>，在每个数据段的前面加上必要的控制信息作为数据段的首部，每个带有首部的数据段就构成了一个分组。首部指明了该分组发送的地址，当交换机收到分组之后，将根据首部中的地址信息将分组转发到目的地，这个过程就是分组交换。能够进行分组交换的通信网被称为分组交换网。</p>
+</blockquote>
+<h2 id="R18-一个长度为1000字节的分组经过2500km链路交换"><a href="#R18-一个长度为1000字节的分组经过2500km链路交换" class="headerlink" title="R18 一个长度为1000字节的分组经过2500km链路交换"></a>R18 一个长度为1000字节的分组经过2500km链路交换</h2><p><img src="/./../2024Picture/image-20240221221620544.png" alt="image-20240221221620544" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ol>
+<li><p>传输时延：8Kb&#x2F;2Mb &#x3D; 4ms </p>
+<p>传播延迟 &#x3D; d&#x2F;s &#x3D; 2500 * 10^3&#x2F;2.5 * 10^8 &#x3D; 10ms</p>
+<p>4+10ms</p>
+</li>
+<li><p>传输时延：8L&#x2F;R<br>传播时延：d&#x2F;s<br>需要的时间为 8L&#x2F;R + d&#x2F;s</p>
+</li>
+<li><p>该时延与传输速率有关。</p>
+<p>但传输速率影响的是传输时延，而不是传播时延。传输时延取决于<strong>分组的长度和传输速率</strong>，而传播时延取决于<strong>链路的距离和传播速率</strong>。</p>
+</li>
+</ol>
+<blockquote>
+<p>1字节 &#x3D; 8 bit</p>
+<p>而我们计算的bps就是以比特为单位，所以我们需要先把字节改成bit</p>
+</blockquote>
+<blockquote>
+<p><strong>传输延迟</strong></p>
+<p>传输延迟(transmission delay）是指<strong>将包中的数据位传入线路所需要的时间</strong>。 根据数据包的大小和带宽的不同而有所变化。 但并不取决于传输线路的距离，因为它仅仅是指将包的数据位传入线路的时间，而不是沿传输线路到达接收端点的时间。</p>
+</blockquote>
+<blockquote>
+<p><strong>传播延迟</strong></p>
+<p>传播延迟（Propagation delay), 在通信、电脑网络领域中，意指<strong>信号从发讯方传播到收讯方时，该传播过程的时间总长</strong>。 在电脑网络领域传播延迟等于d&#x2F;s，其中d是距离，s是波传播速度。</p>
+</blockquote>
+<h2 id="R19-假定主机A要向主机B发送一个大文件。"><a href="#R19-假定主机A要向主机B发送一个大文件。" class="headerlink" title="R19 假定主机A要向主机B发送一个大文件。"></a>R19 <strong>假定主机A要向主机B发送一个大文件。</strong></h2><p>假定主机A要向主机B发送一个大文件。从主机A到主机B的路径上有3段链路，其速率分别为R1 &#x3D; 500kbps，R2 &#x3D; 2Mbps，R3 &#x3D; 1Mbps。<br>a. 假定该网络中没有其他流量，该文件传送的吞吐量是多少？<br>b. 假定该文件为4MB。传输该文件到主机B大致需要多长时间？<br>c. 重复(a)和(b)，只是这时R2减小到100kbps。</p>
+<p><img src="/./../2024Picture/image-20240223135230018.png" alt="image-20240223135230018" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>这题主要考察<strong>瓶颈链路</strong></p>
+<blockquote>
+<p>如果有N对主机使用这个瓶颈链路，他的带宽是应该是所有的带宽&#x2F;n的一个情况</p>
+</blockquote>
+<p>a. 吞吐量500kbps</p>
+<blockquote>
+<p><strong>吞吐量 throughput</strong></p>
+<p><em>吞吐量</em>是指对网络、设备、端口、虚电路或其他设施，单位时间内成功地传送数据的数量（以比特、字节、分组等测量）</p>
+<p>吞吐量是<strong>有效带宽的最小值</strong></p>
+</blockquote>
+<p>b. F &#x3D; 4MB   t &#x3D; 4MB&#x2F;500kbps &#x3D; (4 * 10^6 *8)&#x2F;500 *10^3    &#x3D; 64s</p>
+<blockquote>
+<p>k(小写) &#x3D; 1000</p>
+<p>K(大写) &#x3D; 1024</p>
+<p>1B &#x3D; 8b</p>
+</blockquote>
+<p>c. 吞吐量 100kbps</p>
+<p>​    t &#x3D; 4MB&#x2F;100kbps &#x3D; 320s</p>
+<h2 id="R23-因特网协议栈中的5个层次有哪些？"><a href="#R23-因特网协议栈中的5个层次有哪些？" class="headerlink" title="R23 因特网协议栈中的5个层次有哪些？"></a>R23 因特网协议栈中的5个层次有哪些？</h2><p>因特网协议栈中的5个层次有哪些？在这些层次中，每层的主要任务是什么？</p>
+<p>应用层：提供了一些网络应用程序和应用层协议。<br>运输层：在应用程序端点之间传输运输层报文。主要有TCP和UDP两种协议。<br>网络层：负责将分组从一台主机移动到另一台主机。<br>链路层：沿着路经将数据报传递给下一层结点。<br>物理层：将整个帧从一个网络元素移动到邻近的网络元素。</p>
+<h2 id="R25-路由器，交换机，主机"><a href="#R25-路由器，交换机，主机" class="headerlink" title="R25 路由器，交换机，主机"></a>R25 路由器，交换机，主机</h2><p>路由器处理的层次：物理层 链路层 网络层<br>交换机处理的层次：物理层 链路层<br>主机处理的层次：物理层 链路层 网络层 运输层 应用层</p>
+<h2 id="P2-对于经过N段链路一个接一个地发送P个这样的分组"><a href="#P2-对于经过N段链路一个接一个地发送P个这样的分组" class="headerlink" title="P2 对于经过N段链路一个接一个地发送P个这样的分组"></a>P2 对于经过N段链路一个接一个地发送P个这样的分组</h2><p><img src="/./../2024Picture/image-20240223160604180.png" alt="image-20240223160604180" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>式(1-1)给出了经传输速率为R的N段链路发送长度L的一个分组的端到端时延。对于经过N段链路一个接一个地发送P个这样的分组，一般化地表示出这个公式</p>
+<p><img src="/./../2024Picture/image-20240223160911397.png" alt="image-20240223160911397" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240223161218690.png" alt="image-20240223161218690" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="P6-各种延迟的公式"><a href="#P6-各种延迟的公式" class="headerlink" title="P6 各种延迟的公式"></a>P6 各种延迟的公式</h2><p><img src="/./../2024Picture/image-20240223161743468.png" alt="image-20240223161743468" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>a. 传播时延 d<sub>drop</sub> &#x3D; m&#x2F;s seconds</p>
+<p>b. 传输时间 d<sub>trans</sub> &#x3D; L&#x2F;R seconds</p>
+<p>c. 端到端时延 d<sub>end to end</sub> &#x3D; (m&#x2F;s + L&#x2F;R) seconds</p>
+<p>d. 传输时间过去之后，该分组最后一个bit在： The bit is just leaving Host A.</p>
+<p>e. 如果d<sub>drop</sub> &gt; d<sub>trans</sub>  ，传输时间过去该分组第一个bit在：The first bit is in the link and has no reached Host B</p>
+<p>f. 如果d<sub>drop</sub> &gt; d<sub>trans</sub>  ，传输时间过去该分组第一个bit在：The first bit has reached Host B.</p>
+<p>g. m&#x2F;s &#x3D; L&#x2F;R  所以m &#x3D; (L&#x2F;R)*S &#x3D; 120 * 2.5 * 10 <sup>8</sup> &#x2F;( 56 * 10<sup>3</sup>) &#x3D; 536km</p>
+<h1 id="第一章-考试内容"><a href="#第一章-考试内容" class="headerlink" title="第一章 考试内容"></a>第一章 考试内容</h1><h2 id="P14-时延问题"><a href="#P14-时延问题" class="headerlink" title="P14 时延问题"></a>P14 时延问题</h2><p>Consider the queuing delay in a router buffer. Let I denote traffic intensity; that is, I &#x3D; La&#x2F;R. Suppose that the queuing delay takes the form IL&#x2F;R (1—I) for I&lt; 1.<br>a. Provide a formula for the total delay, that is, the queuing delay plus the transmission delay.<br>b. Plot the total delay as a function of L&#x2F;R.  </p>
+<p><img src="/./../2024Picture/image-20240223165106229.png" alt="image-20240223165106229" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<blockquote>
+<p><strong>流量强度</strong> traffic intensity</p>
+<p>流量强度I &#x3D; La&#x2F;R：代表单位时间来了a个分组 0~1之间，</p>
+<p>趋近于0，则相当于无需排队进入桥，因此速度最快</p>
+<p>越接进1，流量强度越大</p>
+<p>如果大于1，就代表是一直堵，那到最后排队时延会接近无穷大。</p>
+<p>当汽车排队从关卡上桥，一辆车的宽度为<strong>L</strong>，一次通过的汽车数量为<strong>a</strong>，关卡宽度为R，因此一次进入桥的车队车辆数目为<strong>La&#x2F;R</strong>,故流量强度为La&#x2F;R。</p>
+</blockquote>
+<p>a.</p>
+<p><img src="/./../2024Picture/image-20240223171659839.png" alt="image-20240223171659839" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>传输时间经常写成△</p>
+<p>b. L&#x2F;R &#x3D;&gt; x </p>
+<p><img src="/./../2024Picture/image-20240223184803904.png" alt="image-20240223184803904" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>越接近1&#x2F;a,越接近正无穷</p>
+<h2 id="P15-时延"><a href="#P15-时延" class="headerlink" title="P15 时延"></a>P15 时延</h2><blockquote>
+<p><strong>总延时公式</strong>（上题推导）</p>
+<p><img src="/./../2024Picture/image-20240223203535898.png" alt="image-20240223203535898" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</blockquote>
+<p>Let <strong>a denote the rate of packets arriving at a link</strong> in packets&#x2F;sec, and let <strong>p denote the link’s transmission rate in packets</strong>&#x2F;sec. Based on the formula for the total delay (i.e., the queuing delay plus the transmission delay) derived in the previous problem, derive a formula for the total delay in terms of a and p  </p>
+<p>令a表示在一条链路上分组的到达率（以分组&#x2F;秒计），令μ表示一条链路上分组的传输率（以分组&#x2F;秒计）。基于<strong>上述习题中推导出的总时延公式（即排队时延加传输时延）</strong>，推导出以a和μ表示的总时延公式。</p>
+<p>由于传输率是μ，所以传输时间为1&#x2F;μ &#x3D; L&#x2F;R<br>排队时间由上题得到是IL&#x2F;R(1 - I)，然后又有I &#x3D; La&#x2F;R<br>利用这三个式子，把I、L、R全部消除然后化简就得到了1&#x2F;(μ - a)</p>
+<p><img src="/./../2024Picture/image-20240223203754824.png" alt="image-20240223203754824" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="P16-平均分组到达率"><a href="#P16-平均分组到达率" class="headerlink" title="P16 平均分组到达率"></a>P16 平均分组到达率</h2><p>Consider a router buffer preceding an outbound link. In this problem, you will use <strong>Little’s formula</strong>, a famous formula from queuing theory. Let <strong>N denote the average number of packets in the buffer plus the packet being transmitted</strong>. Let <strong>a denote the rate of packets arriving at the link</strong>. Let <strong>d denote the average total delay</strong> (i.e., the queuing delay plus the transmission delay) experienced by a packet. Little’s formula is <strong>N &#x3D; a • d.</strong> Suppose that on average, the buffer contains 100 packets, and the average packet queuing delay is 20 msec. The <strong>link’s transmission rate</strong> is 100 packets&#x2F;sec. Using Little’s formula, what is the average packet arrival rate, assuming there is no packet loss?  </p>
+<p>考虑一台路由器缓存前面的一条出链路。在这个习题中，将使用李特尔(Little)公式，这是排队论中的一个著名公式。令N表示在缓存中的分组加上被传输的分组的平均数。令a表示到达链路的分组速率。令d表示一个分组历经的平均总时延（即排队时延加传输时延）。李特尔公式是N&#x3D;a×d。假定该缓存平均包含100个分组，并且平均分组排队时延是20ms。该链路的传输速率是100分组&#x2F;秒。使用李特尔公式，在没有丢包的情况下，平均分组到达率是多少？</p>
+<p>假设已经传播了一个分组</p>
+<p>d &#x3D; 20ms + 1&#x2F;100 &#x3D; 0.03s</p>
+<p>N &#x3D; 20 + 1 &#x3D; 21</p>
+<p>a &#x3D; N &#x2F; d &#x3D;  21 &#x2F; 0.03 &#x3D; 700</p>
+<blockquote>
+<p><strong>李特尔公式</strong></p>
+<p>在一个稳定的系统（L）中，长期的平均顾客人数，等于长期的有效抵达率（λ），乘以顾客在这个系统中平均的等待时间（W）；或者，我们可以用一个代数式来表达：</p>
+<p><img src="/./../2024Picture/image-20240223204437605.png" alt="image-20240223204437605" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</blockquote>
+<h2 id="P17-奇怪的公式（没懂）"><a href="#P17-奇怪的公式（没懂）" class="headerlink" title="P17 奇怪的公式（没懂）"></a>P17 奇怪的公式（没懂）</h2><p>a. Generalize Equation 1.2 in Section 1.4.3 for heterogeneous processing rates, transmission rates, and propagation delays.<br>b. Repeat (a), but now also suppose that there is an average queuing delay of d<sub>queue</sub> at each node  </p>
+<p>a.对于不同的处理速率、传输速率和传播时延，给出1.4.3节中式（1-2)的一般表达式。<br>b.重复(a)，不过此时假定在每个结点有平均排队时延d<sub>queue</sub>。</p>
+<p><img src="/./../2024Picture/image-20240223213752826.png" alt="image-20240223213752826" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="P20-吞吐量"><a href="#P20-吞吐量" class="headerlink" title="P20 吞吐量"></a>P20 吞吐量</h2><p>Consider the throughput example corresponding to Figure 1.20(b). Now suppose that there are M client-server pairs rather than 10. Denote Rs, Rc, and R for the rates of the server links, client links, and network link. Assume all other links have abundant capacity and that there is no other traffic in the network besides the traffic generated by the M client-server pairs. Derive a general expression for throughput in terms of Rs, Rc, R, and M.  </p>
+<p>考虑对应于图1-20b吞吐量的例子。现在假定有M对客户-服务器而不是10对。用Rs、Rc和R分别表示服务器链路、客户链路和网绪链路的速率。假设所有的其他链路都有充足容量，并且除了由这M对客户-服务器产生的流量外，网络中没有其他流量。推导出由表示的通用吞吐量表达式。</p>
+<p><img src="/./../2024Picture/image-20240223214224466.png" alt="image-20240223214224466" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>min （ Rs, Rc, R&#x2F;M) 瓶颈问题</p>
+<h2 id="P21-吞吐量"><a href="#P21-吞吐量" class="headerlink" title="P21 吞吐量"></a>P21 吞吐量</h2><p>Consider Figure 1.19(b). Now suppose that there are M paths between the server and the client. No two paths share any link. Path k(k &#x3D; 1, . . . , M) consists of N links with transmission rates R, Rz, … , RNk . If the server can only use one path to send data to the client, what is the maximum throughput that the server can achieve? If the server can use all M paths to send data, what is the maximum throughput that the server can achieve?  </p>
+<p>考虑图1-l9b。现在假定在服务器和客户之间有M条路径。任两条路径都不共享任何链路。路径（k&#x3D;1，…，M）是由传输速率为、附、……R陆的N条链路组成。如果服务器仅能够使用一条路径向客户发送数据，则该服务器能够取得的最大吞吐量是多少？如果该服务器能够使用所有&#x2F;条路径发送数据，则该服务器能够取得的最大吞吐量是多少？</p>
+<p><img src="/./../2024Picture/image-20240223214653459.png" alt="image-20240223214653459" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/20200518123612884.png" alt="img22" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="P22-丢包和重传"><a href="#P22-丢包和重传" class="headerlink" title="P22 丢包和重传"></a>P22 丢包和重传</h2><p>Consider Figure 1.19(b). Suppose that each link between the server and the client has a packet loss probability p, and the packet loss probabilities for these links are independent. What is the probability that a packet (sent by the server) is successfully received by the receiver? If a packet is lost in the path from the server to the client, then the server will re-transmit the packet. On average, how many times will the server re-transmit the packet in order for the client to successfully receive the packet?  </p>
+<p>考虑图1-19b。假定服务器与客户之间的每条链路的丢包概率为p，且这些链路的丢包率是独立的。一个（由服务器发送的）分组成功地被接收方收到的概率是多少？如果在从服务器到客户的路径上分组丢失了，则服务器将重传该分组。平均来说，为了使客户成功地接收该分组，服务器将要重传该分组多少次？</p>
+<p>N个路由器</p>
+<p>每次成功的概率是：1-P 通过N个路由器</p>
+<p>成功传输概率P<sub>s</sub>&#x3D;(1-P)<sup>N</sup> </p>
+<p> N次才传成功的概率</p>
+<p><img src="/./../2024Picture/image-20240223221359179.png" alt="image-20240223221359179" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>E(X) &#x3D; sum(X p(X)), 就是平均发生几次</p>
+<p><img src="/./../2024Picture/image-20240223222204761.png" alt="image-20240223222204761" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>最后一次成功了，所以</p>
+<p>重传（1&#x2F;P<sub>s</sub>-1）次</p>
+<blockquote>
+<p><strong>伯努利实验</strong></p>
+<p>在同样的条件下重复地、相互独立地进行的一种随机试验</p>
+</blockquote>
+<blockquote>
+<p><strong>几何分布</strong></p>
+<p><img src="/./../2024Picture/image-20240223221023359.png" alt="image-20240223221023359" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</blockquote>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><blockquote>
+<p><strong>a</strong> 表示在一条链路上包的到达率 denote the rate of packets arriving at a link</p>
+<p>a代表每秒对面到达多少个包，也就是一次通过的包的数量是多少</p>
+</blockquote>
+<blockquote>
+<p><strong>p</strong> 表示一条链路上包的传输率  denote the link’s transmission rate in packets</p>
+<p>它表示链路在一秒钟内可以传输的<strong>包的数量</strong>。所以倒过来就是<strong>传输速率</strong>（L&#x2F;R 一个包全部上传的时间)</p>
+</blockquote>
+<blockquote>
+<p><strong>d</strong> 表示平均总延迟 denote the average total delay </p>
+<p>排队延迟加传输延迟</p>
+</blockquote>
+<blockquote>
+<p><strong>吞吐量与瓶颈问题</strong></p>
+<p>横向：短板效应 哪个最短</p>
+<p>纵向：不仅需要看短板， 还要看中间部分&#x2F;用户数量，比谁最小</p>
+</blockquote>
+<blockquote>
+<p><strong>延迟分类</strong></p>
+<p><img src="/./../2024Picture/image-20240223223612651.png" alt="image-20240223223612651" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>2024SemesterB</category>
+      </categories>
+      <tags>
+        <tag>EE5412计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>排队论第一次考试</title>
+    <url>/2024/02/22/%E6%8E%92%E9%98%9F%E8%AE%BA%E5%A4%8D%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="条件概率-P15"><a href="#条件概率-P15" class="headerlink" title="条件概率 P15"></a>条件概率 P15</h2><p><img src="/./../2024Picture/image-20240304205716458.png" alt="image-20240304205716458" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="骰子例题1"><a href="#骰子例题1" class="headerlink" title="骰子例题1"></a>骰子例题1</h3><p><img src="/./../2024Picture/image-20240304205757271.png" alt="image-20240304205757271" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>A∩B只剩下了1，所以上面是1&#x2F;6</p>
+<h3 id="独立条件下的概率"><a href="#独立条件下的概率" class="headerlink" title="独立条件下的概率"></a>独立条件下的概率</h3>]]></content>
+      <categories>
+        <category>2024SemesterB</category>
+      </categories>
+      <tags>
+        <tag>EE6610排队论</tag>
       </tags>
   </entry>
 </search>
