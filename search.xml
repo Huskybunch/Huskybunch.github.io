@@ -1,114 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>NLP从入门到精通</title>
-    <url>/2024/02/22/NLP/</url>
-    <content><![CDATA[<p><a href="https://www.bilibili.com/video/BV17K4y1W7yb/?spm_id_from=333.337.search-card.all.click&vd_source=2586daefbeb84d444b36c83408e79068">Google中国NLP从入门到精通</a></p>
-<h1 id="第一讲-分词tokenization"><a href="#第一讲-分词tokenization" class="headerlink" title="第一讲 分词tokenization"></a>第一讲 分词tokenization</h1><p>学习如何使用计算机可以处理的方式来表示单词</p>
-<p>ASCII表示字母，但仅通过这些编码理解单词意思不太容易</p>
-<p>跟编码字母比起来，编码单词可能更简单</p>
-<p><img src="/./../2024Picture/image-20240222175532957.png" alt="image-20240222175532957" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p><img src="/./../2024Picture/image-20240222180110528.png" alt="image-20240222180110528" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>num_book: 最大单词数</p>
-<p>Tokenizer: 保存最频繁出现的100个单词</p>
-<p>fit_on_texts: 将文本与对应数字进行匹配</p>
-<p>word_index：完整表单可以用Index查看</p>
-<p>这个还能识别意外</p>
-<p>分词器很聪明，dog!不会记录dog!,只会记录dog</p>
-<p>现在单词已经都用数字来表示了</p>
-<h1 id="第二讲-序列：将文本转化为数据"><a href="#第二讲-序列：将文本转化为数据" class="headerlink" title="第二讲 序列：将文本转化为数据"></a>第二讲 序列：将文本转化为数据</h1><p>这一课学习为句子创建数字序列</p>
-<h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><p><img src="/./../2024Picture/image-20240222181719236.png" alt="image-20240222181719236" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>text_to_sequences: 他创建了代表每个句子的token序列</p>
-<p><strong>result</strong>:</p>
-<p><img src="/./../2024Picture/image-20240222181848427.png" alt="image-20240222181848427" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>如果句子中出现新的单词，但是又没有代码更新数据集，会发生什么？</p>
-<p><img src="/./../2024Picture/image-20240222182204652.png" alt="image-20240222182204652" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>所以为了处理不在训练集中的句子，我们需要一个巨大的单词索引</p>
-<h3 id="不损失序列长度方法"><a href="#不损失序列长度方法" class="headerlink" title="不损失序列长度方法"></a>不损失序列长度方法</h3><ol>
-<li><p>OOV: 使用oov_token属性，将其设置为代替语料库中无法识别的内容</p>
-<p>分词器会为他创建一个token</p>
-<p><img src="/./../2024Picture/image-20240222184642671.png" alt="image-20240222184642671" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>简单高效，但是有一些单词我们还是不知道什么意思。</p>
-<p>这样单词少了很多，而且至少句子长度是对的</p>
-<p>如何处理不同长度的句子呢？ 在对于图像进行处理的时候图像大小经常是一样的，但是句子不一定，我们要怎么处理这个问题呢？</p>
-</li>
-<li><p>进阶的解决方法就是借助不规则张量（Ragged Tensor),太难了</p>
-</li>
-<li><p>padding</p>
-<p>引用 pad_sequence: 可以用来填充序列</p>
-<p>把他们传递给pad_Sequence就能自动实现了</p>
-<p><img src="/./../2024Picture/image-20240222185733660.png" alt="image-20240222185733660" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>当你不想向上面这样，可以：</p>
-<p><img src="/./../2024Picture/image-20240222190241156.png" alt="image-20240222190241156" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>post：是在后面进行填充</p>
-<p>maxlen: 设置自定义的最大长度，</p>
-<p>truncating:  <strong>如果超过</strong>,可以设置截断方式，通过post truncation截断结尾处的单词。或者使用pre截断开头的单词。</p>
-</li>
-</ol>
-<p><img src="/./../2024Picture/image-20240222182916857.png" alt="image-20240222182916857" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h1 id="第三讲-打造识别文本情感的模型"><a href="#第三讲-打造识别文本情感的模型" class="headerlink" title="第三讲 打造识别文本情感的模型"></a>第三讲 打造识别文本情感的模型</h1><p>我们已经完成了预处理，现在需要学习如何构建一个能识别文本情感的分类器。</p>
-<p>下载数据集，这里面分类好了有讽刺意义和没有讽刺意义两种标题。</p>
-<p>我们将训练这些然后判断这些文本是否有讽刺意味。</p>
-<p><img src="/./../2024Picture/image-20240222190715818.png" alt="image-20240222190715818" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>数据是json格式，我们要改成Python格式</p>
-<p><img src="/./../2024Picture/image-20240222190746182.png" alt="image-20240222190746182" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<ol>
-<li>导入json库</li>
-<li>用json库加载讽刺标题的json文件</li>
-<li>我们可以为标签，标题和文章链接创建列表</li>
-<li>当我们对JSON文件进行迭代时，可以将所需的值加载到Python列表中</li>
-</ol>
-<p>接下来就是预处理</p>
-<p><img src="/./../2024Picture/image-20240222191135810.png" alt="image-20240222191135810" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240222191508191.png" alt="image-20240222191508191" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>每个列表里都包括一些句子和标签，分片成训练集和测试集</p>
-<p><img src="/./../2024Picture/image-20240222211834894.png" alt="image-20240222211834894" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="新代码"><a href="#新代码" class="headerlink" title="新代码"></a>新代码</h3><p><img src="/./../2024Picture/image-20240222212532078.png" alt="image-20240222212532078" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>1，实例化分词器</p>
-<p>2，让分词器仅训练之前分片出来的训练集</p>
-<p>3，接下来创建一组训练序列，而不是一个整体序列集，然后进行填充</p>
-<p>4，测试序列的操作完全相同</p>
-<h3 id="但是你想从token怎么判断结果呢？"><a href="#但是你想从token怎么判断结果呢？" class="headerlink" title="但是你想从token怎么判断结果呢？"></a>但是你想从token怎么判断结果呢？</h3><p>Embadding嵌入: 我们把一组单词输入，神经网络就可以查看这些词的向量，并将向量相加出结果</p>
-<p><img src="/./../2024Picture/image-20240222213548069.png" alt="image-20240222213548069" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240222213557400.png" alt="image-20240222213557400" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><strong>怎么判断新句子呢？</strong><br><img src="/./../2024Picture/image-20240222213651068.png" alt="image-20240222213651068" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<ol>
-<li>先创建几个要进行分类的句子</li>
-<li>借助之前的分词器，将句子转换为序列</li>
-<li>然后将这些序列填充到跟训练集相同的维度</li>
-<li>接下来就可以在填充后的数据集上进行预测</li>
-</ol>
-<h1 id="第四讲-用循环神经网络进行机器学习"><a href="#第四讲-用循环神经网络进行机器学习" class="headerlink" title="第四讲 用循环神经网络进行机器学习"></a>第四讲 用循环神经网络进行机器学习</h1><p>判断句子情感是不需要句子的顺序，但是生成文本是需要考虑句子顺序的</p>
-<p>文本生成的本质就是要预测下一个单词</p>
-<h2 id="非序列数据是如何转换成序列数据的"><a href="#非序列数据是如何转换成序列数据的" class="headerlink" title="非序列数据是如何转换成序列数据的"></a>非序列数据是如何转换成序列数据的</h2><p><img src="/./../2024Picture/image-20240222220121364.png" alt="image-20240222220121364" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240222220328376.png" alt="image-20240222220328376" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240222220346527.png" alt="image-20240222220346527" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>这样一来，一个数值可以在整个数列的生命中反复出现，这就是循环神经网络的原理。</p>
-<p><img src="/./../2024Picture/image-20240222220503126.png" alt="image-20240222220503126" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>这个就是RNN</p>
-<h1 id="第五讲-长短期记忆网络（LSTM"><a href="#第五讲-长短期记忆网络（LSTM" class="headerlink" title="第五讲 长短期记忆网络（LSTM)"></a>第五讲 长短期记忆网络（LSTM)</h1><p>学习如何在长句子中，建立对文本上下文的理解</p>
-<p><img src="/./../2024Picture/image-20240222221350643.png" alt="image-20240222221350643" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>Cell states: 它可以跨越多个时间段保持语境，从而将句子开头的句意带入下文。 它可以是<strong>双向</strong>的，句子后面的词也可以为前面的词提供语境，这样我们就可以更准确地学习句子语义了。</p>
-<p><img src="/./../2024Picture/image-20240222221417719.png" alt="image-20240222221417719" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<ol>
-<li><p>首先定义一个LSTM层，这里需要一个参数，来表示其中隐藏节点的数量。这也表示LSTM输出门的维度。如果你需要它<strong>是双向的</strong>，只需要<strong>Bidirectional</strong>对他进行包裹就行。</p>
-<p><img src="/./../2024Picture/image-20240222222147215.png" alt="image-20240222222147215" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>128的原因是，一个方向64个参数，一共两个方向。</p>
-</li>
-</ol>
-<p><img src="/./../2024Picture/image-20240222222311142.png" alt="image-20240222222311142" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>也可以将LSTM进行叠加，这样上一层的输出就能传递到下一层。</p>
-<p>但是每层都要设置return_sequences &#x3D; Ture</p>
-<p><img src="/./../2024Picture/image-20240222222423804.png" alt="image-20240222222423804" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-]]></content>
-      <categories>
-        <category>人工智能</category>
-      </categories>
-      <tags>
-        <tag>NLP</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>多模态入门：Vit模型初探</title>
     <url>/2024/03/09/VIT%E4%BB%8B%E7%BB%8D/</url>
     <content><![CDATA[<h2 id="为什么选择Transformer"><a href="#为什么选择Transformer" class="headerlink" title="为什么选择Transformer"></a>为什么选择Transformer</h2><p>In NLP</p>
@@ -138,6 +30,98 @@
       </categories>
       <tags>
         <tag>VIT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>排队论（一）</title>
+    <url>/2024/03/11/VIT%E5%85%A8%E8%A7%A3%E6%9E%90+Python%E5%BE%AE%E8%B0%83/</url>
+    <content><![CDATA[<h1 id="马尔科夫排队模型"><a href="#马尔科夫排队模型" class="headerlink" title="马尔科夫排队模型"></a>马尔科夫排队模型</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>排队的一般过程</strong></p>
+<p><img src="/./../2024Picture/image-20240312115849093.png" alt="image-20240312115849093" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="排队系统基本组成部分"><a href="#排队系统基本组成部分" class="headerlink" title="排队系统基本组成部分"></a>排队系统基本组成部分</h3><ul>
+<li>输入过程（顾客按照怎样的规律到达）</li>
+<li>排队规则（顾客按照一定规则排队等待服务）</li>
+<li>服务机构（服务机构的设置、服务台的数量、服务的方式、服务时间分布等）</li>
+</ul>
+<h3 id="输入过程"><a href="#输入过程" class="headerlink" title="输入过程"></a>输入过程</h3><p>（1）顾客源</p>
+<p>即顾客的总体，可以是无限的，也可以是有限</p>
+<p>（2）顾客的到达方式</p>
+<p>顾客或单个到达，或成批到达</p>
+<p>（3）顾客到达时间间隔分布</p>
+<p>即相继顾客到达的时间间隔的分布，常见的概率分布：负指数分布、K阶爱尔朗分布等。</p>
+<h4 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h4><p>在排队系统中，如果单位时间内顾客<strong>到达数</strong>服从以λ为参考的泊松分布，泽顾客<strong>相继到达的时间间隔</strong>服从以λ为参数的负指数分布</p>
+<p>（等价与服从1&#x2F;λ为参数的指数分布）</p>
+<h3 id="排队规则"><a href="#排队规则" class="headerlink" title="排队规则"></a>排队规则</h3><p>（1）排队系统类型</p>
+<p>顾客到达时，如所有服务台都正被占用，排队等候的称为<strong>等待制</strong>，随即离去的称为<strong>损失制度</strong>。</p>
+<p>（2）排队队列</p>
+<p>队列可以是单列，也可以是多列</p>
+<p>（3）接受服务的顺序</p>
+<ul>
+<li>先到先服务（FCFS）主要讨论这个</li>
+<li>后到后服务(LCFS) 仓库里面的板材</li>
+<li>随机服务(SIRO)电话接通</li>
+<li>优先服务(PR) VIP</li>
+</ul>
+<h3 id="服务机构"><a href="#服务机构" class="headerlink" title="服务机构"></a>服务机构</h3><p>服务台数量有<strong>单服务台1</strong>，也有<strong>多服务台C</strong>，其构成形式主要有以下五种</p>
+<h4 id="单队—单服务台"><a href="#单队—单服务台" class="headerlink" title="单队—单服务台"></a>单队—单服务台</h4><p><img src="/./../2024Picture/image-20240312140614632.png" alt="image-20240312140614632" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="单队—多服务台并联式"><a href="#单队—多服务台并联式" class="headerlink" title="单队—多服务台并联式"></a>单队—多服务台并联式</h4><p><img src="/./../2024Picture/image-20240312140623898.png" alt="image-20240312140623898" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="多队—多服务台并联式"><a href="#多队—多服务台并联式" class="headerlink" title="多队—多服务台并联式"></a>多队—多服务台并联式</h4><p><img src="/./../2024Picture/image-20240312140632569.png" alt="image-20240312140632569" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="单队—多服务台串联式"><a href="#单队—多服务台串联式" class="headerlink" title="单队—多服务台串联式"></a>单队—多服务台串联式</h4><p><img src="/./../2024Picture/image-20240312140644880.png" alt="image-20240312140644880" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="单队—多服务台串并联混合式"><a href="#单队—多服务台串并联混合式" class="headerlink" title="单队—多服务台串并联混合式"></a>单队—多服务台串并联混合式</h4><p><img src="/./../2024Picture/image-20240312140750459.png" alt="image-20240312140750459" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="排队系统模型表示"><a href="#排队系统模型表示" class="headerlink" title="排队系统模型表示"></a>排队系统模型表示</h3><p>A&#x2F;B&#x2F;C&#x2F;D&#x2F;E&#x2F;F</p>
+<p>顾客到达时间间隔分布&#x2F;服务时间分布&#x2F;服务台（员）数目&#x2F;系统中顾客容量限制&#x2F;系统中顾客客容限制&#x2F;顾客源数目&#x2F;服务规则</p>
+<ul>
+<li><p>顾客到达时间间隔分布：M——负指数分布</p>
+</li>
+<li><p>服务时间分布：M——负指数分布</p>
+</li>
+<li><p>服务台数目：1——一个服务台，C——多个服务台</p>
+</li>
+<li><p>系统重顾客容量限制：∞——系统中顾客客容无限制，N——系统最多容纳N个顾客</p>
+</li>
+<li><p>顾客源数目：∞——顾客源数目无限多，N——顾客源的总体有N个</p>
+</li>
+<li><p>服务规则：FCFS——先到先服务</p>
+<p><img src="/./../2024Picture/image-20240312142346256.png" alt="image-20240312142346256" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</li>
+</ul>
+<h3 id="排队系统指标"><a href="#排队系统指标" class="headerlink" title="排队系统指标"></a>排队系统指标</h3><ul>
+<li>状态概率分布<strong>Pn</strong>：系统中有<strong>n个</strong>顾客的概率</li>
+<li>队长<strong>L</strong>: 系统的<strong>平均顾客数</strong></li>
+<li>排队长<strong>Lq</strong>:系统中排队等待的<strong>平均顾客数</strong></li>
+<li>顾客平均停留时间W</li>
+<li>顾客平均等待时间Wq</li>
+</ul>
+<p><img src="/./../2024Picture/image-20240312143525125.png" alt="image-20240312143525125" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240312143538120.png" alt="image-20240312143538120" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="马尔科夫排队模型-1"><a href="#马尔科夫排队模型-1" class="headerlink" title="马尔科夫排队模型"></a>马尔科夫排队模型</h2><h3 id="生灭过程"><a href="#生灭过程" class="headerlink" title="生灭过程"></a>生灭过程</h3><p><img src="/./../2024Picture/image-20240312164803225.png" alt="image-20240312164803225" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="马尔科夫排队模型（生灭过程排队系统）"><a href="#马尔科夫排队模型（生灭过程排队系统）" class="headerlink" title="马尔科夫排队模型（生灭过程排队系统）"></a>马尔科夫排队模型（生灭过程排队系统）</h3><p><img src="/./../2024Picture/image-20240312172516758.png" alt="image-20240312172516758" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="状态平衡方程"><a href="#状态平衡方程" class="headerlink" title="状态平衡方程"></a>状态平衡方程</h3><p><img src="/./../2024Picture/image-20240312185336641.png" alt="image-20240312185336641" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240312184025313.png" alt="image-20240312184025313" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240312190104772.png" alt="image-20240312190104772" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+]]></content>
+      <categories>
+        <category>EE6610排队论</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>排队论第一次考试</title>
+    <url>/2024/02/22/%E6%8E%92%E9%98%9F%E8%AE%BA%E5%A4%8D%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="条件概率-P15"><a href="#条件概率-P15" class="headerlink" title="条件概率 P15"></a>条件概率 P15</h2><p><img src="/./../2024Picture/image-20240304205716458.png" alt="image-20240304205716458" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="骰子例题"><a href="#骰子例题" class="headerlink" title="骰子例题"></a>骰子例题</h3><p><img src="/./../2024Picture/image-20240304205757271.png" alt="image-20240304205757271" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>A∩B只剩下了1，所以上面是1&#x2F;6</p>
+<h3 id="独立条件下的概率"><a href="#独立条件下的概率" class="headerlink" title="独立条件下的概率"></a>独立条件下的概率</h3><p><img src="/./../2024Picture/image-20240304210416521.png" alt="image-20240304210416521" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="硬币问题"><a href="#硬币问题" class="headerlink" title="硬币问题"></a>硬币问题</h3><p><img src="/./../2024Picture/image-20240304210559117.png" alt="image-20240304210559117" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>P(B) 第一个是1，后面分别有2*2 &#x3D; 4种不同的情况</p>
+<p>第二题是</p>
+<p>1（第二个是1）+1（第三个是1）+1（两个都是1）&#x3D; 3</p>
+<h3 id="疾病问题"><a href="#疾病问题" class="headerlink" title="疾病问题"></a>疾病问题</h3><p><img src="/./../2024Picture/image-20240304210833682.png" alt="image-20240304210833682" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240304211712055.png" alt="image-20240304211712055" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+]]></content>
+      <categories>
+        <category>2024SemesterB</category>
+      </categories>
+      <tags>
+        <tag>EE6610排队论</tag>
       </tags>
   </entry>
   <entry>
@@ -214,6 +198,26 @@
       </tags>
   </entry>
   <entry>
+    <title>排队论（二）</title>
+    <url>/2024/03/12/%E6%8E%92%E9%98%9F%E6%A8%A1%E5%9E%8B%E5%85%B6%E4%B8%80/</url>
+    <content><![CDATA[<h1 id="M-M-1-∞-∞-FCFS模型"><a href="#M-M-1-∞-∞-FCFS模型" class="headerlink" title="M&#x2F;M&#x2F;1&#x2F;∞&#x2F;∞&#x2F;FCFS模型"></a>M&#x2F;M&#x2F;1&#x2F;∞&#x2F;∞&#x2F;FCFS模型</h1><h2 id="M-M-1-∞-∞-FCFS模型指标推导"><a href="#M-M-1-∞-∞-FCFS模型指标推导" class="headerlink" title="M&#x2F;M&#x2F;1&#x2F;∞&#x2F;∞&#x2F;FCFS模型指标推导"></a>M&#x2F;M&#x2F;1&#x2F;∞&#x2F;∞&#x2F;FCFS模型指标推导</h2><h3 id="模型含义"><a href="#模型含义" class="headerlink" title="模型含义"></a>模型含义</h3><p>顾客到达过程服从泊松流，服务时间从负指数分布，单服务台，系统容量和顾客来源无限，先到先服务。设单位时间内顾客平均到达率为λ，单位时间内服务台平均服务率为μ。</p>
+<h3 id="状态平衡方程"><a href="#状态平衡方程" class="headerlink" title="状态平衡方程"></a>状态平衡方程</h3><p><img src="/./../2024Picture/image-20240313145721503.png" alt="image-20240313145721503" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="状态概率Pn"><a href="#状态概率Pn" class="headerlink" title="状态概率Pn"></a>状态概率Pn</h4><p><img src="/./../2024Picture/image-20240313150204434.png" alt="image-20240313150204434" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240313150147883.png" alt="image-20240313150147883" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="对长L"><a href="#对长L" class="headerlink" title="对长L"></a>对长L</h4><p><img src="/./../2024Picture/image-20240313152323656.png" alt="image-20240313152323656" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="公式（排队长，停留时间，等待时间，等待K个以上的顾客，顾客停留超时）"><a href="#公式（排队长，停留时间，等待时间，等待K个以上的顾客，顾客停留超时）" class="headerlink" title="公式（排队长，停留时间，等待时间，等待K个以上的顾客，顾客停留超时）"></a>公式（排队长，停留时间，等待时间，等待K个以上的顾客，顾客停留超时）</h4><p><img src="/./../2024Picture/image-20240313152429680.png" alt="image-20240313152429680" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240313152836283.png" alt="image-20240313152836283" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="公式汇总"><a href="#公式汇总" class="headerlink" title="公式汇总"></a>公式汇总</h3><p><img src="/./../2024Picture/image-20240313152902099.png" alt="image-20240313152902099" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><p><img src="/./../2024Picture/image-20240313153105560.png" alt="image-20240313153105560" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240313153731173.png" alt="image-20240313153731173" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240313154842139.png" alt="image-20240313154842139" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240313154947102.png" alt="image-20240313154947102" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+]]></content>
+      <categories>
+        <category>EE6610排队论</category>
+      </categories>
+  </entry>
+  <entry>
     <title>排队论（三）</title>
     <url>/2024/03/13/%E6%8E%92%E9%98%9F%E8%AE%BA%E6%A8%A1%E5%9E%8B%E5%85%B6%E4%BA%8C/</url>
     <content><![CDATA[<h1 id="MMC排队模型"><a href="#MMC排队模型" class="headerlink" title="MMC排队模型"></a>MMC排队模型</h1><h2 id="M-M-C-∞-∞-FCFS排队模型"><a href="#M-M-C-∞-∞-FCFS排队模型" class="headerlink" title="M&#x2F;M&#x2F;C&#x2F;∞&#x2F;∞&#x2F;FCFS排队模型"></a>M&#x2F;M&#x2F;C&#x2F;∞&#x2F;∞&#x2F;FCFS排队模型</h2><h3 id="模型含义"><a href="#模型含义" class="headerlink" title="模型含义"></a>模型含义</h3><p>顾客到达过程服从泊松流，服务时间从负指数分布，C个服务台，系统容量和顾客来源无限，先到先服务。设单位时间内顾客平均到达率为λ，单位时间内服务台平均服务率为μ。</p>
@@ -235,91 +239,58 @@
       </categories>
   </entry>
   <entry>
-    <title>排队论（一）</title>
-    <url>/2024/03/11/VIT%E5%85%A8%E8%A7%A3%E6%9E%90+Python%E5%BE%AE%E8%B0%83/</url>
-    <content><![CDATA[<h1 id="马尔科夫排队模型"><a href="#马尔科夫排队模型" class="headerlink" title="马尔科夫排队模型"></a>马尔科夫排队模型</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>排队的一般过程</strong></p>
-<p><img src="/./../2024Picture/image-20240312115849093.png" alt="image-20240312115849093" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="排队系统基本组成部分"><a href="#排队系统基本组成部分" class="headerlink" title="排队系统基本组成部分"></a>排队系统基本组成部分</h3><ul>
-<li>输入过程（顾客按照怎样的规律到达）</li>
-<li>排队规则（顾客按照一定规则排队等待服务）</li>
-<li>服务机构（服务机构的设置、服务台的数量、服务的方式、服务时间分布等）</li>
-</ul>
-<h3 id="输入过程"><a href="#输入过程" class="headerlink" title="输入过程"></a>输入过程</h3><p>（1）顾客源</p>
-<p>即顾客的总体，可以是无限的，也可以是有限</p>
-<p>（2）顾客的到达方式</p>
-<p>顾客或单个到达，或成批到达</p>
-<p>（3）顾客到达时间间隔分布</p>
-<p>即相继顾客到达的时间间隔的分布，常见的概率分布：负指数分布、K阶爱尔朗分布等。</p>
-<h4 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h4><p>在排队系统中，如果单位时间内顾客<strong>到达数</strong>服从以λ为参考的泊松分布，泽顾客<strong>相继到达的时间间隔</strong>服从以λ为参数的负指数分布</p>
-<p>（等价与服从1&#x2F;λ为参数的指数分布）</p>
-<h3 id="排队规则"><a href="#排队规则" class="headerlink" title="排队规则"></a>排队规则</h3><p>（1）排队系统类型</p>
-<p>顾客到达时，如所有服务台都正被占用，排队等候的称为<strong>等待制</strong>，随即离去的称为<strong>损失制度</strong>。</p>
-<p>（2）排队队列</p>
-<p>队列可以是单列，也可以是多列</p>
-<p>（3）接受服务的顺序</p>
+    <title>排队论（四）</title>
+    <url>/2024/03/15/%E6%8E%92%E9%98%9F%E8%AE%BA%E5%9B%9B/</url>
+    <content><![CDATA[<h1 id="D-D-1-System"><a href="#D-D-1-System" class="headerlink" title="D&#x2F;D&#x2F;1 System"></a>D&#x2F;D&#x2F;1 System</h1><p>Deterministic arrivals and departures with one depatrue channel(D&#x2F;D&#x2F;1 queue)</p>
+<p>确定性到达和离港，只有一个离港通道</p>
+<p>D&#x2F;D&#x2F;1 queue lends itselt to a graphical or mathermatical solution.</p>
+<p>D&#x2F;D&#x2F;1队列适合图形化或数学化的解决方案。</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p><img src="/./../2024Picture/image-20240315161414336.png" alt="image-20240315161414336" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>1.到达和离开的通用单位 -&gt;分钟</p>
+<p><img src="/./../2024Picture/image-20240315162653520.png" alt="image-20240315162653520" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240315164921547.png" alt="image-20240315164921547" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="示意图"><a href="#示意图" class="headerlink" title="示意图"></a>示意图</h3><p><img src="/./../2024Picture/image-20240315165332395.png" alt="image-20240315165332395" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="多少车t-40到达或者离开，有多少在该系统中？"><a href="#多少车t-40到达或者离开，有多少在该系统中？" class="headerlink" title="多少车t&#x3D;40到达或者离开，有多少在该系统中？"></a>多少车t&#x3D;40到达或者离开，有多少在该系统中？</h3><p><img src="/./../2024Picture/image-20240315165652045.png" alt="image-20240315165652045" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>到达 200<br>离开160系统中40</p>
+<h2 id="什么时候有100辆到达？100辆离开？"><a href="#什么时候有100辆到达？100辆离开？" class="headerlink" title="什么时候有100辆到达？100辆离开？"></a>什么时候有100辆到达？100辆离开？</h2><p><img src="/./../2024Picture/image-20240315165850553.png" alt="image-20240315165850553" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="最长队伍，和最长delay，整个系统的delaytime"><a href="#最长队伍，和最长delay，整个系统的delaytime" class="headerlink" title="最长队伍，和最长delay，整个系统的delaytime"></a>最长队伍，和最长delay，整个系统的delaytime</h3><p><img src="/./../2024Picture/image-20240315170031225.png" alt="image-20240315170031225" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <ul>
-<li>先到先服务（FCFS）主要讨论这个</li>
-<li>后到后服务(LCFS) 仓库里面的板材</li>
-<li>随机服务(SIRO)电话接通</li>
-<li>优先服务(PR) VIP</li>
-</ul>
-<h3 id="服务机构"><a href="#服务机构" class="headerlink" title="服务机构"></a>服务机构</h3><p>服务台数量有<strong>单服务台1</strong>，也有<strong>多服务台C</strong>，其构成形式主要有以下五种</p>
-<h4 id="单队—单服务台"><a href="#单队—单服务台" class="headerlink" title="单队—单服务台"></a>单队—单服务台</h4><p><img src="/./../2024Picture/image-20240312140614632.png" alt="image-20240312140614632" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="单队—多服务台并联式"><a href="#单队—多服务台并联式" class="headerlink" title="单队—多服务台并联式"></a>单队—多服务台并联式</h4><p><img src="/./../2024Picture/image-20240312140623898.png" alt="image-20240312140623898" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="多队—多服务台并联式"><a href="#多队—多服务台并联式" class="headerlink" title="多队—多服务台并联式"></a>多队—多服务台并联式</h4><p><img src="/./../2024Picture/image-20240312140632569.png" alt="image-20240312140632569" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="单队—多服务台串联式"><a href="#单队—多服务台串联式" class="headerlink" title="单队—多服务台串联式"></a>单队—多服务台串联式</h4><p><img src="/./../2024Picture/image-20240312140644880.png" alt="image-20240312140644880" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="单队—多服务台串并联混合式"><a href="#单队—多服务台串并联混合式" class="headerlink" title="单队—多服务台串并联混合式"></a>单队—多服务台串并联混合式</h4><p><img src="/./../2024Picture/image-20240312140750459.png" alt="image-20240312140750459" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="排队系统模型表示"><a href="#排队系统模型表示" class="headerlink" title="排队系统模型表示"></a>排队系统模型表示</h3><p>A&#x2F;B&#x2F;C&#x2F;D&#x2F;E&#x2F;F</p>
-<p>顾客到达时间间隔分布&#x2F;服务时间分布&#x2F;服务台（员）数目&#x2F;系统中顾客容量限制&#x2F;系统中顾客客容限制&#x2F;顾客源数目&#x2F;服务规则</p>
+<li><p>When the arrical curve is above the departure curve, a queue will exist当到达曲线在出发曲线之上时，将存在一个队列</p>
+</li>
+<li><p>The point at which the arrival curve meets the departure curve is the moment when the queue dissipates(no more queue exists)到达曲线与离开曲线相遇的点是队列消散的时刻(不再有队列存在)。</p>
+</li>
+<li><p>The point of queue dissipation can be determined by equating appropriate arrival and departure equations, that is通过求解合适的到达和离开方程，可以确定队列的消散点，即</p>
 <ul>
-<li><p>顾客到达时间间隔分布：M——负指数分布</p>
+<li>160 + 2(t - 20) &#x3D; 4t</li>
+<li>Solving for t gives t &#x3D; 60</li>
+</ul>
 </li>
-<li><p>服务时间分布：M——负指数分布</p>
+<li><p>Thus the queue that began to form at 8:00A.M. will dissipate 60 minutes later(9:00 a.m.) at which time 240 vehicles will have arrived and departed</p>
 </li>
-<li><p>服务台数目：1——一个服务台，C——多个服务台</p>
+<li><p>Individual vehicle delay:</p>
+<ul>
+<li>Under FIFO queuing discipline, the delay of an individual vehicle is gicen by the <strong>horizontal distance水平距离</strong> between arrival and departure curves</li>
+<li>So，the longest delay is 20 minutes</li>
+<li><img src="/./../2024Picture/image-20240315170908633.png" alt="image-20240315170908633" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
 </li>
-<li><p>系统重顾客容量限制：∞——系统中顾客客容无限制，N——系统最多容纳N个顾客</p>
+<li><p>The total length of the queue is given by the <strong>vertical distance</strong> between arrival and departure curves at that time </p>
+<ul>
+<li>The longest queue(longest vertical distance between arrical and departure curves) will occur at t &#x3D; 20 minutes and is 80 vehicles long</li>
+</ul>
 </li>
-<li><p>顾客源数目：∞——顾客源数目无限多，N——顾客源的总体有N个</p>
+<li><p>Total vehicle delay,defined as the summation of the delays of each individual vehicle, is between arrival and departure curves车辆总延误，定义为每辆单独车辆延误的总和，在到达和离开曲线之间</p>
+<ul>
+<li><img src="/./../2024Picture/image-20240315171351670.png" alt="image-20240315171351670" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
 </li>
-<li><p>服务规则：FCFS——先到先服务</p>
-<p><img src="/./../2024Picture/image-20240312142346256.png" alt="image-20240312142346256" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<li><p>In this example, the areas between arrival and departure curves can be determined by summing triangular areas, giving total delay, Dt,as在这个例子中，到达和离开曲线之间的面积可以通过三角形面积的总和来确定，给出总延迟Dt为</p>
+</li>
+<li><p><img src="/./../2024Picture/image-20240315171514988.png" alt="image-20240315171514988" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</li>
+<li><p>Because 240 vehicles encounter queuing-delay(as previously determined), the average delay per vehicle is 10 minutes(2400 veh-min&#x2F;240veh) and the average queue length is 40 vehicles(2400 veh-min&#x2F;60min)由于240辆车遇到排队延迟(如前所述)，平均每辆车的延迟为10分钟(2400 veh-min&#x2F;240veh)，平均排队长度为40辆车(2400 veh-min&#x2F;60min)</p>
 </li>
 </ul>
-<h3 id="排队系统指标"><a href="#排队系统指标" class="headerlink" title="排队系统指标"></a>排队系统指标</h3><ul>
-<li>状态概率分布<strong>Pn</strong>：系统中有<strong>n个</strong>顾客的概率</li>
-<li>队长<strong>L</strong>: 系统的<strong>平均顾客数</strong></li>
-<li>排队长<strong>Lq</strong>:系统中排队等待的<strong>平均顾客数</strong></li>
-<li>顾客平均停留时间W</li>
-<li>顾客平均等待时间Wq</li>
-</ul>
-<p><img src="/./../2024Picture/image-20240312143525125.png" alt="image-20240312143525125" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240312143538120.png" alt="image-20240312143538120" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="马尔科夫排队模型-1"><a href="#马尔科夫排队模型-1" class="headerlink" title="马尔科夫排队模型"></a>马尔科夫排队模型</h2><h3 id="生灭过程"><a href="#生灭过程" class="headerlink" title="生灭过程"></a>生灭过程</h3><p><img src="/./../2024Picture/image-20240312164803225.png" alt="image-20240312164803225" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="马尔科夫排队模型（生灭过程排队系统）"><a href="#马尔科夫排队模型（生灭过程排队系统）" class="headerlink" title="马尔科夫排队模型（生灭过程排队系统）"></a>马尔科夫排队模型（生灭过程排队系统）</h3><p><img src="/./../2024Picture/image-20240312172516758.png" alt="image-20240312172516758" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="状态平衡方程"><a href="#状态平衡方程" class="headerlink" title="状态平衡方程"></a>状态平衡方程</h3><p><img src="/./../2024Picture/image-20240312185336641.png" alt="image-20240312185336641" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240312184025313.png" alt="image-20240312184025313" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240312190104772.png" alt="image-20240312190104772" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-]]></content>
-      <categories>
-        <category>EE6610排队论</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>排队论（二）</title>
-    <url>/2024/03/12/%E6%8E%92%E9%98%9F%E6%A8%A1%E5%9E%8B%E5%85%B6%E4%B8%80/</url>
-    <content><![CDATA[<h1 id="M-M-1-∞-∞-FCFS模型"><a href="#M-M-1-∞-∞-FCFS模型" class="headerlink" title="M&#x2F;M&#x2F;1&#x2F;∞&#x2F;∞&#x2F;FCFS模型"></a>M&#x2F;M&#x2F;1&#x2F;∞&#x2F;∞&#x2F;FCFS模型</h1><h2 id="M-M-1-∞-∞-FCFS模型指标推导"><a href="#M-M-1-∞-∞-FCFS模型指标推导" class="headerlink" title="M&#x2F;M&#x2F;1&#x2F;∞&#x2F;∞&#x2F;FCFS模型指标推导"></a>M&#x2F;M&#x2F;1&#x2F;∞&#x2F;∞&#x2F;FCFS模型指标推导</h2><h3 id="模型含义"><a href="#模型含义" class="headerlink" title="模型含义"></a>模型含义</h3><p>顾客到达过程服从泊松流，服务时间从负指数分布，单服务台，系统容量和顾客来源无限，先到先服务。设单位时间内顾客平均到达率为λ，单位时间内服务台平均服务率为μ。</p>
-<h3 id="状态平衡方程"><a href="#状态平衡方程" class="headerlink" title="状态平衡方程"></a>状态平衡方程</h3><p><img src="/./../2024Picture/image-20240313145721503.png" alt="image-20240313145721503" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="状态概率Pn"><a href="#状态概率Pn" class="headerlink" title="状态概率Pn"></a>状态概率Pn</h4><p><img src="/./../2024Picture/image-20240313150204434.png" alt="image-20240313150204434" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240313150147883.png" alt="image-20240313150147883" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="对长L"><a href="#对长L" class="headerlink" title="对长L"></a>对长L</h4><p><img src="/./../2024Picture/image-20240313152323656.png" alt="image-20240313152323656" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="公式（排队长，停留时间，等待时间，等待K个以上的顾客，顾客停留超时）"><a href="#公式（排队长，停留时间，等待时间，等待K个以上的顾客，顾客停留超时）" class="headerlink" title="公式（排队长，停留时间，等待时间，等待K个以上的顾客，顾客停留超时）"></a>公式（排队长，停留时间，等待时间，等待K个以上的顾客，顾客停留超时）</h4><p><img src="/./../2024Picture/image-20240313152429680.png" alt="image-20240313152429680" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240313152836283.png" alt="image-20240313152836283" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="公式汇总"><a href="#公式汇总" class="headerlink" title="公式汇总"></a>公式汇总</h3><p><img src="/./../2024Picture/image-20240313152902099.png" alt="image-20240313152902099" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><p><img src="/./../2024Picture/image-20240313153105560.png" alt="image-20240313153105560" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240313153731173.png" alt="image-20240313153731173" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240313154842139.png" alt="image-20240313154842139" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240313154947102.png" alt="image-20240313154947102" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 ]]></content>
       <categories>
         <category>EE6610排队论</category>
@@ -513,117 +484,122 @@
       </tags>
   </entry>
   <entry>
-    <title>计算机网络课后习题：第三章</title>
-    <url>/2024/02/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98%EF%BC%9A%E7%AC%AC%E4%B8%89%E7%AB%A0/</url>
-    <content><![CDATA[<h1 id="第三章-考试内容"><a href="#第三章-考试内容" class="headerlink" title="第三章 考试内容"></a>第三章 考试内容</h1><h2 id="P2-源端口和目的端口，源IP和目的IP"><a href="#P2-源端口和目的端口，源IP和目的IP" class="headerlink" title="P2.源端口和目的端口，源IP和目的IP"></a>P2.源端口和目的端口，源IP和目的IP</h2><p>Consider Figure 3.5. What are the source and destination port values in the segments flowing from the server back to the clients’ processes? What are the IP addresses in the network-layer datagrams carrying the transport-layer segments?  </p>
-<p>考虑图3.5。从服务器流回客户端进程的段中的源端口和目标端口值是什么?承载传输层段的网络层数据报中的IP地址是什么?</p>
-<p><img src="/./../2024Picture/image-20240224164104110.png" alt="image-20240224164104110" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>看图写作很无聊的一道题</p>
-<p>服务器到客户A:<br>源端口号:80, 目的端口号:26145, 源IP:B, 目的IP:A<br>服务器到客户C，会话1:<br>源端口号:80, 目的端口号:7532, 源IP:B, 目的IP:C<br>服务器到客户C，会话2:<br>源端口号:80, 目的端口号:26145, 源IP:B, 目的IP:C</p>
-<h2 id="P3-检验和"><a href="#P3-检验和" class="headerlink" title="P3.  检验和"></a>P3.  检验和</h2><p>UDP and TCP use Is complement for their checksums. Suppose you have the following three 8-bit bytes: 01010011, 01100110, 01110100. What is the Is complement of the sum of these 8-bit bytes? (Note that although UDP and TCP use 16-bit words in computing the checksum, for this problem you are being asked to consider 8-bit sums.) Show all work. Why is it that UDP takes the Is complement of the sum; that is, why not just use the sum? With the Is complement scheme, how does the receiver detect errors? Is it possible that a 1-bit error will go undetected? How about a 2-bit error?  </p>
-<p>UDP和TCP使用Is作为校验和的补充。假设您有以下三个8位字节:01010011、01100110、01110100。这8<strong>位字节的和的补码</strong>是多少?(请注意，尽管UDP和TCP在计算校验和时使用16位字，但对于这个问题，您被要求考虑8位和。)展示所有的工作。为什么<strong>UDP采用和的is补码</strong>?也就是说，<strong>为什么不用求和</strong>呢?使用Is补码方案，接收方如何检测错误?<strong>一个1比特的错误有可能不会被检测到吗?2位的错误呢?</strong></p>
-<p><img src="/./../2024Picture/image-20240225181355367.png" alt="image-20240225181355367" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>使用反码对接收方非常方便，只需将所有数据包含校验码加起来，计算和为全1即可。<br>如果不是全1则说明出现了差错。<br>1比特的差错肯定可以检查出，2比特的差错存在检测不出的情况。</p>
-<blockquote>
-<p><strong>校验和</strong></p>
-<p><img src="/./../2024Picture/image-20240225182033905.png" alt="image-20240225182033905" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>校验和相同只能说是“检验不出错误”，不能保障没有错误。比如传输中多个16bit字发生错误，但是可能恰巧相加校验和不变。</p>
-</blockquote>
-<blockquote>
-<p><strong>补码 complement</strong> </p>
-</blockquote>
-<h2 id="P4-校验和"><a href="#P4-校验和" class="headerlink" title="P4. 校验和"></a>P4. 校验和</h2><p>a. Suppose you have the following 2 bytes: 01011100 and 01100101. What is the Is complement of the sum of these 2 bytes?<br>b. Suppose you have the following 2 bytes: 11011010 and 01100101. What is the Is complement of the sum of these 2 bytes?<br>c. For the bytes in part (a), give an example where one bit is flipped in each of the 2 bytes and yet the Is complement doesn’t change.  </p>
-<p>a.假设有两个字节:01011100和01100101。这两个字节的和的is补是多少?<br>b.假设有两个字节:11011010和01100101。这两个字节的和的is补是多少?<br>c.就第(a)部分的字节而言，请举例说明 2 个字节中每个字节都翻转了一位，但 Is 的补码没有变化。（这个意思是两个字节翻转一位，但是算出来的不发生改变。</p>
-<p>a. 00111110<br>b. 10111111<br>c. 11011100 和 11100101</p>
-<p>Running checksums at multiple levels throughout the network is not a waste. Because flipped bits can be so easily missed, this redundancy is the best chance of catching errors.</p>
-<h2 id="P5"><a href="#P5" class="headerlink" title="P5."></a>P5.</h2><p>Suppose that the UDP receiver computes the Internet checksum for the received UDP segment and finds that it matches the value carried in the checksum field. Can the receiver be absolutely certain that no bit errors have occurred? Explain.  </p>
-<p>假设UDP接收端计算接收到的UDP报文段的Internet校验和，发现与校验和字段中携带的值匹配。接收方能绝对确定没有发生比特错误吗?解释一下。</p>
-<p>接收方不能完全确认没有比特差错，如P4c题目所示，出现多个差错时存在检测不出的情况</p>
-<h2 id="P7-rtd3-0"><a href="#P7-rtd3-0" class="headerlink" title="P7.  rtd3.0"></a>P7.  rtd3.0</h2><p>In protocol rdt3 . 0, the ACK packets flowing from the receiver to the sender do not have sequence numbers (although they do have an ACK field that contains the sequence number of the packet they are acknowledging). Why is it that our ACK packets do not require sequence numbers?  </p>
-<p>在rdt3.0协议中时，从接收方流向发送方的ACK数据包没有序列号(尽管它们有一个ACK字段，其中包含它们所确认的数据包的序列号)。为什么我们的ACK包不需要序列号?</p>
-<p>因为ACK和确认序号已经可以完整的标识这个分组，而且ACK的缺失会导致重传，因此最终ACK可以确保到达。</p>
-<p>the protocol rtd3.0 is used to transfer data from sender to receiver.</p>
-<p>If a sender transfer the packet to the receiver, then receiver will receive and send ACK(Acknowledgement) to the sender for conformation.<br>If sender received ACK then go to the next level.<br>In this process, needs sequence number to the sender for finding duplicate packets data or ACK data.<br>If the sender find any duplicate ACK, then ignore it. In this process ACK packets does not require sequence number.</p>
-<p>So, ACK packets does not require sequence numbers.</p>
-<blockquote>
-<p><img src="/./../2024Picture/16c5b92baeb641a3beefee95f17e97e9.jpeg" alt="img" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-</blockquote>
-<h2 id="P9-rtd3-0"><a href="#P9-rtd3-0" class="headerlink" title="P9.  rtd3.0"></a>P9.  rtd3.0</h2><p>Give a trace of the operation of protocol rdt3 . 0 when data packets and acknowledgment packets are garbled (scenarios for corrupted data and corrupted ACK). Suppose the protocol has been in operation for some time. The sender is in state “<strong>Wait for call from above</strong>” (top left hand comer) and the receiver is in state “Wait for 0 from below”.  </p>
-<p>给出协议rdt3.0操作的跟踪。数据包和确认报文乱码时为0(数据损坏和ACK损坏的场景)。假设协议已经运行了一段时间。发送方处于“等待来自上面的呼叫”(左上角)状态，接收方处于“等待来自下面的0”状态。</p>
-<p>显⽰了损坏的数据和损坏的ACK的场景  </p>
-<p><img src="/./../2024Picture/image-20240225201834472.png" alt="image-20240225201834472" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="P12-rtd3-0"><a href="#P12-rtd3-0" class="headerlink" title="P12.  rtd3.0"></a>P12.  rtd3.0</h2><p>The sender side of rdt3 . 0 simply ignores (that is, takes no action on) all received packets that are either in error or have the wrong value in the ack num field of an acknowledgment packet. Suppose that in such circumstances, rdt3 . 0 were simply to retransmit the current data packet. Would the protocol still work? (Hint: Consider what would happen if there were only bit errors; there are no packet losses but premature timeouts can occur. Consider how many times the nth packet is sent, in the limit as n approaches infinity.)</p>
-<p>rdt3.0的发送端。0只是忽略(即不采取任何行动)所有收到的错误或在确认包的ack num字段中具有错误值的数据包。假设在这种情况下，rdt3.0只是重传当前数据包。协议还能起作用吗?(提示:考虑一下如果只有位错误会发生什么;没有丢包，但可能出现过早超时。考虑第n个数据包发送了多少次，在n趋于无穷时的极限。)</p>
-<h2 id="P13-rtd3-0"><a href="#P13-rtd3-0" class="headerlink" title="P13.  rtd3.0"></a>P13.  rtd3.0</h2><p>Consider the rdt 3 . 0 protocol. Draw a diagram showing that if the network connection between the sender and receiver can reorder messages (that is, that two messages propagating in the medium between the sender and receiver can be reordered), then the alternating-bit protocol will not work correctly (make sure you clearly identify the sense in which it will not work correctly). Your diagram should have the sender on the left and the receiver on the right, with the time axis running down the page, showing data (D) and acknowledgment (A) message exchange. Make sure you indicate the sequence number associated with any data or acknowledgment segment.</p>
-<p>考虑rdt 3.0协议。绘制一个图表，显示如果发送方和接收方之间的网络连接可以对消息进行重新排序(也就是说，在发送方和接收方之间的媒介中传播的两条消息可以重新排序)，那么交替位协议将无法正常工作(确保您清楚地识别出它无法正常工作的意义)。您的图表应该左边是发送者，右边是接收者，时间轴沿着页面向下延伸，显示数据(D)和确认(A)消息交换。确保您指定了与任何数据或确认段相关联的序列号。</p>
-<p><img src="/./../2024Picture/image-20240225202258041.png" alt="image-20240225202258041" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="P14"><a href="#P14" class="headerlink" title="P14."></a>P14.</h2><p>Consider a reliable data transfer protocol that uses only negative acknowledgments. Suppose the sender sends data only infrequently. Would a NAK-only protocol be preferable to a protocol that uses ACKs? Why? Now suppose the sender has a lot of data to send and the end-to-end connection experiences few losses. In this second case, would a NAK-only protocol be preferable to a protocol that uses ACKs? Why?</p>
-<p>考虑一个只使用否定确认的可靠数据传输协议。假设发送方不经常发送数据。仅仅使用ack的协议比使用ack的协议更可取吗?为什么?现在假设发送方有大量数据要发送，端到端连接几乎没有丢失。在第二种情况下，仅使用ack的协议是否比使用ack的协议更可取?为什么?</p>
-<ol>
-<li><p>If the sender sends the data infrequently (occasionally), then the NAK-only protocol is not preferred. It is good to use the protocol that uses ACKs.</p>
-<ul>
-<li>The main disadvantage of NAK-only protocol is that it can detect that the packet has been lost only when the next packet is received by the receiver.</li>
-<li>The NAK-only protocol realize the loss of packet after a long time when it receives the data packet with wrong sequence number as the sender sends the data packets occasionally.</li>
-<li>When the receiver realize the packet loss, it sends NAK to the sender and the sender has to retransmit both the lost and next packet.</li>
-<li>If the sender sends the data frequently, then the NAK-only protocol is preferred. The protocol that uses ACKs is not preferred as it require to send more number of acknowledgements.</li>
-</ul>
-<p>When the sender sends data frequently and the data loss rate is very less, then a NAK-only protocol is preferable to a protocol that uses ACKs.</p>
-<ul>
-<li>The receiver sends the NAK as it realizes the packet loss quickly as the data transmitted frequently.</li>
-<li>Since the data loss is less, the number of NAK in NAK-only protocol is less when compared with protocol that uses ACKs.</li>
-</ul>
-</li>
-</ol>
-<h2 id="P16"><a href="#P16" class="headerlink" title="P16."></a>P16.</h2><p>Suppose an application uses rdt 3 . 0 as its transport layer protocol. As the stop-and-wait protocol has very low channel utilization (shown in the crosscountry example), the designers of this application let the receiver keep sending back a number (more than two) of alternating ACK 0 and ACK 1 even if the corresponding data have not arrived at the receiver. Would this application design increase the channel utilization? Why? Are there any potential problems with this approach? Explain.</p>
-<p>假设应用程序使用rdt 3.0作为其传输层协议。由于停止等待协议的通道利用率非常低(如越野示例所示)，因此该应用程序的设计者让接收方继续发送一个(多于两个)交替的ACK 0和ACK 1，即使相应的数据尚未到达接收方。这种应用程序设计会增加通道利用率吗?为什么?这种方法有什么潜在的问题吗?解释一下。</p>
-<ul>
-<li>Suppose an application uses rdt 3.0 as its transport layer protocol. Then It stop-and-wait protocol is used very low utilization in the application.</li>
-<li>The application allows the receiver to send the acknowledgements and sends the next data packet. It is used as a pipelined data in the channel.</li>
-<li>There is a chance of missing data before it reaches the receiver.</li>
-<li>So the sender (who is using rtd 3.0 protocol) will not retransmit the data. The missing or lost some data.</li>
-<li>Thus, designing of the application need to adopt some mechanism to over come this problem.</li>
-</ul>
-<h2 id="P22"><a href="#P22" class="headerlink" title="P22."></a>P22.</h2><p>Consider the GBN protocol with a sender window size of 4 and a sequence number range of 1,024. Suppose that at time t, the next in-order packet that the receiver is expecting has a sequence number of k. Assume that the medium does not reorder messages. Answer the following questions:<br>a. What are the possible sets of sequence numbers inside the sender’s window at time I? Justify your answer.<br>b. What are all possible values of the ACK field in all possible messages currently propagating back to the sender at time &#x2F;? Justify your answer.<br>考虑发送方窗口大小为4、序列号范围为1024的GBN协议。假设在时间t，接收方期待的下一个有序数据包的序列号为k。假设介质不重新排序消息。回答以下问题:<br>a.在时间I的发送方窗口内可能的序列号集合是什么?证明你的答案。<br>b.在时间&#x2F;时，当前传播回发送方的所有可能消息中，ACK字段的所有可能值是多少?证明你的答案。</p>
-<p><img src="/./../2024Picture/image-20240225202901850.png" alt="image-20240225202901850" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="P23"><a href="#P23" class="headerlink" title="P23."></a>P23.</h2><p>Consider the GBN and SR protocols. Suppose the sequence number space is of size k. What is the largest allowable sender window that will avoid the occurrence of problems such as that in Figure 3.27 for each of these protocols?<br>考虑GBN和SR协议。假设序列号空间的大小为k。对于这些协议，最大允许的发送方窗口是多少，以避免出现图3.27所示的问题?</p>
-<p>In order to avoid the scenario of Figure 3.27, we want to avoid having the leading edge of the receiver’s window (i.e., the one with the “highest” sequence number) wrap around in the sequence number space and overlap with the trailing edge (the one with the “lowest” sequence number in the sender’s window). That is, the sequence number space must be large enough to fit the entire receiver window and the entire sender window without this overlap condition. So, we need to determine how large a range of sequence numbers can be covered, at any given time, by the receiver and sender windows.</p>
-<p>Suppose that the lowest-sequence number that the receiver is waiting for is packet m. In this case, it’s window [m, m+w-1] and it has received (and ACKed) packet m-1 and the w-1 packets before that, where w is the size of the window. If none of those w ACKs have been yet received by the sender, then ACK messages with values of [m-w,m-1] may still be propagating back. If no ACKs with these ACK numbers have been received by the sender, then the sender’s window would be [m-w, m-1].</p>
-<p>Thus, the lower edge of the sender’s window is m-w, and the leading edge of the receiver’s window is m+w-1. In order for the leading edge of the receiver’s window to not overlap with the trailing edge of the sender’s window, the sequence number space must thus be big enough to accommodate 2w sequence numbers. That is, the sequence number space must be at least twice as large as the window size</p>
-<h2 id="P24"><a href="#P24" class="headerlink" title="P24."></a>P24.</h2><p>Answer true or false to the following questions and briefly justify your<br>answer:<br>a. With the SR protocol, it is possible for the sender to receive an ACK for a packet that falls outside of its current window.<br>b. With GBN, it is possible for the sender to receive an ACK for a packet that falls outside of its current window.<br>c. The alternating-bit protocol is the same as the SR protocol with a sender and receiver window size of 1.<br>d. The alternating-bit protocol is the same as the GBN protocol with a sender and receiver window size of 1.</p>
-<p>对下列问题回答是或否，并简要地证明你的观点<br>答:<br>a.使用SR协议，发送方有可能接收到落在当前窗口之外的数据包的ACK。<br>b.使用GBN，发送方有可能接收到落在当前窗口之外的数据包的ACK。<br>c.交换位协议与SR协议相同，发送端和接收端窗口大小均为1。<br>d.交换位协议与GBN协议相同，发送端和接收端窗口大小均为1。</p>
-<p>a. 正确<br>假设窗口为0,1，发送方发送0，1后，接收方回复ACK0,1。但是发送方收到ACK0和1之前，就进行了超时重传，发送0，1。<br>发送方收到ACK0和1。窗口变为2，3。接收方收到重传的0，1，重新回复ACK0,1。此时发送方收到了ACK0，1，在发送方窗口之外。<br>b. 正确<br>假设窗口为0,1，发送方发送0，1后，接收方回复ACK0,1。但是发送方收到ACK1之前，就进行了超时重传，发送1。<br>发送方收到ACK1。窗口变为2，3。接收方收到重传的1，重新回复ACK1。此时发送方收到了ACK1，在发送方窗口之外。<br>c. 正确<br>d. 正确</p>
-<h2 id="P25"><a href="#P25" class="headerlink" title="P25."></a>P25.</h2><p>We have said that an application may choose UDP for a transport protocol because UDP offers finer application control (than TCP) of what data is sent in a segment and when. Why does an application have more control of what data is sent in a segment? Why does an application have more control on when the segment is sent?</p>
-<p>我们已经说过，应用程序可以选择UDP作为传输协议，因为UDP提供了更好的应用程序控制(比TCP)在一个段中发送什么数据和何时发送。为什么应用程序对在段中发送的数据有更多的控制?为什么应用程序对段何时发送有更多的控制?</p>
-<p>a. UDP不会对报文进行分片，而TCP会进行分片。<br>b. UDP没有拥塞控制和流量控制，可以自己调整发送速度。</p>
-<p><strong>a)</strong></p>
-<p><strong>In TCP protocols:</strong></p>
-<ul>
-<li>If the send the segment application then data is not assigned directly.</li>
-<li>Then data store in buffer then decide to connect the segement.</li>
-<li>So,the application does not have more control to sent data in  the TCP protocol.</li>
-</ul>
-<p><strong>For UDP protocols:</strong></p>
-<ul>
-<li>If the send the segment application then data is assigned directly</li>
-<li>Then the data in the segment is then sent.</li>
-<li>So, the application has more control to sent data in the UDP protocol.</li>
-</ul>
-<p>b)</p>
-<ul>
-<li>In TCP protocol <strong>cannot</strong> expect the time between sent data and arrived data. So, an application <strong>does not</strong> have more control on when the segment is sent in TCP.</li>
-<li>n TCP protocol <strong>can</strong> expect the time between sent data and arrived data. So, an application have more control on when the segment is sent in TCP.</li>
-</ul>
-<h2 id="P26"><a href="#P26" class="headerlink" title="P26."></a>P26.</h2><p>Consider transferring an enormous file of L bytes from Host A to Host B. Assume an MSS of 536 bytes. </p>
-<p>a. What is the maximum value of L such that TCP sequence numbers are not exhausted? Recall that the TCP sequence number field has 4 bytes.<br>b. For the L you obtain in (a), find how long it takes to transmit the file. Assume that a total of 66 bytes of transport, network, and data-link header are added to each segment before the resulting packet is sent out over a 155 Mbps link. Ignore flow control and congestion control so A can pump out the segments back to back and continuously.  </p>
-<p>考虑将一个L字节的巨大文件从主机A传输到主机b。假设MSS为536字节。</p>
-<p>a.使TCP序列号不耗尽的L的最大值是多少?回想一下，TCP序列号字段有4个字节。<br>b.对于(a)中得到的L，求出传输文件所需的时间。假设在产生的数据包通过155 Mbps的链路发送出去之前，在每个段中总共添加了66字节的传输、网络和数据链路头。忽略流量控制和拥塞控制，这样A可以连续地泵出段。</p>
-<p>a. 如果序号不重复利用，最多232字节。但是TCP的序号是可以重复利用的。<br>b. 报文数 232 &#x2F; 536 ~&#x3D; 8,012,999<br>(232 + 66 * 8,012,999) * 8 &#x2F; 155 * 10242 ~&#x3D; 237s</p>
-]]></content>
+    <title>计算机网络课后习题：第四章</title>
+    <url>/2024/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0/</url>
+    <content><![CDATA[]]></content>
       <categories>
         <category>2024SemesterB</category>
       </categories>
       <tags>
         <tag>EE5412计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NLP从入门到精通</title>
+    <url>/2024/02/22/NLP/</url>
+    <content><![CDATA[<p><a href="https://www.bilibili.com/video/BV17K4y1W7yb/?spm_id_from=333.337.search-card.all.click&vd_source=2586daefbeb84d444b36c83408e79068">Google中国NLP从入门到精通</a></p>
+<h1 id="第一讲-分词tokenization"><a href="#第一讲-分词tokenization" class="headerlink" title="第一讲 分词tokenization"></a>第一讲 分词tokenization</h1><p>学习如何使用计算机可以处理的方式来表示单词</p>
+<p>ASCII表示字母，但仅通过这些编码理解单词意思不太容易</p>
+<p>跟编码字母比起来，编码单词可能更简单</p>
+<p><img src="/./../2024Picture/image-20240222175532957.png" alt="image-20240222175532957" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p><img src="/./../2024Picture/image-20240222180110528.png" alt="image-20240222180110528" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>num_book: 最大单词数</p>
+<p>Tokenizer: 保存最频繁出现的100个单词</p>
+<p>fit_on_texts: 将文本与对应数字进行匹配</p>
+<p>word_index：完整表单可以用Index查看</p>
+<p>这个还能识别意外</p>
+<p>分词器很聪明，dog!不会记录dog!,只会记录dog</p>
+<p>现在单词已经都用数字来表示了</p>
+<h1 id="第二讲-序列：将文本转化为数据"><a href="#第二讲-序列：将文本转化为数据" class="headerlink" title="第二讲 序列：将文本转化为数据"></a>第二讲 序列：将文本转化为数据</h1><p>这一课学习为句子创建数字序列</p>
+<h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><p><img src="/./../2024Picture/image-20240222181719236.png" alt="image-20240222181719236" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>text_to_sequences: 他创建了代表每个句子的token序列</p>
+<p><strong>result</strong>:</p>
+<p><img src="/./../2024Picture/image-20240222181848427.png" alt="image-20240222181848427" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>如果句子中出现新的单词，但是又没有代码更新数据集，会发生什么？</p>
+<p><img src="/./../2024Picture/image-20240222182204652.png" alt="image-20240222182204652" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>所以为了处理不在训练集中的句子，我们需要一个巨大的单词索引</p>
+<h3 id="不损失序列长度方法"><a href="#不损失序列长度方法" class="headerlink" title="不损失序列长度方法"></a>不损失序列长度方法</h3><ol>
+<li><p>OOV: 使用oov_token属性，将其设置为代替语料库中无法识别的内容</p>
+<p>分词器会为他创建一个token</p>
+<p><img src="/./../2024Picture/image-20240222184642671.png" alt="image-20240222184642671" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>简单高效，但是有一些单词我们还是不知道什么意思。</p>
+<p>这样单词少了很多，而且至少句子长度是对的</p>
+<p>如何处理不同长度的句子呢？ 在对于图像进行处理的时候图像大小经常是一样的，但是句子不一定，我们要怎么处理这个问题呢？</p>
+</li>
+<li><p>进阶的解决方法就是借助不规则张量（Ragged Tensor),太难了</p>
+</li>
+<li><p>padding</p>
+<p>引用 pad_sequence: 可以用来填充序列</p>
+<p>把他们传递给pad_Sequence就能自动实现了</p>
+<p><img src="/./../2024Picture/image-20240222185733660.png" alt="image-20240222185733660" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>当你不想向上面这样，可以：</p>
+<p><img src="/./../2024Picture/image-20240222190241156.png" alt="image-20240222190241156" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>post：是在后面进行填充</p>
+<p>maxlen: 设置自定义的最大长度，</p>
+<p>truncating:  <strong>如果超过</strong>,可以设置截断方式，通过post truncation截断结尾处的单词。或者使用pre截断开头的单词。</p>
+</li>
+</ol>
+<p><img src="/./../2024Picture/image-20240222182916857.png" alt="image-20240222182916857" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h1 id="第三讲-打造识别文本情感的模型"><a href="#第三讲-打造识别文本情感的模型" class="headerlink" title="第三讲 打造识别文本情感的模型"></a>第三讲 打造识别文本情感的模型</h1><p>我们已经完成了预处理，现在需要学习如何构建一个能识别文本情感的分类器。</p>
+<p>下载数据集，这里面分类好了有讽刺意义和没有讽刺意义两种标题。</p>
+<p>我们将训练这些然后判断这些文本是否有讽刺意味。</p>
+<p><img src="/./../2024Picture/image-20240222190715818.png" alt="image-20240222190715818" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>数据是json格式，我们要改成Python格式</p>
+<p><img src="/./../2024Picture/image-20240222190746182.png" alt="image-20240222190746182" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ol>
+<li>导入json库</li>
+<li>用json库加载讽刺标题的json文件</li>
+<li>我们可以为标签，标题和文章链接创建列表</li>
+<li>当我们对JSON文件进行迭代时，可以将所需的值加载到Python列表中</li>
+</ol>
+<p>接下来就是预处理</p>
+<p><img src="/./../2024Picture/image-20240222191135810.png" alt="image-20240222191135810" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240222191508191.png" alt="image-20240222191508191" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>每个列表里都包括一些句子和标签，分片成训练集和测试集</p>
+<p><img src="/./../2024Picture/image-20240222211834894.png" alt="image-20240222211834894" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="新代码"><a href="#新代码" class="headerlink" title="新代码"></a>新代码</h3><p><img src="/./../2024Picture/image-20240222212532078.png" alt="image-20240222212532078" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>1，实例化分词器</p>
+<p>2，让分词器仅训练之前分片出来的训练集</p>
+<p>3，接下来创建一组训练序列，而不是一个整体序列集，然后进行填充</p>
+<p>4，测试序列的操作完全相同</p>
+<h3 id="但是你想从token怎么判断结果呢？"><a href="#但是你想从token怎么判断结果呢？" class="headerlink" title="但是你想从token怎么判断结果呢？"></a>但是你想从token怎么判断结果呢？</h3><p>Embadding嵌入: 我们把一组单词输入，神经网络就可以查看这些词的向量，并将向量相加出结果</p>
+<p><img src="/./../2024Picture/image-20240222213548069.png" alt="image-20240222213548069" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240222213557400.png" alt="image-20240222213557400" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>怎么判断新句子呢？</strong><br><img src="/./../2024Picture/image-20240222213651068.png" alt="image-20240222213651068" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ol>
+<li>先创建几个要进行分类的句子</li>
+<li>借助之前的分词器，将句子转换为序列</li>
+<li>然后将这些序列填充到跟训练集相同的维度</li>
+<li>接下来就可以在填充后的数据集上进行预测</li>
+</ol>
+<h1 id="第四讲-用循环神经网络进行机器学习"><a href="#第四讲-用循环神经网络进行机器学习" class="headerlink" title="第四讲 用循环神经网络进行机器学习"></a>第四讲 用循环神经网络进行机器学习</h1><p>判断句子情感是不需要句子的顺序，但是生成文本是需要考虑句子顺序的</p>
+<p>文本生成的本质就是要预测下一个单词</p>
+<h2 id="非序列数据是如何转换成序列数据的"><a href="#非序列数据是如何转换成序列数据的" class="headerlink" title="非序列数据是如何转换成序列数据的"></a>非序列数据是如何转换成序列数据的</h2><p><img src="/./../2024Picture/image-20240222220121364.png" alt="image-20240222220121364" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240222220328376.png" alt="image-20240222220328376" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240222220346527.png" alt="image-20240222220346527" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>这样一来，一个数值可以在整个数列的生命中反复出现，这就是循环神经网络的原理。</p>
+<p><img src="/./../2024Picture/image-20240222220503126.png" alt="image-20240222220503126" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>这个就是RNN</p>
+<h1 id="第五讲-长短期记忆网络（LSTM"><a href="#第五讲-长短期记忆网络（LSTM" class="headerlink" title="第五讲 长短期记忆网络（LSTM)"></a>第五讲 长短期记忆网络（LSTM)</h1><p>学习如何在长句子中，建立对文本上下文的理解</p>
+<p><img src="/./../2024Picture/image-20240222221350643.png" alt="image-20240222221350643" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>Cell states: 它可以跨越多个时间段保持语境，从而将句子开头的句意带入下文。 它可以是<strong>双向</strong>的，句子后面的词也可以为前面的词提供语境，这样我们就可以更准确地学习句子语义了。</p>
+<p><img src="/./../2024Picture/image-20240222221417719.png" alt="image-20240222221417719" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ol>
+<li><p>首先定义一个LSTM层，这里需要一个参数，来表示其中隐藏节点的数量。这也表示LSTM输出门的维度。如果你需要它<strong>是双向的</strong>，只需要<strong>Bidirectional</strong>对他进行包裹就行。</p>
+<p><img src="/./../2024Picture/image-20240222222147215.png" alt="image-20240222222147215" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>128的原因是，一个方向64个参数，一共两个方向。</p>
+</li>
+</ol>
+<p><img src="/./../2024Picture/image-20240222222311142.png" alt="image-20240222222311142" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>也可以将LSTM进行叠加，这样上一层的输出就能传递到下一层。</p>
+<p>但是每层都要设置return_sequences &#x3D; Ture</p>
+<p><img src="/./../2024Picture/image-20240222222423804.png" alt="image-20240222222423804" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+]]></content>
+      <categories>
+        <category>人工智能</category>
+      </categories>
+      <tags>
+        <tag>NLP</tag>
       </tags>
   </entry>
   <entry>
@@ -823,30 +799,112 @@
       </tags>
   </entry>
   <entry>
-    <title>排队论第一次考试</title>
-    <url>/2024/02/22/%E6%8E%92%E9%98%9F%E8%AE%BA%E5%A4%8D%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="条件概率-P15"><a href="#条件概率-P15" class="headerlink" title="条件概率 P15"></a>条件概率 P15</h2><p><img src="/./../2024Picture/image-20240304205716458.png" alt="image-20240304205716458" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="骰子例题"><a href="#骰子例题" class="headerlink" title="骰子例题"></a>骰子例题</h3><p><img src="/./../2024Picture/image-20240304205757271.png" alt="image-20240304205757271" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>A∩B只剩下了1，所以上面是1&#x2F;6</p>
-<h3 id="独立条件下的概率"><a href="#独立条件下的概率" class="headerlink" title="独立条件下的概率"></a>独立条件下的概率</h3><p><img src="/./../2024Picture/image-20240304210416521.png" alt="image-20240304210416521" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="硬币问题"><a href="#硬币问题" class="headerlink" title="硬币问题"></a>硬币问题</h3><p><img src="/./../2024Picture/image-20240304210559117.png" alt="image-20240304210559117" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>P(B) 第一个是1，后面分别有2*2 &#x3D; 4种不同的情况</p>
-<p>第二题是</p>
-<p>1（第二个是1）+1（第三个是1）+1（两个都是1）&#x3D; 3</p>
-<h3 id="疾病问题"><a href="#疾病问题" class="headerlink" title="疾病问题"></a>疾病问题</h3><p><img src="/./../2024Picture/image-20240304210833682.png" alt="image-20240304210833682" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240304211712055.png" alt="image-20240304211712055" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+    <title>计算机网络课后习题：第三章</title>
+    <url>/2024/02/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98%EF%BC%9A%E7%AC%AC%E4%B8%89%E7%AB%A0/</url>
+    <content><![CDATA[<h1 id="第三章-考试内容"><a href="#第三章-考试内容" class="headerlink" title="第三章 考试内容"></a>第三章 考试内容</h1><h2 id="P2-源端口和目的端口，源IP和目的IP"><a href="#P2-源端口和目的端口，源IP和目的IP" class="headerlink" title="P2.源端口和目的端口，源IP和目的IP"></a>P2.源端口和目的端口，源IP和目的IP</h2><p>Consider Figure 3.5. What are the source and destination port values in the segments flowing from the server back to the clients’ processes? What are the IP addresses in the network-layer datagrams carrying the transport-layer segments?  </p>
+<p>考虑图3.5。从服务器流回客户端进程的段中的源端口和目标端口值是什么?承载传输层段的网络层数据报中的IP地址是什么?</p>
+<p><img src="/./../2024Picture/image-20240224164104110.png" alt="image-20240224164104110" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>看图写作很无聊的一道题</p>
+<p>服务器到客户A:<br>源端口号:80, 目的端口号:26145, 源IP:B, 目的IP:A<br>服务器到客户C，会话1:<br>源端口号:80, 目的端口号:7532, 源IP:B, 目的IP:C<br>服务器到客户C，会话2:<br>源端口号:80, 目的端口号:26145, 源IP:B, 目的IP:C</p>
+<h2 id="P3-检验和"><a href="#P3-检验和" class="headerlink" title="P3.  检验和"></a>P3.  检验和</h2><p>UDP and TCP use Is complement for their checksums. Suppose you have the following three 8-bit bytes: 01010011, 01100110, 01110100. What is the Is complement of the sum of these 8-bit bytes? (Note that although UDP and TCP use 16-bit words in computing the checksum, for this problem you are being asked to consider 8-bit sums.) Show all work. Why is it that UDP takes the Is complement of the sum; that is, why not just use the sum? With the Is complement scheme, how does the receiver detect errors? Is it possible that a 1-bit error will go undetected? How about a 2-bit error?  </p>
+<p>UDP和TCP使用Is作为校验和的补充。假设您有以下三个8位字节:01010011、01100110、01110100。这8<strong>位字节的和的补码</strong>是多少?(请注意，尽管UDP和TCP在计算校验和时使用16位字，但对于这个问题，您被要求考虑8位和。)展示所有的工作。为什么<strong>UDP采用和的is补码</strong>?也就是说，<strong>为什么不用求和</strong>呢?使用Is补码方案，接收方如何检测错误?<strong>一个1比特的错误有可能不会被检测到吗?2位的错误呢?</strong></p>
+<p><img src="/./../2024Picture/image-20240225181355367.png" alt="image-20240225181355367" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>使用反码对接收方非常方便，只需将所有数据包含校验码加起来，计算和为全1即可。<br>如果不是全1则说明出现了差错。<br>1比特的差错肯定可以检查出，2比特的差错存在检测不出的情况。</p>
+<blockquote>
+<p><strong>校验和</strong></p>
+<p><img src="/./../2024Picture/image-20240225182033905.png" alt="image-20240225182033905" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>校验和相同只能说是“检验不出错误”，不能保障没有错误。比如传输中多个16bit字发生错误，但是可能恰巧相加校验和不变。</p>
+</blockquote>
+<blockquote>
+<p><strong>补码 complement</strong> </p>
+</blockquote>
+<h2 id="P4-校验和"><a href="#P4-校验和" class="headerlink" title="P4. 校验和"></a>P4. 校验和</h2><p>a. Suppose you have the following 2 bytes: 01011100 and 01100101. What is the Is complement of the sum of these 2 bytes?<br>b. Suppose you have the following 2 bytes: 11011010 and 01100101. What is the Is complement of the sum of these 2 bytes?<br>c. For the bytes in part (a), give an example where one bit is flipped in each of the 2 bytes and yet the Is complement doesn’t change.  </p>
+<p>a.假设有两个字节:01011100和01100101。这两个字节的和的is补是多少?<br>b.假设有两个字节:11011010和01100101。这两个字节的和的is补是多少?<br>c.就第(a)部分的字节而言，请举例说明 2 个字节中每个字节都翻转了一位，但 Is 的补码没有变化。（这个意思是两个字节翻转一位，但是算出来的不发生改变。</p>
+<p>a. 00111110<br>b. 10111111<br>c. 11011100 和 11100101</p>
+<p>Running checksums at multiple levels throughout the network is not a waste. Because flipped bits can be so easily missed, this redundancy is the best chance of catching errors.</p>
+<h2 id="P5"><a href="#P5" class="headerlink" title="P5."></a>P5.</h2><p>Suppose that the UDP receiver computes the Internet checksum for the received UDP segment and finds that it matches the value carried in the checksum field. Can the receiver be absolutely certain that no bit errors have occurred? Explain.  </p>
+<p>假设UDP接收端计算接收到的UDP报文段的Internet校验和，发现与校验和字段中携带的值匹配。接收方能绝对确定没有发生比特错误吗?解释一下。</p>
+<p>接收方不能完全确认没有比特差错，如P4c题目所示，出现多个差错时存在检测不出的情况</p>
+<h2 id="P7-rtd3-0"><a href="#P7-rtd3-0" class="headerlink" title="P7.  rtd3.0"></a>P7.  rtd3.0</h2><p>In protocol rdt3 . 0, the ACK packets flowing from the receiver to the sender do not have sequence numbers (although they do have an ACK field that contains the sequence number of the packet they are acknowledging). Why is it that our ACK packets do not require sequence numbers?  </p>
+<p>在rdt3.0协议中时，从接收方流向发送方的ACK数据包没有序列号(尽管它们有一个ACK字段，其中包含它们所确认的数据包的序列号)。为什么我们的ACK包不需要序列号?</p>
+<p>因为ACK和确认序号已经可以完整的标识这个分组，而且ACK的缺失会导致重传，因此最终ACK可以确保到达。</p>
+<p>the protocol rtd3.0 is used to transfer data from sender to receiver.</p>
+<p>If a sender transfer the packet to the receiver, then receiver will receive and send ACK(Acknowledgement) to the sender for conformation.<br>If sender received ACK then go to the next level.<br>In this process, needs sequence number to the sender for finding duplicate packets data or ACK data.<br>If the sender find any duplicate ACK, then ignore it. In this process ACK packets does not require sequence number.</p>
+<p>So, ACK packets does not require sequence numbers.</p>
+<blockquote>
+<p><img src="/./../2024Picture/16c5b92baeb641a3beefee95f17e97e9.jpeg" alt="img" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</blockquote>
+<h2 id="P9-rtd3-0"><a href="#P9-rtd3-0" class="headerlink" title="P9.  rtd3.0"></a>P9.  rtd3.0</h2><p>Give a trace of the operation of protocol rdt3 . 0 when data packets and acknowledgment packets are garbled (scenarios for corrupted data and corrupted ACK). Suppose the protocol has been in operation for some time. The sender is in state “<strong>Wait for call from above</strong>” (top left hand comer) and the receiver is in state “Wait for 0 from below”.  </p>
+<p>给出协议rdt3.0操作的跟踪。数据包和确认报文乱码时为0(数据损坏和ACK损坏的场景)。假设协议已经运行了一段时间。发送方处于“等待来自上面的呼叫”(左上角)状态，接收方处于“等待来自下面的0”状态。</p>
+<p>显⽰了损坏的数据和损坏的ACK的场景  </p>
+<p><img src="/./../2024Picture/image-20240225201834472.png" alt="image-20240225201834472" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="P12-rtd3-0"><a href="#P12-rtd3-0" class="headerlink" title="P12.  rtd3.0"></a>P12.  rtd3.0</h2><p>The sender side of rdt3 . 0 simply ignores (that is, takes no action on) all received packets that are either in error or have the wrong value in the ack num field of an acknowledgment packet. Suppose that in such circumstances, rdt3 . 0 were simply to retransmit the current data packet. Would the protocol still work? (Hint: Consider what would happen if there were only bit errors; there are no packet losses but premature timeouts can occur. Consider how many times the nth packet is sent, in the limit as n approaches infinity.)</p>
+<p>rdt3.0的发送端。0只是忽略(即不采取任何行动)所有收到的错误或在确认包的ack num字段中具有错误值的数据包。假设在这种情况下，rdt3.0只是重传当前数据包。协议还能起作用吗?(提示:考虑一下如果只有位错误会发生什么;没有丢包，但可能出现过早超时。考虑第n个数据包发送了多少次，在n趋于无穷时的极限。)</p>
+<h2 id="P13-rtd3-0"><a href="#P13-rtd3-0" class="headerlink" title="P13.  rtd3.0"></a>P13.  rtd3.0</h2><p>Consider the rdt 3 . 0 protocol. Draw a diagram showing that if the network connection between the sender and receiver can reorder messages (that is, that two messages propagating in the medium between the sender and receiver can be reordered), then the alternating-bit protocol will not work correctly (make sure you clearly identify the sense in which it will not work correctly). Your diagram should have the sender on the left and the receiver on the right, with the time axis running down the page, showing data (D) and acknowledgment (A) message exchange. Make sure you indicate the sequence number associated with any data or acknowledgment segment.</p>
+<p>考虑rdt 3.0协议。绘制一个图表，显示如果发送方和接收方之间的网络连接可以对消息进行重新排序(也就是说，在发送方和接收方之间的媒介中传播的两条消息可以重新排序)，那么交替位协议将无法正常工作(确保您清楚地识别出它无法正常工作的意义)。您的图表应该左边是发送者，右边是接收者，时间轴沿着页面向下延伸，显示数据(D)和确认(A)消息交换。确保您指定了与任何数据或确认段相关联的序列号。</p>
+<p><img src="/./../2024Picture/image-20240225202258041.png" alt="image-20240225202258041" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="P14"><a href="#P14" class="headerlink" title="P14."></a>P14.</h2><p>Consider a reliable data transfer protocol that uses only negative acknowledgments. Suppose the sender sends data only infrequently. Would a NAK-only protocol be preferable to a protocol that uses ACKs? Why? Now suppose the sender has a lot of data to send and the end-to-end connection experiences few losses. In this second case, would a NAK-only protocol be preferable to a protocol that uses ACKs? Why?</p>
+<p>考虑一个只使用否定确认的可靠数据传输协议。假设发送方不经常发送数据。仅仅使用ack的协议比使用ack的协议更可取吗?为什么?现在假设发送方有大量数据要发送，端到端连接几乎没有丢失。在第二种情况下，仅使用ack的协议是否比使用ack的协议更可取?为什么?</p>
+<ol>
+<li><p>If the sender sends the data infrequently (occasionally), then the NAK-only protocol is not preferred. It is good to use the protocol that uses ACKs.</p>
+<ul>
+<li>The main disadvantage of NAK-only protocol is that it can detect that the packet has been lost only when the next packet is received by the receiver.</li>
+<li>The NAK-only protocol realize the loss of packet after a long time when it receives the data packet with wrong sequence number as the sender sends the data packets occasionally.</li>
+<li>When the receiver realize the packet loss, it sends NAK to the sender and the sender has to retransmit both the lost and next packet.</li>
+<li>If the sender sends the data frequently, then the NAK-only protocol is preferred. The protocol that uses ACKs is not preferred as it require to send more number of acknowledgements.</li>
+</ul>
+<p>When the sender sends data frequently and the data loss rate is very less, then a NAK-only protocol is preferable to a protocol that uses ACKs.</p>
+<ul>
+<li>The receiver sends the NAK as it realizes the packet loss quickly as the data transmitted frequently.</li>
+<li>Since the data loss is less, the number of NAK in NAK-only protocol is less when compared with protocol that uses ACKs.</li>
+</ul>
+</li>
+</ol>
+<h2 id="P16"><a href="#P16" class="headerlink" title="P16."></a>P16.</h2><p>Suppose an application uses rdt 3 . 0 as its transport layer protocol. As the stop-and-wait protocol has very low channel utilization (shown in the crosscountry example), the designers of this application let the receiver keep sending back a number (more than two) of alternating ACK 0 and ACK 1 even if the corresponding data have not arrived at the receiver. Would this application design increase the channel utilization? Why? Are there any potential problems with this approach? Explain.</p>
+<p>假设应用程序使用rdt 3.0作为其传输层协议。由于停止等待协议的通道利用率非常低(如越野示例所示)，因此该应用程序的设计者让接收方继续发送一个(多于两个)交替的ACK 0和ACK 1，即使相应的数据尚未到达接收方。这种应用程序设计会增加通道利用率吗?为什么?这种方法有什么潜在的问题吗?解释一下。</p>
+<ul>
+<li>Suppose an application uses rdt 3.0 as its transport layer protocol. Then It stop-and-wait protocol is used very low utilization in the application.</li>
+<li>The application allows the receiver to send the acknowledgements and sends the next data packet. It is used as a pipelined data in the channel.</li>
+<li>There is a chance of missing data before it reaches the receiver.</li>
+<li>So the sender (who is using rtd 3.0 protocol) will not retransmit the data. The missing or lost some data.</li>
+<li>Thus, designing of the application need to adopt some mechanism to over come this problem.</li>
+</ul>
+<h2 id="P22"><a href="#P22" class="headerlink" title="P22."></a>P22.</h2><p>Consider the GBN protocol with a sender window size of 4 and a sequence number range of 1,024. Suppose that at time t, the next in-order packet that the receiver is expecting has a sequence number of k. Assume that the medium does not reorder messages. Answer the following questions:<br>a. What are the possible sets of sequence numbers inside the sender’s window at time I? Justify your answer.<br>b. What are all possible values of the ACK field in all possible messages currently propagating back to the sender at time &#x2F;? Justify your answer.<br>考虑发送方窗口大小为4、序列号范围为1024的GBN协议。假设在时间t，接收方期待的下一个有序数据包的序列号为k。假设介质不重新排序消息。回答以下问题:<br>a.在时间I的发送方窗口内可能的序列号集合是什么?证明你的答案。<br>b.在时间&#x2F;时，当前传播回发送方的所有可能消息中，ACK字段的所有可能值是多少?证明你的答案。</p>
+<p><img src="/./../2024Picture/image-20240225202901850.png" alt="image-20240225202901850" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="P23"><a href="#P23" class="headerlink" title="P23."></a>P23.</h2><p>Consider the GBN and SR protocols. Suppose the sequence number space is of size k. What is the largest allowable sender window that will avoid the occurrence of problems such as that in Figure 3.27 for each of these protocols?<br>考虑GBN和SR协议。假设序列号空间的大小为k。对于这些协议，最大允许的发送方窗口是多少，以避免出现图3.27所示的问题?</p>
+<p>In order to avoid the scenario of Figure 3.27, we want to avoid having the leading edge of the receiver’s window (i.e., the one with the “highest” sequence number) wrap around in the sequence number space and overlap with the trailing edge (the one with the “lowest” sequence number in the sender’s window). That is, the sequence number space must be large enough to fit the entire receiver window and the entire sender window without this overlap condition. So, we need to determine how large a range of sequence numbers can be covered, at any given time, by the receiver and sender windows.</p>
+<p>Suppose that the lowest-sequence number that the receiver is waiting for is packet m. In this case, it’s window [m, m+w-1] and it has received (and ACKed) packet m-1 and the w-1 packets before that, where w is the size of the window. If none of those w ACKs have been yet received by the sender, then ACK messages with values of [m-w,m-1] may still be propagating back. If no ACKs with these ACK numbers have been received by the sender, then the sender’s window would be [m-w, m-1].</p>
+<p>Thus, the lower edge of the sender’s window is m-w, and the leading edge of the receiver’s window is m+w-1. In order for the leading edge of the receiver’s window to not overlap with the trailing edge of the sender’s window, the sequence number space must thus be big enough to accommodate 2w sequence numbers. That is, the sequence number space must be at least twice as large as the window size</p>
+<h2 id="P24"><a href="#P24" class="headerlink" title="P24."></a>P24.</h2><p>Answer true or false to the following questions and briefly justify your<br>answer:<br>a. With the SR protocol, it is possible for the sender to receive an ACK for a packet that falls outside of its current window.<br>b. With GBN, it is possible for the sender to receive an ACK for a packet that falls outside of its current window.<br>c. The alternating-bit protocol is the same as the SR protocol with a sender and receiver window size of 1.<br>d. The alternating-bit protocol is the same as the GBN protocol with a sender and receiver window size of 1.</p>
+<p>对下列问题回答是或否，并简要地证明你的观点<br>答:<br>a.使用SR协议，发送方有可能接收到落在当前窗口之外的数据包的ACK。<br>b.使用GBN，发送方有可能接收到落在当前窗口之外的数据包的ACK。<br>c.交换位协议与SR协议相同，发送端和接收端窗口大小均为1。<br>d.交换位协议与GBN协议相同，发送端和接收端窗口大小均为1。</p>
+<p>a. 正确<br>假设窗口为0,1，发送方发送0，1后，接收方回复ACK0,1。但是发送方收到ACK0和1之前，就进行了超时重传，发送0，1。<br>发送方收到ACK0和1。窗口变为2，3。接收方收到重传的0，1，重新回复ACK0,1。此时发送方收到了ACK0，1，在发送方窗口之外。<br>b. 正确<br>假设窗口为0,1，发送方发送0，1后，接收方回复ACK0,1。但是发送方收到ACK1之前，就进行了超时重传，发送1。<br>发送方收到ACK1。窗口变为2，3。接收方收到重传的1，重新回复ACK1。此时发送方收到了ACK1，在发送方窗口之外。<br>c. 正确<br>d. 正确</p>
+<h2 id="P25"><a href="#P25" class="headerlink" title="P25."></a>P25.</h2><p>We have said that an application may choose UDP for a transport protocol because UDP offers finer application control (than TCP) of what data is sent in a segment and when. Why does an application have more control of what data is sent in a segment? Why does an application have more control on when the segment is sent?</p>
+<p>我们已经说过，应用程序可以选择UDP作为传输协议，因为UDP提供了更好的应用程序控制(比TCP)在一个段中发送什么数据和何时发送。为什么应用程序对在段中发送的数据有更多的控制?为什么应用程序对段何时发送有更多的控制?</p>
+<p>a. UDP不会对报文进行分片，而TCP会进行分片。<br>b. UDP没有拥塞控制和流量控制，可以自己调整发送速度。</p>
+<p><strong>a)</strong></p>
+<p><strong>In TCP protocols:</strong></p>
+<ul>
+<li>If the send the segment application then data is not assigned directly.</li>
+<li>Then data store in buffer then decide to connect the segement.</li>
+<li>So,the application does not have more control to sent data in  the TCP protocol.</li>
+</ul>
+<p><strong>For UDP protocols:</strong></p>
+<ul>
+<li>If the send the segment application then data is assigned directly</li>
+<li>Then the data in the segment is then sent.</li>
+<li>So, the application has more control to sent data in the UDP protocol.</li>
+</ul>
+<p>b)</p>
+<ul>
+<li>In TCP protocol <strong>cannot</strong> expect the time between sent data and arrived data. So, an application <strong>does not</strong> have more control on when the segment is sent in TCP.</li>
+<li>n TCP protocol <strong>can</strong> expect the time between sent data and arrived data. So, an application have more control on when the segment is sent in TCP.</li>
+</ul>
+<h2 id="P26"><a href="#P26" class="headerlink" title="P26."></a>P26.</h2><p>Consider transferring an enormous file of L bytes from Host A to Host B. Assume an MSS of 536 bytes. </p>
+<p>a. What is the maximum value of L such that TCP sequence numbers are not exhausted? Recall that the TCP sequence number field has 4 bytes.<br>b. For the L you obtain in (a), find how long it takes to transmit the file. Assume that a total of 66 bytes of transport, network, and data-link header are added to each segment before the resulting packet is sent out over a 155 Mbps link. Ignore flow control and congestion control so A can pump out the segments back to back and continuously.  </p>
+<p>考虑将一个L字节的巨大文件从主机A传输到主机b。假设MSS为536字节。</p>
+<p>a.使TCP序列号不耗尽的L的最大值是多少?回想一下，TCP序列号字段有4个字节。<br>b.对于(a)中得到的L，求出传输文件所需的时间。假设在产生的数据包通过155 Mbps的链路发送出去之前，在每个段中总共添加了66字节的传输、网络和数据链路头。忽略流量控制和拥塞控制，这样A可以连续地泵出段。</p>
+<p>a. 如果序号不重复利用，最多232字节。但是TCP的序号是可以重复利用的。<br>b. 报文数 232 &#x2F; 536 ~&#x3D; 8,012,999<br>(232 + 66 * 8,012,999) * 8 &#x2F; 155 * 10242 ~&#x3D; 237s</p>
 ]]></content>
-      <categories>
-        <category>2024SemesterB</category>
-      </categories>
-      <tags>
-        <tag>EE6610排队论</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机网络课后习题：第四章</title>
-    <url>/2024/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0/</url>
-    <content><![CDATA[]]></content>
       <categories>
         <category>2024SemesterB</category>
       </categories>
