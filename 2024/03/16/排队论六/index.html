@@ -7,15 +7,30 @@
 <meta name="full-screen" content="yes">
 <meta name="theme-color" content="#317EFB" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta property="og:type" content="website">
-<meta property="og:title" content="HuskeyBunch">
-<meta property="og:url" content="http://example.com/categories/EE6610%E6%8E%92%E9%98%9F%E8%AE%BA/index.html">
+<meta name="description" content="Introduction to Poisson ProcessStochastic(uncertain&#x2F;random) process随机过程 general definition family of random variables that describes the evolution(through time) of a process   notation X(t), t∈T">
+<meta property="og:type" content="article">
+<meta property="og:title" content="排队论（六）">
+<meta property="og:url" content="http://example.com/2024/03/16/%E6%8E%92%E9%98%9F%E8%AE%BA%E5%85%AD/index.html">
 <meta property="og:site_name" content="HuskeyBunch">
+<meta property="og:description" content="Introduction to Poisson ProcessStochastic(uncertain&#x2F;random) process随机过程 general definition family of random variables that describes the evolution(through time) of a process   notation X(t), t∈T">
 <meta property="og:locale">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-03-16T06:51:50.453Z">
+<meta property="article:modified_time" content="2024-03-16T08:49:41.863Z">
+<meta property="article:tag" content="EE6610排队论">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
 
 
-<title >HuskeyBunch</title>
+<title >排队论（六）</title>
 
 <!-- Favicon -->
 
@@ -58,7 +73,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"example.com","author":null,"root":"/","typed_text":["hometown is in Siberia"],"theme_version":"2.1.10","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"dog1.svg","icon16":"dog1.svg","icon32":"dog1.svg","appleTouchIcon":"apple-touch-icon.png","webmanifest":"/site.webmanifest","visibilitychange":true,"hidden":"wrong.svg","showText":"什么你不信？","hideText":"哎呀网页崩溃了"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://npm.elemecdn.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":true},"live_time":{"start_time":"","prefix":"博客已萌萌哒运行 undefined 天"},"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"path":"search.xml"}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":false,"isHome":false,"postUpdate":"2024-03-16 13:37:08"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-03-16 16:49:41"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.10" id="trm-switch-style">
@@ -226,17 +241,15 @@
         <div class="container">
             <div class="row">
                 
-                <div class="col-lg-4"></div>
-                
-                <div class="col-lg-8">
+                <div class="col-lg-12">
 
                     <!-- banner title -->
-                    <div class="trm-banner-text ">
+                    <div class="trm-banner-text trm-text-center ">
                         <div class="trm-label trm-mb-20">
-                            
+                            NEWS LETTER
                         </div>
                         <h1 class="trm-mb-30 trm-hsmb-font">
-                            
+                            排队论（六）
                         </h1>
 
                         
@@ -246,7 +259,7 @@
                                 </li>
                                 <li>
                                     <span>
-                                        categories
+                                        2024
                                     </span>
                                 </li>
                             </ul>
@@ -271,244 +284,187 @@
     <div class="container">
         <div class="row">
             
-                <div class="trm-page-sidebar col-lg-4 hidden-sm">
-                    <!-- main card -->
-                    <div class="trm-main-card-frame trm-sidebar">
-    <div class="trm-main-card"> 
-        <!-- card header -->
-<div class="trm-mc-header">
-    <div class="trm-avatar-frame trm-mb-20">
-        <img alt="Avatar" class="trm-avatar" src="https://huskybunch.github.io/head.jpg">
-    </div>
-    <h5 class="trm-name trm-mb-15">
-        huskybunch
-    </h5>
-    
-        <div class="trm-label">
-            My
-            <span class="trm-typed-text">
-                <!-- Words for theme.user.typedText -->
-            </span>
-        </div>
-    
-</div>
-<!-- card header end -->
-        <!-- sidebar social -->
-
-<div class="trm-divider trm-mb-40 trm-mt-40"></div>
-<div class="trm-social">
-    
-        <a href="https://github.com" title="github" rel="nofollow" target="_blank">
-            <i class="iconfont fab fa-github"></i>
-        </a>
-    
-</div>
-
-<!-- sidebar social end -->
-        <!-- info -->
-<div class="trm-divider trm-mb-40 trm-mt-40"></div>
-<ul class="trm-table trm-mb-20">
-    
-        <li>
-            <div class="trm-label">
-                地址:
-            </div>
-            <div class="trm-label trm-label-light">
-                香港
-            </div>
-        </li>
-    
-        <li>
-            <div class="trm-label">
-                年龄:
-            </div>
-            <div class="trm-label trm-label-light">
-                23
-            </div>
-        </li>
-    
-</ul>
-<!-- info end -->
-
-        
-    </div>
-</div>
-                    <!-- main card end -->
-                </div>
-            
-            <div class="trm-page-content col-lg-8">
+            <div class="trm-page-content col-lg-12">
                 <div id="trm-content" class="trm-content">
-                    <div class="row">
-    <div class="col-lg-12">
-        <div class="trm-card">
-            <div style="padding: 0 20px;">
-                
-                    <ul class="row trm-list"><li class="col-lg-4 trm-list-item " style="margin: 6px 0;"><a class="category-list-link" href="/categories/2024SemesterB/">2024SemesterB</a><span class="category-list-count">（6）</span></li><li class="col-lg-4 trm-list-item " style="margin: 6px 0;"><a class="category-list-link" href="/categories/EE6610%E6%8E%92%E9%98%9F%E8%AE%BA/">EE6610排队论</a><span class="category-list-count">（5）</span></li><li class="col-lg-4 trm-list-item " style="margin: 6px 0;"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a><span class="category-list-count">（2）</span></li></ul>
-                
-            </div>
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            03/16
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            14:51
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            huskybunch
         </div>
     </div>
 </div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h1 id="Introduction-to-Poisson-Process"><a href="#Introduction-to-Poisson-Process" class="headerlink" title="Introduction to Poisson Process"></a>Introduction to Poisson Process</h1><h2 id="Stochastic-uncertain-random-process随机过程"><a href="#Stochastic-uncertain-random-process随机过程" class="headerlink" title="Stochastic(uncertain&#x2F;random) process随机过程"></a>Stochastic(uncertain&#x2F;random) process随机过程</h2><ul>
+<li>general definition<ul>
+<li>family of random variables that describes the evolution(through time) of a process</li>
+</ul>
+</li>
+<li>notation<ul>
+<li>X(t), t∈T is the state of the process at index t<ul>
+<li>T is often interpred as time常被解释为时间</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>comment<ul>
+<li>when T is a countable set, stochastic process is discrete-time</li>
+<li>when T is an interval of the real line, stochastic process is continuous-time</li>
+</ul>
+</li>
+<li>examples<ul>
+<li>size of population at time t -&gt;t &#x3D; 2013 -&gt; discrete time</li>
+<li>distance a particle moves in time t -&gt; t &#x3D; in 2 hrs -&gt;continuous time</li>
+</ul>
+</li>
+<li>Today we will focus on an <strong>elementary stochastic process初等随机过程</strong> known as <strong>Poisson process</strong></li>
+</ul>
+<h2 id="Poission-process"><a href="#Poission-process" class="headerlink" title="Poission process"></a>Poission process</h2><ul>
+<li>time interal:contimuous-time stochastic process</li>
+<li>monitoring the occurrence of some event of interst<ul>
+<li>arrivals-&gt;arrivals of customers, reeived calls -&gt; in a morning shift</li>
+</ul>
+</li>
+<li>average rate(λ) at which the event occurs does not change over time</li>
+<li>randon variable<ul>
+<li>N(t) ≡ number of times the event occurs in (0, t)</li>
+</ul>
+</li>
+</ul>
+<p><img src="/./../2024Picture/image-20240316160228936.png" alt="image-20240316160228936" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="Poisson-process-implications泊松过程含义"><a href="#Poisson-process-implications泊松过程含义" class="headerlink" title="Poisson process implications泊松过程含义"></a>Poisson process implications泊松过程含义</h2><ul>
+<li><p>N(0) &#x3D; 0</p>
+</li>
+<li><p>independent increments</p>
+<ul>
+<li>what happens in an interval of time does not depend on any other non-overlapping interval of time</li>
+<li>what happens in [1,3] does not impact what happens in[4, 6]</li>
+</ul>
+</li>
+<li><p>N(t + s) - N(s) ≡ Poisson RB with mean λt &#x3D; N(t)：<strong>number of occurances in intervals if length time t</strong></p>
+<p><img src="/./../2024Picture/image-20240316160839812.png" alt="image-20240316160839812" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>does not depend on s</li>
+<li>does depend on t</li>
+</ul>
+</li>
+</ul>
+<h2 id="Poisson-random-variable"><a href="#Poisson-random-variable" class="headerlink" title="Poisson random variable"></a>Poisson random variable</h2><ul>
+<li>example<ul>
+<li>the number of customers that arrive to a bank in one hour -&gt; t &#x3D; 1 -&gt; N(1)</li>
+</ul>
+</li>
+<li>terminology<ul>
+<li>X (N(t)) is a poisson random variable with mean α (α &#x3D; λt)</li>
+</ul>
+</li>
+<li>Notation<ul>
+<li>X ~ Poisson(α)</li>
+<li>N(t) &#x3D; Poisson(λt) </li>
+<li><img src="/./../2024Picture/image-20240316161316887.png" alt="image-20240316161316887" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li><img src="/./../2024Picture/image-20240316161501741.png" alt="image-20240316161501741" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+</li>
+</ul>
+<h2 id="X-Poisson-α"><a href="#X-Poisson-α" class="headerlink" title="X ~ Poisson(α)"></a>X ~ Poisson(α)</h2><ul>
+<li><p>range</p>
+<ul>
+<li>X ∈{0,1，……}</li>
+<li>X is a discrete random variable</li>
+</ul>
+<p><img src="/./../2024Picture/image-20240316161643362.png" alt="image-20240316161643362" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</li>
+<li><p>PMF</p>
+<ul>
+<li><img src="/./../2024Picture/image-20240316161940606.png" alt="image-20240316161940606" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+<li>is 3 times happened in 60 minutes</li>
+</ul>
+</li>
+<li><p>CDF </p>
+<ul>
+<li><img src="/./../2024Picture/image-20240316162357841.png" alt="image-20240316162357841" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+</li>
+<li><p>expected value E(X) &#x3D; λt</p>
+</li>
+<li><p>variance V(X) &#x3D; λt</p>
+</li>
+</ul>
+<h1 id="Example-of-Poisson-Process"><a href="#Example-of-Poisson-Process" class="headerlink" title="Example of Poisson Process"></a>Example of Poisson Process</h1><p><img src="/./../2024Picture/image-20240316164212785.png" alt="image-20240316164212785" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>c）</p>
+<p><img src="/./../2024Picture/image-20240316164411271.png" alt="image-20240316164411271" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 
-<!-- history -->
+</article>
+    
+    
 
-<div class="row">
+</div>
+<div class="trm-post-next-prev row">
     <div class="col-lg-12">
         <!-- title -->
         <h5 class="trm-title-with-divider">
-            
-                EE6610排队论
-            
-            <span data-number="01"></span>
+            其他文章
+            <span data-number="02"></span>
         </h5>
     </div>
-    <div class="col-lg-12">
-        <!-- timeline -->
-        <div class="trm-timeline">
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
             
-            <div class="trm-timeline-item trm-scroll-animation">
-                <div class="trm-timeline-mark-light"></div>
-                <div class="trm-timeline-mark"></div>
-                <div class="trm-a trm-timeline-content more">
-                    
-                        <div class="trm-card-header">
-                            <div class="trm-left-side">
-                                <h6>
-                                    <a href="/2024/03/15/%E6%8E%92%E9%98%9F%E8%AE%BA%E4%BA%94/" class="trm-anima-link">
-                                        排队论（五）
-                                    </a>
-                                </h6>
-                                <div class="trm-text-sm trm-accent-color trm-mt-15">
-                                    <ul class="trm-card-data trm-label ">
-                                        <li class="trm-accent-color">03/15</li>
-                                        <li class="trm-accent-color">20:33</li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    
-                </div>
-            </div>
-            
-            <div class="trm-timeline-item trm-scroll-animation">
-                <div class="trm-timeline-mark-light"></div>
-                <div class="trm-timeline-mark"></div>
-                <div class="trm-a trm-timeline-content more">
-                    
-                        <div class="trm-card-header">
-                            <div class="trm-left-side">
-                                <h6>
-                                    <a href="/2024/03/15/%E6%8E%92%E9%98%9F%E8%AE%BA%E5%9B%9B/" class="trm-anima-link">
-                                        排队论（四）
-                                    </a>
-                                </h6>
-                                <div class="trm-text-sm trm-accent-color trm-mt-15">
-                                    <ul class="trm-card-data trm-label ">
-                                        <li class="trm-accent-color">03/15</li>
-                                        <li class="trm-accent-color">15:20</li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    
-                </div>
-            </div>
-            
-            <div class="trm-timeline-item trm-scroll-animation">
-                <div class="trm-timeline-mark-light"></div>
-                <div class="trm-timeline-mark"></div>
-                <div class="trm-a trm-timeline-content more">
-                    
-                        <div class="trm-card-header">
-                            <div class="trm-left-side">
-                                <h6>
-                                    <a href="/2024/03/13/%E6%8E%92%E9%98%9F%E8%AE%BA%E6%A8%A1%E5%9E%8B%E5%85%B6%E4%BA%8C/" class="trm-anima-link">
-                                        排队论（三）
-                                    </a>
-                                </h6>
-                                <div class="trm-text-sm trm-accent-color trm-mt-15">
-                                    <ul class="trm-card-data trm-label ">
-                                        <li class="trm-accent-color">03/13</li>
-                                        <li class="trm-accent-color">15:51</li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    
-                </div>
-            </div>
-            
-            <div class="trm-timeline-item trm-scroll-animation">
-                <div class="trm-timeline-mark-light"></div>
-                <div class="trm-timeline-mark"></div>
-                <div class="trm-a trm-timeline-content more">
-                    
-                        <div class="trm-card-header">
-                            <div class="trm-left-side">
-                                <h6>
-                                    <a href="/2024/03/12/%E6%8E%92%E9%98%9F%E6%A8%A1%E5%9E%8B%E5%85%B6%E4%B8%80/" class="trm-anima-link">
-                                        排队论（二）
-                                    </a>
-                                </h6>
-                                <div class="trm-text-sm trm-accent-color trm-mt-15">
-                                    <ul class="trm-card-data trm-label ">
-                                        <li class="trm-accent-color">03/12</li>
-                                        <li class="trm-accent-color">19:02</li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    
-                </div>
-            </div>
-            
-            <div class="trm-timeline-item trm-scroll-animation">
-                <div class="trm-timeline-mark-light"></div>
-                <div class="trm-timeline-mark"></div>
-                <div class="trm-a trm-timeline-content more">
-                    
-                        <div class="trm-card-header">
-                            <div class="trm-left-side">
-                                <h6>
-                                    <a href="/2024/03/11/VIT%E5%85%A8%E8%A7%A3%E6%9E%90+Python%E5%BE%AE%E8%B0%83/" class="trm-anima-link">
-                                        排队论（一）
-                                    </a>
-                                </h6>
-                                <div class="trm-text-sm trm-accent-color trm-mt-15">
-                                    <ul class="trm-card-data trm-label ">
-                                        <li class="trm-accent-color">03/11</li>
-                                        <li class="trm-accent-color">17:25</li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    
-                </div>
-            </div>
-            
+            <a class="trm-op-top trm-anima-link" href="/2024/03/16/%E6%8E%92%E9%98%9F%E8%AE%BA%E4%B8%83/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/./../cover/cover15.jpg">
+                </span>
+                <h6 class="trm-op-title">排队论（七）</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/03/16</li>
+                <li>16:49</li>
+                <li>2024SemesterB</li>
+            </ul>
         </div>
-        <!-- timeline end -->
     </div>
 </div>
-
-<!-- history end -->
-
-
-    <div class="trm-pagination">
-        <span class="page-number current">1</span>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/2024/03/15/%E6%8E%92%E9%98%9F%E8%AE%BA%E4%BA%94/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/./../cover/cover14.jpg">
+                </span>
+                <h6 class="trm-op-title">排队论（五）</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/03/15</li>
+                <li>20:33</li>
+                <li>2024SemesterB</li>
+            </ul>
+        </div>
     </div>
+</div>
+    
+</div>
 
-
+    
 
 
 
@@ -550,9 +506,29 @@
 
             
 
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        目录导航
+				<span id="post-toc-top">
+					置顶
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="Introduction to Poisson Process"><a rel="nofollow" class="trm-toc-link" href="#Introduction-to-Poisson-Process"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">Introduction to Poisson Process</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="Stochastic(uncertain&#x2F;random) process随机过程"><a rel="nofollow" class="trm-toc-link" href="#Stochastic-uncertain-random-process随机过程"><span class="trm-toc-number">1.1.</span> <span class="trm-toc-text">Stochastic(uncertain&#x2F;random) process随机过程</span></a></li><li class="trm-toc-item trm-toc-level-2" title="Poission process"><a rel="nofollow" class="trm-toc-link" href="#Poission-process"><span class="trm-toc-number">1.2.</span> <span class="trm-toc-text">Poission process</span></a></li><li class="trm-toc-item trm-toc-level-2" title="Poisson process implications泊松过程含义"><a rel="nofollow" class="trm-toc-link" href="#Poisson-process-implications泊松过程含义"><span class="trm-toc-number">1.3.</span> <span class="trm-toc-text">Poisson process implications泊松过程含义</span></a></li><li class="trm-toc-item trm-toc-level-2" title="Poisson random variable"><a rel="nofollow" class="trm-toc-link" href="#Poisson-random-variable"><span class="trm-toc-number">1.4.</span> <span class="trm-toc-text">Poisson random variable</span></a></li><li class="trm-toc-item trm-toc-level-2" title="X ~ Poisson(α)"><a rel="nofollow" class="trm-toc-link" href="#X-Poisson-α"><span class="trm-toc-number">1.5.</span> <span class="trm-toc-text">X ~ Poisson(α)</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="Example of Poisson Process"><a rel="nofollow" class="trm-toc-link" href="#Example-of-Poisson-Process"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">Example of Poisson Process</span></a></li></ol>
+      </div>
+    </div>
+
             
 <div class="trm-fixed-container">
     
+        <div class="trm-fixed-btn post-toc-btn" data-title="目录">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
     
     
     <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
@@ -629,6 +605,10 @@
     
 
     <!-- 评论插件 -->
+    
+        
+
+        
     
 
 

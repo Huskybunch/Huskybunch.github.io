@@ -7,18 +7,30 @@
 <meta name="full-screen" content="yes">
 <meta name="theme-color" content="#317EFB" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="Introduction to Exponential Random Variable指数分布随机变量Arrival time definition time of event occurrence called”arrival time” instead of occurrence time” because of the use of Poisson to model customer arr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机网络课后习题：第四章">
-<meta property="og:url" content="http://example.com/2024/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0/index.html">
+<meta property="og:title" content="排队论（七）">
+<meta property="og:url" content="http://example.com/2024/03/16/%E6%8E%92%E9%98%9F%E8%AE%BA%E4%B8%83/index.html">
 <meta property="og:site_name" content="HuskeyBunch">
+<meta property="og:description" content="Introduction to Exponential Random Variable指数分布随机变量Arrival time definition time of event occurrence called”arrival time” instead of occurrence time” because of the use of Poisson to model customer arr">
 <meta property="og:locale">
-<meta property="article:published_time" content="2024-03-13T08:55:54.551Z">
-<meta property="article:modified_time" content="2024-03-13T08:57:09.946Z">
-<meta property="article:tag" content="EE5412计算机网络">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2024-03-16T08:49:48.341Z">
+<meta property="article:modified_time" content="2024-03-16T09:32:03.991Z">
+<meta property="article:tag" content="EE6610排队论">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
 
 
-<title >计算机网络课后习题：第四章</title>
+<title >排队论（七）</title>
 
 <!-- Favicon -->
 
@@ -61,7 +73,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"example.com","author":null,"root":"/","typed_text":["hometown is in Siberia"],"theme_version":"2.1.10","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"dog1.svg","icon16":"dog1.svg","icon32":"dog1.svg","appleTouchIcon":"apple-touch-icon.png","webmanifest":"/site.webmanifest","visibilitychange":true,"hidden":"wrong.svg","showText":"什么你不信？","hideText":"哎呀网页崩溃了"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://npm.elemecdn.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":true},"live_time":{"start_time":"","prefix":"博客已萌萌哒运行 undefined 天"},"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"path":"search.xml"}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-03-13 16:57:09"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-03-16 17:32:03"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.10" id="trm-switch-style">
@@ -237,7 +249,7 @@
                             NEWS LETTER
                         </div>
                         <h1 class="trm-mb-30 trm-hsmb-font">
-                            计算机网络课后习题：第四章
+                            排队论（七）
                         </h1>
 
                         
@@ -278,25 +290,106 @@
     <div class="col-sm-4">
         <div class="trm-card trm-label trm-label-light text-center">
             <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
-            03/13
+            03/16
         </div>
     </div>
     <div class="col-sm-4">
         <div class="trm-card trm-label trm-label-light text-center">
             <i class="iconfont far fa-clock trm-icon"></i><br>
-            16:55
+            16:49
         </div>
     </div>
     <div class="col-sm-4">
         <div id="post-author" class="trm-card trm-label trm-label-light text-center">
             <i class="iconfont far fa-user trm-icon"></i><br>
-            huskeybunch
+            huskybunch
         </div>
     </div>
 </div>
 <div class="trm-card ">
     <article id="article-container" class="trm-publication">
-    
+    <h1 id="Introduction-to-Exponential-Random-Variable指数分布随机变量"><a href="#Introduction-to-Exponential-Random-Variable指数分布随机变量" class="headerlink" title="Introduction to Exponential Random Variable指数分布随机变量"></a>Introduction to Exponential Random Variable指数分布随机变量</h1><h2 id="Arrival-time"><a href="#Arrival-time" class="headerlink" title="Arrival time"></a>Arrival time</h2><ul>
+<li>definition<ul>
+<li>time of event occurrence</li>
+<li>called”arrival time” instead of occurrence time” because of the use of Poisson to model customer arrival使用泊松模型来模拟客户到达</li>
+</ul>
+</li>
+<li>notation<ul>
+<li>S(j) ≡ arrival time of customer </li>
+<li><strong>S(2): arrival time of the 2nd customer</strong></li>
+<li><img src="/./../2024Picture/image-20240316165540550.png" alt="image-20240316165540550" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+</li>
+</ul>
+<h2 id="Interarrival-time到达间隔时间"><a href="#Interarrival-time到达间隔时间" class="headerlink" title="Interarrival time到达间隔时间"></a>Interarrival time到达间隔时间</h2><ul>
+<li><p>definition</p>
+<ul>
+<li>time <strong>between</strong> event occurrences&#x2F;arrivals</li>
+</ul>
+</li>
+<li><p>notation</p>
+<ul>
+<li>T(j) ≡ interarrival time of customer j</li>
+</ul>
+</li>
+<li><p>relationship to arrival times</p>
+<ul>
+<li>T(1) ≡  S(1)</li>
+<li>T(2) ≡  S(2) - S(1)</li>
+<li>T(j) ≡  S(j) - S(j - 1) j &#x3D; 3,4,…</li>
+<li><img src="/./../2024Picture/image-20240316170032711.png" alt="image-20240316170032711" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+</li>
+<li><p>Statement</p>
+<ul>
+<li>T(j) is an exponential random variable having rate λ（value of j is not relevant) </li>
+<li><strong>λ does not change with j , same as poisson</strong></li>
+</ul>
+</li>
+<li><p>interpretation解释</p>
+<ul>
+<li>if the number of arrivals**(N(t))** is Poisson, then the time between arrivals**(interarrival time)** is exponential</li>
+</ul>
+</li>
+</ul>
+<h2 id="Exponential-random-variable"><a href="#Exponential-random-variable" class="headerlink" title="Exponential random variable"></a>Exponential random variable</h2><ul>
+<li>terminology<ul>
+<li>X is an exponential random variable with rate λ</li>
+</ul>
+</li>
+<li>notation<ul>
+<li>X ~ expon(λ)</li>
+<li>in Poisson process: T(j)<strong>(interarrival time)</strong> ~expo(λ)</li>
+</ul>
+</li>
+<li>range<ul>
+<li>X∈ (0,∞)</li>
+<li>X i s a contimuous random variable</li>
+</ul>
+</li>
+</ul>
+<h2 id="X-expon-λ"><a href="#X-expon-λ" class="headerlink" title="X ~ expon(λ)"></a>X ~ expon(λ)</h2><ul>
+<li>PDF<ul>
+<li><img src="/./../2024Picture/image-20240316172012476.png" alt="image-20240316172012476" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+</li>
+<li>CDF<ul>
+<li><img src="/./../2024Picture/image-20240316172021262.png" alt="image-20240316172021262" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+</li>
+<li>expected value<ul>
+<li><img src="/./../2024Picture/image-20240316172036395.png" alt="image-20240316172036395" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+</li>
+<li>standard deviation<ul>
+<li><img src="/./../2024Picture/image-20240316172047473.png" alt="image-20240316172047473" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+</li>
+<li><img src="/./../2024Picture/image-20240316172106826.png" alt="image-20240316172106826" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
+</ul>
+<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><p><img src="/./../2024Picture/image-20240316173045208.png" alt="image-20240316173045208" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240316173141069.png" alt="image-20240316173141069" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+
 </article>
     
     
@@ -315,17 +408,17 @@
     <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
         <div class="trm-older-publication">
             
-            <a class="trm-op-top trm-anima-link" href="/2024/03/15/%E6%8E%92%E9%98%9F%E8%AE%BA%E5%9B%9B/">
+            <a class="trm-op-top trm-anima-link" href="/2024/03/16/%E6%8E%92%E9%98%9F%E8%AE%BA%E5%85%AB/">
                 <span class="trm-op-cover">
-                    <img alt="cover" class="no-fancybox" src="/./../cover/cover13.jpg">
+                    <img alt="cover" class="no-fancybox" src="/./../cover/cover16.jpg">
                 </span>
-                <h6 class="trm-op-title">排队论（四）</h6>
+                <h6 class="trm-op-title">排队论（八）</h6>
             </a>
             <div class="trm-divider trm-mb-15 trm-mt-20"></div>
             <ul class="trm-card-data trm-label">
-                <li>24/03/15</li>
-                <li>15:20</li>
-                <li>EE6610排队论</li>
+                <li>24/03/16</li>
+                <li>17:34</li>
+                <li>2024SemesterB</li>
             </ul>
         </div>
     </div>
@@ -336,17 +429,17 @@
     <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
         <div class="trm-older-publication">
             
-            <a class="trm-op-top trm-anima-link" href="/2024/03/13/%E6%8E%92%E9%98%9F%E8%AE%BA%E6%A8%A1%E5%9E%8B%E5%85%B6%E4%BA%8C/">
+            <a class="trm-op-top trm-anima-link" href="/2024/03/16/%E6%8E%92%E9%98%9F%E8%AE%BA%E5%85%AD/">
                 <span class="trm-op-cover">
-                    <img alt="cover" class="no-fancybox" src="/./../cover/cover11.jpg">
+                    <img alt="cover" class="no-fancybox" src="/./../cover/cover12.jpg">
                 </span>
-                <h6 class="trm-op-title">排队论（三）</h6>
+                <h6 class="trm-op-title">排队论（六）</h6>
             </a>
             <div class="trm-divider trm-mb-15 trm-mt-20"></div>
             <ul class="trm-card-data trm-label">
-                <li>24/03/13</li>
-                <li>15:51</li>
-                <li>EE6610排队论</li>
+                <li>24/03/16</li>
+                <li>14:51</li>
+                <li>2024SemesterB</li>
             </ul>
         </div>
     </div>
@@ -396,8 +489,24 @@
 
             
 
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        目录导航
+				<span id="post-toc-top">
+					置顶
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="Introduction to Exponential Random Variable指数分布随机变量"><a rel="nofollow" class="trm-toc-link" href="#Introduction-to-Exponential-Random-Variable指数分布随机变量"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">Introduction to Exponential Random Variable指数分布随机变量</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2" title="Arrival time"><a rel="nofollow" class="trm-toc-link" href="#Arrival-time"><span class="trm-toc-number">1.1.</span> <span class="trm-toc-text">Arrival time</span></a></li><li class="trm-toc-item trm-toc-level-2" title="Interarrival time到达间隔时间"><a rel="nofollow" class="trm-toc-link" href="#Interarrival-time到达间隔时间"><span class="trm-toc-number">1.2.</span> <span class="trm-toc-text">Interarrival time到达间隔时间</span></a></li><li class="trm-toc-item trm-toc-level-2" title="Exponential random variable"><a rel="nofollow" class="trm-toc-link" href="#Exponential-random-variable"><span class="trm-toc-number">1.3.</span> <span class="trm-toc-text">Exponential random variable</span></a></li><li class="trm-toc-item trm-toc-level-2" title="X ~ expon(λ)"><a rel="nofollow" class="trm-toc-link" href="#X-expon-λ"><span class="trm-toc-number">1.4.</span> <span class="trm-toc-text">X ~ expon(λ)</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="Example"><a rel="nofollow" class="trm-toc-link" href="#Example"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">Example</span></a></li></ol>
+      </div>
+    </div>
+
             
 <div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="目录">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
     
     
         <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
