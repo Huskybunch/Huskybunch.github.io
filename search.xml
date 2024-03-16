@@ -1,6 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>多模态入门：Vit模型初探</title>
+    <url>/2024/03/09/VIT%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<h2 id="为什么选择Transformer"><a href="#为什么选择Transformer" class="headerlink" title="为什么选择Transformer"></a>为什么选择Transformer</h2><p>In NLP</p>
+<p>近年来，基于Transformer的深度学习技术已经首先”统治“NLP领域</p>
+<p>In CV</p>
+<p>2020年底开始，vision Transformer逐渐成为CV方向的研究热点</p>
+<p><a href="https://www.bilibili.com/video/BV11v4y1k7zn?p=1&vd_source=2586daefbeb84d444b36c83408e79068">多模态入门：Vit模型初探</a></p>
+<h2 id="VIT（NLP运用到CV）"><a href="#VIT（NLP运用到CV）" class="headerlink" title="VIT（NLP运用到CV）"></a>VIT（NLP运用到CV）</h2><p>900 * 900的图，分成九个Patch，每张小图都是300 * 300</p>
+<p>每张小图都是像素点，导致向量维度过长</p>
+<p>所以用信息投移，进行维度的降维，生成粉色的向量。</p>
+<p>但是transfomer这个模型本身对位置并不敏感，比如图片顺序或者位置发生变化他不知道</p>
+<p>所以要给每个图片加Position embadding</p>
+<p>我们在特别的搞一个零位置和一个特定的向量</p>
+<p>输入多层transformer，每一层都产生一个向量</p>
+<p>进入全连接层</p>
+<p><img src="/./../2024Picture/image-20240310173257377.png" alt="image-20240310173257377" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="Position-Embedding"><a href="#Position-Embedding" class="headerlink" title="Position Embedding"></a>Position Embedding</h2><ul>
+<li>无positional embedding（相对位置不敏感）</li>
+<li>1-D positional embedding ：把2-D的patchs看成1-D的序列</li>
+<li>2-D positional embedding ：考虑patchs的2-D位置(x,y)</li>
+<li>Relative positional embeddings: pathcs的相对位置</li>
+</ul>
+<p><img src="/./../2024Picture/image-20240310174145306.png" alt="image-20240310174145306" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+]]></content>
+      <categories>
+        <category>人工智能</category>
+      </categories>
+      <tags>
+        <tag>VIT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>多维数组test1-part1</title>
+    <url>/2024/02/24/%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84test1-part1/</url>
+    <content><![CDATA[<h1 id="part1"><a href="#part1" class="headerlink" title="part1"></a>part1</h1><h2 id="1-Correlation-vs-cosine-vs-Euclidean-distance"><a href="#1-Correlation-vs-cosine-vs-Euclidean-distance" class="headerlink" title="1. Correlation vs cosine vs Euclidean distance"></a>1. Correlation vs cosine vs Euclidean distance</h2><h4 id="Correlation"><a href="#Correlation" class="headerlink" title="Correlation:"></a>Correlation:</h4><p><img src="/./../2024Picture/image-20240224205336895.png" alt="image-20240224205336895" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<blockquote>
+<p>Correlation 相关度</p>
+<p>covariance 协方差</p>
+<p>standard deviation 标准差</p>
+</blockquote>
+<h4 id="Cosine-Similarity"><a href="#Cosine-Similarity" class="headerlink" title="Cosine Similarity:"></a>Cosine Similarity:</h4><p><img src="/./../2024Picture/image-20240224210342442.png" alt="image-20240224210342442" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="Euclidean-Distance"><a href="#Euclidean-Distance" class="headerlink" title="Euclidean Distance:"></a>Euclidean Distance:</h4><p><img src="/./../2024Picture/image-20240224210854635.png" alt="image-20240224210854635" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>对于以下情况，可以使用以下的相似度度量方法：</p>
+<ul>
+<li><p>比较使用词频的文档：</p>
+<ul>
+<li>相似度度量方法：余弦相似度（Cosine Similarity）</li>
+<li>解释：余弦相似度可以衡量两个向量之间的夹角余弦值，适用于比较文档的词频分布。如果两个文档的词频分布相似，它们的余弦相似度会接近1，表示它们较为相似。</li>
+</ul>
+</li>
+<li><p>比较摄氏温度的两个位置：</p>
+<ul>
+<li>相似度度量方法：欧氏距离（Euclidean Distance）</li>
+<li>解释：欧氏距离可以衡量两个向量之间的直线距离，适用于比较温度的大小。如果两个位置的温度大小相似，它们的欧氏距离会较小，表示它们较为相似。</li>
+</ul>
+</li>
+<li><p>比较两个以摄氏度测量的温度时间序列：</p>
+<ul>
+<li>相似度度量方法：相关系数（Correlation）</li>
+<li>解释：相关系数可以衡量两个变量之间的线性相关性，适用于比较时间序列的相似性。如果两个时间序列的变化趋势相似，它们的相关系数会接近1，表示它们的形状相似。</li>
+</ul>
+</li>
+</ul>
+<p>Correlation<br>This is a continuous attribute. As the trend is needed, invariance to scaling and translation is desired  </p>
+<p>这是一个连续属性。由于需要趋势，因此需要对缩放和平移保持不变</p>
+<p>Euclidean distance (L2 norm) or L1 norm.<br>This is an asymmetric attribute. It is a discrete attribute. L2 or L1 norm is insensitive to occurrence of zeros. Translation and scaling are important.  </p>
+<p>这是一种非对称属性。它是一个离散属性。L2 或 L1 准则对零的出现不敏感。平移和缩放很重要。</p>
+<p><img src="/./../2024Picture/image-20240225203124604.png" alt="image-20240225203124604" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="2-mutual-information"><a href="#2-mutual-information" class="headerlink" title="2.mutual information"></a>2.mutual information</h2><h4 id="mutual-information"><a href="#mutual-information" class="headerlink" title="mutual information:"></a>mutual information:</h4><p><img src="/./../2024Picture/image-20240226152253430.png" alt="image-20240226152253430" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240226152306421.png" alt="image-20240226152306421" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224211923669.png" alt="image-20240224211923669" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224211814227.png" alt="image-20240224211814227" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240225205808207.png" alt="image-20240225205808207" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/0217ac8200f0d8b75a719a4286b82aa.png" alt="0217ac8200f0d8b75a719a4286b82aa" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="3-Gini-Index-Entropy-Misclassification-error-Gain"><a href="#3-Gini-Index-Entropy-Misclassification-error-Gain" class="headerlink" title="3.Gini Index, Entropy, Misclassification error, Gain"></a>3.Gini Index, Entropy, Misclassification error, Gain</h2><h4 id="gini-index"><a href="#gini-index" class="headerlink" title="gini index"></a>gini index</h4><p><img src="/./../2024Picture/image-20240224212648498.png" alt="image-20240224212648498" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224212717160.png" alt="image-20240224212717160" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224212732586.png" alt="image-20240224212732586" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224213019328.png" alt="image-20240224213019328" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="Entropy"><a href="#Entropy" class="headerlink" title="Entropy"></a>Entropy</h4><p><img src="/./../2024Picture/image-20240224214014324.png" alt="image-20240224214014324" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224214028505.png" alt="image-20240224214028505" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="Misclassification-error"><a href="#Misclassification-error" class="headerlink" title="Misclassification error"></a>Misclassification error</h4><p><img src="/./../2024Picture/image-20240224215612609.png" alt="image-20240224215612609" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240226160918222.png" alt="image-20240226160918222" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="Gain"><a href="#Gain" class="headerlink" title="Gain"></a>Gain</h4><p><img src="/./../2024Picture/image-20240224215732842.png" alt="image-20240224215732842" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224215746040.png" alt="image-20240224215746040" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="4-Gain-Ratio-Split-Info"><a href="#4-Gain-Ratio-Split-Info" class="headerlink" title="4.Gain Ratio, Split Info"></a>4.Gain Ratio, Split Info</h2><p><img src="/./../2024Picture/image-20240224213103727.png" alt="image-20240224213103727" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240224213213022.png" alt="image-20240224213213022" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="5-Pessimistic-Error-Estimate"><a href="#5-Pessimistic-Error-Estimate" class="headerlink" title="5.Pessimistic Error Estimate"></a>5.Pessimistic Error Estimate</h2><p><img src="/./../2024Picture/image-20240224213321083.png" alt="image-20240224213321083" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<blockquote>
+<p><strong>err(T):</strong>  所有训练记录的错误率</p>
+<p><strong>Ω:</strong>   权衡超参数(类似α) -添加叶节点的相对成本</p>
+<p><strong>K:</strong> 叶节点数</p>
+<p><strong>N<sub>train</sub>:</strong> 训练记录总数</p>
+</blockquote>
+<p><img src="/./../2024Picture/image-20240224213738271.png" alt="image-20240224213738271" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="6-Kmeans-Kmeans"><a href="#6-Kmeans-Kmeans" class="headerlink" title="6.Kmeans, Kmeans+"></a>6.Kmeans, Kmeans+</h2><h4 id="Kmeans"><a href="#Kmeans" class="headerlink" title="Kmeans"></a>Kmeans</h4><p><img src="/./../2024Picture/image-20240224220004625.png" alt="image-20240224220004625" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="Kmeans-1"><a href="#Kmeans-1" class="headerlink" title="Kmeans+"></a>Kmeans+</h4><p><img src="/./../2024Picture/image-20240224215946618.png" alt="image-20240224215946618" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+]]></content>
+      <categories>
+        <category>2024SemesterB</category>
+      </categories>
+      <tags>
+        <tag>EE6453多维数组</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>排队论（二）</title>
+    <url>/2024/03/12/%E6%8E%92%E9%98%9F%E6%A8%A1%E5%9E%8B%E5%85%B6%E4%B8%80/</url>
+    <content><![CDATA[<h1 id="M-M-1-∞-∞-FCFS模型"><a href="#M-M-1-∞-∞-FCFS模型" class="headerlink" title="M&#x2F;M&#x2F;1&#x2F;∞&#x2F;∞&#x2F;FCFS模型"></a>M&#x2F;M&#x2F;1&#x2F;∞&#x2F;∞&#x2F;FCFS模型</h1><h2 id="M-M-1-∞-∞-FCFS模型指标推导"><a href="#M-M-1-∞-∞-FCFS模型指标推导" class="headerlink" title="M&#x2F;M&#x2F;1&#x2F;∞&#x2F;∞&#x2F;FCFS模型指标推导"></a>M&#x2F;M&#x2F;1&#x2F;∞&#x2F;∞&#x2F;FCFS模型指标推导</h2><h3 id="模型含义"><a href="#模型含义" class="headerlink" title="模型含义"></a>模型含义</h3><p>顾客到达过程服从泊松流，服务时间从负指数分布，单服务台，系统容量和顾客来源无限，先到先服务。设单位时间内顾客平均到达率为λ，单位时间内服务台平均服务率为μ。</p>
+<h3 id="状态平衡方程"><a href="#状态平衡方程" class="headerlink" title="状态平衡方程"></a>状态平衡方程</h3><p><img src="/./../2024Picture/image-20240313145721503.png" alt="image-20240313145721503" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="状态概率Pn"><a href="#状态概率Pn" class="headerlink" title="状态概率Pn"></a>状态概率Pn</h4><p><img src="/./../2024Picture/image-20240313150204434.png" alt="image-20240313150204434" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240313150147883.png" alt="image-20240313150147883" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="对长L"><a href="#对长L" class="headerlink" title="对长L"></a>对长L</h4><p><img src="/./../2024Picture/image-20240313152323656.png" alt="image-20240313152323656" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="公式（排队长，停留时间，等待时间，等待K个以上的顾客，顾客停留超时）"><a href="#公式（排队长，停留时间，等待时间，等待K个以上的顾客，顾客停留超时）" class="headerlink" title="公式（排队长，停留时间，等待时间，等待K个以上的顾客，顾客停留超时）"></a>公式（排队长，停留时间，等待时间，等待K个以上的顾客，顾客停留超时）</h4><p><img src="/./../2024Picture/image-20240313152429680.png" alt="image-20240313152429680" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240313152836283.png" alt="image-20240313152836283" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="公式汇总"><a href="#公式汇总" class="headerlink" title="公式汇总"></a>公式汇总</h3><p><img src="/./../2024Picture/image-20240313152902099.png" alt="image-20240313152902099" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><p><img src="/./../2024Picture/image-20240313153105560.png" alt="image-20240313153105560" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240313153731173.png" alt="image-20240313153731173" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240313154842139.png" alt="image-20240313154842139" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240313154947102.png" alt="image-20240313154947102" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+]]></content>
+      <categories>
+        <category>EE6610排队论</category>
+      </categories>
+  </entry>
+  <entry>
     <title>NLP从入门到精通</title>
     <url>/2024/02/22/NLP/</url>
     <content><![CDATA[<p><a href="https://www.bilibili.com/video/BV17K4y1W7yb/?spm_id_from=333.337.search-card.all.click&vd_source=2586daefbeb84d444b36c83408e79068">Google中国NLP从入门到精通</a></p>
@@ -109,208 +234,112 @@
       </tags>
   </entry>
   <entry>
-    <title>多模态入门：Vit模型初探</title>
-    <url>/2024/03/09/VIT%E4%BB%8B%E7%BB%8D/</url>
-    <content><![CDATA[<h2 id="为什么选择Transformer"><a href="#为什么选择Transformer" class="headerlink" title="为什么选择Transformer"></a>为什么选择Transformer</h2><p>In NLP</p>
-<p>近年来，基于Transformer的深度学习技术已经首先”统治“NLP领域</p>
-<p>In CV</p>
-<p>2020年底开始，vision Transformer逐渐成为CV方向的研究热点</p>
-<p><a href="https://www.bilibili.com/video/BV11v4y1k7zn?p=1&vd_source=2586daefbeb84d444b36c83408e79068">多模态入门：Vit模型初探</a></p>
-<h2 id="VIT（NLP运用到CV）"><a href="#VIT（NLP运用到CV）" class="headerlink" title="VIT（NLP运用到CV）"></a>VIT（NLP运用到CV）</h2><p>900 * 900的图，分成九个Patch，每张小图都是300 * 300</p>
-<p>每张小图都是像素点，导致向量维度过长</p>
-<p>所以用信息投移，进行维度的降维，生成粉色的向量。</p>
-<p>但是transfomer这个模型本身对位置并不敏感，比如图片顺序或者位置发生变化他不知道</p>
-<p>所以要给每个图片加Position embadding</p>
-<p>我们在特别的搞一个零位置和一个特定的向量</p>
-<p>输入多层transformer，每一层都产生一个向量</p>
-<p>进入全连接层</p>
-<p><img src="/./../2024Picture/image-20240310173257377.png" alt="image-20240310173257377" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="Position-Embedding"><a href="#Position-Embedding" class="headerlink" title="Position Embedding"></a>Position Embedding</h2><ul>
-<li>无positional embedding（相对位置不敏感）</li>
-<li>1-D positional embedding ：把2-D的patchs看成1-D的序列</li>
-<li>2-D positional embedding ：考虑patchs的2-D位置(x,y)</li>
-<li>Relative positional embeddings: pathcs的相对位置</li>
-</ul>
-<p><img src="/./../2024Picture/image-20240310174145306.png" alt="image-20240310174145306" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-]]></content>
-      <categories>
-        <category>人工智能</category>
-      </categories>
-      <tags>
-        <tag>VIT</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>排队论（一）</title>
-    <url>/2024/03/11/VIT%E5%85%A8%E8%A7%A3%E6%9E%90+Python%E5%BE%AE%E8%B0%83/</url>
-    <content><![CDATA[<h1 id="马尔科夫排队模型"><a href="#马尔科夫排队模型" class="headerlink" title="马尔科夫排队模型"></a>马尔科夫排队模型</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>排队的一般过程</strong></p>
-<p><img src="/./../2024Picture/image-20240312115849093.png" alt="image-20240312115849093" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="排队系统基本组成部分"><a href="#排队系统基本组成部分" class="headerlink" title="排队系统基本组成部分"></a>排队系统基本组成部分</h3><ul>
-<li>输入过程（顾客按照怎样的规律到达）</li>
-<li>排队规则（顾客按照一定规则排队等待服务）</li>
-<li>服务机构（服务机构的设置、服务台的数量、服务的方式、服务时间分布等）</li>
-</ul>
-<h3 id="输入过程"><a href="#输入过程" class="headerlink" title="输入过程"></a>输入过程</h3><p>（1）顾客源</p>
-<p>即顾客的总体，可以是无限的，也可以是有限</p>
-<p>（2）顾客的到达方式</p>
-<p>顾客或单个到达，或成批到达</p>
-<p>（3）顾客到达时间间隔分布</p>
-<p>即相继顾客到达的时间间隔的分布，常见的概率分布：负指数分布、K阶爱尔朗分布等。</p>
-<h4 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h4><p>在排队系统中，如果单位时间内顾客<strong>到达数</strong>服从以λ为参考的泊松分布，泽顾客<strong>相继到达的时间间隔</strong>服从以λ为参数的负指数分布</p>
-<p>（等价与服从1&#x2F;λ为参数的指数分布）</p>
-<h3 id="排队规则"><a href="#排队规则" class="headerlink" title="排队规则"></a>排队规则</h3><p>（1）排队系统类型</p>
-<p>顾客到达时，如所有服务台都正被占用，排队等候的称为<strong>等待制</strong>，随即离去的称为<strong>损失制度</strong>。</p>
-<p>（2）排队队列</p>
-<p>队列可以是单列，也可以是多列</p>
-<p>（3）接受服务的顺序</p>
+    <title>排队论（五）</title>
+    <url>/2024/03/15/%E6%8E%92%E9%98%9F%E8%AE%BA%E4%BA%94/</url>
+    <content><![CDATA[<h1 id="M-D-1-and-G-G-1"><a href="#M-D-1-and-G-G-1" class="headerlink" title="M&#x2F;D&#x2F;1 and G&#x2F;G&#x2F;1"></a>M&#x2F;D&#x2F;1 and G&#x2F;G&#x2F;1</h1><p><img src="/./../2024Picture/image-20240315211331448.png" alt="image-20240315211331448" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240315212403710.png" alt="image-20240315212403710" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="最长延迟"><a href="#最长延迟" class="headerlink" title="最长延迟"></a>最长延迟</h3><p><img src="/./../2024Picture/image-20240315212544298.png" alt="image-20240315212544298" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="总延迟"><a href="#总延迟" class="headerlink" title="总延迟"></a>总延迟</h3><p><img src="/./../2024Picture/image-20240315212725624.png" alt="image-20240315212725624" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>t*是两个相交的点</p>
 <ul>
-<li>先到先服务（FCFS）主要讨论这个</li>
-<li>后到后服务(LCFS) 仓库里面的板材</li>
-<li>随机服务(SIRO)电话接通</li>
-<li>优先服务(PR) VIP</li>
+<li><p>Queue is time-dependent deterministic queue(deterministic arrival and departure rates change over time)</p>
+</li>
+<li><p>Solve for the time-to-queue dissipation by equating vehicle arrivals and departures求解车辆到达和离开时的排队时间耗散</p>
+<p><img src="/./../2024Picture/image-20240315214215029.png" alt="image-20240315214215029" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</li>
+<li><p>which gives t &#x3D; 61.8minutes. Therefore, the total vehicle delay(which is the area between the arrival and departure functions ) is<img src="/./../2024Picture/image-20240315214511667.png" alt="image-20240315214511667" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</li>
 </ul>
-<h3 id="服务机构"><a href="#服务机构" class="headerlink" title="服务机构"></a>服务机构</h3><p>服务台数量有<strong>单服务台1</strong>，也有<strong>多服务台C</strong>，其构成形式主要有以下五种</p>
-<h4 id="单队—单服务台"><a href="#单队—单服务台" class="headerlink" title="单队—单服务台"></a>单队—单服务台</h4><p><img src="/./../2024Picture/image-20240312140614632.png" alt="image-20240312140614632" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="单队—多服务台并联式"><a href="#单队—多服务台并联式" class="headerlink" title="单队—多服务台并联式"></a>单队—多服务台并联式</h4><p><img src="/./../2024Picture/image-20240312140623898.png" alt="image-20240312140623898" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="多队—多服务台并联式"><a href="#多队—多服务台并联式" class="headerlink" title="多队—多服务台并联式"></a>多队—多服务台并联式</h4><p><img src="/./../2024Picture/image-20240312140632569.png" alt="image-20240312140632569" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="单队—多服务台串联式"><a href="#单队—多服务台串联式" class="headerlink" title="单队—多服务台串联式"></a>单队—多服务台串联式</h4><p><img src="/./../2024Picture/image-20240312140644880.png" alt="image-20240312140644880" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="单队—多服务台串并联混合式"><a href="#单队—多服务台串并联混合式" class="headerlink" title="单队—多服务台串并联混合式"></a>单队—多服务台串并联混合式</h4><p><img src="/./../2024Picture/image-20240312140750459.png" alt="image-20240312140750459" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="排队系统模型表示"><a href="#排队系统模型表示" class="headerlink" title="排队系统模型表示"></a>排队系统模型表示</h3><p>A&#x2F;B&#x2F;C&#x2F;D&#x2F;E&#x2F;F</p>
-<p>顾客到达时间间隔分布&#x2F;服务时间分布&#x2F;服务台（员）数目&#x2F;系统中顾客容量限制&#x2F;系统中顾客客容限制&#x2F;顾客源数目&#x2F;服务规则</p>
+<h2 id="Qlengths"><a href="#Qlengths" class="headerlink" title="Qlengths"></a>Qlengths</h2><ul>
+<li><p>Queue length(in vehicles) at any time t is given by the function</p>
+<p>Q(t) &#x3D; A(t) - B(t)</p>
+<p><img src="/./../2024Picture/image-20240315220547544.png" alt="image-20240315220547544" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</li>
+<li><p>Solving the maximum queue lengths gives</p>
+<p><img src="/./../2024Picture/image-20240315220615908.png" alt="image-20240315220615908" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</li>
+<li><p>and,substituting with t &#x3D; 39.12 minutes gives the maximum queue length,</p>
+</li>
+</ul>
+<p>  <img src="/./../2024Picture/image-20240315220655119.png" alt="image-20240315220655119" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="M-D-1-queuing"><a href="#M-D-1-queuing" class="headerlink" title="M&#x2F;D&#x2F;1 queuing"></a>M&#x2F;D&#x2F;1 queuing</h2><p>M: Arrival:stochastic</p>
+<p>D:departure:deterministic</p>
+<p>M:到来:随机</p>
+<p>D:离职:确定的</p>
 <ul>
-<li><p>顾客到达时间间隔分布：M——负指数分布</p>
-</li>
-<li><p>服务时间分布：M——负指数分布</p>
-</li>
-<li><p>服务台数目：1——一个服务台，C——多个服务台</p>
-</li>
-<li><p>系统重顾客容量限制：∞——系统中顾客客容无限制，N——系统最多容纳N个顾客</p>
-</li>
-<li><p>顾客源数目：∞——顾客源数目无限多，N——顾客源的总体有N个</p>
-</li>
-<li><p>服务规则：FCFS——先到先服务</p>
-<p><img src="/./../2024Picture/image-20240312142346256.png" alt="image-20240312142346256" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-</li>
+<li>exponentially distributed times between the arrivals of successive vehicles(Poisson arrivals)连续车辆到达之间的指数分布时间(泊松到达)</li>
+<li>deterministic departures,and确定性离开</li>
+<li>one departure channel</li>
 </ul>
-<h3 id="排队系统指标"><a href="#排队系统指标" class="headerlink" title="排队系统指标"></a>排队系统指标</h3><ul>
-<li>状态概率分布<strong>Pn</strong>：系统中有<strong>n个</strong>顾客的概率</li>
-<li>队长<strong>L</strong>: 系统的<strong>平均顾客数</strong></li>
-<li>排队长<strong>Lq</strong>:系统中排队等待的<strong>平均顾客数</strong></li>
-<li>顾客平均停留时间W</li>
-<li>顾客平均等待时间Wq</li>
+<p>Example:Traffic light</p>
+<p>车辆按照泊松分布到达，然后离开时间是一样的</p>
+<p><img src="/./../2024Picture/image-20240315221452409.png" alt="image-20240315221452409" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240315221558996.png" alt="image-20240315221558996" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>assuming that ρ is less than 1,it can be shown that for an M&#x2F;D&#x2F;1 queue the performance equations apply,<strong>假设ρ小于1</strong>(到达小于离开），可以证明，对于M&#x2F;D&#x2F;1队列，性能方程适用，</p>
+<p><img src="/./../2024Picture/image-20240315222128950.png" alt="image-20240315222128950" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>Note: that the traffic intensity is less than one(λ &lt; μ)， the D&#x2F;D&#x2F;1 queue will predict no queue formation</li>
+<li>Models with random arrivals or departures, such as the M&#x2F;D&#x2F;1 queuing model,will predict queue formations under sunch conditions 随机到达或离开的模型，如M&#x2F;D&#x2F;1排队模型，将在这种情况下预测队列的形成</li>
 </ul>
-<p><img src="/./../2024Picture/image-20240312143525125.png" alt="image-20240312143525125" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240312143538120.png" alt="image-20240312143538120" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="马尔科夫排队模型-1"><a href="#马尔科夫排队模型-1" class="headerlink" title="马尔科夫排队模型"></a>马尔科夫排队模型</h2><h3 id="生灭过程"><a href="#生灭过程" class="headerlink" title="生灭过程"></a>生灭过程</h3><p><img src="/./../2024Picture/image-20240312164803225.png" alt="image-20240312164803225" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="马尔科夫排队模型（生灭过程排队系统）"><a href="#马尔科夫排队模型（生灭过程排队系统）" class="headerlink" title="马尔科夫排队模型（生灭过程排队系统）"></a>马尔科夫排队模型（生灭过程排队系统）</h3><p><img src="/./../2024Picture/image-20240312172516758.png" alt="image-20240312172516758" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="状态平衡方程"><a href="#状态平衡方程" class="headerlink" title="状态平衡方程"></a>状态平衡方程</h3><p><img src="/./../2024Picture/image-20240312185336641.png" alt="image-20240312185336641" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240312184025313.png" alt="image-20240312184025313" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240312190104772.png" alt="image-20240312190104772" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h1 id="G-G-1"><a href="#G-G-1" class="headerlink" title="G&#x2F;G&#x2F;1"></a>G&#x2F;G&#x2F;1</h1><p><strong>G&#x2F;G&#x2F;1 队列</strong>表示具有单个服务器的系统中的队列长度，其中到达间隔时间具有一般（意味着任意）分布，并且服务时间具有（不同）一般分布。</p>
+<p><img src="/./../2024Picture/image-20240315223636778.png" alt="image-20240315223636778" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 ]]></content>
       <categories>
         <category>EE6610排队论</category>
       </categories>
   </entry>
   <entry>
-    <title>多维数组test1-part1</title>
-    <url>/2024/02/24/%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84test1-part1/</url>
-    <content><![CDATA[<h1 id="part1"><a href="#part1" class="headerlink" title="part1"></a>part1</h1><h2 id="1-Correlation-vs-cosine-vs-Euclidean-distance"><a href="#1-Correlation-vs-cosine-vs-Euclidean-distance" class="headerlink" title="1. Correlation vs cosine vs Euclidean distance"></a>1. Correlation vs cosine vs Euclidean distance</h2><h4 id="Correlation"><a href="#Correlation" class="headerlink" title="Correlation:"></a>Correlation:</h4><p><img src="/./../2024Picture/image-20240224205336895.png" alt="image-20240224205336895" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<blockquote>
-<p>Correlation 相关度</p>
-<p>covariance 协方差</p>
-<p>standard deviation 标准差</p>
-</blockquote>
-<h4 id="Cosine-Similarity"><a href="#Cosine-Similarity" class="headerlink" title="Cosine Similarity:"></a>Cosine Similarity:</h4><p><img src="/./../2024Picture/image-20240224210342442.png" alt="image-20240224210342442" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="Euclidean-Distance"><a href="#Euclidean-Distance" class="headerlink" title="Euclidean Distance:"></a>Euclidean Distance:</h4><p><img src="/./../2024Picture/image-20240224210854635.png" alt="image-20240224210854635" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>对于以下情况，可以使用以下的相似度度量方法：</p>
-<ul>
-<li><p>比较使用词频的文档：</p>
-<ul>
-<li>相似度度量方法：余弦相似度（Cosine Similarity）</li>
-<li>解释：余弦相似度可以衡量两个向量之间的夹角余弦值，适用于比较文档的词频分布。如果两个文档的词频分布相似，它们的余弦相似度会接近1，表示它们较为相似。</li>
-</ul>
-</li>
-<li><p>比较摄氏温度的两个位置：</p>
-<ul>
-<li>相似度度量方法：欧氏距离（Euclidean Distance）</li>
-<li>解释：欧氏距离可以衡量两个向量之间的直线距离，适用于比较温度的大小。如果两个位置的温度大小相似，它们的欧氏距离会较小，表示它们较为相似。</li>
-</ul>
-</li>
-<li><p>比较两个以摄氏度测量的温度时间序列：</p>
-<ul>
-<li>相似度度量方法：相关系数（Correlation）</li>
-<li>解释：相关系数可以衡量两个变量之间的线性相关性，适用于比较时间序列的相似性。如果两个时间序列的变化趋势相似，它们的相关系数会接近1，表示它们的形状相似。</li>
-</ul>
-</li>
-</ul>
-<p>Correlation<br>This is a continuous attribute. As the trend is needed, invariance to scaling and translation is desired  </p>
-<p>这是一个连续属性。由于需要趋势，因此需要对缩放和平移保持不变</p>
-<p>Euclidean distance (L2 norm) or L1 norm.<br>This is an asymmetric attribute. It is a discrete attribute. L2 or L1 norm is insensitive to occurrence of zeros. Translation and scaling are important.  </p>
-<p>这是一种非对称属性。它是一个离散属性。L2 或 L1 准则对零的出现不敏感。平移和缩放很重要。</p>
-<p><img src="/./../2024Picture/image-20240225203124604.png" alt="image-20240225203124604" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="2-mutual-information"><a href="#2-mutual-information" class="headerlink" title="2.mutual information"></a>2.mutual information</h2><h4 id="mutual-information"><a href="#mutual-information" class="headerlink" title="mutual information:"></a>mutual information:</h4><p><img src="/./../2024Picture/image-20240226152253430.png" alt="image-20240226152253430" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240226152306421.png" alt="image-20240226152306421" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240224211923669.png" alt="image-20240224211923669" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240224211814227.png" alt="image-20240224211814227" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240225205808207.png" alt="image-20240225205808207" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/0217ac8200f0d8b75a719a4286b82aa.png" alt="0217ac8200f0d8b75a719a4286b82aa" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="3-Gini-Index-Entropy-Misclassification-error-Gain"><a href="#3-Gini-Index-Entropy-Misclassification-error-Gain" class="headerlink" title="3.Gini Index, Entropy, Misclassification error, Gain"></a>3.Gini Index, Entropy, Misclassification error, Gain</h2><h4 id="gini-index"><a href="#gini-index" class="headerlink" title="gini index"></a>gini index</h4><p><img src="/./../2024Picture/image-20240224212648498.png" alt="image-20240224212648498" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240224212717160.png" alt="image-20240224212717160" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240224212732586.png" alt="image-20240224212732586" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240224213019328.png" alt="image-20240224213019328" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="Entropy"><a href="#Entropy" class="headerlink" title="Entropy"></a>Entropy</h4><p><img src="/./../2024Picture/image-20240224214014324.png" alt="image-20240224214014324" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240224214028505.png" alt="image-20240224214028505" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="Misclassification-error"><a href="#Misclassification-error" class="headerlink" title="Misclassification error"></a>Misclassification error</h4><p><img src="/./../2024Picture/image-20240224215612609.png" alt="image-20240224215612609" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240226160918222.png" alt="image-20240226160918222" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="Gain"><a href="#Gain" class="headerlink" title="Gain"></a>Gain</h4><p><img src="/./../2024Picture/image-20240224215732842.png" alt="image-20240224215732842" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240224215746040.png" alt="image-20240224215746040" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="4-Gain-Ratio-Split-Info"><a href="#4-Gain-Ratio-Split-Info" class="headerlink" title="4.Gain Ratio, Split Info"></a>4.Gain Ratio, Split Info</h2><p><img src="/./../2024Picture/image-20240224213103727.png" alt="image-20240224213103727" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240224213213022.png" alt="image-20240224213213022" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="5-Pessimistic-Error-Estimate"><a href="#5-Pessimistic-Error-Estimate" class="headerlink" title="5.Pessimistic Error Estimate"></a>5.Pessimistic Error Estimate</h2><p><img src="/./../2024Picture/image-20240224213321083.png" alt="image-20240224213321083" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<blockquote>
-<p><strong>err(T):</strong>  所有训练记录的错误率</p>
-<p><strong>Ω:</strong>   权衡超参数(类似α) -添加叶节点的相对成本</p>
-<p><strong>K:</strong> 叶节点数</p>
-<p><strong>N<sub>train</sub>:</strong> 训练记录总数</p>
-</blockquote>
-<p><img src="/./../2024Picture/image-20240224213738271.png" alt="image-20240224213738271" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="6-Kmeans-Kmeans"><a href="#6-Kmeans-Kmeans" class="headerlink" title="6.Kmeans, Kmeans+"></a>6.Kmeans, Kmeans+</h2><h4 id="Kmeans"><a href="#Kmeans" class="headerlink" title="Kmeans"></a>Kmeans</h4><p><img src="/./../2024Picture/image-20240224220004625.png" alt="image-20240224220004625" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="Kmeans-1"><a href="#Kmeans-1" class="headerlink" title="Kmeans+"></a>Kmeans+</h4><p><img src="/./../2024Picture/image-20240224215946618.png" alt="image-20240224215946618" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+    <title>排队论（三）</title>
+    <url>/2024/03/13/%E6%8E%92%E9%98%9F%E8%AE%BA%E6%A8%A1%E5%9E%8B%E5%85%B6%E4%BA%8C/</url>
+    <content><![CDATA[<h1 id="MMC排队模型"><a href="#MMC排队模型" class="headerlink" title="MMC排队模型"></a>MMC排队模型</h1><h2 id="M-M-C-∞-∞-FCFS排队模型"><a href="#M-M-C-∞-∞-FCFS排队模型" class="headerlink" title="M&#x2F;M&#x2F;C&#x2F;∞&#x2F;∞&#x2F;FCFS排队模型"></a>M&#x2F;M&#x2F;C&#x2F;∞&#x2F;∞&#x2F;FCFS排队模型</h2><h3 id="模型含义"><a href="#模型含义" class="headerlink" title="模型含义"></a>模型含义</h3><p>顾客到达过程服从泊松流，服务时间从负指数分布，C个服务台，系统容量和顾客来源无限，先到先服务。设单位时间内顾客平均到达率为λ，单位时间内服务台平均服务率为μ。</p>
+<h3 id="排队过程示意"><a href="#排队过程示意" class="headerlink" title="排队过程示意"></a>排队过程示意</h3><p>如果顾客人少于服务台，他的服务率是nμ（也就是多少人×单个服务台服务率）</p>
+<p>如果顾客人多于服务台，整个服务台C×单个服务台的服务率</p>
+<p><img src="/./../2024Picture/image-20240313161543140.png" alt="image-20240313161543140" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="M-M-C-∞-∞-FCFS排队模型常见的指标"><a href="#M-M-C-∞-∞-FCFS排队模型常见的指标" class="headerlink" title="M&#x2F;M&#x2F;C&#x2F;∞&#x2F;∞&#x2F;FCFS排队模型常见的指标"></a>M&#x2F;M&#x2F;C&#x2F;∞&#x2F;∞&#x2F;FCFS排队模型常见的指标</h3><p><img src="/./../2024Picture/image-20240313161613763.png" alt="image-20240313161613763" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><p><img src="/./../2024Picture/image-20240313162932355.png" alt="image-20240313162932355" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240313163729984.png" alt="image-20240313163729984" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240313163744382.png" alt="image-20240313163744382" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="C个M-M-1-∞-∞-FCFS排队模型"><a href="#C个M-M-1-∞-∞-FCFS排队模型" class="headerlink" title="C个M&#x2F;M&#x2F;1&#x2F;∞&#x2F;∞&#x2F;FCFS排队模型"></a>C个M&#x2F;M&#x2F;1&#x2F;∞&#x2F;∞&#x2F;FCFS排队模型</h2><h3 id="排队模型示意"><a href="#排队模型示意" class="headerlink" title="排队模型示意"></a>排队模型示意</h3><p><img src="/./../2024Picture/image-20240313164132440.png" alt="image-20240313164132440" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="例题-1"><a href="#例题-1" class="headerlink" title="例题"></a>例题</h3><p><img src="/./../2024Picture/image-20240313164200423.png" alt="image-20240313164200423" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240313164217945.png" alt="image-20240313164217945" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240313164307495.png" alt="image-20240313164307495" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="MMC排队模型与C个MM1排队模型对比"><a href="#MMC排队模型与C个MM1排队模型对比" class="headerlink" title="MMC排队模型与C个MM1排队模型对比"></a>MMC排队模型与C个MM1排队模型对比</h2><p><img src="/./../2024Picture/image-20240313164544694.png" alt="image-20240313164544694" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+]]></content>
+      <categories>
+        <category>EE6610排队论</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>计算机网络课后习题：第四章</title>
+    <url>/2024/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>2024SemesterB</category>
+      </categories>
+      <tags>
+        <tag>EE5412计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>排队论第一次考试</title>
+    <url>/2024/02/22/%E6%8E%92%E9%98%9F%E8%AE%BA%E5%A4%8D%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="条件概率-P15"><a href="#条件概率-P15" class="headerlink" title="条件概率 P15"></a>条件概率 P15</h2><p><img src="/./../2024Picture/image-20240304205716458.png" alt="image-20240304205716458" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="骰子例题"><a href="#骰子例题" class="headerlink" title="骰子例题"></a>骰子例题</h3><p><img src="/./../2024Picture/image-20240304205757271.png" alt="image-20240304205757271" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>A∩B只剩下了1，所以上面是1&#x2F;6</p>
+<h3 id="独立条件下的概率"><a href="#独立条件下的概率" class="headerlink" title="独立条件下的概率"></a>独立条件下的概率</h3><p><img src="/./../2024Picture/image-20240304210416521.png" alt="image-20240304210416521" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="硬币问题"><a href="#硬币问题" class="headerlink" title="硬币问题"></a>硬币问题</h3><p><img src="/./../2024Picture/image-20240304210559117.png" alt="image-20240304210559117" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>P(B) 第一个是1，后面分别有2*2 &#x3D; 4种不同的情况</p>
+<p>第二题是</p>
+<p>1（第二个是1）+1（第三个是1）+1（两个都是1）&#x3D; 3</p>
+<h3 id="疾病问题"><a href="#疾病问题" class="headerlink" title="疾病问题"></a>疾病问题</h3><p><img src="/./../2024Picture/image-20240304210833682.png" alt="image-20240304210833682" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240304211712055.png" alt="image-20240304211712055" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 ]]></content>
       <categories>
         <category>2024SemesterB</category>
       </categories>
       <tags>
-        <tag>EE6453多维数组</tag>
+        <tag>EE6610排队论</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>排队论（二）</title>
-    <url>/2024/03/12/%E6%8E%92%E9%98%9F%E6%A8%A1%E5%9E%8B%E5%85%B6%E4%B8%80/</url>
-    <content><![CDATA[<h1 id="M-M-1-∞-∞-FCFS模型"><a href="#M-M-1-∞-∞-FCFS模型" class="headerlink" title="M&#x2F;M&#x2F;1&#x2F;∞&#x2F;∞&#x2F;FCFS模型"></a>M&#x2F;M&#x2F;1&#x2F;∞&#x2F;∞&#x2F;FCFS模型</h1><h2 id="M-M-1-∞-∞-FCFS模型指标推导"><a href="#M-M-1-∞-∞-FCFS模型指标推导" class="headerlink" title="M&#x2F;M&#x2F;1&#x2F;∞&#x2F;∞&#x2F;FCFS模型指标推导"></a>M&#x2F;M&#x2F;1&#x2F;∞&#x2F;∞&#x2F;FCFS模型指标推导</h2><h3 id="模型含义"><a href="#模型含义" class="headerlink" title="模型含义"></a>模型含义</h3><p>顾客到达过程服从泊松流，服务时间从负指数分布，单服务台，系统容量和顾客来源无限，先到先服务。设单位时间内顾客平均到达率为λ，单位时间内服务台平均服务率为μ。</p>
-<h3 id="状态平衡方程"><a href="#状态平衡方程" class="headerlink" title="状态平衡方程"></a>状态平衡方程</h3><p><img src="/./../2024Picture/image-20240313145721503.png" alt="image-20240313145721503" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="状态概率Pn"><a href="#状态概率Pn" class="headerlink" title="状态概率Pn"></a>状态概率Pn</h4><p><img src="/./../2024Picture/image-20240313150204434.png" alt="image-20240313150204434" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240313150147883.png" alt="image-20240313150147883" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="对长L"><a href="#对长L" class="headerlink" title="对长L"></a>对长L</h4><p><img src="/./../2024Picture/image-20240313152323656.png" alt="image-20240313152323656" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h4 id="公式（排队长，停留时间，等待时间，等待K个以上的顾客，顾客停留超时）"><a href="#公式（排队长，停留时间，等待时间，等待K个以上的顾客，顾客停留超时）" class="headerlink" title="公式（排队长，停留时间，等待时间，等待K个以上的顾客，顾客停留超时）"></a>公式（排队长，停留时间，等待时间，等待K个以上的顾客，顾客停留超时）</h4><p><img src="/./../2024Picture/image-20240313152429680.png" alt="image-20240313152429680" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240313152836283.png" alt="image-20240313152836283" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="公式汇总"><a href="#公式汇总" class="headerlink" title="公式汇总"></a>公式汇总</h3><p><img src="/./../2024Picture/image-20240313152902099.png" alt="image-20240313152902099" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><p><img src="/./../2024Picture/image-20240313153105560.png" alt="image-20240313153105560" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240313153731173.png" alt="image-20240313153731173" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240313154842139.png" alt="image-20240313154842139" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240313154947102.png" alt="image-20240313154947102" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-]]></content>
-      <categories>
-        <category>EE6610排队论</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>排队论（五）</title>
-    <url>/2024/03/15/%E6%8E%92%E9%98%9F%E8%AE%BA%E4%BA%94/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>EE6610排队论</category>
-      </categories>
   </entry>
   <entry>
     <title>排队论（四）</title>
@@ -369,59 +398,6 @@
       <categories>
         <category>EE6610排队论</category>
       </categories>
-  </entry>
-  <entry>
-    <title>排队论第一次考试</title>
-    <url>/2024/02/22/%E6%8E%92%E9%98%9F%E8%AE%BA%E5%A4%8D%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="条件概率-P15"><a href="#条件概率-P15" class="headerlink" title="条件概率 P15"></a>条件概率 P15</h2><p><img src="/./../2024Picture/image-20240304205716458.png" alt="image-20240304205716458" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="骰子例题"><a href="#骰子例题" class="headerlink" title="骰子例题"></a>骰子例题</h3><p><img src="/./../2024Picture/image-20240304205757271.png" alt="image-20240304205757271" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>A∩B只剩下了1，所以上面是1&#x2F;6</p>
-<h3 id="独立条件下的概率"><a href="#独立条件下的概率" class="headerlink" title="独立条件下的概率"></a>独立条件下的概率</h3><p><img src="/./../2024Picture/image-20240304210416521.png" alt="image-20240304210416521" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="硬币问题"><a href="#硬币问题" class="headerlink" title="硬币问题"></a>硬币问题</h3><p><img src="/./../2024Picture/image-20240304210559117.png" alt="image-20240304210559117" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>P(B) 第一个是1，后面分别有2*2 &#x3D; 4种不同的情况</p>
-<p>第二题是</p>
-<p>1（第二个是1）+1（第三个是1）+1（两个都是1）&#x3D; 3</p>
-<h3 id="疾病问题"><a href="#疾病问题" class="headerlink" title="疾病问题"></a>疾病问题</h3><p><img src="/./../2024Picture/image-20240304210833682.png" alt="image-20240304210833682" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240304211712055.png" alt="image-20240304211712055" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-]]></content>
-      <categories>
-        <category>2024SemesterB</category>
-      </categories>
-      <tags>
-        <tag>EE6610排队论</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>排队论（三）</title>
-    <url>/2024/03/13/%E6%8E%92%E9%98%9F%E8%AE%BA%E6%A8%A1%E5%9E%8B%E5%85%B6%E4%BA%8C/</url>
-    <content><![CDATA[<h1 id="MMC排队模型"><a href="#MMC排队模型" class="headerlink" title="MMC排队模型"></a>MMC排队模型</h1><h2 id="M-M-C-∞-∞-FCFS排队模型"><a href="#M-M-C-∞-∞-FCFS排队模型" class="headerlink" title="M&#x2F;M&#x2F;C&#x2F;∞&#x2F;∞&#x2F;FCFS排队模型"></a>M&#x2F;M&#x2F;C&#x2F;∞&#x2F;∞&#x2F;FCFS排队模型</h2><h3 id="模型含义"><a href="#模型含义" class="headerlink" title="模型含义"></a>模型含义</h3><p>顾客到达过程服从泊松流，服务时间从负指数分布，C个服务台，系统容量和顾客来源无限，先到先服务。设单位时间内顾客平均到达率为λ，单位时间内服务台平均服务率为μ。</p>
-<h3 id="排队过程示意"><a href="#排队过程示意" class="headerlink" title="排队过程示意"></a>排队过程示意</h3><p>如果顾客人少于服务台，他的服务率是nμ（也就是多少人×单个服务台服务率）</p>
-<p>如果顾客人多于服务台，整个服务台C×单个服务台的服务率</p>
-<p><img src="/./../2024Picture/image-20240313161543140.png" alt="image-20240313161543140" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="M-M-C-∞-∞-FCFS排队模型常见的指标"><a href="#M-M-C-∞-∞-FCFS排队模型常见的指标" class="headerlink" title="M&#x2F;M&#x2F;C&#x2F;∞&#x2F;∞&#x2F;FCFS排队模型常见的指标"></a>M&#x2F;M&#x2F;C&#x2F;∞&#x2F;∞&#x2F;FCFS排队模型常见的指标</h3><p><img src="/./../2024Picture/image-20240313161613763.png" alt="image-20240313161613763" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><p><img src="/./../2024Picture/image-20240313162932355.png" alt="image-20240313162932355" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240313163729984.png" alt="image-20240313163729984" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240313163744382.png" alt="image-20240313163744382" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="C个M-M-1-∞-∞-FCFS排队模型"><a href="#C个M-M-1-∞-∞-FCFS排队模型" class="headerlink" title="C个M&#x2F;M&#x2F;1&#x2F;∞&#x2F;∞&#x2F;FCFS排队模型"></a>C个M&#x2F;M&#x2F;1&#x2F;∞&#x2F;∞&#x2F;FCFS排队模型</h2><h3 id="排队模型示意"><a href="#排队模型示意" class="headerlink" title="排队模型示意"></a>排队模型示意</h3><p><img src="/./../2024Picture/image-20240313164132440.png" alt="image-20240313164132440" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h3 id="例题-1"><a href="#例题-1" class="headerlink" title="例题"></a>例题</h3><p><img src="/./../2024Picture/image-20240313164200423.png" alt="image-20240313164200423" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240313164217945.png" alt="image-20240313164217945" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./../2024Picture/image-20240313164307495.png" alt="image-20240313164307495" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<h2 id="MMC排队模型与C个MM1排队模型对比"><a href="#MMC排队模型与C个MM1排队模型对比" class="headerlink" title="MMC排队模型与C个MM1排队模型对比"></a>MMC排队模型与C个MM1排队模型对比</h2><p><img src="/./../2024Picture/image-20240313164544694.png" alt="image-20240313164544694" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-]]></content>
-      <categories>
-        <category>EE6610排队论</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>计算机网络课后习题：第四章</title>
-    <url>/2024/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E7%AB%A0/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>2024SemesterB</category>
-      </categories>
-      <tags>
-        <tag>EE5412计算机网络</tag>
-      </tags>
   </entry>
   <entry>
     <title>计算机网络课后习题：第一章</title>
@@ -609,6 +585,77 @@
       <tags>
         <tag>EE5412计算机网络</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>排队论（一）</title>
+    <url>/2024/03/11/VIT%E5%85%A8%E8%A7%A3%E6%9E%90+Python%E5%BE%AE%E8%B0%83/</url>
+    <content><![CDATA[<h1 id="马尔科夫排队模型"><a href="#马尔科夫排队模型" class="headerlink" title="马尔科夫排队模型"></a>马尔科夫排队模型</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>排队的一般过程</strong></p>
+<p><img src="/./../2024Picture/image-20240312115849093.png" alt="image-20240312115849093" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="排队系统基本组成部分"><a href="#排队系统基本组成部分" class="headerlink" title="排队系统基本组成部分"></a>排队系统基本组成部分</h3><ul>
+<li>输入过程（顾客按照怎样的规律到达）</li>
+<li>排队规则（顾客按照一定规则排队等待服务）</li>
+<li>服务机构（服务机构的设置、服务台的数量、服务的方式、服务时间分布等）</li>
+</ul>
+<h3 id="输入过程"><a href="#输入过程" class="headerlink" title="输入过程"></a>输入过程</h3><p>（1）顾客源</p>
+<p>即顾客的总体，可以是无限的，也可以是有限</p>
+<p>（2）顾客的到达方式</p>
+<p>顾客或单个到达，或成批到达</p>
+<p>（3）顾客到达时间间隔分布</p>
+<p>即相继顾客到达的时间间隔的分布，常见的概率分布：负指数分布、K阶爱尔朗分布等。</p>
+<h4 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h4><p>在排队系统中，如果单位时间内顾客<strong>到达数</strong>服从以λ为参考的泊松分布，泽顾客<strong>相继到达的时间间隔</strong>服从以λ为参数的负指数分布</p>
+<p>（等价与服从1&#x2F;λ为参数的指数分布）</p>
+<h3 id="排队规则"><a href="#排队规则" class="headerlink" title="排队规则"></a>排队规则</h3><p>（1）排队系统类型</p>
+<p>顾客到达时，如所有服务台都正被占用，排队等候的称为<strong>等待制</strong>，随即离去的称为<strong>损失制度</strong>。</p>
+<p>（2）排队队列</p>
+<p>队列可以是单列，也可以是多列</p>
+<p>（3）接受服务的顺序</p>
+<ul>
+<li>先到先服务（FCFS）主要讨论这个</li>
+<li>后到后服务(LCFS) 仓库里面的板材</li>
+<li>随机服务(SIRO)电话接通</li>
+<li>优先服务(PR) VIP</li>
+</ul>
+<h3 id="服务机构"><a href="#服务机构" class="headerlink" title="服务机构"></a>服务机构</h3><p>服务台数量有<strong>单服务台1</strong>，也有<strong>多服务台C</strong>，其构成形式主要有以下五种</p>
+<h4 id="单队—单服务台"><a href="#单队—单服务台" class="headerlink" title="单队—单服务台"></a>单队—单服务台</h4><p><img src="/./../2024Picture/image-20240312140614632.png" alt="image-20240312140614632" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="单队—多服务台并联式"><a href="#单队—多服务台并联式" class="headerlink" title="单队—多服务台并联式"></a>单队—多服务台并联式</h4><p><img src="/./../2024Picture/image-20240312140623898.png" alt="image-20240312140623898" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="多队—多服务台并联式"><a href="#多队—多服务台并联式" class="headerlink" title="多队—多服务台并联式"></a>多队—多服务台并联式</h4><p><img src="/./../2024Picture/image-20240312140632569.png" alt="image-20240312140632569" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="单队—多服务台串联式"><a href="#单队—多服务台串联式" class="headerlink" title="单队—多服务台串联式"></a>单队—多服务台串联式</h4><p><img src="/./../2024Picture/image-20240312140644880.png" alt="image-20240312140644880" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="单队—多服务台串并联混合式"><a href="#单队—多服务台串并联混合式" class="headerlink" title="单队—多服务台串并联混合式"></a>单队—多服务台串并联混合式</h4><p><img src="/./../2024Picture/image-20240312140750459.png" alt="image-20240312140750459" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="排队系统模型表示"><a href="#排队系统模型表示" class="headerlink" title="排队系统模型表示"></a>排队系统模型表示</h3><p>A&#x2F;B&#x2F;C&#x2F;D&#x2F;E&#x2F;F</p>
+<p>顾客到达时间间隔分布&#x2F;服务时间分布&#x2F;服务台（员）数目&#x2F;系统中顾客容量限制&#x2F;系统中顾客客容限制&#x2F;顾客源数目&#x2F;服务规则</p>
+<ul>
+<li><p>顾客到达时间间隔分布：M——负指数分布</p>
+</li>
+<li><p>服务时间分布：M——负指数分布</p>
+</li>
+<li><p>服务台数目：1——一个服务台，C——多个服务台</p>
+</li>
+<li><p>系统重顾客容量限制：∞——系统中顾客客容无限制，N——系统最多容纳N个顾客</p>
+</li>
+<li><p>顾客源数目：∞——顾客源数目无限多，N——顾客源的总体有N个</p>
+</li>
+<li><p>服务规则：FCFS——先到先服务</p>
+<p><img src="/./../2024Picture/image-20240312142346256.png" alt="image-20240312142346256" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</li>
+</ul>
+<h3 id="排队系统指标"><a href="#排队系统指标" class="headerlink" title="排队系统指标"></a>排队系统指标</h3><ul>
+<li>状态概率分布<strong>Pn</strong>：系统中有<strong>n个</strong>顾客的概率</li>
+<li>队长<strong>L</strong>: 系统的<strong>平均顾客数</strong></li>
+<li>排队长<strong>Lq</strong>:系统中排队等待的<strong>平均顾客数</strong></li>
+<li>顾客平均停留时间W</li>
+<li>顾客平均等待时间Wq</li>
+</ul>
+<p><img src="/./../2024Picture/image-20240312143525125.png" alt="image-20240312143525125" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240312143538120.png" alt="image-20240312143538120" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="马尔科夫排队模型-1"><a href="#马尔科夫排队模型-1" class="headerlink" title="马尔科夫排队模型"></a>马尔科夫排队模型</h2><h3 id="生灭过程"><a href="#生灭过程" class="headerlink" title="生灭过程"></a>生灭过程</h3><p><img src="/./../2024Picture/image-20240312164803225.png" alt="image-20240312164803225" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="马尔科夫排队模型（生灭过程排队系统）"><a href="#马尔科夫排队模型（生灭过程排队系统）" class="headerlink" title="马尔科夫排队模型（生灭过程排队系统）"></a>马尔科夫排队模型（生灭过程排队系统）</h3><p><img src="/./../2024Picture/image-20240312172516758.png" alt="image-20240312172516758" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="状态平衡方程"><a href="#状态平衡方程" class="headerlink" title="状态平衡方程"></a>状态平衡方程</h3><p><img src="/./../2024Picture/image-20240312185336641.png" alt="image-20240312185336641" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240312184025313.png" alt="image-20240312184025313" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./../2024Picture/image-20240312190104772.png" alt="image-20240312190104772" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+]]></content>
+      <categories>
+        <category>EE6610排队论</category>
+      </categories>
   </entry>
   <entry>
     <title>计算机网络课后习题：第三章</title>
